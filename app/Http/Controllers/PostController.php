@@ -37,7 +37,7 @@ class PostController extends Controller
     public function indexByCategory($slug){
         $pc=Post::whereRelation('categories','slugs','=',$slug);
 
-        if($pc->count())  return $this->success($pc->get(),request(),'','Berhasil');
+        if($pc->count())  return $this->iSuccess($pc->get(),request(),'','Berhasil');
         else return response()->noContent();
     }
 
@@ -51,7 +51,7 @@ class PostController extends Controller
     public function show($slug){
         $pc=Post::with('categories')->where('slug',$slug);
 
-        if($pc->count())  return $this->success($pc->get(),'Berhasil');
+        if($pc->count())  return $this->iSuccess($pc->get(),request(),'','Berhasil');
         else return response()->noContent();
     }
         /**
@@ -70,7 +70,7 @@ class PostController extends Controller
 
         })->where('slug',$slug);
        //dd($pc->toSql());
-       if($pc->count())  return $this->success($pc->get(),request(),'','Berhasil');
+       if($pc->count())  return $this->iSuccess($pc->get(),request(),'','Berhasil');
         else return response()->noContent();
     }
 }
