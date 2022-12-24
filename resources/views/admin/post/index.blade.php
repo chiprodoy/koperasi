@@ -45,7 +45,7 @@
                 <div class="card-block row">
                     <div class="col-sm-12 col-lg-12 col-xl-12">
                         <div class="table-responsive">
-                            <x-viho::data-table :model="$modelRecords" :editButton="$editURL" :deleteButton="$deleteURL"/>
+                            <x-viho::data-table :model="$modelRecords" :extData="$extData" :editButton="$editURL" :deleteButton="$deleteURL"/>
                         </div>
                     </div>
                 </div>

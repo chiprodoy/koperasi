@@ -12,4 +12,7 @@ class Menu extends Model
     public function subMenu(){
         return $this->hasMany(Menu::class);
     }
+    public function hasSubMenu(){
+        return ($this->subMenu()->count() > 0) ? true : false;
+    }
 }

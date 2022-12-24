@@ -17,12 +17,15 @@ class CreatePostsTable extends Migration
             $table->id();
             $table->string('title');
             $table->text('description');
-            $table->text('multimedia')->nullable();
+            $table->text('attachment')->nullable();
+            $table->string('cover')->nullable();
             $table->string('tags')->nullable();
             $table->integer('view_count')->default(0);
+            $table->integer('like_count')->default(0);
             $table->string('post_status'); // draft,publish
             $table->string('post_type'); // blog,page,multimedia
             $table->string('slug');
+            $table->uuid();
             $table->timestamps();
             $table->softDeletes();
         });

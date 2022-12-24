@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
 <div class="card">
-    <form method="POST" action="{{ route($updateURL,$RECORD->uuid)}}" enctype="multipart/form-data">
+    <form method="POST" action="{{ route_from($updateURL,$RECORD)}}" enctype="multipart/form-data">
         @csrf
         @method('PUT')
         <div class="card-header">
@@ -31,12 +31,12 @@
                     </ul>
                 </div>
             @endif
-            <x-viho::form.magic :model="$modelRecords" :extData="$RECORD"/>
+         @include('akpol.components.form.magic')
         </div>
         <div class="card-footer">
             <div class="row">
                 <div class="col-auto me-auto">
-                    <a href="{{ route($indexURL)}}" class="btn btn-sm btn-secondary">Kembali</a>
+                    <a href="{{ route_from($indexURL)}}" class="btn btn-sm btn-secondary">Kembali</a>
                 </div>
                 <div class="col-auto">
                     <button class="btn btn-sm btn-primary" type="submit" id="btnSaveUpdate">Simpan Perubahan</button>

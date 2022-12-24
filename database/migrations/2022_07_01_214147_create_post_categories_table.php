@@ -17,7 +17,11 @@ class CreatePostCategoriesTable extends Migration
             $table->id();
             $table->integer('parent_category_id')->nullable();
             $table->string('name');
+            $table->string('description')->nullable();
             $table->string('slugs');
+            $table->string('icon')->nullable();
+            $table->string('cover')->nullable();
+            $table->uuid();
             $table->timestamps();
             $table->softDeletes();
 

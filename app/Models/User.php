@@ -84,7 +84,9 @@ class User extends Authenticatable implements MustVerifyEmail
     }
 
     public function isRole($role){
-        return ($this->roles()->where('role_name',$role)->count() > 0) ? true : false ;
+        return $this->roles()->where('role_name',$role)->count() > 0;
+
+        //return ($this->roles()->where('role_name',$role)->count() > 0) ? true : false ;
     }
 
     public function hasPermission($permission,$modName) {

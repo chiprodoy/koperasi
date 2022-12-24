@@ -33,12 +33,13 @@ class Magic extends Component
      *
      * @return void
      */
-
-    public function __construct($model,$extData=null,$uid=null)
+    public $modName;
+    public function __construct($model,$extData=null,$uid=null,$modName=null)
     {
         $this->formField=$model::$formFields;
         $this->model=$model;
         $this->extData=$extData;
+        $this->modName=$modName;
         if(empty($extData) && !empty($uid)) {
             $this->uid=$uid;
             $this->extData=$this->model::where('uid',$this->uid)->first();
@@ -53,6 +54,12 @@ class Magic extends Component
      */
     public function render()
     {
-        return view('components.viho.form.magic');
+        if (view()->exists($this->modName.'.components.form.magic'))
+        {
+            return view($this->modName.'.components.form.magic');
+
+        }else{
+            return view('components.viho.form.magic');
+        }
     }
 }

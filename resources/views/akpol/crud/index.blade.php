@@ -3,7 +3,7 @@
 
 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
     <h2>{{$titleOfIndexPage}}
-        @can('create',$modelRecords)
+        @can('create',[App\Models\Post::class,$category->slugs])
         <span>
             @if (strpos($createURL,'http')===0)
                 <a class="btn btn-sm btn-outline-secondary" href="{{ $createURL }}">

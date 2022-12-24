@@ -39,6 +39,7 @@ class BackendController extends Controller
     public $newData;
     public $showWith=[];
     public $recordId;
+    public $modName;
 
     public function __construct()
     {
@@ -47,6 +48,9 @@ class BackendController extends Controller
         $this->BREADCRUMB_ITEM=[
             new Page('Home',route('dashboard'))
         ];
+
+        //$this->modName=$this->modelRecords;
+
     }
     /**
      * Display a listing of the resource.
@@ -57,8 +61,11 @@ class BackendController extends Controller
     {
         $this->CURRENT_PAGE=new Page($this->titleOfIndexPage,route($this->indexURL));
         $this->setBreadCrumb();
-
-        return view($this->viewNameOfIndexPage,get_object_vars($this));
+        if(view()->exists($this->modName.'.crud.index')){
+            return view($this->modName.'.crud.index',get_object_vars($this));
+        }else{
+            return view($this->viewNameOfIndexPage,get_object_vars($this));
+        }
     }
     /**
      * Show the form for creating a new resource.
@@ -98,11 +105,15 @@ class BackendController extends Controller
     public function edit($uid)
     {
         $this->RECORD=$this->modelRecords::where('uuid',$uid)->first();
-        $this->indexPage=new Page($this->titleOfIndexPage,route($this->indexURL));
+        $this->indexPage=new Page($this->titleOfIndexPage,route_from($this->indexURL,$this->RECORD));
         array_push($this->BREADCRUMB_ITEM,$this->indexPage);
-        $this->CURRENT_PAGE=new Page($this->titleOfEditPage,route($this->editURL,$uid));
+        $this->CURRENT_PAGE=new Page($this->titleOfEditPage,'#');
         $this->setBreadCrumb();
-        return view($this->viewNameOfEditPage,get_object_vars($this));
+        if(view()->exists($this->modName.'.crud.edit')){
+            return view($this->modName.'.crud.edit',get_object_vars($this));
+        }else{
+            return view($this->viewNameOfEditPage,get_object_vars($this));
+        }
     }
 
     public function insertRecord($request){
@@ -110,13 +121,13 @@ class BackendController extends Controller
         try
         {
             $result=$this->modelRecords::create($this->newData);
-            return $this->success($result,$request,route($this->createURL),'Data Berhasil Disimpan');
+            return $this->iSuccess($result,$request,route($this->createURL),'Data Berhasil Disimpan');
         }
         catch(QueryException $e)
         {
             Log::error($e);
-            if(env('APP_DEBUG')) return $this->error($request,route($this->createURL),ResponseCode::ERROR,$e->getMessage());
-            else return $this->error($request,route($this->createURL),ResponseCode::ERROR,'Data Gagal Disimpan');
+            if(env('APP_DEBUG')) return $this->iError($request,route($this->createURL),ResponseCode::ERROR,$e->getMessage());
+            else return $this->iError($request,route($this->createURL),ResponseCode::ERROR,'Data Gagal Disimpan');
 
         }
 
@@ -128,16 +139,15 @@ class BackendController extends Controller
         try
         {
             $this->setNewData($request);
-
-            $updated=$this->modelRecords::where('uuid',$uid)->update($this->newData);
-
-            return $this->success($updated,$request,route($this->editURL,$uid),'Data Berhasil Diupdate');
+            $record=$this->modelRecords::where('uuid',$uid);
+            $updated=$record->update($this->newData);
+            return $this->iSuccess($updated,$request,route_from($this->editURL,$record->first()),'Data Berhasil Diupdate');
         }
         catch(QueryException $e)
         {
             Log::error($e);
-            if(env('APP_DEBUG')) return $this->error($request,route($this->editURL,$uid),ResponseCode::ERROR,$e->getMessage());
-            else return $this->error($request,route($this->editURL,$uid),ResponseCode::ERROR,'Data Gagal Diupdate');
+            if(env('APP_DEBUG')) return $this->iError($request,route_from($this->editURL,$record->first()),ResponseCode::ERROR,$e->getMessage());
+            else return $this->iError($request,route_from($this->editURL,$record->first()),ResponseCode::ERROR,'Data Gagal Diupdate');
 
         }
 
@@ -149,6 +159,13 @@ class BackendController extends Controller
         $m=new $this->modelRecords;
         foreach($m->getFillable() as $k => $v){
             $this->newData["$v"]=$request->$v;
+            if($m::$formFields[$v]['type']==\App\View\Components\Viho\Form\InputFile::class && $request->file($v)){
+                if(method_exists($this,'uploadMyFile')){
+                    $resultPath=$this->uploadMyFile($request->file($v));
+                        $this->newData["$v"]=$resultPath;
+                }
+            }
+
         }
 /*         foreach($this->modelRecords::$formFields as $k =>$v){
             $field=$v['field'];
@@ -181,6 +198,7 @@ class BackendController extends Controller
         $this->modelRecords=$this->modelRecords::orderBy('id','desc');
         $this->modelRecords->paginate($this->RECORD_PER_PAGE);
     }
+
 
 }
 

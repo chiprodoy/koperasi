@@ -1,7 +1,9 @@
 @extends('layouts.app')
 @section('content')
+@can('create',$modelRecords)
+
 <div class="card">
-    <form method="POST" action="{{ route($storeURL)}}">
+    <form method="POST" action="{{ route($storeURL)}}" enctype="multipart/form-data">
         @csrf
         <div class="card-header">{{ $CURRENT_PAGE->title }}</div>
         <div class="card-body">
@@ -30,4 +32,6 @@
         </div>
     </form>
 </div>
+@endcan
+
 @endsection

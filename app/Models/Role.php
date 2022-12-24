@@ -9,9 +9,11 @@ class Role extends Model
 {
     use HasFactory;
 
-    const ALUMNI='Alumni';
-    const AKADEMIK='Akademik';
-    const SUPERADMIN='Super Admin';
+    const SUPERADMIN='superadmin';
+    const ADMIN='admin';
+    const KONTRIBUTOR='kontributor';
+    const PENGGUNA='pengguna';
+
 
 
        /**

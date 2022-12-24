@@ -1,11 +1,30 @@
-@foreach ($formField as $item)
-    @if ($item['type']==App\View\Components\Viho\Form\InputText::class)
+@foreach (\App\Models\Post::$formFields as $item)
+@php
+    $readOnly=isset($item['readonly']) ? $item['readonly']: false;
+    $inputType=$item['type'];
+
+    if (Auth::user()->cannot('modify', $RECORD->slug.':'.$item['field'])) {
+        $readOnly=true;
+        if($item['field']=='post_type'){
+            $inputType=App\View\Components\Viho\Form\InputHidden::class;
+            $RECORD->post_type='blog';
+        }
+        if($item['field']=='post_status'){
+            $inputType=App\View\Components\Viho\Form\InputHidden::class;
+            $RECORD->post_type='publish';
+        }
+    }
+
+@endphp
+
+
+    @if ($inputType==App\View\Components\Viho\Form\InputText::class)
     <x-viho::form.input-text
         :id="$item['field']"
         :name="$item['field']"
         :label="$item['title']"
-        :value="$extData"
-        :readonly="isset($item['readonly']) ? $item['readonly']:false"
+        :value="$RECORD"
+        :readonly="$readOnly"
         :disabled="isset($item['disabled']) ? $item['disabled'] : false"
         :autofocus="isset($item['autofocus']) ? $item['autofocus'] : false"
         :tabindex="isset($item['tabindex']) ? $item['tabindex'] : null"
@@ -13,13 +32,13 @@
         :required="isset($item['required']) ? $item['required'] : false"
      ></x-viho::form.input-text>
     @endif
-    @if ($item['type']==App\View\Components\Viho\Form\InputDate::class)
+    @if ($inputType==App\View\Components\Viho\Form\InputDate::class)
     <x-viho::form.input-date
         :id="$item['field']"
         :name="$item['field']"
         :label="$item['title']"
-        :value="$extData"
-        :readonly="isset($item['readonly']) ? $item['readonly']:false"
+        :value="$RECORD"
+        :readonly="$readOnly"
         :disabled="isset($item['disabled']) ? $item['disabled'] : false"
         :autofocus="isset($item['autofocus']) ? $item['autofocus'] : false"
         :tabindex="isset($item['tabindex']) ? $item['tabindex'] : null"
@@ -29,13 +48,13 @@
 
      ></x-viho::form.input-date>
     @endif
-    @if ($item['type']==App\View\Components\Viho\Form\TextArea::class)
+    @if ($inputType==App\View\Components\Viho\Form\TextArea::class)
     <x-viho::form.text-area
         :id="$item['field']"
         :name="$item['field']"
         :label="$item['title']"
-        :value="$extData"
-        :readonly="isset($item['readonly']) ? $item['readonly']:false"
+        :value="$RECORD"
+        :readonly="$readOnly"
         :disabled="isset($item['disabled']) ? $item['disabled'] : false"
         :autofocus="isset($item['autofocus']) ? $item['autofocus'] : false"
         :tabindex="isset($item['tabindex']) ? $item['tabindex'] : null"
@@ -43,14 +62,14 @@
         :required="isset($item['required']) ? $item['required'] : false"
      ></x-viho::form.text-area>
     @endif
-    @if ($item['type']==App\View\Components\Viho\Form\InputSelect::class)
+    @if ($inputType==App\View\Components\Viho\Form\InputSelect::class)
     <x-viho::form.input-select
         :id="$item['field']"
         :name="$item['field']"
         :label="$item['title']"
-        :value="$extData"
+        :value="$RECORD"
         :option="$item['option']"
-        :readonly="isset($item['readonly']) ? $item['readonly']:false"
+        :readonly="$readOnly"
         :datasource="isset($item['datasource']) ? $item['datasource']:null"
         :disabled="isset($item['disabled']) ? $item['disabled'] : false"
         :autofocus="isset($item['autofocus']) ? $item['autofocus'] : false"
@@ -59,14 +78,14 @@
         :required="isset($item['required']) ? $item['required'] : false"
      ></x-viho::form.input-select>
     @endif
-    @if ($item['type']==App\View\Components\Viho\Form\InputSelect2::class)
+    @if ($inputType==App\View\Components\Viho\Form\InputSelect2::class)
     <x-viho::form.input-select2
         :id="$item['field']"
         :name="$item['field']"
         :label="$item['title']"
-        :value="$extData"
+        :value="$RECORD"
         :option="$item['option']"
-        :readonly="isset($item['readonly']) ? $item['readonly']:false"
+        :readonly="$readOnly"
         :datasource="isset($item['datasource']) ? $item['datasource']:null"
         :disabled="isset($item['disabled']) ? $item['disabled'] : false"
         :autofocus="isset($item['autofocus']) ? $item['autofocus'] : false"
@@ -75,14 +94,14 @@
         :required="isset($item['required']) ? $item['required'] : false"
      ></x-viho::form.input-select2>
     @endif
-    @if ($item['type']==App\View\Components\Viho\Form\InputHidden::class)
+    @if ($inputType==App\View\Components\Viho\Form\InputHidden::class)
         <x-viho::form.input-hidden
             :id="$item['field']"
             :name="$item['field']"
-            :value="$extData"
+            :value="$RECORD"
         ></x-viho::form.input-hidden>
     @endif
-    @if ($item['type']==App\View\Components\Viho\Form\CheckboxGroup::class)
+    @if ($inputType==App\View\Components\Viho\Form\CheckboxGroup::class)
          <x-viho::form.checkbox-group
             :id="$item['field']"
             :name="$item['field']"
@@ -92,14 +111,14 @@
             :where="$item['option'][3]"
             :order="$item['option'][4]" />
     @endif
-    @if ($item['type']==App\View\Components\Viho\Form\InputRadio::class)
+    @if ($inputType==App\View\Components\Viho\Form\InputRadio::class)
     <x-viho::form.input-radio
         :id="$item['field']"
         :name="$item['field']"
         :label="$item['title']"
-        :value="$extData"
+        :value="$RECORD"
         :option="$item['option']"
-        :readonly="isset($item['readonly']) ? $item['readonly']:false"
+        :readonly="$readOnly"
         :datasource="isset($item['datasource']) ? $item['datasource']:null"
         :disabled="isset($item['disabled']) ? $item['disabled'] : false"
         :autofocus="isset($item['autofocus']) ? $item['autofocus'] : false"
@@ -108,13 +127,13 @@
         :required="isset($item['required']) ? $item['required'] : false"
      ></x-viho::form.input-radio>
     @endif
-    @if ($item['type']==App\View\Components\Viho\Form\InputFile::class)
+    @if ($inputType==App\View\Components\Viho\Form\InputFile::class)
     <x-viho::form.input-file
         :id="$item['field']"
         :name="$item['field']"
         :label="$item['title']"
-        :value="$extData"
-        :readonly="isset($item['readonly']) ? $item['readonly']:false"
+        :value="$RECORD"
+        :readonly="$readOnly"
         :disabled="isset($item['disabled']) ? $item['disabled'] : false"
         :autofocus="isset($item['autofocus']) ? $item['autofocus'] : false"
         :tabindex="isset($item['tabindex']) ? $item['tabindex'] : null"

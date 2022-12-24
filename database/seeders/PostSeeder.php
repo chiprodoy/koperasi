@@ -96,35 +96,40 @@ font-family:" arial="" unicode="" ms",sans-serif;color:black;mso-themecolor:text
 font-family:" arial="" unicode="" ms",sans-serif;color:black;mso-themecolor:text1;="" mso-fareast-language:in"=""><img src="https://i.imgur.com/oKudBD2.jpg" width="329"><br></span></p><p></p>
 
         </div> ',
-            'multimedia'=>null,
+            'attachment'=>null,
             'tags'=>null,
             'post_status'=>'publish',
             'post_type'=>'blog',
-            'slug'=>'pengumuman'
+            'slug'=>'dikbang-akpol-pengumuman',
+            'uuid'=>''
         ]);
 
-       $postPengumuman->categories()->attach(1,['user_modify'=>'su']);
+       $postPengumuman->categories()->attach(4,['user_modify'=>'su']);
 
        $postPersyaratan=Post::create([
         'title'=>'Persyaratan',
         'description'=>$faker->text(),
-        'multimedia'=>null,
+        'attachment'=>null,
         'tags'=>null,
         'post_status'=>'publish',
         'post_type'=>'blog',
-        'slug'=>'pengumuman'
+        'slug'=>'dikbang-akpol-persyaratan',
+        'uuid'=>''
+
         ]);
-       $postPersyaratan->categories()->attach(1,['user_modify'=>'su']);
+       $postPersyaratan->categories()->attach(4,['user_modify'=>'su']);
 
        $postTimeLine=Post::create([
         'title'=>'Time Line',
         'description'=>$faker->text(),
-        'multimedia'=>null,
+        'attachment'=>null,
         'tags'=>null,
         'post_status'=>'publish',
         'post_type'=>'blog',
-        'slug'=>'timeline'
+        'slug'=>'dikbang-akpol-timeline',
+        'uuid'=>''
+
         ]);
-       $postTimeLine->categories()->attach(1,['user_modify'=>'su']);
+       $postTimeLine->categories()->attach(4,['user_modify'=>'su']);
     }
 }

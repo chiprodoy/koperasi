@@ -81,31 +81,7 @@ Route::prefix('media')->group(function(){
 
 });
 
-Route::prefix('kehamilan')->middleware('auth:sanctum')->group(function(){
 
-    Route::get('/',[KehamilanController::class,'index'])->name('kehamilan.index');
-
-    Route::post('/',[KehamilanController::class,'store'])->name('kehamilan.store');
-
-    Route::put('/{uidKehamilan}',[KehamilanController::class,'update'])->name('kehamilan.update');
-
-    Route::delete('/{uidKehamilan}',[KehamilanController::class,'destroy'])->name('kehamilan.destroy');
-
-
-});
-
-Route::prefix('history_kehamilan')->middleware('auth:sanctum')->group(function(){
-
-    Route::get('/{uuidKehamilan}',[HistoryKehamilanController::class,'index'])->name('history_kehamilan.index');
-
-    Route::post('/{uuidKehamilan}',[HistoryKehamilanController::class,'store'])->name('history_kehamilan.store');
-
-   // Route::put('/{uidKehamilan}',[KehamilanController::class,'update'])->name('history_kehamilan.update');
-
-    Route::delete('/{uidKehamilan}',[HistoryKehamilanController::class,'destroy'])->name('history_kehamilan.destroy');
-
-
-});
 
 Route::prefix('post_category')->group(function(){
     Route::get('/',[PostCategoryController::class,'index'])->name('post_category.index');

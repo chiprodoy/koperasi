@@ -2,30 +2,42 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\PostRequest;
 use App\Models\Post;
 use App\Models\PostCategory;
 use Illuminate\Http\Request;
 use MF\Controllers\ApiResponse;
 use MF\Controllers\ControllerResources;
+use MF\Controllers\Page;
+use MF\Controllers\PageMenu;
+use MF\Controllers\UploadFile;
 
-class PostController extends Controller
+class PostController extends BackendController
 {
-    use ApiResponse;
-    use ControllerResources{
-        ControllerResources::__construct as private __ctrlResConstruct;}
+    use UploadFile;
 
-    public $namaModel=Post::class;
-    public $title="Post";
-    public $controllerName='post';
+    public $modelRecords=Post::class;
+    public $indexURL='post.index';
+    public $editURL='post.edit';
+    public $deleteURL='post.destroy';
+    public $createURL='post.create';
+    public $storeURL='post.store';
+    public $showURL='post.show';
+    public $updateURL='post.update';
+    public $titleOfCreatePage='Tambah Konten';
+    public $titleOfShowPage='Detail Konten';
+    public $titleOfEditPage='Edit Konten';
+    public $titleOfIndexPage='Konten';
+    public $extData;
+    public $modName='post';
 
 
-    public function __construct()
-    {
-        $this->__ctrlResConstruct();
-        $this->addAction=route('post.create');
-        $this->saveAction=route('post.store');
-        $this->readAction=route('post.index');
-    }
+    // public function __construct()
+    // {
+    //     $this->addAction=route('post.create');
+    //     $this->saveAction=route('post.store');
+    //     $this->readAction=route('post.index');
+    // }
 
        /**
      * Show all POST by kategori
@@ -54,7 +66,46 @@ class PostController extends Controller
         if($pc->count())  return $this->iSuccess($pc->get(),request(),'','Berhasil');
         else return response()->noContent();
     }
-        /**
+    /**
+     * Show a POST by slug
+     *
+     * Check that the service is up. If everything is okay, you'll get a 200 OK response.
+     *
+     * Otherwise, the request will fail with a 400 error, and a response listing the failed services.
+     **/
+    public function browse(Request $request,$categoryslug){
+        $cat=PostCategory::where('slugs',$categoryslug)->first();
+
+        $this->titleOfIndexPage=$cat->name;
+        $this->indexURL=route('browse.index',$cat->slugs);
+        $this->editURL='browse.edit/'.$cat->name.'/{uuid}/';
+
+        $this->modName=strtolower($cat->name);
+
+        $this->CURRENT_PAGE=new Page($this->titleOfIndexPage,$this->indexURL);
+        $this->setBreadCrumb();
+
+       // $pc=Post::where('slug',$slug)->with('categories')->where('id',$cat->id);
+       $pc=Post::whereHas('categories',function($q)use($cat){
+            $q->where('post_category_id',$cat->id);
+
+        });
+        $this->extData=$pc;
+       //dd($pc->toSql());
+        if($request->wantsJson()){
+           if($pc->count())  return $this->iSuccess($pc->get(),request(),'','Berhasil');
+           else return response()->noContent();
+        }else{
+            if (view()->exists($this->modName.'.crud.index'))
+            {
+            return view($this->modName.'.crud.index',array_merge(get_object_vars($this),['category'=>$cat]));
+
+            }
+            return view('components.viho.crud.index',array_merge(get_object_vars($this),['category'=>$cat]));
+        }
+    }
+
+    /**
      * Show a POST by slug
      *
      * Check that the service is up. If everything is okay, you'll get a 200 OK response.
@@ -72,5 +123,32 @@ class PostController extends Controller
        //dd($pc->toSql());
        if($pc->count())  return $this->iSuccess($pc->get(),request(),'','Berhasil');
         else return response()->noContent();
+    }
+
+    public function browseEdit($category,$uid)
+    {
+        $this->updateURL='browse.update/'.$category.'/{uuid}/';
+        $this->indexURL='browse.index/'.$category;
+
+        $cat=PostCategory::where('slugs',$category)->first();
+
+        $this->modName=strtolower($cat->name);
+
+        return parent::edit($uid);
+    }
+
+          /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function browseUpdate(PostRequest $request,$kategori,$uid)
+    {
+        $cat=PostCategory::where('slugs',$kategori)->first();
+
+        $this->editURL='browse.edit/'.$cat->name.'/{uuid}/';
+        return parent::updateRecord($request,$uid);
     }
 }
