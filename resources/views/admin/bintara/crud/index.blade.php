@@ -21,7 +21,7 @@
 </div>
 <div class="card">
     @csrf
-      <x-viho::data-table :model="$modelRecords"  :editButton="$editURL" :deleteButton="$deleteURL"/>
+      <x-viho::data-table :model="$modelRecords" :extData="$extData" :editButton="$editURL" :deleteButton="$deleteURL" :setRecord="false"/>
 </div>
 {{-- @push('js') --}}
 

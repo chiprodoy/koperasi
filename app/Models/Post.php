@@ -33,7 +33,8 @@ class Post extends MainModel
         'post_status',
         'post_type',
         'slug',
-        'uuid'
+        'uuid',
+
     ];
 
 
@@ -65,9 +66,22 @@ class Post extends MainModel
             'type'=>InputSelect::class,
             'option'=>[[PostType::BLOG,PostType::PAGE,PostType::MULTIMEDIA]]
         ],
-        'slug'=> ['field'=>'slug','type'=>InputHidden::class],
+        'slug'=> ['field'=>'slug','title'=>'Slug','type'=>InputText::class],
         'uuid'=> ['field'=>'uuid','type'=>InputHidden::class],
         'tags'=> ['field'=>'tags','type'=>InputHidden::class],
+        'tags'=> [
+            'field'=>'post_category',
+            'title'=>'Kategori',
+            'type'=>CheckboxGroup::class,
+            'option'=>[
+                PostCategory::class,
+                'id',
+                'name',
+                null, //['and'=>['program_studi_id',Auth::user()->getSelectedProdi()]]
+                ['name','asc'],
+                'categories'
+            ],
+        ],
 
 
     ];

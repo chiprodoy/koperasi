@@ -40,6 +40,7 @@ class BackendController extends Controller
     public $showWith=[];
     public $recordId;
     public $modName;
+    public $createResult;
 
     public function __construct()
     {
@@ -61,8 +62,8 @@ class BackendController extends Controller
     {
         $this->CURRENT_PAGE=new Page($this->titleOfIndexPage,route($this->indexURL));
         $this->setBreadCrumb();
-        if(view()->exists($this->modName.'.crud.index')){
-            return view($this->modName.'.crud.index',get_object_vars($this));
+        if(view()->exists('admin.'.$this->modName.'.crud.index')){
+            return view('admin.'.$this->modName.'.crud.index',get_object_vars($this));
         }else{
             return view($this->viewNameOfIndexPage,get_object_vars($this));
         }
@@ -76,7 +77,11 @@ class BackendController extends Controller
     {
         $this->CURRENT_PAGE=new Page($this->titleOfCreatePage,route($this->createURL));
         $this->setBreadCrumb();
-        return view($this->viewNameOfCreatePage,get_object_vars($this));
+        if(view()->exists('admin.'.$this->modName.'.crud.create')){
+            return view('admin.'.$this->modName.'.crud.create',get_object_vars($this));
+        }else{
+            return view($this->viewNameOfCreatePage,get_object_vars($this));
+        }
 
     }
     /**
@@ -109,8 +114,8 @@ class BackendController extends Controller
         array_push($this->BREADCRUMB_ITEM,$this->indexPage);
         $this->CURRENT_PAGE=new Page($this->titleOfEditPage,'#');
         $this->setBreadCrumb();
-        if(view()->exists($this->modName.'.crud.edit')){
-            return view($this->modName.'.crud.edit',get_object_vars($this));
+        if(view()->exists('admin.'.$this->modName.'.crud.edit')){
+            return view('admin.'.$this->modName.'.crud.edit',get_object_vars($this));
         }else{
             return view($this->viewNameOfEditPage,get_object_vars($this));
         }
@@ -120,14 +125,24 @@ class BackendController extends Controller
         $this->setNewData($request);
         try
         {
-            $result=$this->modelRecords::create($this->newData);
-            return $this->iSuccess($result,$request,route($this->createURL),'Data Berhasil Disimpan');
+            $this->createResult=$this->modelRecords::create($this->newData);
+            return $this->output('success',$request,'Data Berhasil Disimpan',route($this->createURL));
         }
         catch(QueryException $e)
         {
             Log::error($e);
-            if(env('APP_DEBUG')) return $this->iError($request,route($this->createURL),ResponseCode::ERROR,$e->getMessage());
-            else return $this->iError($request,route($this->createURL),ResponseCode::ERROR,'Data Gagal Disimpan');
+            if(env('APP_DEBUG')) return $this->output('error',$request,$e->getMessage(),route($this->createURL));
+            else return $this->output('error',$request,'Data Gagal Disimpan',route($this->createURL));
+
+        }
+
+    }
+
+    public function output($type,$request,$message,$redirectURL=null){
+        if($type=='success'){
+            return $this->iSuccess($this->createResult,$request,$redirectURL,$message);
+        }else{
+            if(env('APP_DEBUG')) return $this->iError($request,$redirectURL,ResponseCode::ERROR,$message);
 
         }
 

@@ -30,6 +30,7 @@ class PostRequest extends FormRequest
     {
         return [
             'title' => ['required', 'string'],
+            'slug' => ['unique:App\Models\Post,slug'],
 
         ];
     }

@@ -30,6 +30,7 @@ class PostController extends BackendController
     public $titleOfIndexPage='Konten';
     public $extData;
     public $modName='post';
+    public $postCategories;
 
 
     // public function __construct()
@@ -39,6 +40,17 @@ class PostController extends BackendController
     //     $this->readAction=route('post.index');
     // }
 
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        $this->postCategories=PostCategory::all();
+
+        return parent::create();
+    }
        /**
      * Show all POST by kategori
      *
@@ -62,7 +74,6 @@ class PostController extends BackendController
      **/
     public function show($slug){
         $pc=Post::with('categories')->where('slug',$slug);
-
         if($pc->count())  return $this->iSuccess($pc->get(),request(),'','Berhasil');
         else return response()->noContent();
     }
@@ -96,9 +107,9 @@ class PostController extends BackendController
            if($pc->count())  return $this->iSuccess($pc->get(),request(),'','Berhasil');
            else return response()->noContent();
         }else{
-            if (view()->exists($this->modName.'.crud.index'))
+            if (view()->exists('admin.'.$this->modName.'.crud.index'))
             {
-            return view($this->modName.'.crud.index',array_merge(get_object_vars($this),['category'=>$cat]));
+            return view('admin.'.$this->modName.'.crud.index',array_merge(get_object_vars($this),['category'=>$cat]));
 
             }
             return view('components.viho.crud.index',array_merge(get_object_vars($this),['category'=>$cat]));
@@ -151,4 +162,15 @@ class PostController extends BackendController
         $this->editURL='browse.edit/'.$cat->name.'/{uuid}/';
         return parent::updateRecord($request,$uid);
     }
+
+    public function store(PostRequest $request){
+
+        parent::insertRecord($request);
+        foreach($request->post_category as $k => $v){
+            $this->createResult->categories()->attach($v,['user_modify'=>'su']);
+        }
+        return $this->output('success',$request,'Data Berhasil Disimpan',route($this->createURL));
+
+    }
+
 }

@@ -94,8 +94,8 @@ class DataTable extends Component
     public $order;
 
     public $extraButton;
-
-    public function __construct($model,$extData=null,$showButton=null,$editButton=null,$deleteButton=null,$where=null,$keyword=null,$order=null,$extraButton='')
+    public $setRecord;
+    public function __construct($model,$extData=null,$showButton=null,$editButton=null,$deleteButton=null,$where=null,$keyword=null,$order=null,$extraButton='',$setRecord=true)
     {
         $this->column=$model::$columns;
         $this->model=$model;
@@ -106,7 +106,8 @@ class DataTable extends Component
         $this->keyword=$keyword;
         $this->extData=$extData;
         $this->order=$order;
-        $this->record=$this->setRecord();
+        ($setRecord) ? $this->record=$this->setRecord() : $this->record=$extData;
+
         $this->extraButton=$extraButton;
         //
     }

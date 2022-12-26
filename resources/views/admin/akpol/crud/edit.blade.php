@@ -31,7 +31,7 @@
                     </ul>
                 </div>
             @endif
-         @include('akpol.components.form.magic')
+         @include('admin.'.$modName.'.components.form.magic')
         </div>
         <div class="card-footer">
             <div class="row">

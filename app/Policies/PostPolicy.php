@@ -43,9 +43,9 @@ class PostPolicy
      * @param  \App\Models\User  $user
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function create(User $user,$categoryName)
+    public function create(User $user,$categoryName=null)
     {
-        return $user->isRole(Role::SUPERADMIN) || $user->hasPermission('create',strtolower($categoryName));
+        return $user->isRole(Role::SUPERADMIN) || $user->hasPermission('create',Post::class) || $user->hasPermission('create',strtolower($categoryName));
     }
 
     /**

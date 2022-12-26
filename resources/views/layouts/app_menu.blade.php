@@ -16,10 +16,8 @@
                     <a class="nav-link menu-title {{ routeActive($nav->mod_name) }}"
                         @if ($nav->submenu)
                             href="#"
-
                         @else
                             href="{{ url('/admin/'.$nav->mod_name)}}"
-
                         @endif>
                         <i data-feather="{{$nav->icon}}"></i><span>{{ $nav->label }}</span>
                     </a>
