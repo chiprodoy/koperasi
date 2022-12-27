@@ -74,7 +74,7 @@ class PostController extends BackendController
      **/
     public function show($slug){
         $pc=Post::with('categories')->where('slug',$slug);
-        if($pc->count())  return $this->iSuccess($pc->get(),request(),'','Berhasil');
+        if($pc->count())  return $this->iSuccess($pc->first(),request(),'','Berhasil');
         else return response()->noContent();
     }
     /**
@@ -98,7 +98,7 @@ class PostController extends BackendController
 
        // $pc=Post::where('slug',$slug)->with('categories')->where('id',$cat->id);
        $pc=Post::whereHas('categories',function($q)use($cat){
-            $q->where('post_category_id',$cat->id);
+           return $q->where('post_category_id',$cat->id);
 
         });
         $this->extData=$pc;
