@@ -28,10 +28,17 @@ class PostRequest extends FormRequest
      */
     public function rules()
     {
-        return [
-            'title' => ['required', 'string'],
-            'slug' => ['unique:App\Models\Post,slug'],
+        if($this->method()=='PUT'){
+            return [
+                'title' => ['required', 'string'],
+            ];
+        }else{
+            return [
+                'title' => ['required', 'string'],
+                'slug' => ['unique:App\Models\Post,slug'],
 
-        ];
+            ];
+        }
+
     }
 }

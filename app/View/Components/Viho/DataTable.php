@@ -109,7 +109,6 @@ class DataTable extends Component
         ($setRecord) ? $this->record=$this->setRecord() : $this->record=$extData;
 
         $this->extraButton=$extraButton;
-        //
     }
 
     protected function setRecord(){

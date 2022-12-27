@@ -13,6 +13,9 @@
             $inputType=App\View\Components\Viho\Form\InputHidden::class;
             $RECORD->post_type='publish';
         }
+        if($item['field']=='post_category'){
+            $inputType=App\View\Components\Viho\Form\InputHidden::class;
+        }
     }
 
 @endphp

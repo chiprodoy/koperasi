@@ -97,12 +97,13 @@ class PostController extends BackendController
         $this->setBreadCrumb();
 
        // $pc=Post::where('slug',$slug)->with('categories')->where('id',$cat->id);
-       $pc=Post::whereHas('categories',function($q)use($cat){
-           return $q->where('post_category_id',$cat->id);
+    //    $pc=Post::whereHas('categories',function($q)use($cat){
+    //        return $q->where('post_category_id',$cat->id);
+    //     });
 
-        });
-        $this->extData=$pc;
-       //dd($pc->toSql());
+        $pc=$cat->posts();
+        $this->extData=$pc->get();
+       //dd($pc->get());
         if($request->wantsJson()){
            if($pc->count())  return $this->iSuccess($pc->get(),request(),'','Berhasil');
            else return response()->noContent();
