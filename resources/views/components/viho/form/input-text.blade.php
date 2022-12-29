@@ -6,8 +6,10 @@
     id="{{$id}}"
     name="{{$name}}"
 
-    @if ($value)
+    @if (is_object($value))
         value="{{ $value->{$name} }}"
+    @else
+        value="{{ $value }}"
     @endif
 
     @if($readonly)

@@ -57,6 +57,9 @@ class PostPolicy
      */
     public function update(User $user, Post $post)
     {
+        foreach($post->categories as $k => $v){
+            if($user->hasPermission('update',strtolower($v->slugs))) return true;
+         }
          return $user->isRole(Role::SUPERADMIN) || $user->hasPermission('update',$post->slug);
     }
 
@@ -72,7 +75,7 @@ class PostPolicy
         foreach($post->categories as $k => $v){
             if($user->hasPermission('delete',strtolower($v->slugs))) return true;
          }
-         return false;
+         return $user->isRole(Role::SUPERADMIN);
     }
 
     /**

@@ -15,10 +15,15 @@ class PostRequest extends FormRequest
      */
     public function authorize()
     {
-
         $post=Post::where('uuid',$this->uuid)->first();
-        return $this->user()->isRole(Role::SUPERADMIN) || $this->user()->can('update',$post);
-
+        if($this->user()->isRole(Role::SUPERADMIN))
+            return  true;
+        else if($this->user()->can('update',$post))
+            return true;
+        else if($this->user()->can('createOnCategory',$this->modname))
+            return true;
+        else
+            return false;
     }
 
     /**
@@ -31,11 +36,14 @@ class PostRequest extends FormRequest
         if($this->method()=='PUT'){
             return [
                 'title' => ['required', 'string'],
+                'description'=>['required']
+
             ];
         }else{
             return [
                 'title' => ['required', 'string'],
                 'slug' => ['unique:App\Models\Post,slug'],
+                'description'=>['required']
 
             ];
         }

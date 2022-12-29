@@ -2,7 +2,9 @@
     id="{{$id}}"
     name="{{$name}}"
 
-    @if ($value)
-    value="{{ $value->{$name} }}"
+    @if (is_object($value))
+        value="{{ $value->{$name} }}"
+    @else
+        value="{{ $value }}"
     @endif
 />

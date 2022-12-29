@@ -31,5 +31,5 @@
     @if($required)
         required
     @endif
-    >@if ($value) {{ $value->{$name} }} @endif</textarea>
+    >@if ($value) {{ $value }} @endif</textarea>
 </div>

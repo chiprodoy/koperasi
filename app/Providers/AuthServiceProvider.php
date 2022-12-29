@@ -37,6 +37,9 @@ class AuthServiceProvider extends ServiceProvider
             return $user->isRole(\App\Models\Role::SUPERADMIN) || $user->hasPermission('modify',$ability);
         });
 
+        Gate::define('createOnCategory',function($user,$categoryName){
+            return $user->isRole(\App\Models\Role::SUPERADMIN) || $user->hasPermission('create',strtolower($categoryName));
+        });
     /*
         Gate::define('create',function($user,$modParam){
             return $user->hasPermission('create',$modParam);

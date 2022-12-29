@@ -30,7 +30,14 @@
                     <button class="btn btn-sm btn-primary" type="submit">Simpan</button>
                 </div>
         </div>
-
+        @can('modify','post:category')
+            <x-viho::form.checkboxgroup />
+            <div class="card">
+                @foreach ($postCategories as $item)
+                    {{ $item->name }}
+                @endforeach
+            </div>
+        @endcan
     </form>
 </div>
 

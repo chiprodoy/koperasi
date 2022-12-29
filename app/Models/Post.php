@@ -69,7 +69,7 @@ class Post extends MainModel
         'slug'=> ['field'=>'slug','title'=>'Slug','type'=>InputText::class],
         'uuid'=> ['field'=>'uuid','type'=>InputHidden::class],
         'tags'=> ['field'=>'tags','type'=>InputHidden::class],
-        'tags'=> [
+        'post_category'=> [
             'field'=>'post_category',
             'title'=>'Kategori',
             'type'=>CheckboxGroup::class,

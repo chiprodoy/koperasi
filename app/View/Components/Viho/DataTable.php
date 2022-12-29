@@ -127,7 +127,11 @@ class DataTable extends Component
                     }elseif($k=='or'){
                         $r->whereOr($v);
                     } elseif($k=='in'){
-                        $r->whereIn($v);
+                        foreach($v as $x =>$y){
+                            $field=$x;
+                            $param=$y;
+                        }
+                        $r->whereIn($field,$param);
                     }
                 }
             }

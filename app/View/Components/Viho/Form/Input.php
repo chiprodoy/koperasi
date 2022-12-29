@@ -38,7 +38,7 @@ class Input extends Component
         $this->id=$id;
         $this->name=$name;
         $this->label=$label;
-        $this->value=$value;
+        (is_object($value) ? $this->value=$value->$name : $this->value=$value);
         $this->readonly=$readonly;
         $this->disabled=$disabled;
         $this->autofocus=$autofocus;

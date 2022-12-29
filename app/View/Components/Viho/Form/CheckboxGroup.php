@@ -23,7 +23,7 @@ class CheckboxGroup extends DataTable
      *
      * @return void
      */
-    public function __construct($id,$name,$model=null,$where=null,$dataChecked=null,$order=null)
+    public function __construct($id,$name,$model=null,$where=null,$dataChecked=null,$order=null,$extData=null)
     {
         //
         $this->id=$id;
@@ -34,6 +34,7 @@ class CheckboxGroup extends DataTable
         $this->where=$where;
         $this->recordPerPage=0;
         $this->order=$order;
+        $this->extData=$extData;
         if(is_object($dataChecked[0])) $this->dataChecked=$dataChecked[0]->{$dataChecked[1]};
         else if(!empty($dataChecked[0]) && !is_object($dataChecked[0])) $this->dataChecked=$dataChecked;
 

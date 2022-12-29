@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use App\Http\Requests\PostRequest;
 use App\Models\Post;
 use App\Models\PostCategory;
+use App\Models\Role;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use MF\Controllers\ApiResponse;
 use MF\Controllers\ControllerResources;
 use MF\Controllers\Page;
@@ -31,6 +33,7 @@ class PostController extends BackendController
     public $extData;
     public $modName='post';
     public $postCategories;
+    public $category;
 
 
     // public function __construct()
@@ -86,12 +89,12 @@ class PostController extends BackendController
      **/
     public function browse(Request $request,$categoryslug){
         $cat=PostCategory::where('slugs',$categoryslug)->first();
-
         $this->titleOfIndexPage=$cat->name;
         $this->indexURL=route('browse.index',$cat->slugs);
-        $this->editURL='browse.edit/'.$cat->name.'/{uuid}/';
+        $this->createURL=route('browse.create',$cat->slugs);
+        $this->editURL='browse.edit/'.$cat->slugs.'/{uuid}/';
 
-        $this->modName=strtolower($cat->name);
+        $this->modName=strtolower($cat->slugs);
 
         $this->CURRENT_PAGE=new Page($this->titleOfIndexPage,$this->indexURL);
         $this->setBreadCrumb();
@@ -103,14 +106,14 @@ class PostController extends BackendController
 
         $pc=$cat->posts();
         $this->extData=$pc->get();
-       //dd($pc->get());
+
         if($request->wantsJson()){
            if($pc->count())  return $this->iSuccess($pc->get(),request(),'','Berhasil');
            else return response()->noContent();
         }else{
             if (view()->exists('admin.'.$this->modName.'.crud.index'))
             {
-            return view('admin.'.$this->modName.'.crud.index',array_merge(get_object_vars($this),['category'=>$cat]));
+               return view('admin.'.$this->modName.'.crud.index',array_merge(get_object_vars($this),['category'=>$cat]));
 
             }
             return view('components.viho.crud.index',array_merge(get_object_vars($this),['category'=>$cat]));
@@ -139,12 +142,11 @@ class PostController extends BackendController
 
     public function browseEdit($category,$uid)
     {
-        $this->updateURL='browse.update/'.$category.'/{uuid}/';
-        $this->indexURL='browse.index/'.$category;
-
         $cat=PostCategory::where('slugs',$category)->first();
 
-        $this->modName=strtolower($cat->name);
+        $this->modName=strtolower($cat->slugs);
+        $this->updateURL='browse.update/'.$cat->slugs.'/{uuid}/';
+        $this->indexURL='browse.index/'.$cat->slugs;
 
         return parent::edit($uid);
     }
@@ -160,7 +162,7 @@ class PostController extends BackendController
     {
         $cat=PostCategory::where('slugs',$kategori)->first();
 
-        $this->editURL='browse.edit/'.$cat->name.'/{uuid}/';
+        $this->editURL='browse.edit/'.$cat->slugs.'/{uuid}/';
         return parent::updateRecord($request,$uid);
     }
 
@@ -174,4 +176,40 @@ class PostController extends BackendController
 
     }
 
+              /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function browseStore(PostRequest $request,$kategori)
+    {
+        $cat=PostCategory::where('slugs',$kategori)->first();
+        $this->createURL=route('browse.create',$cat->slugs);
+        parent::insertRecord($request);
+        foreach($request->post_category as $k => $v){
+            $this->createResult->categories()->attach($v,['user_modify'=>'su']);
+        }
+        return $this->output('success',$request,'Data Berhasil Disimpan',$this->createURL);
+
+    }
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function browseCreate($categoryslug)
+    {
+        $this->storeURL='browse.store';
+
+        if(Auth::user()->isRole(Role::SUPERADMIN)){
+            $this->postCategories=PostCategory::all();
+        }else{
+            $this->postCategories=PostCategory::whereIn('slugs',[$categoryslug,'headline'])->get();
+        }
+        $this->category=PostCategory::where('slugs',$categoryslug)->first();
+        $this->modName=strtolower($this->category->slugs);
+        return parent::create();
+    }
 }

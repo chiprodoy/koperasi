@@ -123,16 +123,19 @@ class BackendController extends Controller
 
     public function insertRecord($request){
         $this->setNewData($request);
+        if(strpos($this->createURL,'http'===false)){
+            $this->createURL=route_from($this->createURL);
+        }
         try
         {
             $this->createResult=$this->modelRecords::create($this->newData);
-            return $this->output('success',$request,'Data Berhasil Disimpan',route($this->createURL));
+            return $this->output('success',$request,'Data Berhasil Disimpan',$this->createURL);
         }
         catch(QueryException $e)
         {
             Log::error($e);
             if(env('APP_DEBUG')) return $this->output('error',$request,$e->getMessage(),route($this->createURL));
-            else return $this->output('error',$request,'Data Gagal Disimpan',route($this->createURL));
+            else return $this->output('error',$request,'Data Gagal Disimpan',$this->createURL);
 
         }
 
