@@ -4,15 +4,16 @@ namespace App\View\Components\Viho\Form;
 
 use Illuminate\View\Component;
 
-class InputEmail extends Component
+class InputEmail extends Input
 {
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($id,$name,$datasource=null,$label='',$value='',$placeholder='',$required=false,$readonly=false,$disabled=false,$autofocus=false,$tabindex=null)
     {
+        parent::__construct($id,$name,$datasource,$label,$value,$placeholder,$required,$readonly,$disabled,$autofocus,$tabindex);
         //
     }
 

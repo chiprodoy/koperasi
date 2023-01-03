@@ -19,9 +19,10 @@ class UserSeeder extends Seeder
     public function run()
     {
         User::create([
-            'uid'=>'-',
+            'uuid'=>'-',
             'name' => 'superadmin',
             'email' => 'superadmin@gmail.com',
+            'nomor_telpon'=>'08994434947',
             //'tempat_lahir'=>'palembang',
             //'tgl_lahir'=>'1986-02-24',
             //'pekerjaan'=>'admin',
@@ -32,12 +33,11 @@ class UserSeeder extends Seeder
 
         User::find(1)->roles()->attach(1,['user_modify'=>'su']);
 
-
-
         $superadmin=User::create([
-                    'uid'=>'-',
+                    'uuid'=>'-',
                     'name' => 'admin',
                     'email' => 'admin@gmail.com',
+                    'nomor_telpon'=>'08994434948',
                     //'tempat_lahir'=>'palembang',
                     //'tgl_lahir'=>'1986-02-24',
                     //'pekerjaan'=>'admin',

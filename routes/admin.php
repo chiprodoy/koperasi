@@ -22,5 +22,6 @@ Route::prefix('/admin')->middleware(['auth'])->group(function(){
     // Route::prefix('browse')->group(function(){
     //     Route::get('/{categoryslug}', [App\Http\Controllers\PostController::class,'browse'])->name('browse.index');
     // });
+    Route::resource('user',App\Http\Controllers\UserController::class);
 
 });

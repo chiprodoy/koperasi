@@ -2,41 +2,58 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\UserRequest;
+use App\Models\Role;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use MF\Controllers\ApiResponse;
-use MF\Controllers\ControllerResources;
 
-class UserController extends Controller
+class UserController extends BackendController
 {
-      use ApiResponse,ControllerResources{
-        ControllerResources::__construct as private __ctrlResConstruct;
-        ControllerResources::index as private __index;
-    }
+    public $modelRecords=User::class;
+    public $indexURL='user.index';
+    public $editURL='user.edit/{uuid}';
+    public $deleteURL='user.destroy';
+    public $createURL='user.create';
+    public $storeURL='user.store';
+    public $showURL='user.show';
+    public $updateURL='user.update';
+    public $titleOfCreatePage='Tambah Pengguna';
+    public $titleOfShowPage='Detail Pengguna';
+    public $titleOfEditPage='Edit Pengguna';
+    public $titleOfIndexPage='Pengguna';
+    public $extData;
+    public $modName='user';
+    public $roles;
+    public $category;
 
-    public $namaModel=User::class;
-    public $title="User";
-    public $controllerName='user';
-
-
-    public function __construct()
+    public function index()
     {
-        $this->__ctrlResConstruct();
-        $this->addAction=route('kehamilan.create');
-        $this->saveAction=route('kehamilan.store');
-        $this->readAction=route('kehamilan.index');
-    }
-    /**
-     * Display All Cateogory POST
-     *
-     * Check that the service is up. If everything is okay, you'll get a 200 OK response.
-     *
-     * Otherwise, the request will fail with a 400 error, and a response listing the failed services.
-     **/
-    public function index(){
-        return $this->__index();
-    }
+        if(Auth::user()->isRole(Role::SUPERADMIN)){
+            $this->extData=$this->modelRecords::all();
+        }else{
+            $this->extData=User::whereHas('roles',function($q){
+                $q->whereIn('role_name',['admin','kontributor','pengguna']);
+            })->get();
 
+        }
+        return parent::index();
+    }
+     /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        if(Auth::user()->isRole(Role::SUPERADMIN)){
+            $this->roles=Role::all();
+        }else{
+            $this->roles=Role::whereIn('role_name',['admin','kontributor','pengguna'])->get();
+        }
+        return parent::create();
+    }
     public function setFcmToken($fcmToken,Request $request){
         $uid=$request->auth()->id;
         try{
@@ -64,4 +81,13 @@ class UserController extends Controller
 
     }
 
+    public function store(UserRequest $request){
+
+        parent::insertRecord($request);
+        foreach($request->user_roles as $k => $v){
+            $this->createResult->roles()->attach($v,['user_modify'=>'su']);
+        }
+        return $this->output('success',$request,'Data Berhasil Disimpan',route($this->createURL));
+
+    }
 }

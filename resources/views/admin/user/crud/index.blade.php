@@ -3,7 +3,7 @@
 
 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
     <h2>{{$titleOfIndexPage}}
-        @can('create',$modName)
+        @can('create',\App\Models\User::class)
         <span>
             @if (strpos($createURL,'http')===0)
                 <a class="btn btn-sm btn-outline-secondary" href="{{ $createURL }}">
@@ -21,7 +21,7 @@
 </div>
 <div class="card">
     @csrf
-      <x-viho::data-table :model="$modelRecords"  :editButton="$editURL" :deleteButton="$deleteURL"/>
+      <x-viho::data-table :model="$modelRecords" :extData="$extData" :editButton="$editURL" :deleteButton="$deleteURL" :setRecord="false"/>
 </div>
 {{-- @push('js') --}}
 

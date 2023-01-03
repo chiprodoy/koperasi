@@ -35,6 +35,16 @@ class Role extends Model
         'user_modify',
         'user_id'
     ];
+
+        /**
+     * The attributes that should be hidden for serialization.
+     *
+     * @var array<int, string>
+     */
+    public static $columns = [
+        ['field'=>'role_name','title'=>'Role'],
+    ];
+
     /**
      * The relationships that should always be loaded.
      *

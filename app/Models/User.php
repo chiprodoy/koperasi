@@ -2,6 +2,12 @@
 
 namespace App\Models;
 
+use App\View\Components\Viho\Form\CheckboxGroup;
+use App\View\Components\Viho\Form\Input;
+use App\View\Components\Viho\Form\InputEmail;
+use App\View\Components\Viho\Form\InputHidden;
+use App\View\Components\Viho\Form\InputPassword;
+use App\View\Components\Viho\Form\InputText;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -23,7 +29,8 @@ class User extends Authenticatable implements MustVerifyEmail
         'name',
         'email',
         'password',
-        'uid'
+        'uuid',
+        'nomor_telpon'
     ];
 
     /**
@@ -36,8 +43,45 @@ class User extends Authenticatable implements MustVerifyEmail
         'remember_token',
     ];
 
+    /**
+     * The attributes that should be hidden for serialization.
+     *
+     * @var array<int, string>
+     */
+    public static $columns = [
+        ['field'=>'name','title'=>'Nama'],
+        ['field'=>'email','title'=>'Email'],
+        ['field'=>'nomor_telpon','title'=>'Nomor Telpon'],
+
+    ];
+
+   /**
+     * The attributes that should be hidden for serialization.
+     *
+     * @var array<int, string>
+     */
+    public static $formFields = [
+        'name'=> ['field'=>'name','title'=>'Nama','type'=>InputText::class],
+        'email'=> ['field'=>'email','title'=>'Email','type'=>InputEmail::class],
+        'nomor_telpon'=> ['field'=>'nomor_telpon','title'=>'Nomor Telpon','type'=>InputText::class],
+        'password'=> ['field'=>'password','title'=>'Password','type'=>InputPassword::class],
+        'user_roles'=> [
+             'field'=>'user_roles',
+             'title'=>'Roles',
+             'type'=>CheckboxGroup::class,
+             'option'=>[
+                 Role::class,
+                 'id',
+                 'role_name',
+                 null, //['and'=>['program_studi_id',Auth::user()->getSelectedProdi()]]
+                 ['role_name','asc'],
+                 'roles'
+             ],
+         ],
+         'uuid'=> ['field'=>'uuid','type'=>InputHidden::class],
 
 
+     ];
     /**
      * The attributes that should be cast.
      *
@@ -69,9 +113,9 @@ class User extends Authenticatable implements MustVerifyEmail
      * @param  string  $value
      * @return void
      */
-    public function setUidAttribute($value)
+    public function setUuidAttribute($value)
     {
-        $this->attributes['uid'] = (string) Str::uuid();
+        $this->attributes['uuid'] = (string) Str::uuid();
     }
 
     public function roles()
