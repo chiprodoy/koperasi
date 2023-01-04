@@ -18,7 +18,7 @@ class UserController extends BackendController
     public $createURL='user.create';
     public $storeURL='user.store';
     public $showURL='user.show';
-    public $updateURL='user.update';
+    public $updateURL='user.update/{uuid}';
     public $titleOfCreatePage='Tambah Pengguna';
     public $titleOfShowPage='Detail Pengguna';
     public $titleOfEditPage='Edit Pengguna';
@@ -27,6 +27,7 @@ class UserController extends BackendController
     public $modName='user';
     public $roles;
     public $category;
+    public $curentUserRoles=[];
 
     public function index()
     {
@@ -53,6 +54,21 @@ class UserController extends BackendController
             $this->roles=Role::whereIn('role_name',['admin','kontributor','pengguna'])->get();
         }
         return parent::create();
+    }
+
+    public function edit($uid)
+    {
+        if(Auth::user()->isRole(Role::SUPERADMIN)){
+            $this->roles=Role::all();
+        }else{
+            $this->roles=Role::whereIn('role_name',['admin','kontributor','pengguna'])->get();
+        }
+        $users=User::with('roles')->where('uuid',$uid)->get();
+
+        foreach($users as $u => $v){
+            $this->curentUserRoles[]=$v;
+        }
+        return parent::edit($uid);
     }
     public function setFcmToken($fcmToken,Request $request){
         $uid=$request->auth()->id;
@@ -84,6 +100,15 @@ class UserController extends BackendController
     public function store(UserRequest $request){
 
         parent::insertRecord($request);
+        foreach($request->user_roles as $k => $v){
+            $this->createResult->roles()->attach($v,['user_modify'=>'su']);
+        }
+        return $this->output('success',$request,'Data Berhasil Disimpan',route($this->createURL));
+
+    }
+    public function update(UserRequest $request,$uid){
+
+        parent::updateRecord($request,$uid);
         foreach($request->user_roles as $k => $v){
             $this->createResult->roles()->attach($v,['user_modify'=>'su']);
         }

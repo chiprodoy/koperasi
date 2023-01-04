@@ -35,6 +35,7 @@ class UserRequest extends FormRequest
         }else{
             return [
                 'name' => ['required', 'string'],
+                'password' => ['required'],
                 'email' => ['required','email','unique:App\Models\User,email'],
                 'nomor_telpon' => ['required','numeric','unique:App\Models\User,nomor_telpon'],
             ];
