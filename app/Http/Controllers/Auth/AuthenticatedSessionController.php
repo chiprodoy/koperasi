@@ -29,10 +29,17 @@ class AuthenticatedSessionController extends Controller
     public function store(LoginRequest $request)
     {
         $request->authenticate();
+        if($request->wantsJson()){
+            $token = $request->user()->createToken('pakkepoaccesstoken');
 
-        $request->session()->regenerate();
+            return ['token' => $token->plainTextToken];
+        }else{
+            $request->session()->regenerate();
 
-        return redirect()->intended(RouteServiceProvider::HOME);
+            return redirect()->intended(RouteServiceProvider::HOME);
+        }
+
+
     }
 
     /**
