@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\UserRequest;
 use App\Models\User;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Auth\Events\Registered;
@@ -31,25 +32,17 @@ class RegisteredUserController extends Controller
      *
      * @throws \Illuminate\Validation\ValidationException
      */
-    public function store(Request $request)
+    public function store(UserRequest $request)
     {
-        $request->validate([
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'confirmed', Rules\Password::defaults()],
-        ]);
+        $user=$request->createNewUser();
 
-        $user = User::create([
-            'name' => $request->name,
-            'uid'=>'',
-            'email' => $request->email,
-            'password' => $request->password,
-        ]);
 
-        event(new Registered($user));
+        if(!$request->wantsJson()) {
+            Auth::login($user);
+            return redirect(RouteServiceProvider::HOME);
+        }else{
+            return $user;
 
-        Auth::login($user);
-
-        return redirect(RouteServiceProvider::HOME);
+        }
     }
 }

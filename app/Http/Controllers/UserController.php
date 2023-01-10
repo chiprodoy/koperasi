@@ -98,11 +98,9 @@ class UserController extends BackendController
     }
 
     public function store(UserRequest $request){
+        //parent::insertRecord($request);
+        $request->createNewUser();
 
-        parent::insertRecord($request);
-        foreach($request->user_roles as $k => $v){
-            $this->createResult->roles()->attach($v,['user_modify'=>'su']);
-        }
         return $this->output('success',$request,'Data Berhasil Disimpan',route($this->createURL));
 
     }

@@ -7,6 +7,22 @@
                 @csrf
                 <div class="card-header">{{ $titleOfCreatePage }}</div>
                 <div class="card-body">
+                    @if (Session::has('response.message'))
+                        <x-viho::alert id="alert_notif" class="alert-info">
+                            @foreach (Session::get('response') as $item)
+                                {{ $item }}
+                            @endforeach
+                        </x-viho::alert>
+                    @endif
+                    @if ($errors->any())
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
                     <div class="mb-3">
                         <label for="name" class="form-label">Nama</label>
                         <input type="text" class="form-control" id="name" name="name" value="" placeholder="">
@@ -34,6 +50,8 @@
                         </div>
                     </div>
                     <input type="hidden" id="uuid" name="uuid" value="">
+                    <input type="hidden" id="fcm_token" name="fcm_token" value="-">
+
                     <table class="table vihoCheckBoxGroup  table-hover" id="user_roles">
                         <thead>
                             <tr>

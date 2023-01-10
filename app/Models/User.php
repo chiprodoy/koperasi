@@ -30,7 +30,8 @@ class User extends Authenticatable implements MustVerifyEmail
         'email',
         'password',
         'uuid',
-        'nomor_telpon'
+        'nomor_telpon',
+        'fcm_token'
     ];
 
     /**
@@ -41,6 +42,7 @@ class User extends Authenticatable implements MustVerifyEmail
     protected $hidden = [
         'password',
         'remember_token',
+        'fcm_token'
     ];
 
     /**
@@ -79,7 +81,7 @@ class User extends Authenticatable implements MustVerifyEmail
              ],
          ],
          'uuid'=> ['field'=>'uuid','type'=>InputHidden::class],
-
+         'fcm_token'=> ['field'=>'fcm_token','type'=>InputHidden::class],
 
      ];
     /**
