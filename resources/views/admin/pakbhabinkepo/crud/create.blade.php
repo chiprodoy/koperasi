@@ -33,14 +33,8 @@
                         <input type="file" class="form-control" id="cover" name="cover" placeholder="">
 
                     </div>
-                    <div class="mb-3">
-                        <label for="post_status" class="form-label">Status</label>
-                        <select id="post_status" name="post_status" class="form-select">
-                            <option value="">Silahkan Pilih</option>
-                            <option value="draft">draft</option>
-                            <option value="publish">publish</option>
-                        </select>
-                    </div>
+
+                    <input type="hidden" id="post_status" name="post_status" value="draft">
                     <input type="hidden" id="post_type" name="post_type" value="blog">
                     <input type="hidden" id="slug" name="slug" value="">
 

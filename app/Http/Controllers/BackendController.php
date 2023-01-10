@@ -109,7 +109,8 @@ class BackendController extends Controller
      */
     public function edit($uid)
     {
-        $this->RECORD=$this->modelRecords::where('uuid',$uid)->first();
+        //$this->RECORD=$this->modelRecords::where('uuid',$uid)->first();
+        $this->setRecord($uid);
         $this->indexPage=new Page($this->titleOfIndexPage,route_from($this->indexURL,$this->RECORD));
         array_push($this->BREADCRUMB_ITEM,$this->indexPage);
         $this->CURRENT_PAGE=new Page($this->titleOfEditPage,'#');
@@ -119,6 +120,9 @@ class BackendController extends Controller
         }else{
             return view($this->viewNameOfEditPage,get_object_vars($this));
         }
+    }
+    public function setRecord($uid){
+        $this->RECORD=$this->modelRecords::where('uuid',$uid)->first();
     }
 
     public function insertRecord($request){
@@ -157,15 +161,18 @@ class BackendController extends Controller
         try
         {
             $this->setNewData($request);
-            $record=$this->modelRecords::where('uuid',$uid);
-            $updated=$record->update($this->newData);
-            return $this->iSuccess($updated,$request,route_from($this->editURL,$record->first()),'Data Berhasil Diupdate');
+            //$record=$this->modelRecords::where('uuid',$uid);
+           // $updated=$record->update($this->newData);
+           $this->setRecord($uid);
+           $updated=$this->RECORD->update($this->newData);
+
+            return $this->iSuccess($updated,$request,route_from($this->editURL,$this->RECORD),'Data Berhasil Diupdate');
         }
         catch(QueryException $e)
         {
             Log::error($e);
-            if(env('APP_DEBUG')) return $this->iError($request,route_from($this->editURL,$record->first()),ResponseCode::ERROR,$e->getMessage());
-            else return $this->iError($request,route_from($this->editURL,$record->first()),ResponseCode::ERROR,'Data Gagal Diupdate');
+            if(env('APP_DEBUG')) return $this->iError($request,route_from($this->editURL,$this->RECORD),ResponseCode::ERROR,$e->getMessage());
+            else return $this->iError($request,route_from($this->editURL,$this->RECORD),ResponseCode::ERROR,'Data Gagal Diupdate');
 
         }
 

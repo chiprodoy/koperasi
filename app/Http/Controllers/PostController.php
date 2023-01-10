@@ -103,8 +103,11 @@ class PostController extends BackendController
     //    $pc=Post::whereHas('categories',function($q)use($cat){
     //        return $q->where('post_category_id',$cat->id);
     //     });
+        if(Auth::user()->isRole(Role::SUPERADMIN) || Auth::user()->isRole(Role::ADMIN) || Auth::user()->isRole(Role::KONTRIBUTOR))
+            $pc=$cat->posts()->withoutGlobalScope('published');
+        else
+            $pc=$cat->posts();
 
-        $pc=$cat->posts();
         $this->extData=$pc->get();
 
         if($request->wantsJson()){
@@ -147,8 +150,22 @@ class PostController extends BackendController
         $this->modName=strtolower($cat->slugs);
         $this->updateURL='browse.update/'.$cat->slugs.'/{uuid}/';
         $this->indexURL='browse.index/'.$cat->slugs;
-
+        if(Auth::user()->isRole(Role::SUPERADMIN)){
+            $this->postCategories=PostCategory::all();
+        }elseif(Auth::user()->isRole(Role::ADMIN)){
+            $this->postCategories=PostCategory::whereIn('slugs',[$category,'headline'])->get();
+        }else{
+            $this->postCategories=PostCategory::whereIn('slugs',[$category,'headline'])->get();
+        }
         return parent::edit($uid);
+    }
+
+    public function setRecord($uid){
+        if(Auth::user()->isRole(Role::SUPERADMIN) || Auth::user()->isRole(Role::ADMIN) || Auth::user()->isRole(Role::KONTRIBUTOR))
+            $this->RECORD=$this->modelRecords::where('uuid',$uid)
+                        ->withoutGlobalScope('published')->first();
+        else
+            $this->RECORD=$this->modelRecords::where('uuid',$uid)->first();
     }
 
           /**
@@ -205,6 +222,8 @@ class PostController extends BackendController
 
         if(Auth::user()->isRole(Role::SUPERADMIN)){
             $this->postCategories=PostCategory::all();
+        }elseif(Auth::user()->isRole(Role::ADMIN)){
+            $this->postCategories=PostCategory::whereIn('slugs',[$categoryslug,'headline'])->get();
         }else{
             $this->postCategories=PostCategory::whereIn('slugs',[$categoryslug,'headline'])->get();
         }

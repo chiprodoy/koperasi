@@ -34,7 +34,6 @@ class Post extends MainModel
         'post_type',
         'slug',
         'uuid',
-
     ];
 
 
