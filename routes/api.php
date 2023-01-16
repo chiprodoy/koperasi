@@ -9,6 +9,7 @@ use App\Http\Controllers\Auth\NewPasswordController;
 use App\Http\Controllers\Auth\PasswordResetLinkController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\Auth\VerifyEmailController;
+use App\Http\Controllers\ForumController;
 use App\Http\Controllers\HistoryKehamilanController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\PostCategoryController;
@@ -106,5 +107,14 @@ Route::prefix('dikbang')->group(function(){
 
 });
 
+Route::prefix('forum')->group(function () {
+    Route::get('/', [ForumController::class, 'index']);
+    Route::get('/{forum}', [ForumController::class, 'show']);
+    Route::middleware('auth:sanctum')->group(function () {
+        Route::post('/', [ForumController::class, 'store']);
+        Route::patch('/{forum}', [ForumController::class, 'update']);
+        Route::delete('/{forum}', [ForumController::class, 'destroy']);
+    });
+});
 
 

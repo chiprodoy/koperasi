@@ -1,406 +1,719 @@
-@extends('layouts.impact.index')
-@section('content')
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+     <head>
+          <meta charset="UTF-8" />
+          <meta
+               name="description"
+               content="Website PA'KEPO : payo jadi keluargo polisi"
+          />
+          <meta
+               name="viewport"
+               content="width=device-width, initial-scale=1.0"
+          />
+          <meta property="og:title" content="PA'KEPO | Home" />
+          <meta property="og:type" content="Government Website" />
+          <meta name="theme-color" content="#0A64A4" />
 
-  <!-- ======= Hero Section ======= -->
-  <section id="hero" class="hero">
-    <div class="container position-relative">
-      <div class="row gy-5" data-aos="fade-in">
-        <div class="col-lg-6 order-2 order-lg-1 d-flex flex-column justify-content-center text-center text-lg-start">
-          <h2>Kembangkan Bisnis Anda <span>Bersama Kami</span></h2>
-          <p>Dengan memenuhi regulasi pemerintah indonesia dan standar halal dunia</p>
-          <div class="d-flex justify-content-center justify-content-lg-start">
-            <a href="#about" class="btn-get-started">Get Started</a>
-            <a href="https://www.youtube.com/watch?v=LXb3EKWsInQ" class="glightbox btn-watch-video d-flex align-items-center"><i class="bi bi-play-circle"></i><span>Watch Video</span></a>
+          <title>PA'KEPO | Home</title>
+
+          <link href="{{asset('dist/output.css')}}" rel="stylesheet" />
+          <link rel="icon" href="{{asset('img/favicon.png')}}" />
+
+          <link
+               rel="stylesheet"
+               href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"
+               integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g=="
+               crossorigin="anonymous"
+               referrerpolicy="no-referrer"
+          />
+
+          <link
+               rel="stylesheet"
+               href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css"
+               integrity="sha512-sMXtMNL1zRzolHYKEujM2AqCLUR9F2C4/05cdbxjjLSRvMQIciEPCQZo++nk7go3BtSuK9kfa/s+a4f4i5pLkw=="
+               crossorigin="anonymous"
+               referrerpolicy="no-referrer"
+          />
+     </head>
+
+     <body>
+          <!-- Navbar -->
+          <header
+               class="sticky top-0 bg-primary/50 backdrop-blur-md -mt-24 w-full z-10 px-5 lg:px-24"
+          >
+               <div class="container mx-auto">
+                    <nav class="flex flex-stretch items-center py-3">
+                         <div class="w-56 flex items-center">
+                              <img src="{{asset('img/brand.png')}}" alt="PA'KEPO Brand" />
+                              <span
+                                   class="inline-block ml-3 font-bold text-white"
+                              >
+                                   PA'KEPO
+                              </span>
+                         </div>
+
+                         <div class="w-full"></div>
+
+                         <div class="w-auto">
+                              <ul
+                                   class="fixed bg-white inset-0 flex-col invisible items-center justify-center opacity-0 md:visible md:flex-row md:bg-transparent md:relative md:opacity-100 md:flex"
+                              >
+                                   <li class="mx-5 py-6 md:py-0">
+                                        <a href="#home" class="text-slate-100"
+                                             >Beranda</a
+                                        >
+                                   </li>
+
+                                   <li class="mx-5 py-6 md:py-0">
+                                        <a
+                                             href="#feature"
+                                             class="text-slate-300 transition duration-300 ease-in-out hover:text-slate-100"
+                                             >Fitur</a
+                                        >
+                                   </li>
+
+                                   <li class="mx-5 py-6 md:py-0">
+                                        <a
+                                             href="#download"
+                                             class="text-slate-300 transition duration-300 ease-in-out hover:text-slate-100"
+                                             >Download</a
+                                        >
+                                   </li>
+
+                                   <li class="mx-5 py-6 md:py-0">
+                                        <a
+                                             href="#contact"
+                                             class="text-slate-300 transition duration-300 ease-in-out hover:text-slate-100"
+                                             >Kontak</a
+                                        >
+                                   </li>
+                              </ul>
+                         </div>
+
+                         <div class="w-auto">
+                              <ul class="flex items-center">
+                                   <li class="ml-6 block md:hidden">
+                                        <button
+                                             class="menu-toggler relative flex items-center justify-center w-8 h-8 text-black hover:text-white focus:outline-none"
+                                             id="burger_menu"
+                                             title="burger menu"
+                                        >
+                                             <img
+                                                  src="{{asset('img/burger_menu.svg')}}"
+                                                  alt="burger menu"
+                                             />
+                                        </button>
+                                   </li>
+                              </ul>
+                         </div>
+                    </nav>
+               </div>
+          </header>
+          <!-- End Navbar -->
+
+          <!-- Mobile Navbar -->
+          <div
+               class="fixed z-50 inset-0 bg-gray-800 bg-opacity-90 transition-opacity px-5 lg:px-24 hidden md:invisible"
+               id="mobile-menu"
+          >
+               <div class="container mx-auto">
+                    <nav class="flex flex-stretch items-center py-3">
+                         <div class="w-56 flex items-center">
+                              <img src="img/brand.png" alt="PA'KEPO Brand" />
+                              <span
+                                   class="inline-block ml-3 font-bold text-white"
+                              >
+                                   PA'KEPO
+                              </span>
+                         </div>
+
+                         <div class="w-full"></div>
+
+                         <div class="w-auto">
+                              <ul class="flex items-center">
+                                   <li class="ml-6 block">
+                                        <button
+                                             class="menu-close relative flex items-center justify-center w-8 h-8"
+                                             id="burger_close"
+                                             title="burger close"
+                                        >
+                                             <img
+                                                  src="{{asset('img/burger_close.svg')}}"
+                                                  alt="burger close"
+                                             />
+                                        </button>
+                                   </li>
+                              </ul>
+                         </div>
+                    </nav>
+               </div>
+
+               <div class="w-auto">
+                    <ul class="flex flex-col items-center justify-center">
+                         <li class="items-center mx-5 py-6">
+                              <a href="#home" class="text-slate-100">Beranda</a>
+                         </li>
+
+                         <li class="mx-5 py-6 md:py-0">
+                              <a
+                                   href="#feature"
+                                   class="text-slate-300 transition duration-300 ease-in-out hover:text-slate-100"
+                                   >Fitur</a
+                              >
+                         </li>
+
+                         <li class="mx-5 py-6 md:py-0">
+                              <a
+                                   href="#download"
+                                   class="text-slate-300 transition duration-300 ease-in-out hover:text-slate-100"
+                                   >Download</a
+                              >
+                         </li>
+
+                         <li class="mx-5 py-6 md:py-0">
+                              <a
+                                   href="#contact"
+                                   class="text-slate-300 transition duration-300 ease-in-out hover:text-slate-100"
+                                   >Kontak</a
+                              >
+                         </li>
+                    </ul>
+               </div>
           </div>
-        </div>
-        <div class="col-lg-6 order-1 order-lg-2">
-          {{-- <img src="{{asset('theme/impact/assets/img/hero.png')}}" class="img-fluid" alt="" data-aos="zoom-out" data-aos-delay="100"> --}}
-        </div>
-      </div>
-    </div>
+          <!-- End Mobile Navbar -->
 
-    <div class="icon-boxes position-relative">
-        <div class="container position-relative">
-            <div class="row gy-4 mt-5">
-                <div class="col-xl-12 col-md-12" data-aos="fade-up" data-aos-delay="100">
-                    <div class="icon-box">
-                        <h4 class="title"><a href="#">Pencarian Produk Halal</a></h4>
+          <!-- Hero -->
+          <div
+               class="hero w-full bg-primary px-5 lg:px-24 lg:py-12 bg-cover"
+               style="background-image: url('{{asset('img/bg_hero.webp')}}')"
+               id="home"
+          >
+               <div class="container mx-auto text-white">
+                    <div class="flex flex-col md:flex-row items-center py-24">
+                         <div class="w-full flex justify-center">
+                              <img
+                                   src="{{asset('img/hero.png')}}"
+                                   class="w-3/4"
+                                   alt="Logo PA'KEPO"
+                              />
+                         </div>
 
-                        <form action="" method="post" role="form" class="php-email-form">
-                            <div class="row">
-                                <div class="col-md-12 input-group">
-                                    <input type="text" name="name" class="form-control" id="name" placeholder="Masukkan nama produk" required />
-                                    <button class="btn btn-info" type="button" id="button-addon2">Cari</button>
-                                </div>
-                            </div>
-                        </form>
+                         <div class="w-full text-center md:text-left lg:pr-8">
+                              <h1 class="font-bold text-md md:text-lg">
+                                   Dapatkan Semua Yang Kamu Butuh di PA’KEPO
+                              </h1>
+
+                              <p
+                                   class="text-xs md:text-sm font-light mt-2 mb-8"
+                              >
+                                   Informasi pendaftaran, gallery, berita, forum
+                                   tanya jawab, dan masih banyak lagi, download
+                                   sekarang
+                              </p>
+
+                              <div class="flex md:justify-start justify-center">
+                                   <a
+                                        href="#feature"
+                                        class="border-2 border-blue-50 px-2 lg:px-6 py-3 text-slate-100 rounded-lg transition duration-300 ease-in-out hover:border-yellow-400 hover:text-yellow-400 hover:shadow-xl inline-block mr-4"
+                                   >
+                                        Lebih Lanjut
+                                   </a>
+
+                                   <a
+                                        href="#"
+                                        target="_blank"
+                                        class="inline-block transition duration-300 ease-in-out hover:shadow-xl"
+                                   >
+                                        <img
+                                             src="{{asset('img/btn_download.png')}}"
+                                             alt="download"
+                                        />
+                                   </a>
+                              </div>
+                         </div>
                     </div>
-                </div>
-                <!--End Icon Box -->
-                </div>
-            </div>
-        </div>
-
-    </div>
-  </section>
-  <!-- End Hero Section -->
-
-  <main id="main">
-    <!-- ======= About Us Section ======= -->
-    <section id="about" class="about">
-      <div class="container" data-aos="fade-up">
-
-        <div class="section-header">
-          <h2>Profil LPPOM MUI SUMSEL</h2>
-          {{-- <p>Aperiam dolorum et et wuia molestias qui eveniet numquam nihil porro incidunt dolores placeat sunt id nobis omnis tiledo stran delop</p> --}}
-        </div>
-
-        <div class="row gy-4">
-          <div class="col-lg-6">
-            <h3>{{$contentSejarah->title}}</h3>
-            {{-- <img src="{{asset('theme/impact/assets/img/logo.png')}}" class="img-fluid rounded-4 mb-4" alt=""> --}}
-           <p style="text-align: justify"> {{ Str::words(strip_tags($contentSejarah->description),80) }} <a href='#'>Selengkapnya</a></p>
-        </div>
-          <div class="col-lg-6">
-            <div class="borderbottom ps-0 ps-lg-5">
-              <ul>
-                <li><a href='#'><i class="bi bi-check-circle-fill"></i> Visi & Misi</a></li>
-                <li><a href='#'><i class="bi bi-check-circle-fill"></i> Nilai - Nilai</a></li>
-                <li><a href='#'><i class="bi bi-check-circle-fill"></i> Struktur Organisasi</a></li>
-
-              </ul>
-
-              <div class="position-relative mt-4">
-                <img src="{{asset('theme/impact/assets/img/logo.png')}}" class="img-fluid rounded-4" alt="">
-              </div>
-            </div>
+               </div>
           </div>
-        </div>
+          <!-- End Hero -->
 
-      </div>
-    </section><!-- End About Us Section -->
+          <!-- Feature -->
+          <div class="w-full bg-primary" id="feature">
+               <div
+                    class="rounded-t-3xl bg-slate-100 container mx-auto px-5 lg:px-24"
+               >
+                    <div class="flex flex-col md:flex-row pt-12 lg:pt-24">
+                         <div class="w-full">
+                              <h1
+                                   class="text-primary text-sm md:text-md font-semibold"
+                              >
+                                   Fitur Aplikasi PA'KEPO
+                              </h1>
 
-    <!-- ======= Clients Section ======= -->
-    <section id="clients" class="clients">
-      <div class="container" data-aos="zoom-out">
-
-        <div class="clients-slider swiper">
-          <div class="swiper-wrapper align-items-center">
-            <div class="swiper-slide"><img src="{{asset('theme/impact/assets/img/clients/client-1.png')}}" class="img-fluid" alt=""></div>
-            <div class="swiper-slide"><img src="{{asset('theme/impact/assets/img/clients/client-2.png')}}" class="img-fluid" alt=""></div>
-            <div class="swiper-slide"><img src="{{asset('theme/impact//img/clients/client-3.png')}}" class="img-fluid" alt=""></div>
-            <div class="swiper-slide"><img src="{{asset('theme/impact/assets/img/clients/client-4.png')}}" class="img-fluid" alt=""></div>
-            <div class="swiper-slide"><img src="{{asset('theme/impact/assets/img/clients/client-5.png')}}" class="img-fluid" alt=""></div>
-            <div class="swiper-slide"><img src="{{asset('theme/impact/assets/img/clients/client-6.png')}}" class="img-fluid" alt=""></div>
-            <div class="swiper-slide"><img src="{{asset('theme/impact/assets/img/clients/client-7.png')}}" class="img-fluid" alt=""></div>
-            <div class="swiper-slide"><img src="{{asset('theme/impact/assets/img/clients/client-8.png')}}" class="img-fluid" alt=""></div>
-          </div>
-        </div>
-
-      </div>
-    </section><!-- End Clients Section -->
-
-     <!-- ======= Our Services Section ======= -->
-    <section id="services" class="services sections-bg">
-      <div class="container" data-aos="fade-up">
-
-        <div class="section-header">
-          <h2>Prosedur & Regulasi</h2>
-          {{-- <p>Aperiam dolorum et et wuia molestias qui eveniet numquam nihil porro incidunt dolores placeat sunt id nobis omnis tiledo stran delop</p> --}}
-        </div>
-
-        <div class="row gy-4" data-aos="fade-up" data-aos-delay="100">
-            @foreach ($contentProsedurRegulasi as $item)
-                <div class="col-lg-4 col-md-6">
-                    <div class="service-item  position-relative">
-                    <h3>{{ $item->title}}</h3>
-                    <p>{{ $item->description}}</p>
-                    <a href="{{ route('post.show',$item->slug) }}" class="readmore stretched-link">Selengkapnya <i class="bi bi-arrow-right"></i></a>
+                              <p
+                                   class="text-gray-800 text-xs md:text-sm font-light"
+                              >
+                                   Dapatkan semua fitur dan informasi lengkap di
+                                   PA'KEPO
+                              </p>
+                         </div>
                     </div>
-                </div><!-- End Service Item -->
-            @endforeach
 
+                    <div
+                         class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 mt-14"
+                    >
+                         <div class="text-center">
+                              <div
+                                   class="bg-primary inline-block p-6 rounded-full text-white"
+                              >
+                                   <i
+                                        class="inline"
+                                        data-feather="book-open"
+                                   ></i>
+                              </div>
 
-          <div class="col-lg-4 col-md-6">
-            <div class="service-item position-relative">
-              <div class="icon">
-                <i class="bi bi-broadcast"></i>
-              </div>
-              <h3>Regulasi LPPOM MUI</h3>
-              <p>Ut autem aut autem non a. Sint sint sit facilis nam iusto sint. Libero corrupti neque eum hic non ut nesciunt dolorem.</p>
-              <a href="#" class="readmore stretched-link">Read more <i class="bi bi-arrow-right"></i></a>
-            </div>
-          </div><!-- End Service Item -->
+                              <span class="block my-2"> Informasi Diktuk </span>
+                         </div>
 
-          <div class="col-lg-4 col-md-6">
-            <div class="service-item position-relative">
-              <div class="icon">
-                <i class="bi bi-easel"></i>
-              </div>
-              <h3>Prosedur Pasar Indonesia</h3>
-              <p>Ut excepturi voluptatem nisi sed. Quidem fuga consequatur. Minus ea aut. Vel qui id voluptas adipisci eos earum corrupti.</p>
-              <a href="#" class="readmore stretched-link">Read more <i class="bi bi-arrow-right"></i></a>
-            </div>
-          </div><!-- End Service Item -->
+                         <div class="text-center">
+                              <div
+                                   class="bg-primary inline-block p-6 rounded-full text-white"
+                              >
+                                   <i class="inline" data-feather="monitor"></i>
+                              </div>
 
-          <div class="col-lg-4 col-md-6">
-            <div class="service-item position-relative">
-              <div class="icon">
-                <i class="bi bi-bounding-box-circles"></i>
-              </div>
-              <h3>Pendaftaran Sertifikat Halal</h3>
-              <p>Non et temporibus minus omnis sed dolor esse consequatur. Cupiditate sed error ea fuga sit provident adipisci neque.</p>
-              <a href="#" class="readmore stretched-link">Read more <i class="bi bi-arrow-right"></i></a>
-            </div>
-          </div><!-- End Service Item -->
+                              <span class="block my-2"> Media KEPO </span>
+                         </div>
 
-          <div class="col-lg-4 col-md-6">
-            <div class="service-item position-relative">
-              <div class="icon">
-                <i class="bi bi-calendar4-week"></i>
-              </div>
-              <h3>Prosedur Pasar Luar Negri</h3>
-              <p>Cumque et suscipit saepe. Est maiores autem enim facilis ut aut ipsam corporis aut. Sed animi at autem alias eius labore.</p>
-              <a href="#" class="readmore stretched-link">Read more <i class="bi bi-arrow-right"></i></a>
-            </div>
-          </div><!-- End Service Item -->
+                         <div class="text-center">
+                              <div
+                                   class="bg-primary inline-block p-6 rounded-full text-white"
+                              >
+                                   <i class="inline" data-feather="image"></i>
+                              </div>
 
-          <div class="col-lg-4 col-md-6">
-            <div class="service-item position-relative">
-              <div class="icon">
-                <i class="bi bi-chat-square-text"></i>
-              </div>
-              <h3>Prosedur Keluhan & Banding</h3>
-              <p>Hic molestias ea quibusdam eos. Fugiat enim doloremque aut neque non et debitis iure. Corrupti recusandae ducimus enim.</p>
-              <a href="#" class="readmore stretched-link">Read more <i class="bi bi-arrow-right"></i></a>
-            </div>
-          </div><!-- End Service Item -->
+                              <span class="block my-2"> Gallery KEPO </span>
+                         </div>
 
-        </div>
+                         <div class="text-center">
+                              <div
+                                   class="bg-primary inline-block p-6 rounded-full text-white"
+                              >
+                                   <i
+                                        class="inline"
+                                        data-feather="message-square"
+                                   ></i>
+                              </div>
 
-      </div>
-    </section><!-- End Our Services Section -->
+                              <span class="block my-2"> Forum KEPO </span>
+                         </div>
 
-    <!-- ======= Recent Blog Posts Section ======= -->
-    <section id="recent-posts" class="recent-posts sections-bg">
-        <div class="container" data-aos="fade-up">
+                         <div class="text-center">
+                              <div
+                                   class="bg-primary inline-block p-6 rounded-full text-white"
+                              >
+                                   <i
+                                        class="inline"
+                                        data-feather="message-circle"
+                                   ></i>
+                              </div>
 
-          <div class="section-header">
-            <h2>Berita Terbaru</h2>
+                              <span class="block my-2"> Bantuan </span>
+                         </div>
+
+                         <div class="text-center">
+                              <div
+                                   class="bg-primary inline-block p-6 rounded-full text-white"
+                              >
+                                   <i class="inline" data-feather="info"></i>
+                              </div>
+
+                              <span class="block my-2"> Saran </span>
+                         </div>
+                    </div>
+               </div>
           </div>
+          <!-- End Feature -->
 
-          <div class="row gy-4">
+          <!-- Feature -->
+          <div class="w-full bg-slate-100">
+               <div class="rounded-t-3xl container mx-auto px-5 lg:px-24">
+                    <div class="flex flex-col md:flex-row pt-12 lg:pt-32">
+                         <div class="w-full text-center">
+                              <h1
+                                   class="text-primary text-sm md:text-md font-semibold"
+                              >
+                                   Informasi Pendidikan Pembentukan
+                              </h1>
 
-            <div class="col-xl-4 col-md-6">
-                @foreach ($contentBerita as $item)
-                    <article>
+                              <p
+                                   class="text-gray-800 text-xs md:text-sm font-light"
+                              >
+                                   Semua informasi yang anda butuhkan tersedia,
+                                   pengumuman, persyaratan, pendaftaran, sampai
+                                   timeline
+                              </p>
+                         </div>
+                    </div>
 
-                        <div class="post-img">
-                        <img src="assets/img/blog/blog-1.jpg" alt="" class="img-fluid">
-                        </div>
-                        @foreach ($item->categories as $cat)
-                            <p class="post-category">{{ $cat->name}}</p>
-                        @endforeach
+                    <div class="flex lg:flex-row flex-col mt-14 gap-6">
+                         <div
+                              class="bg-white flex w-full lg:w-1/3 p-4 rounded-lg"
+                         >
+                              <img
+                                   src="{{asset('img/feature/akpol.png')}}"
+                                   alt="akpol"
+                                   class="inline-block w-1/3"
+                              />
 
-                        <h2 class="title">
-                        <a href="blog-details.html">{{ $item->title }}</a>
-                        </h2>
+                              <div
+                                   class="inline-block w-2/3 align-middle ml-4 my-auto"
+                              >
+                                   <span class="my-2 font-bold"> AKPOL </span>
+                                   <span class="block my-2 text-slate-600">
+                                        Akademi Kepolisian
+                                   </span>
+                              </div>
+                         </div>
 
-                        <div class="d-flex align-items-center">
-                        <img src="assets/img/blog/blog-author.jpg" alt="" class="img-fluid post-author-img flex-shrink-0">
-                        <div class="post-meta">
-                            <p class="post-author">Maria Doe</p>
-                            <p class="post-date">
-                            <time datetime="{{ $item->created_at}}">{{ $item->created_at}}</time>
-                            </p>
-                        </div>
-                        </div>
+                         <div
+                              class="bg-white flex w-full lg:w-1/3 p-4 rounded-lg"
+                         >
+                              <img
+                                   src="{{asset('img/feature/sipss.png')}}"
+                                   alt="sipss"
+                                   class="inline-block w-1/3"
+                              />
 
-                    </article>
-                @endforeach
+                              <div
+                                   class="inline-block w-2/3 align-middle ml-4 my-auto"
+                              >
+                                   <span class="my-2 font-bold"> SIPSS </span>
+                                   <span class="block my-2 text-slate-600">
+                                        Sekolah Inspektur Polisi Sumber Sarjana
+                                   </span>
+                              </div>
+                         </div>
 
-            </div><!-- End post list item -->
-          </div><!-- End recent posts list -->
+                         <div
+                              class="bg-white flex w-full lg:w-1/3 p-4 rounded-lg"
+                         >
+                              <img
+                                   src="{{asset('img/feature/tamtama.png')}}"
+                                   alt="tamtama"
+                                   class="inline-block w-1/3"
+                              />
 
-        </div>
-      </section><!-- End Recent Blog Posts Section -->
+                              <div
+                                   class="inline-block w-2/3 align-middle ml-4 my-auto"
+                              >
+                                   <span class="my-2 font-bold"> TAMTAMA </span>
+                                   <span class="block my-2 text-slate-600">
+                                        Pangkat ketentaraan/kepolisian pertama
+                                   </span>
+                              </div>
+                         </div>
+                    </div>
 
-       <!-- ======= Frequently Asked Questions Section ======= -->
-    <section id="faq" class="faq">
-      <div class="container" data-aos="fade-up">
+                    <div
+                         class="flex flex-col lg:flex-row justify-center mt-14 gap-6"
+                    >
+                         <div
+                              class="bg-white flex w-full lg:w-1/3 p-4 rounded-lg"
+                         >
+                              <img
+                                   src="{{asset('img/feature/cpns.png')}}"
+                                   alt="cpns polri"
+                                   class="inline-block w-1/3"
+                              />
 
-        <div class="row gy-4">
+                              <div
+                                   class="inline-block w-2/3 align-middle ml-4 my-auto"
+                              >
+                                   <span class="my-2 font-bold">
+                                        CPNS POLRI
+                                   </span>
+                                   <span class="block my-2 text-slate-600">
+                                        Bagian integral dari Kepolisian NKRI
+                                   </span>
+                              </div>
+                         </div>
 
-          <div class="col-lg-4">
-            <div class="content px-xl-5">
-              <h3>Frequently Asked <strong>Questions</strong></h3>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis aute irure dolor in reprehenderit
-              </p>
-            </div>
+                         <div
+                              class="bg-white flex w-full lg:w-1/3 p-4 rounded-lg"
+                         >
+                              <img
+                                   src="{{asset('img/feature/bintara.png')}}"
+                                   alt="bintara"
+                                   class="inline-block w-1/3"
+                              />
+
+                              <div
+                                   class="inline-block w-2/3 align-middle ml-4 my-auto"
+                              >
+                                   <span class="my-2 font-bold"> BINTARA </span>
+                                   <span class="block my-2 text-slate-600">
+                                        Tulang punggung kesatuan di militer
+                                   </span>
+                              </div>
+                         </div>
+                    </div>
+
+                    <hr class="mt-32" />
+               </div>
           </div>
+          <!-- End Feature -->
 
-          <div class="col-lg-8">
+          <!-- Download -->
+          <div class="blog w-full bg-slate-100 lg:py-32 pb-12" id="download">
+               <div class="container mx-auto px-5 lg:px-24">
+                    <div
+                         class="bg-primary rounded-xl text-white p-8 lg:p-28 bg-cover"
+                         style="background-image: url('{{asset('img/bg_download.png')}}')"
+                    >
+                         <h1 class="font-bold text-center text-md md:text-lg">
+                              Download Aplikasi
+                              <br />
+                              PA'KEPO Sekarang!
+                         </h1>
 
-            <div class="accordion accordion-flush" id="faqlist" data-aos="fade-up" data-aos-delay="100">
+                         <p
+                              class="text-xs md:text-sm font-light mt-2 mb-8 lg:px-48 text-center"
+                         >
+                              Semua informasi mulai dari pendaftaran, gallery,
+                              berita, hingga forum tanya jawab, tersedia untuk
+                              kamu, download sekarang
+                         </p>
 
-              <div class="accordion-item">
-                <h3 class="accordion-header">
-                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-content-1">
-                    <span class="num">1.</span>
-                    Non consectetur a erat nam at lectus urna duis?
-                  </button>
-                </h3>
-                <div id="faq-content-1" class="accordion-collapse collapse" data-bs-parent="#faqlist">
-                  <div class="accordion-body">
-                    Feugiat pretium nibh ipsum consequat. Tempus iaculis urna id volutpat lacus laoreet non curabitur gravida. Venenatis lectus magna fringilla urna porttitor rhoncus dolor purus non.
-                  </div>
-                </div>
-              </div><!-- # Faq item-->
+                         <div class="flex mx-auto justify-center">
+                              <a
+                                   href="#home"
+                                   class="border-2 border-blue-50 px-4 lg:px-8 py-3 text-slate-100 rounded-lg transition duration-300 ease-in-out hover:border-yellow-400 hover:text-yellow-400 hover:shadow-xl inline-block mr-4"
+                              >
+                                   Beranda
+                              </a>
 
-              <div class="accordion-item">
-                <h3 class="accordion-header">
-                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-content-2">
-                    <span class="num">2.</span>
-                    Feugiat scelerisque varius morbi enim nunc faucibus a pellentesque?
-                  </button>
-                </h3>
-                <div id="faq-content-2" class="accordion-collapse collapse" data-bs-parent="#faqlist">
-                  <div class="accordion-body">
-                    Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. Id interdum velit laoreet id donec ultrices. Fringilla phasellus faucibus scelerisque eleifend donec pretium. Est pellentesque elit ullamcorper dignissim. Mauris ultrices eros in cursus turpis massa tincidunt dui.
-                  </div>
-                </div>
-              </div><!-- # Faq item-->
-
-              <div class="accordion-item">
-                <h3 class="accordion-header">
-                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-content-3">
-                    <span class="num">3.</span>
-                    Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi?
-                  </button>
-                </h3>
-                <div id="faq-content-3" class="accordion-collapse collapse" data-bs-parent="#faqlist">
-                  <div class="accordion-body">
-                    Eleifend mi in nulla posuere sollicitudin aliquam ultrices sagittis orci. Faucibus pulvinar elementum integer enim. Sem nulla pharetra diam sit amet nisl suscipit. Rutrum tellus pellentesque eu tincidunt. Lectus urna duis convallis convallis tellus. Urna molestie at elementum eu facilisis sed odio morbi quis
-                  </div>
-                </div>
-              </div><!-- # Faq item-->
-
-              <div class="accordion-item">
-                <h3 class="accordion-header">
-                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-content-4">
-                    <span class="num">4.</span>
-                    Ac odio tempor orci dapibus. Aliquam eleifend mi in nulla?
-                  </button>
-                </h3>
-                <div id="faq-content-4" class="accordion-collapse collapse" data-bs-parent="#faqlist">
-                  <div class="accordion-body">
-                    Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. Id interdum velit laoreet id donec ultrices. Fringilla phasellus faucibus scelerisque eleifend donec pretium. Est pellentesque elit ullamcorper dignissim. Mauris ultrices eros in cursus turpis massa tincidunt dui.
-                  </div>
-                </div>
-              </div><!-- # Faq item-->
-
-              <div class="accordion-item">
-                <h3 class="accordion-header">
-                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-content-5">
-                    <span class="num">5.</span>
-                    Tempus quam pellentesque nec nam aliquam sem et tortor consequat?
-                  </button>
-                </h3>
-                <div id="faq-content-5" class="accordion-collapse collapse" data-bs-parent="#faqlist">
-                  <div class="accordion-body">
-                    Molestie a iaculis at erat pellentesque adipiscing commodo. Dignissim suspendisse in est ante in. Nunc vel risus commodo viverra maecenas accumsan. Sit amet nisl suscipit adipiscing bibendum est. Purus gravida quis blandit turpis cursus in
-                  </div>
-                </div>
-              </div><!-- # Faq item-->
-
-            </div>
-
+                              <a
+                                   href="#"
+                                   target="_blank"
+                                   class="inline-block transition duration-300 ease-in-out hover:shadow-xl"
+                              >
+                                   <img
+                                        src="{{asset('img/btn_download.png')}}"
+                                        alt="download"
+                                   />
+                              </a>
+                         </div>
+                    </div>
+               </div>
           </div>
-        </div>
+          <!-- End Download -->
 
-      </div>
-    </section><!-- End Frequently Asked Questions Section -->
+          <!-- Contact -->
+          <div class="w-full bg-primary pb-24" id="contact">
+               <div class="rounded-t-3xl container mx-auto px-5 lg:px-24">
+                    <div class="flex flex-col md:flex-row pt-12 lg:pt-24">
+                         <div class="w-full text-center">
+                              <h1
+                                   class="text-white text-sm md:text-md font-semibold"
+                              >
+                                   Sosial Media
+                              </h1>
 
+                              <p
+                                   class="text-slate-100 text-xs md:text-sm font-light"
+                              >
+                                   Ikuti juga sosial media KEPO
+                              </p>
+                         </div>
+                    </div>
 
-    <!-- ======= Contact Section ======= -->
-    <section id="contact" class="contact">
-      <div class="container" data-aos="fade-up">
+                    <div
+                         class="grid grid-cols-2 gap-8 lg:gap-12 md:grid-cols-4 lg:grid-cols-6 mt-14"
+                    >
+                         <a
+                              href="https://www.polri.go.id"
+                              target="_blank"
+                              class="text-slate-800 hover:text-primary transition duration-300"
+                         >
+                              <div
+                                   class="bg-slate-100 p-6 rounded-md grid justify-center"
+                              >
+                                   <img
+                                        src="{{asset('img/socmed/web.png')}}"
+                                        alt="website"
+                                   />
+                                   <p class="block mt-2 text-center">Website</p>
+                              </div>
+                         </a>
 
-        <div class="section-header">
-          <h2>Contact</h2>
-          <p>Nulla dolorum nulla nesciunt rerum facere sed ut inventore quam porro nihil id ratione ea sunt quis dolorem dolore earum</p>
-        </div>
+                         <a
+                              href="#"
+                              target="_blank"
+                              class="text-slate-800 hover:text-primary transition duration-300"
+                         >
+                              <div
+                                   class="bg-slate-100 p-6 rounded-md grid justify-center"
+                              >
+                                   <img
+                                        src="{{asset('img/socmed/twitter.png')}}"
+                                        alt="twitter"
+                                   />
+                                   <p class="block mt-2 text-center">Twitter</p>
+                              </div>
+                         </a>
 
-        <div class="row gx-lg-0 gy-4">
+                         <a
+                              href="https://instagram.com/sdmpoldasumsel"
+                              target="_blank"
+                              class="text-slate-800 hover:text-primary transition duration-300"
+                         >
+                              <div
+                                   class="bg-slate-100 p-6 rounded-md grid justify-center"
+                              >
+                                   <img
+                                        src="{{asset('img/socmed/instagram.png')}}"
+                                        alt="instagram"
+                                   />
+                                   <p class="block mt-2 text-center">
+                                        Instagram
+                                   </p>
+                              </div>
+                         </a>
 
-          <div class="col-lg-4">
+                         <a
+                              href="#"
+                              target="_blank"
+                              class="text-slate-800 hover:text-primary transition duration-300"
+                         >
+                              <div
+                                   class="bg-slate-100 p-6 rounded-md grid justify-center"
+                              >
+                                   <img
+                                        src="{{asset('img/socmed/facebook.png')}}"
+                                        alt="facebook"
+                                   />
+                                   <p class="block mt-2 text-center">
+                                        Facebook
+                                   </p>
+                              </div>
+                         </a>
 
-            <div class="info-container d-flex flex-column align-items-center justify-content-center">
-              <div class="info-item d-flex">
-                <i class="bi bi-geo-alt flex-shrink-0"></i>
-                <div>
-                  <h4>Location:</h4>
-                  <p>A108 Adam Street, New York, NY 535022</p>
-                </div>
-              </div><!-- End Info Item -->
+                         <a
+                              href="https://youtube.com/@birosdmpoldasumsel8051"
+                              target="_blank"
+                              class="text-slate-800 hover:text-primary transition duration-300"
+                         >
+                              <div
+                                   class="bg-slate-100 p-6 rounded-md grid justify-center"
+                              >
+                                   <img
+                                        src="{{asset('img/socmed/youtube.png')}}"
+                                        alt="youtube"
+                                   />
+                                   <p class="block mt-2 text-center">Youtube</p>
+                              </div>
+                         </a>
 
-              <div class="info-item d-flex">
-                <i class="bi bi-envelope flex-shrink-0"></i>
-                <div>
-                  <h4>Email:</h4>
-                  <p>info@example.com</p>
-                </div>
-              </div><!-- End Info Item -->
-
-              <div class="info-item d-flex">
-                <i class="bi bi-phone flex-shrink-0"></i>
-                <div>
-                  <h4>Call:</h4>
-                  <p>+1 5589 55488 55</p>
-                </div>
-              </div><!-- End Info Item -->
-
-              <div class="info-item d-flex">
-                <i class="bi bi-clock flex-shrink-0"></i>
-                <div>
-                  <h4>Open Hours:</h4>
-                  <p>Mon-Sat: 11AM - 23PM</p>
-                </div>
-              </div><!-- End Info Item -->
-            </div>
-
+                         <a
+                              href="#"
+                              target="_blank"
+                              class="text-slate-800 hover:text-primary transition duration-300"
+                         >
+                              <div
+                                   class="bg-slate-100 p-6 rounded-md grid justify-center"
+                              >
+                                   <img
+                                        src="{{asset('img/socmed/tiktok.png')}}"
+                                        alt="tiktok"
+                                   />
+                                   <p class="block mt-2 text-center">Tiktok</p>
+                              </div>
+                         </a>
+                    </div>
+               </div>
           </div>
+          <!-- End Contact -->
 
-          <div class="col-lg-8">
-            <form action="forms/contact.php" method="post" role="form" class="php-email-form">
-              <div class="row">
-                <div class="col-md-6 form-group">
-                  <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
-                </div>
-                <div class="col-md-6 form-group mt-3 mt-md-0">
-                  <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
-                </div>
-              </div>
-              <div class="form-group mt-3">
-                <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required>
-              </div>
-              <div class="form-group mt-3">
-                <textarea class="form-control" name="message" rows="7" placeholder="Message" required></textarea>
-              </div>
-              <div class="my-3">
-                <div class="loading">Loading</div>
-                <div class="error-message"></div>
-                <div class="sent-message">Your message has been sent. Thank you!</div>
-              </div>
-              <div class="text-center"><button type="submit">Send Message</button></div>
-            </form>
-          </div><!-- End Contact Form -->
+          <!-- Footer -->
+          <div class="blog w-full bg-secondary text-white py-6">
+               <p class="text-center">
+                    Program Kerja Sama
+                    <a
+                         href="https://www.binadarma.ac.id"
+                         target="_blank"
+                         class="font-bold hover:text-yellow-400 transition duration-300"
+                    >
+                         Universitas Bina Darma
+                    </a>
+               </p>
+          </div>
+          <!-- End Footer -->
 
-        </div>
+          <!-- Web Resource -->
+          <script
+               src="https://code.jquery.com/jquery-3.6.0.min.js"
+               integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+               crossorigin="anonymous"
+          ></script>
 
-      </div>
-    </section><!-- End Contact Section -->
+          <script
+               src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.28.0/feather.min.js"
+               integrity="sha512-7x3zila4t2qNycrtZ31HO0NnJr8kg2VI67YLoRSyi9hGhRN66FHYWr7Axa9Y1J9tGYHVBPqIjSE1ogHrJTz51g=="
+               crossorigin="anonymous"
+               referrerpolicy="no-referrer"
+          ></script>
 
-  </main><!-- End #main -->
-@endsection
+          <script
+               src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"
+               integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw=="
+               crossorigin="anonymous"
+               referrerpolicy="no-referrer"
+          ></script>
+
+          <script>
+               const btn = document.querySelector(".menu-toggler");
+               const btn2 = document.querySelector(".menu-close");
+               const menu = document.querySelector("#mobile-menu");
+
+               btn.addEventListener("click", () => {
+                    menu.classList.toggle("hidden");
+               });
+
+               btn2.addEventListener("click", () => {
+                    menu.classList.toggle("hidden");
+               });
+          </script>
+
+          <script>
+               $(".owl-carousel").owlCarousel({
+                    loop: true,
+                    margin: 20,
+                    autoplay: true,
+                    stagePadding: 50,
+                    autoplayTimeout: 5000,
+                    autoplayHoverPause: true,
+                    responsive: {
+                         0: {
+                              items: 1,
+                         },
+                         600: {
+                              items: 2,
+                         },
+                         1000: {
+                              items: 3,
+                         },
+                    },
+               });
+
+               const btn_owl = document.querySelectorAll(".owl-dot");
+
+               for (i = 0; i < btn_owl.length; ++i) {
+                    btn_owl[i].title = "button detail";
+               }
+          </script>
+
+          <script>
+               feather.replace();
+          </script>
+     </body>
+</html>

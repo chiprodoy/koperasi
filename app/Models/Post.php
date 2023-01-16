@@ -9,6 +9,7 @@ use App\View\Components\Viho\Form\InputRadio;
 use App\View\Components\Viho\Form\InputSelect;
 use App\View\Components\Viho\Form\InputText;
 use App\View\Components\Viho\Form\TextArea;
+use App\View\Components\Viho\Form\TextEditor;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -55,7 +56,7 @@ class Post extends MainModel
      */
     public static $formFields = [
        'title'=> ['field'=>'title','title'=>'Judul','type'=>InputText::class],
-       'description'=> ['field'=>'description','title'=>'Isi','type'=>TextArea::class],
+       'description'=> ['field'=>'description','title'=>'Isi','type'=>TextEditor::class],
        'attachment'=> ['field'=>'attachment','title'=>'Lampiran','type'=>InputFile::class],
        'cover'=> ['field'=>'cover','title'=>'Gambar Sampul','type'=>InputFile::class],
        'post_status'=> ['field'=>'post_status','title'=>'Status','type'=>InputSelect::class,'option'=>[[PostStatus::DRAFT,PostStatus::PUBLISH]]],
@@ -147,6 +148,21 @@ class Post extends MainModel
         return route('post.show',$this->slug);
     }
 
+        /**
+
+     * The has Many Relationship
+
+     *
+
+     * @var array
+
+     */
+
+     public function comments()
+     {
+        return $this->hasMany(Comment::class)->whereNull('parent_id');
+
+     }
         /**
      * The "booted" method of the model.
      *

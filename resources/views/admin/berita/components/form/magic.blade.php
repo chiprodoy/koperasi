@@ -149,6 +149,20 @@
 
      ></x-viho::form.input-file>
     @endif
+    @if ($inputType==App\View\Components\Viho\Form\TextEditor::class)
+    <x-viho::form.text-editor
+        :id="$item['field']"
+        :name="$item['field']"
+        :label="$item['title']"
+        :readonly="$readOnly"
+        :value="$value"
+        :disabled="isset($item['disabled']) ? $item['disabled'] : false"
+        :autofocus="isset($item['autofocus']) ? $item['autofocus'] : false"
+        :tabindex="isset($item['tabindex']) ? $item['tabindex'] : null"
+        :placeholder="isset($item['placeholder']) ? $item['placeholder'] : ''"
+        :required="isset($item['required']) ? $item['required'] : false"
+     ></x-viho::form.text-editor>
+    @endif
  @endforeach
  <input type="hidden" name="modname" id="modname" value="{{$modName}}" />
  <input type="hidden" name="post_category[]" id="post_category[]" value="{{$modName}}" />

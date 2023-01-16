@@ -129,6 +129,14 @@
     </div>
     <!-- latest jquery-->
     <script src="{{asset('theme/viho/assets/js/jquery-3.5.1.min.js')}}"></script>
+    <!-- CKEDITOR -->
+
+    <script src="//cdn.ckeditor.com/4.20.1/standard/ckeditor.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('.ckeditor').ckeditor();
+        });
+    </script>
     <!-- feather icon js-->
     <script src="{{asset('theme/viho/assets/js/icons/feather-icon/feather.min.js')}}"></script>
     <script src="{{asset('theme/viho/assets/js/icons/feather-icon/feather-icon.js')}}"></script>

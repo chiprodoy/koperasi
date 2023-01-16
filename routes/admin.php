@@ -23,5 +23,5 @@ Route::prefix('/admin')->middleware(['auth'])->group(function(){
     //     Route::get('/{categoryslug}', [App\Http\Controllers\PostController::class,'browse'])->name('browse.index');
     // });
     Route::resource('user',App\Http\Controllers\UserController::class);
-
+    Route::post('ckeditor/upload', [App\Http\Controllers\FileController::class,'ckeditorupload'])->name('ckeditor.image-upload');
 });

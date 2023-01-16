@@ -16,7 +16,7 @@
 
                     <div class="mb-3">
                         <label for="description" class="form-label">Isi</label>
-                        <textarea class="form-control" id="description" name="description" placeholder=""></textarea>
+                        <textarea class="form-control ckeditor" id="description" name="description" placeholder=""></textarea>
                     </div>
 
                     <div class="mb-3">
@@ -24,9 +24,6 @@
                         <input type="file" class="form-control" id="attachment" name="attachment" placeholder="">
 
                     </div>
-
-
-
 
                     <div class="mb-3">
                         <label for="cover" class="form-label">Gambar Sampul</label>
@@ -79,5 +76,13 @@
                 </div>
             </form>
         </div>
+            @push('scripts')
+            <script type="text/javascript">
+                CKEDITOR.replace('description', {
+                    filebrowserUploadUrl: "{{route('ckeditor.image-upload', ['_token' => csrf_token() ])}}",
+                    filebrowserUploadMethod: 'form'
+                });
+            </script>
+            @endpush
     @endcan
 @endsection
