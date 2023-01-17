@@ -15,11 +15,13 @@ class CommentController extends BackendController
     public $storeURL='comment.store';
     public $showURL='comment.show';
     public $updateURL='comment.update';
-    public $titleOfCreatePage='Tambah Konten';
-    public $titleOfShowPage='Detail Konten';
-    public $titleOfEditPage='Edit Konten';
-    public $titleOfIndexPage='Konten';
+    public $titleOfCreatePage='Tambah Komentar';
+    public $titleOfShowPage='Detail Komentar';
+    public $titleOfEditPage='Edit Komentar';
+    public $titleOfIndexPage='Komentar';
     public $extData;
     public $modName='comment';
+
+
 
 }

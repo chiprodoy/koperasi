@@ -21,7 +21,10 @@ return new class extends Migration
             $table->foreignIdFor(Post::class);
             $table->integer('parent_id')->unsigned()->nullable();
             $table->text('isi_komentar');
+            $table->boolean('publish')->default(false);
+            $table->uuid();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

@@ -1,4 +1,5 @@
 <div class="mb-3">
+
     <label for="{{$name}}" class="form-label">{{$label}}</label>
     <input
     type="file"
@@ -6,9 +7,9 @@
     id="{{$id}}"
     name="{{$name}}"
 
-    @if ($value)
+    {{-- @if ($value)
         value="{{ $value->{$name} }}"
-    @endif
+    @endif --}}
 
     @if($readonly)
     readonly
@@ -34,8 +35,11 @@
         required
     @endif
     />
-    @if ($value)
+    @if (is_object($value))
     <a href='{{ $value->{$name} }}'>{{ $value->{$name} }}</a>
+    @elseif (is_string($value))
+    <a href='{{ $value }}'>{{ $value }}</a>
+
     @endif
 
 </div>

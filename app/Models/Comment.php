@@ -25,9 +25,17 @@ class Comment extends MainModel
 
      */
 
-    protected $fillable = ['user_id', 'post_id', 'parent_id', 'isi_komentar'];
+    protected $fillable = ['user_id', 'post_id', 'parent_id', 'isi_komentar','publish'];
 
-
+   /**
+     * The attributes that should be hidden for serialization.
+     *
+     * @var array<int, string>
+     */
+    public static $columns = [
+        ['field'=>'isi_komentar','title'=>'Isi Komentar'],
+        ['field'=>'publish','title'=>'Status'],
+    ];
 
     /**
 
