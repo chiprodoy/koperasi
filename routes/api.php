@@ -117,4 +117,19 @@ Route::prefix('forum')->group(function () {
     });
 });
 
+Route::prefix('forum_komen')->group(function () {
+    Route::get('/{forum}', [ForumKomenController::class, 'index']);
+    Route::get('/{forum}/{forumKomen}', [ForumKomenController::class, 'show']);
+    Route::middleware('auth:sanctum')->group(function () {
+        Route::post('/{forum}', [ForumKomenController::class, 'store']);
+        Route::patch('/{forum}/{forumKomen}', [
+            ForumKomenController::class,
+            'update',
+        ]);
+        Route::delete('/{forumKomen}', [
+            ForumKomenController::class,
+            'destroy',
+        ]);
+    });
+});
 

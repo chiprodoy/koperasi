@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Web\GaleriController;
 
 Route::prefix('/admin')->middleware(['auth'])->group(function(){
-    Route::get('dashboard', [App\Http\Controllers\DashboardController::class,'index'])->name('dashboard');
+    Route::get('/', [App\Http\Controllers\DashboardController::class,'index'])->name('dashboard');
     //Route::get('post', [App\Http\Controllers\PostController::class,'index'])->name('post.index');
     Route::resource('post',App\Http\Controllers\PostController::class);
     Route::resource('category',App\Http\Controllers\PostCategoryController::class);
