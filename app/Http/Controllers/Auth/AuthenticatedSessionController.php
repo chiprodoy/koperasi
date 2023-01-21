@@ -21,6 +21,8 @@ class AuthenticatedSessionController extends Controller
     }
 
     /**
+     * Authentication
+     *
      * Handle an incoming authentication request.
      *
      * @param  \App\Http\Requests\Auth\LoginRequest  $request
@@ -43,6 +45,8 @@ class AuthenticatedSessionController extends Controller
     }
 
     /**
+     * LOGOUT
+     *
      * Destroy an authenticated session.
      *
      * @param  \Illuminate\Http\Request  $request

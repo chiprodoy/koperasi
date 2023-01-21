@@ -10,6 +10,7 @@ use App\Http\Controllers\Auth\PasswordResetLinkController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\Auth\VerifyEmailController;
 use App\Http\Controllers\ForumController;
+use App\Http\Controllers\ForumKomenController;
 use App\Http\Controllers\HistoryKehamilanController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\PostCategoryController;
@@ -30,30 +31,21 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-    /**
-     * Register
-     *
-     * Register new user. If everything is okay, you'll get a 200 OK response.
-     *
-     * Otherwise, the request will fail with a 400 error, and a response listing the failed services.
-     *
-     */
-
     Route::post('register', [RegisteredUserController::class, 'store']);
 
     Route::post('login', [AuthenticatedSessionController::class, 'store']);
 
-    Route::post('forgot-password', [PasswordResetLinkController::class, 'store'])
-                ->name('password.email');
+    // Route::post('forgot-password', [PasswordResetLinkController::class, 'store'])
+    //             ->name('password.email');
 
     Route::post('reset-password', [NewPasswordController::class, 'store'])
                 ->name('password.update');
 
     Route::middleware('auth:sanctum')->post('/fcm_token/{fcmToken}', [UserController::class,'setFcmToken']);
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
+    Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+        return $request->user();
+    });
 
 Route::prefix('post')->group(function(){
 
@@ -96,7 +88,7 @@ Route::prefix('init')->group(function(){
 
 });
 
-Route::prefix('dikbang')->group(function(){
+/* Route::prefix('dikbang')->group(function(){
 
     // display kategori
     Route::get('/',[PostCategoryController::class,'index'])->middleware('auth:sanctum')->name('dikbang.index');
@@ -106,7 +98,7 @@ Route::prefix('dikbang')->group(function(){
     Route::get('/{category}/{slug}',[PostController::class,'showByKategori'])->name('dikbang.show');
 
 });
-
+ */
 Route::prefix('forum')->group(function () {
     Route::get('/', [ForumController::class, 'index']);
     Route::get('/{forum}', [ForumController::class, 'show']);

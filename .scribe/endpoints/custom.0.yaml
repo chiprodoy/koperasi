@@ -1,0 +1,337 @@
+# To include an endpoint that isn't a part of your Laravel app (or belongs to a vendor package),
+# you can define it in a custom.*.yaml file, like this one.
+# Each custom file should contain an array of endpoints. Here's an example:
+# See https://scribe.knuckles.wtf/laravel/documenting/custom-endpoints#extra-sorting-groups-in-custom-endpoint-files for more options
+
+#- httpMethods:
+#    - POST
+#  uri: api/doSomething/{param}
+#  metadata:
+#    groupName: The group the endpoint belongs to. Can be a new group or an existing group.
+#    groupDescription: A description for the group. You don't need to set this for every endpoint; once is enough.
+#    subgroup: You can add a subgroup, too.
+#    title: Do something
+#    description: 'This endpoint allows you to do something.'
+#    authenticated: false
+#  headers:
+#    Content-Type: application/json
+#    Accept: application/json
+#  urlParameters:
+#    param:
+#      name: param
+#      description: A URL param for no reason.
+#      required: true
+#      example: 2
+#      type: integer
+#  queryParameters:
+#    speed:
+#      name: speed
+#      description: How fast the thing should be done. Can be `slow` or `fast`.
+#      required: false
+#      example: fast
+#      type: string
+#  bodyParameters:
+#    something:
+#      name: something
+#      description: The things we should do.
+#      required: true
+#      example:
+#        - string 1
+#        - string 2
+#      type: 'string[]'
+#  responses:
+#    - status: 200
+#      description: 'When the thing was done smoothly.'
+#      content: # Your response content can be an object, an array, a string or empty.
+#         {
+#           "hey": "ho ho ho"
+#         }
+#  responseFields:
+#    hey:
+#      name: hey
+#      description: Who knows?
+#      type: string # This is optional
+- httpMethods:
+    - GET
+  uri: 'api/post/category/headline'
+  metadata:
+    groupName: Endpoints
+    groupDescription: ''
+    subgroup: ''
+    subgroupDescription: ''
+    title: 'Show all POST on headline'
+    description: |-
+      Check that the service is up. If everything is okay, you'll get a 200 OK response.
+
+        Otherwise, the request will fail with a 400 error, and a response listing the failed services.
+      authenticated: false
+    custom: []
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  responses:
+    -
+      status: 204
+      content: ''
+      headers:
+        cache-control: 'no-cache, private'
+        x-ratelimit-limit: '60'
+        x-ratelimit-remaining: '58'
+        access-control-allow-origin: '*'
+      description: null
+      custom: []
+  responseFields: []
+
+- httpMethods:
+    - GET
+  uri: 'api/post/category/diktuk'
+  metadata:
+    groupName: Diktuk
+    groupDescription: ''
+    subgroup: ''
+    subgroupDescription: ''
+    title: 'Show all POST on diktuk'
+    description: |-
+      Check that the service is up. If everything is okay, you'll get a 200 OK response.
+
+        Otherwise, the request will fail with a 400 error, and a response listing the failed services.
+      authenticated: false
+    custom: []
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  responses:
+    -
+      status: 204
+      content: ''
+      headers:
+        cache-control: 'no-cache, private'
+        x-ratelimit-limit: '60'
+        x-ratelimit-remaining: '58'
+        access-control-allow-origin: '*'
+      description: null
+      custom: []
+  responseFields: []
+
+
+- httpMethods:
+    - GET
+  uri: api/post/diktuk-akpol-pengumuman
+  metadata:
+    groupName: Diktuk
+    title: Pengumuman Akpol
+#    description: 'This endpoint allows you to do something.'
+    authenticated: false
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  responses:
+    - status: 200
+      description: 'When the thing was done smoothly.'
+
+- httpMethods:
+    - GET
+  uri: api/post/diktuk-akpol-persyaratan
+  metadata:
+    groupName: Diktuk
+    title: Persyaratan Akpol
+#    description: 'This endpoint allows you to do something.'
+    authenticated: false
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  responses:
+    - status: 200
+      description: 'When the thing was done smoothly.'
+- httpMethods:
+    - GET
+  uri: api/post/diktuk-akpol-timeline
+  metadata:
+    groupName: Diktuk
+    title: Timeline Akpol
+#    description: 'This endpoint allows you to do something.'
+    authenticated: false
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  responses:
+    - status: 200
+      description: 'When the thing was done smoothly.'
+
+- httpMethods:
+    - GET
+  uri: api/post/diktuk-bintara-pengumuman
+  metadata:
+    groupName: Diktuk
+    title: Pengumuman Bintara
+#    description: 'This endpoint allows you to do something.'
+    authenticated: false
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  responses:
+    - status: 200
+      description: 'When the thing was done smoothly.'
+
+- httpMethods:
+    - GET
+  uri: api/post/diktuk-bintara-persyaratan
+  metadata:
+    groupName: Diktuk
+    title: Persyaratan Bintara
+#    description: 'This endpoint allows you to do something.'
+    authenticated: false
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  responses:
+    - status: 200
+      description: 'When the thing was done smoothly.'
+- httpMethods:
+    - GET
+  uri: api/post/diktuk-bintara-timeline
+  metadata:
+    groupName: Diktuk
+    title: Timeline Bintara
+#    description: 'This endpoint allows you to do something.'
+    authenticated: false
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  responses:
+    - status: 200
+      description: 'When the thing was done smoothly.'
+
+
+- httpMethods:
+    - GET
+  uri: api/post/diktuk-sipss-pengumuman
+  metadata:
+    groupName: Diktuk
+    title: Pengumuman SIPSS
+#    description: 'This endpoint allows you to do something.'
+    authenticated: false
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  responses:
+    - status: 200
+      description: 'When the thing was done smoothly.'
+
+- httpMethods:
+    - GET
+  uri: api/post/diktuk-sipss-persyaratan
+  metadata:
+    groupName: Diktuk
+    title: Persyaratan SIPSS
+#    description: 'This endpoint allows you to do something.'
+    authenticated: false
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  responses:
+    - status: 200
+      description: 'When the thing was done smoothly.'
+- httpMethods:
+    - GET
+  uri: api/post/diktuk-sipss-timeline
+  metadata:
+    groupName: Diktuk
+    title: Timeline SIPSS
+#    description: 'This endpoint allows you to do something.'
+    authenticated: false
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  responses:
+    - status: 200
+      description: 'When the thing was done smoothly.'
+
+
+- httpMethods:
+    - GET
+  uri: api/post/diktuk-tamtama-pengumuman
+  metadata:
+    groupName: Diktuk
+    title: Pengumuman Ttamtama
+#    description: 'This endpoint allows you to do something.'
+    authenticated: false
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  responses:
+    - status: 200
+      description: 'When the thing was done smoothly.'
+
+- httpMethods:
+    - GET
+  uri: api/post/diktuk-tamtama-persyaratan
+  metadata:
+    groupName: Diktuk
+    title: Persyaratan Tamtama
+#    description: 'This endpoint allows you to do something.'
+    authenticated: false
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  responses:
+    - status: 200
+      description: 'When the thing was done smoothly.'
+- httpMethods:
+    - GET
+  uri: api/post/diktuk-tamtama-timeline
+  metadata:
+    groupName: Diktuk
+    title: Timeline Tamtama
+#    description: 'This endpoint allows you to do something.'
+    authenticated: false
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  responses:
+    - status: 200
+      description: 'When the thing was done smoothly.'
+
+- httpMethods:
+    - GET
+  uri: api/post/diktuk-cpnspolri-pengumuman
+  metadata:
+    groupName: Diktuk
+    title: Pengumuman cpnspolri
+#    description: 'This endpoint allows you to do something.'
+    authenticated: false
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  responses:
+    - status: 200
+      description: 'When the thing was done smoothly.'
+
+- httpMethods:
+    - GET
+  uri: api/post/diktuk-cpnspolri-persyaratan
+  metadata:
+    groupName: Diktuk
+    title: Persyaratan cpnspolri
+#    description: 'This endpoint allows you to do something.'
+    authenticated: false
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  responses:
+    - status: 200
+      description: 'When the thing was done smoothly.'
+- httpMethods:
+    - GET
+  uri: api/post/diktuk-cpnspolri-timeline
+  metadata:
+    groupName: Diktuk
+    title: Timeline cpnspolri
+#    description: 'This endpoint allows you to do something.'
+    authenticated: false
+  headers:
+    Content-Type: application/json
+    Accept: application/json
+  responses:
+    - status: 200
+      description: 'When the thing was done smoothly.'

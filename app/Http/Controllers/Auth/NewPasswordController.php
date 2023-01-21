@@ -24,8 +24,16 @@ class NewPasswordController extends Controller
     }
 
     /**
+     * Reset Password
+     *
      * Handle an incoming new password request.
      *
+     * @bodyParam name string required
+     * @bodyParam email email required
+     * @bodyParam nomor_telpon numeric required
+     * @bodyParam fcm_token number required token fcm
+     * @bodyParam user_roles array example [3,4]. 4 = pengguna, 3 = kontributor
+
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\RedirectResponse
      *

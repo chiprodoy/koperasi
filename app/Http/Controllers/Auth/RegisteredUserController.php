@@ -25,10 +25,15 @@ class RegisteredUserController extends Controller
     }
 
     /**
+     * Register new user
+     *
      * Handle an incoming registration request.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\RedirectResponse
+     * @bodyParam name string required
+     * @bodyParam email email required
+     * @bodyParam nomor_telpon numeric required
+     * @bodyParam fcm_token number required token fcm
+     * @bodyParam user_roles array example [3,4]. 4 = pengguna, 3 = kontributor
      *
      * @throws \Illuminate\Validation\ValidationException
      */
