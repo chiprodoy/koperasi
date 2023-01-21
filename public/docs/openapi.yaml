@@ -1,0 +1,3711 @@
+openapi: 3.0.3
+info:
+  title: PakKepo
+  description: ''
+  version: 1.0.0
+servers:
+  -
+    url: 'http://pak_kepo.test'
+paths:
+  /api/post/category/diktuk:
+    get:
+      summary: 'Show all POST on diktuk'
+      operationId: showAllPOSTOnDiktuk
+      description: "Check that the service is up. If everything is okay, you'll get a 200 OK response.\n\n  Otherwise, the request will fail with a 400 error, and a response listing the failed services.\nauthenticated: false"
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        204:
+          description: ''
+      tags:
+        - Diktuk
+      security: []
+  /api/post/diktuk-akpol-pengumuman:
+    get:
+      summary: 'Pengumuman Akpol'
+      operationId: pengumumanAkpol
+      description: null
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: 'When the thing was done smoothly.'
+          content:
+            application/json:
+              schema:
+                type: object
+                nullable: true
+      tags:
+        - Diktuk
+      security: []
+  /api/post/diktuk-akpol-persyaratan:
+    get:
+      summary: 'Persyaratan Akpol'
+      operationId: persyaratanAkpol
+      description: null
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: 'When the thing was done smoothly.'
+          content:
+            application/json:
+              schema:
+                type: object
+                nullable: true
+      tags:
+        - Diktuk
+      security: []
+  /api/post/diktuk-akpol-timeline:
+    get:
+      summary: 'Timeline Akpol'
+      operationId: timelineAkpol
+      description: null
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: 'When the thing was done smoothly.'
+          content:
+            application/json:
+              schema:
+                type: object
+                nullable: true
+      tags:
+        - Diktuk
+      security: []
+  /api/post/diktuk-bintara-pengumuman:
+    get:
+      summary: 'Pengumuman Bintara'
+      operationId: pengumumanBintara
+      description: null
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: 'When the thing was done smoothly.'
+          content:
+            application/json:
+              schema:
+                type: object
+                nullable: true
+      tags:
+        - Diktuk
+      security: []
+  /api/post/diktuk-bintara-persyaratan:
+    get:
+      summary: 'Persyaratan Bintara'
+      operationId: persyaratanBintara
+      description: null
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: 'When the thing was done smoothly.'
+          content:
+            application/json:
+              schema:
+                type: object
+                nullable: true
+      tags:
+        - Diktuk
+      security: []
+  /api/post/diktuk-bintara-timeline:
+    get:
+      summary: 'Timeline Bintara'
+      operationId: timelineBintara
+      description: null
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: 'When the thing was done smoothly.'
+          content:
+            application/json:
+              schema:
+                type: object
+                nullable: true
+      tags:
+        - Diktuk
+      security: []
+  /api/post/diktuk-sipss-pengumuman:
+    get:
+      summary: 'Pengumuman SIPSS'
+      operationId: pengumumanSIPSS
+      description: null
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: 'When the thing was done smoothly.'
+          content:
+            application/json:
+              schema:
+                type: object
+                nullable: true
+      tags:
+        - Diktuk
+      security: []
+  /api/post/diktuk-sipss-persyaratan:
+    get:
+      summary: 'Persyaratan SIPSS'
+      operationId: persyaratanSIPSS
+      description: null
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: 'When the thing was done smoothly.'
+          content:
+            application/json:
+              schema:
+                type: object
+                nullable: true
+      tags:
+        - Diktuk
+      security: []
+  /api/post/diktuk-sipss-timeline:
+    get:
+      summary: 'Timeline SIPSS'
+      operationId: timelineSIPSS
+      description: null
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: 'When the thing was done smoothly.'
+          content:
+            application/json:
+              schema:
+                type: object
+                nullable: true
+      tags:
+        - Diktuk
+      security: []
+  /api/post/diktuk-tamtama-pengumuman:
+    get:
+      summary: 'Pengumuman Ttamtama'
+      operationId: pengumumanTtamtama
+      description: null
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: 'When the thing was done smoothly.'
+          content:
+            application/json:
+              schema:
+                type: object
+                nullable: true
+      tags:
+        - Diktuk
+      security: []
+  /api/post/diktuk-tamtama-persyaratan:
+    get:
+      summary: 'Persyaratan Tamtama'
+      operationId: persyaratanTamtama
+      description: null
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: 'When the thing was done smoothly.'
+          content:
+            application/json:
+              schema:
+                type: object
+                nullable: true
+      tags:
+        - Diktuk
+      security: []
+  /api/post/diktuk-tamtama-timeline:
+    get:
+      summary: 'Timeline Tamtama'
+      operationId: timelineTamtama
+      description: null
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: 'When the thing was done smoothly.'
+          content:
+            application/json:
+              schema:
+                type: object
+                nullable: true
+      tags:
+        - Diktuk
+      security: []
+  /api/post/diktuk-cpnspolri-pengumuman:
+    get:
+      summary: 'Pengumuman cpnspolri'
+      operationId: pengumumanCpnspolri
+      description: null
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: 'When the thing was done smoothly.'
+          content:
+            application/json:
+              schema:
+                type: object
+                nullable: true
+      tags:
+        - Diktuk
+      security: []
+  /api/post/diktuk-cpnspolri-persyaratan:
+    get:
+      summary: 'Persyaratan cpnspolri'
+      operationId: persyaratanCpnspolri
+      description: null
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: 'When the thing was done smoothly.'
+          content:
+            application/json:
+              schema:
+                type: object
+                nullable: true
+      tags:
+        - Diktuk
+      security: []
+  /api/post/diktuk-cpnspolri-timeline:
+    get:
+      summary: 'Timeline cpnspolri'
+      operationId: timelineCpnspolri
+      description: null
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: 'When the thing was done smoothly.'
+          content:
+            application/json:
+              schema:
+                type: object
+                nullable: true
+      tags:
+        - Diktuk
+      security: []
+  /api/register:
+    post:
+      summary: 'Register new user'
+      operationId: registerNewUser
+      description: 'Handle an incoming registration request.'
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: ''
+                  example: enim
+                password:
+                  type: string
+                  description: ''
+                  example: nemo
+                email:
+                  type: email
+                  description: ''
+                  example: aletha46@example.org
+                nomor_telpon:
+                  type: numeric
+                  description: ''
+                  example: velit
+                fcm_token:
+                  type: number
+                  description: 'token fcm'
+                  example: 7653492.802
+                user_roles:
+                  type: array
+                  description: 'example [3,4]. 4 = pengguna, 3 = kontributor'
+                  example:
+                    - officia
+                  items:
+                    type: string
+              required:
+                - name
+                - password
+                - email
+                - nomor_telpon
+                - fcm_token
+      security: []
+  /api/login:
+    post:
+      summary: Authentication
+      operationId: authentication
+      description: 'Handle an incoming authentication request.'
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  description: 'Must be a valid email address.'
+                  example: mparker@example.net
+                password:
+                  type: string
+                  description: ''
+                  example: '1P?&$<nf3m'
+              required:
+                - email
+                - password
+      security: []
+  /api/reset-password:
+    post:
+      summary: 'Reset Password'
+      operationId: resetPassword
+      description: 'Handle an incoming new password request.'
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                token:
+                  type: string
+                  description: ''
+                  example: labore
+                email:
+                  type: email
+                  description: ''
+                  example: amari.heaney@example.net
+                password:
+                  type: string
+                  description: ''
+                  example: commodi
+                name:
+                  type: string
+                  description: ''
+                  example: dignissimos
+                nomor_telpon:
+                  type: numeric
+                  description: ''
+                  example: ratione
+                fcm_token:
+                  type: number
+                  description: 'token fcm'
+                  example: 14912.971494
+                user_roles:
+                  type: array
+                  description: 'example [3,4]. 4 = pengguna, 3 = kontributor'
+                  example:
+                    - est
+                  items:
+                    type: string
+              required:
+                - token
+                - email
+                - password
+                - name
+                - nomor_telpon
+                - fcm_token
+      security: []
+  '/api/fcm_token/{fcmToken}':
+    post:
+      summary: ''
+      operationId: postApiFcm_tokenFcmToken
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+      security: []
+    parameters:
+      -
+        in: path
+        name: fcmToken
+        description: ''
+        example: ab
+        required: true
+        schema:
+          type: string
+  /api/post:
+    get:
+      summary: 'Display a listing of the resource.'
+      operationId: displayAListingOfTheResource
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "<!DOCTYPE html>\n<html lang=\"en\">\n  <head>\n    <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\n    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <meta name=\"description\" content=\"viho admin is super flexible, powerful, clean &amp; modern responsive bootstrap 4 admin template with unlimited possibilities. laravel/framework: ^8.40\">\n    <meta name=\"keywords\" content=\"admin template, viho admin template, dashboard template, flat admin template, responsive admin template, web app\">\n    <meta name=\"author\" content=\"pixelstrap\">\n    <link rel=\"icon\" href=\"http://pak_kepo.test/assets/images/favicon.png\" type=\"image/x-icon\">\n    <link rel=\"shortcut icon\" href=\"http://pak_kepo.test/assets/images/favicon.png\" type=\"image/x-icon\">\n    <title></title>\n    <!-- Google font-->\n    <link rel=\"preconnect\" href=\"https://fonts.gstatic.com\">\n    <link href=\"https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap\" rel=\"stylesheet\">\n    <link href=\"https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&amp;display=swap\" rel=\"stylesheet\">\n    <link href=\"https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap\" rel=\"stylesheet\">\n    <!-- Font Awesome-->\n    <link rel=\"stylesheet\" type=\"text/css\" href=\"http://pak_kepo.test/theme/viho/assets/css/fontawesome.css\">\n    <!-- ico-font-->\n    <link rel=\"stylesheet\" type=\"text/css\" href=\"http://pak_kepo.test/theme/viho/assets/css/icofont.css\">\n    <!-- Themify icon-->\n    <link rel=\"stylesheet\" type=\"text/css\" href=\"http://pak_kepo.test/theme/viho/assets/css/themify.css\">\n    <!-- Flag icon-->\n    <link rel=\"stylesheet\" type=\"text/css\" href=\"http://pak_kepo.test/theme/viho/assets/css/flag-icon.css\">\n    <!-- Feather icon-->\n    <link rel=\"stylesheet\" type=\"text/css\" href=\"http://pak_kepo.test/theme/viho/assets/css/feather-icon.css\">\n    <!-- Plugins css start-->\n        <!-- Plugins css Ends-->\n    <!-- Bootstrap css-->\n    <link rel=\"stylesheet\" type=\"text/css\" href=\"http://pak_kepo.test/theme/viho/assets/css/bootstrap.css\">\n    <!-- App css-->\n    <link rel=\"stylesheet\" type=\"text/css\" href=\"http://pak_kepo.test/theme/viho/assets/css/style.css\">\n    <link id=\"color\" rel=\"stylesheet\" href=\"http://pak_kepo.test/theme/viho/assets/css/color-1.css\" media=\"screen\">\n    <!-- Responsive css-->\n    <link rel=\"stylesheet\" type=\"text/css\" href=\"http://pak_kepo.test/theme/viho/assets/css/responsive.css\">\n  </head>\n  <body>\n    <!-- Loader starts-->\n    <div class=\"loader-wrapper\">\n      <div class=\"theme-loader\"></div>\n    </div>\n    <!-- Loader ends-->\n    <!-- page-wrapper Start-->\n    <div class=\"page-wrapper compact-sidebar\" id=\"pageWrapper\">\n      <!-- Page Header Start-->\n      <div class=\"page-main-header\">\n        <div class=\"main-header-right row m-0\">\n          <div class=\"main-header-left\">\n            <div class=\"logo-wrapper\"><a href=\"http://pak_kepo.test\"><img class=\"img-fluid\" src=\"http://pak_kepo.test/assets/images/logo/logo.png\" alt=\"\">PakKepo</a></div>\n            <div class=\"dark-logo-wrapper\"><a href=\"http://pak_kepo.test\"><img class=\"img-fluid\" src=\"http://pak_kepo.test/assets/images/logo/dark-logo.png\" alt=\"\">PakKepo</a></div>\n            <div class=\"toggle-sidebar\"><i class=\"status_toggle middle\" data-feather=\"align-center\" id=\"sidebar-toggle\">    </i></div>\n          </div>\n          <div class=\"left-menu-header col\">\n            <ul>\n              <li>\n                \n              </li>\n            </ul>\n          </div>\n          <div class=\"nav-right col pull-right right-menu p-0\">\n            <ul class=\"nav-menus\">\n              <li class=\"onhover-dropdown p-0\">\n                <a class=\"btn btn-primary-light\" href=\"http://pak_kepo.test/logout\" type=\"button\"><i data-feather=\"log-out\"></i>Log out</a>\n              </li>\n            </ul>\n          </div>\n          <div class=\"d-lg-none mobile-toggle pull-right w-auto\"><i data-feather=\"more-horizontal\"></i></div>\n        </div>\n      </div>\n\n      <!-- Page Header Ends -->\n      <!-- Page Body Start-->\n      <div class=\"page-body-wrapper sidebar-icon\">\n        <!-- Page Sidebar Start-->\n        <header class=\"main-nav\">\n            <!-- Menu Start-->\n            <nav>\n    <div class=\"main-navbar\">\n        <div id=\"mainnav\">\n            <ul class=\"nav-menu custom-scrollbar\">\n                <li></li>\n    <li class=\"sidebar-main-title\">\n    <div>\n        <h6>General</h6>\n    </div>\n</li>\n\n                                                                                                                        <li>\n                <a class=\"nav-link menu-title \"\n                    href=\"http://localhost/pak_kepo/public/admin/browse/berita\">\n                    <i data-feather=\"box\"></i><span>Berita</span>\n                </a>\n            </li>\n                                <li>\n                <a class=\"nav-link menu-title \"\n                    href=\"http://localhost/pak_kepo/public/admin/browse/pakbhabinkepo\">\n                    <i data-feather=\"box\"></i><span>Pak Bhabin KEPO</span>\n                </a>\n            </li>\n                                <li>\n                <a class=\"nav-link menu-title \"\n                    href=\"http://localhost/pak_kepo/public/admin/user\">\n                    <i data-feather=\"box\"></i><span>Pengguna</span>\n                </a>\n            </li>\n                                <li>\n                <a class=\"nav-link menu-title \"\n                    href=\"http://localhost/pak_kepo/public/admin/comment\">\n                    <i data-feather=\"box\"></i><span>Komentar</span>\n                </a>\n            </li>\n                                <li>\n                <a class=\"nav-link menu-title \"\n                    href=\"http://localhost/pak_kepo/public/admin/galeri\">\n                    <i data-feather=\"box\"></i><span>Galeri</span>\n                </a>\n            </li>\n            </ul>\n        </div>\n    </div>\n</nav>\n\n            <!-- end menu -->\n            <!-- start user info -->\n            \n        </header>\n\n        <!-- Page Sidebar Ends-->\n        <div class=\"page-body\">\n          <!-- Container-fluid starts-->\n          \n<div class=\"d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom\">\n    <h2>Konten\n        \n    </h2>\n</div>\n<div class=\"card\">\n    <input type=\"hidden\" name=\"_token\" value=\"\">      <div class=\"table-responsive\">\n        <table class=\"table table-sm table-stripe\">\n            <thead class=\"\">\n                <tr>\n                    <th scope=\"col\">#</th>\n\n                                            <th scope=\"col\">Judul</th>\n                                            <th scope=\"col\">Isi</th>\n                                            <th scope=\"col\">Status</th>\n                                        <th scope=\"col\"></th>\n                </tr>\n            </thead>\n            <tbody>\n                                                                                                                                                                                                                                                                                                                                                                                                    </tbody>\n        </table>\n                    <nav class=\"d-flex justify-items-center justify-content-between\">\n        <div class=\"d-flex justify-content-between flex-fill d-sm-none\">\n            <ul class=\"pagination\">\n                \n                                    <li class=\"page-item disabled\" aria-disabled=\"true\">\n                        <span class=\"page-link\">&laquo; Previous</span>\n                    </li>\n                \n                \n                                    <li class=\"page-item\">\n                        <a class=\"page-link\" href=\"http://pak_kepo.test/api/post?page=2\" rel=\"next\">Next &raquo;</a>\n                    </li>\n                            </ul>\n        </div>\n\n        <div class=\"d-none flex-sm-fill d-sm-flex align-items-sm-center justify-content-sm-between\">\n            <div>\n                <p class=\"small text-muted\">\n                    Showing\n                    <span class=\"fw-semibold\">1</span>\n                    to\n                    <span class=\"fw-semibold\">10</span>\n                    of\n                    <span class=\"fw-semibold\">20</span>\n                    results\n                </p>\n            </div>\n\n            <div>\n                <ul class=\"pagination\">\n                    \n                                            <li class=\"page-item disabled\" aria-disabled=\"true\" aria-label=\"&laquo; Previous\">\n                            <span class=\"page-link\" aria-hidden=\"true\">&lsaquo;</span>\n                        </li>\n                    \n                    \n                                            \n                        \n                        \n                                                                                                                        <li class=\"page-item active\" aria-current=\"page\"><span class=\"page-link\">1</span></li>\n                                                                                                                                <li class=\"page-item\"><a class=\"page-link\" href=\"http://pak_kepo.test/api/post?page=2\">2</a></li>\n                                                                                                        \n                    \n                                            <li class=\"page-item\">\n                            <a class=\"page-link\" href=\"http://pak_kepo.test/api/post?page=2\" rel=\"next\" aria-label=\"Next &raquo;\">&rsaquo;</a>\n                        </li>\n                                    </ul>\n            </div>\n        </div>\n    </nav>\n\n            Menampilkan record 1 sampai 20\n\n            </div>\n</div>\n\n\n<script type=\"text/javascript\">\n    /*\n    DELETE\n    */\n    function destroy(action,id=''){\n        var isConfirm=confirm('anda yakin menghapus');\n        var csrfToken=$(\"input[name='_token']\").val();\n        if(isConfirm){\n\n            $.post(action, {'_method':'delete','_token':csrfToken},function( data ) {\n                                    document.location.href='http://pak_kepo.test/admin/post';\n                \n            },'json');\n        }\n    }\n\n</script>\n\n          <!-- Container-fluid Ends-->\n        </div>\n        <!-- footer start-->\n        <footer class=\"footer\">\n          <div class=\"container-fluid\">\n            <div class=\"row\">\n              <div class=\"col-md-6 footer-copyright\">\n                \n              </div>\n              <div class=\"col-md-6\">\n                \n              </div>\n            </div>\n          </div>\n        </footer>\n      </div>\n    </div>\n    <!-- latest jquery-->\n    <script src=\"http://pak_kepo.test/theme/viho/assets/js/jquery-3.5.1.min.js\"></script>\n    <!-- CKEDITOR -->\n\n    <script src=\"//cdn.ckeditor.com/4.20.1/standard/ckeditor.js\"></script>\n    <script type=\"text/javascript\">\n        $(document).ready(function () {\n            $('.ckeditor').ckeditor();\n        });\n    </script>\n    <!-- feather icon js-->\n    <script src=\"http://pak_kepo.test/theme/viho/assets/js/icons/feather-icon/feather.min.js\"></script>\n    <script src=\"http://pak_kepo.test/theme/viho/assets/js/icons/feather-icon/feather-icon.js\"></script>\n    <!-- Sidebar jquery-->\n    <script src=\"http://pak_kepo.test/theme/viho/assets/js/sidebar-menu.js\"></script>\n    <script src=\"http://pak_kepo.test/theme/viho/assets/js/config.js\"></script>\n    <!-- Bootstrap js-->\n    <script src=\"http://pak_kepo.test/theme/viho/assets/js/bootstrap/popper.min.js\"></script>\n    <script src=\"http://pak_kepo.test/theme/viho/assets/js/bootstrap/bootstrap.min.js\"></script>\n    <!-- Plugins JS start-->\n        <!-- Plugins JS Ends-->\n    <!-- Theme js-->\n    <script src=\"http://pak_kepo.test/theme/viho/assets/js/script.js\"></script>\n    <!-- Plugin used-->\n  </body>\n</html>\n"
+      tags:
+        - Endpoints
+      security: []
+  '/api/post/category/{slug}':
+    get:
+      summary: 'Show all POST by kategori'
+      operationId: showAllPOSTByKategori
+      description: "Check that the service is up. If everything is okay, you'll get a 200 OK response.\n\nOtherwise, the request will fail with a 400 error, and a response listing the failed services."
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        204:
+          description: ''
+      tags:
+        - Endpoints
+      security: []
+    parameters:
+      -
+        in: path
+        name: slug
+        description: 'The slug of the category.'
+        example: dolor
+        required: true
+        schema:
+          type: string
+  '/api/post/{slug}':
+    get:
+      summary: 'Show a POST by slug'
+      operationId: showAPOSTBySlug
+      description: "Check that the service is up. If everything is okay, you'll get a 200 OK response.\n\nOtherwise, the request will fail with a 400 error, and a response listing the failed services."
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        204:
+          description: ''
+      tags:
+        - Endpoints
+      security: []
+    parameters:
+      -
+        in: path
+        name: slug
+        description: 'The slug of the post.'
+        example: 1
+        required: true
+        schema:
+          type: integer
+  /api/page:
+    get:
+      summary: 'Display a listing of the resource.'
+      operationId: displayAListingOfTheResource
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Endpoints
+      security: []
+  '/api/page/{slug}':
+    get:
+      summary: 'Show a POST by slug'
+      operationId: showAPOSTBySlug
+      description: "Check that the service is up. If everything is okay, you'll get a 200 OK response.\n\nOtherwise, the request will fail with a 400 error, and a response listing the failed services."
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        204:
+          description: ''
+      tags:
+        - Endpoints
+      security: []
+    parameters:
+      -
+        in: path
+        name: slug
+        description: 'The slug of the page.'
+        example: aut
+        required: true
+        schema:
+          type: string
+  /api/media:
+    get:
+      summary: 'Display a listing of the resource.'
+      operationId: displayAListingOfTheResource
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Endpoints
+      security: []
+  '/api/media/category/{slug}':
+    get:
+      summary: 'Show all POST by kategori'
+      operationId: showAllPOSTByKategori
+      description: "Check that the service is up. If everything is okay, you'll get a 200 OK response.\n\nOtherwise, the request will fail with a 400 error, and a response listing the failed services."
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        204:
+          description: ''
+      tags:
+        - Endpoints
+      security: []
+    parameters:
+      -
+        in: path
+        name: slug
+        description: 'The slug of the category.'
+        example: id
+        required: true
+        schema:
+          type: string
+  '/api/media/{slug}':
+    get:
+      summary: 'Show a POST by slug'
+      operationId: showAPOSTBySlug
+      description: "Check that the service is up. If everything is okay, you'll get a 200 OK response.\n\nOtherwise, the request will fail with a 400 error, and a response listing the failed services."
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        204:
+          description: ''
+      tags:
+        - Endpoints
+      security: []
+    parameters:
+      -
+        in: path
+        name: slug
+        description: 'The slug of the medium.'
+        example: neque
+        required: true
+        schema:
+          type: string
+  /api/post_category:
+    get:
+      summary: 'Display a listing of the resource.'
+      operationId: displayAListingOfTheResource
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "<!DOCTYPE html>\n<html lang=\"en\">\n  <head>\n    <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\n    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <meta name=\"description\" content=\"viho admin is super flexible, powerful, clean &amp; modern responsive bootstrap 4 admin template with unlimited possibilities. laravel/framework: ^8.40\">\n    <meta name=\"keywords\" content=\"admin template, viho admin template, dashboard template, flat admin template, responsive admin template, web app\">\n    <meta name=\"author\" content=\"pixelstrap\">\n    <link rel=\"icon\" href=\"http://pak_kepo.test/assets/images/favicon.png\" type=\"image/x-icon\">\n    <link rel=\"shortcut icon\" href=\"http://pak_kepo.test/assets/images/favicon.png\" type=\"image/x-icon\">\n    <title></title>\n    <!-- Google font-->\n    <link rel=\"preconnect\" href=\"https://fonts.gstatic.com\">\n    <link href=\"https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap\" rel=\"stylesheet\">\n    <link href=\"https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&amp;display=swap\" rel=\"stylesheet\">\n    <link href=\"https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap\" rel=\"stylesheet\">\n    <!-- Font Awesome-->\n    <link rel=\"stylesheet\" type=\"text/css\" href=\"http://pak_kepo.test/theme/viho/assets/css/fontawesome.css\">\n    <!-- ico-font-->\n    <link rel=\"stylesheet\" type=\"text/css\" href=\"http://pak_kepo.test/theme/viho/assets/css/icofont.css\">\n    <!-- Themify icon-->\n    <link rel=\"stylesheet\" type=\"text/css\" href=\"http://pak_kepo.test/theme/viho/assets/css/themify.css\">\n    <!-- Flag icon-->\n    <link rel=\"stylesheet\" type=\"text/css\" href=\"http://pak_kepo.test/theme/viho/assets/css/flag-icon.css\">\n    <!-- Feather icon-->\n    <link rel=\"stylesheet\" type=\"text/css\" href=\"http://pak_kepo.test/theme/viho/assets/css/feather-icon.css\">\n    <!-- Plugins css start-->\n        <!-- Plugins css Ends-->\n    <!-- Bootstrap css-->\n    <link rel=\"stylesheet\" type=\"text/css\" href=\"http://pak_kepo.test/theme/viho/assets/css/bootstrap.css\">\n    <!-- App css-->\n    <link rel=\"stylesheet\" type=\"text/css\" href=\"http://pak_kepo.test/theme/viho/assets/css/style.css\">\n    <link id=\"color\" rel=\"stylesheet\" href=\"http://pak_kepo.test/theme/viho/assets/css/color-1.css\" media=\"screen\">\n    <!-- Responsive css-->\n    <link rel=\"stylesheet\" type=\"text/css\" href=\"http://pak_kepo.test/theme/viho/assets/css/responsive.css\">\n  </head>\n  <body>\n    <!-- Loader starts-->\n    <div class=\"loader-wrapper\">\n      <div class=\"theme-loader\"></div>\n    </div>\n    <!-- Loader ends-->\n    <!-- page-wrapper Start-->\n    <div class=\"page-wrapper compact-sidebar\" id=\"pageWrapper\">\n      <!-- Page Header Start-->\n      <div class=\"page-main-header\">\n        <div class=\"main-header-right row m-0\">\n          <div class=\"main-header-left\">\n            <div class=\"logo-wrapper\"><a href=\"http://pak_kepo.test\"><img class=\"img-fluid\" src=\"http://pak_kepo.test/assets/images/logo/logo.png\" alt=\"\">PakKepo</a></div>\n            <div class=\"dark-logo-wrapper\"><a href=\"http://pak_kepo.test\"><img class=\"img-fluid\" src=\"http://pak_kepo.test/assets/images/logo/dark-logo.png\" alt=\"\">PakKepo</a></div>\n            <div class=\"toggle-sidebar\"><i class=\"status_toggle middle\" data-feather=\"align-center\" id=\"sidebar-toggle\">    </i></div>\n          </div>\n          <div class=\"left-menu-header col\">\n            <ul>\n              <li>\n                \n              </li>\n            </ul>\n          </div>\n          <div class=\"nav-right col pull-right right-menu p-0\">\n            <ul class=\"nav-menus\">\n              <li class=\"onhover-dropdown p-0\">\n                <a class=\"btn btn-primary-light\" href=\"http://pak_kepo.test/logout\" type=\"button\"><i data-feather=\"log-out\"></i>Log out</a>\n              </li>\n            </ul>\n          </div>\n          <div class=\"d-lg-none mobile-toggle pull-right w-auto\"><i data-feather=\"more-horizontal\"></i></div>\n        </div>\n      </div>\n\n      <!-- Page Header Ends -->\n      <!-- Page Body Start-->\n      <div class=\"page-body-wrapper sidebar-icon\">\n        <!-- Page Sidebar Start-->\n        <header class=\"main-nav\">\n            <!-- Menu Start-->\n            <nav>\n    <div class=\"main-navbar\">\n        <div id=\"mainnav\">\n            <ul class=\"nav-menu custom-scrollbar\">\n                <li></li>\n    <li class=\"sidebar-main-title\">\n    <div>\n        <h6>General</h6>\n    </div>\n</li>\n\n                                                                                                                        <li>\n                <a class=\"nav-link menu-title \"\n                    href=\"http://localhost/pak_kepo/public/admin/browse/berita\">\n                    <i data-feather=\"box\"></i><span>Berita</span>\n                </a>\n            </li>\n                                <li>\n                <a class=\"nav-link menu-title \"\n                    href=\"http://localhost/pak_kepo/public/admin/browse/pakbhabinkepo\">\n                    <i data-feather=\"box\"></i><span>Pak Bhabin KEPO</span>\n                </a>\n            </li>\n                                <li>\n                <a class=\"nav-link menu-title \"\n                    href=\"http://localhost/pak_kepo/public/admin/user\">\n                    <i data-feather=\"box\"></i><span>Pengguna</span>\n                </a>\n            </li>\n                                <li>\n                <a class=\"nav-link menu-title \"\n                    href=\"http://localhost/pak_kepo/public/admin/comment\">\n                    <i data-feather=\"box\"></i><span>Komentar</span>\n                </a>\n            </li>\n                                <li>\n                <a class=\"nav-link menu-title \"\n                    href=\"http://localhost/pak_kepo/public/admin/galeri\">\n                    <i data-feather=\"box\"></i><span>Galeri</span>\n                </a>\n            </li>\n            </ul>\n        </div>\n    </div>\n</nav>\n\n            <!-- end menu -->\n            <!-- start user info -->\n            \n        </header>\n\n        <!-- Page Sidebar Ends-->\n        <div class=\"page-body\">\n          <!-- Container-fluid starts-->\n          \n<div class=\"d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom\">\n    <h2>Kategori\n        \n    </h2>\n</div>\n<div class=\"card\">\n    <input type=\"hidden\" name=\"_token\" value=\"\">      <div class=\"table-responsive\">\n        <table class=\"table table-sm table-stripe\">\n            <thead class=\"\">\n                <tr>\n                    <th scope=\"col\">#</th>\n\n                                            <th scope=\"col\">Nama Kategori</th>\n                                            <th scope=\"col\">Deskripsi</th>\n                                        <th scope=\"col\"></th>\n                </tr>\n            </thead>\n            <tbody>\n                                                                                                                                                                                                                                                                                                                                                                                                    </tbody>\n        </table>\n                    <nav class=\"d-flex justify-items-center justify-content-between\">\n        <div class=\"d-flex justify-content-between flex-fill d-sm-none\">\n            <ul class=\"pagination\">\n                \n                                    <li class=\"page-item disabled\" aria-disabled=\"true\">\n                        <span class=\"page-link\">&laquo; Previous</span>\n                    </li>\n                \n                \n                                    <li class=\"page-item\">\n                        <a class=\"page-link\" href=\"http://pak_kepo.test/api/post_category?page=2\" rel=\"next\">Next &raquo;</a>\n                    </li>\n                            </ul>\n        </div>\n\n        <div class=\"d-none flex-sm-fill d-sm-flex align-items-sm-center justify-content-sm-between\">\n            <div>\n                <p class=\"small text-muted\">\n                    Showing\n                    <span class=\"fw-semibold\">1</span>\n                    to\n                    <span class=\"fw-semibold\">10</span>\n                    of\n                    <span class=\"fw-semibold\">22</span>\n                    results\n                </p>\n            </div>\n\n            <div>\n                <ul class=\"pagination\">\n                    \n                                            <li class=\"page-item disabled\" aria-disabled=\"true\" aria-label=\"&laquo; Previous\">\n                            <span class=\"page-link\" aria-hidden=\"true\">&lsaquo;</span>\n                        </li>\n                    \n                    \n                                            \n                        \n                        \n                                                                                                                        <li class=\"page-item active\" aria-current=\"page\"><span class=\"page-link\">1</span></li>\n                                                                                                                                <li class=\"page-item\"><a class=\"page-link\" href=\"http://pak_kepo.test/api/post_category?page=2\">2</a></li>\n                                                                                                                                <li class=\"page-item\"><a class=\"page-link\" href=\"http://pak_kepo.test/api/post_category?page=3\">3</a></li>\n                                                                                                        \n                    \n                                            <li class=\"page-item\">\n                            <a class=\"page-link\" href=\"http://pak_kepo.test/api/post_category?page=2\" rel=\"next\" aria-label=\"Next &raquo;\">&rsaquo;</a>\n                        </li>\n                                    </ul>\n            </div>\n        </div>\n    </nav>\n\n            Menampilkan record 1 sampai 22\n\n            </div>\n</div>\n\n\n<script type=\"text/javascript\">\n    /*\n    DELETE\n    */\n    function destroy(action,id=''){\n        var isConfirm=confirm('anda yakin menghapus');\n        var csrfToken=$(\"input[name='_token']\").val();\n        if(isConfirm){\n\n            $.post(action, {'_method':'delete','_token':csrfToken},function( data ) {\n                                    document.location.href='http://pak_kepo.test/admin/category';\n                \n            },'json');\n        }\n    }\n\n</script>\n\n          <!-- Container-fluid Ends-->\n        </div>\n        <!-- footer start-->\n        <footer class=\"footer\">\n          <div class=\"container-fluid\">\n            <div class=\"row\">\n              <div class=\"col-md-6 footer-copyright\">\n                \n              </div>\n              <div class=\"col-md-6\">\n                \n              </div>\n            </div>\n          </div>\n        </footer>\n      </div>\n    </div>\n    <!-- latest jquery-->\n    <script src=\"http://pak_kepo.test/theme/viho/assets/js/jquery-3.5.1.min.js\"></script>\n    <!-- CKEDITOR -->\n\n    <script src=\"//cdn.ckeditor.com/4.20.1/standard/ckeditor.js\"></script>\n    <script type=\"text/javascript\">\n        $(document).ready(function () {\n            $('.ckeditor').ckeditor();\n        });\n    </script>\n    <!-- feather icon js-->\n    <script src=\"http://pak_kepo.test/theme/viho/assets/js/icons/feather-icon/feather.min.js\"></script>\n    <script src=\"http://pak_kepo.test/theme/viho/assets/js/icons/feather-icon/feather-icon.js\"></script>\n    <!-- Sidebar jquery-->\n    <script src=\"http://pak_kepo.test/theme/viho/assets/js/sidebar-menu.js\"></script>\n    <script src=\"http://pak_kepo.test/theme/viho/assets/js/config.js\"></script>\n    <!-- Bootstrap js-->\n    <script src=\"http://pak_kepo.test/theme/viho/assets/js/bootstrap/popper.min.js\"></script>\n    <script src=\"http://pak_kepo.test/theme/viho/assets/js/bootstrap/bootstrap.min.js\"></script>\n    <!-- Plugins JS start-->\n        <!-- Plugins JS Ends-->\n    <!-- Theme js-->\n    <script src=\"http://pak_kepo.test/theme/viho/assets/js/script.js\"></script>\n    <!-- Plugin used-->\n  </body>\n</html>\n"
+      tags:
+        - Endpoints
+      security: []
+  /api/forum:
+    get:
+      summary: ''
+      operationId: getApiForum
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data: []
+                  links:
+                    first: 'http://pak_kepo.test/api/forum?page=1'
+                    last: 'http://pak_kepo.test/api/forum?page=1'
+                    prev: null
+                    next: null
+                  meta:
+                    current_page: 1
+                    from: null
+                    last_page: 1
+                    links:
+                      -
+                        url: null
+                        label: '&laquo; Previous'
+                        active: false
+                      -
+                        url: 'http://pak_kepo.test/api/forum?page=1'
+                        label: '1'
+                        active: true
+                      -
+                        url: null
+                        label: 'Next &raquo;'
+                        active: false
+                    path: 'http://pak_kepo.test/api/forum'
+                    per_page: 10
+                    to: null
+                    total: 0
+                properties:
+                  data:
+                    type: array
+                    example: []
+                  links:
+                    type: object
+                    properties:
+                      first:
+                        type: string
+                        example: 'http://pak_kepo.test/api/forum?page=1'
+                      last:
+                        type: string
+                        example: 'http://pak_kepo.test/api/forum?page=1'
+                      prev:
+                        type: string
+                        example: null
+                      next:
+                        type: string
+                        example: null
+                  meta:
+                    type: object
+                    properties:
+                      current_page:
+                        type: integer
+                        example: 1
+                      from:
+                        type: string
+                        example: null
+                      last_page:
+                        type: integer
+                        example: 1
+                      links:
+                        type: array
+                        example:
+                          -
+                            url: null
+                            label: '&laquo; Previous'
+                            active: false
+                          -
+                            url: 'http://pak_kepo.test/api/forum?page=1'
+                            label: '1'
+                            active: true
+                          -
+                            url: null
+                            label: 'Next &raquo;'
+                            active: false
+                        items:
+                          type: object
+                          properties:
+                            url:
+                              type: string
+                              example: null
+                            label:
+                              type: string
+                              example: '&laquo; Previous'
+                            active:
+                              type: boolean
+                              example: false
+                      path:
+                        type: string
+                        example: 'http://pak_kepo.test/api/forum'
+                      per_page:
+                        type: integer
+                        example: 10
+                      to:
+                        type: string
+                        example: null
+                      total:
+                        type: integer
+                        example: 0
+      tags:
+        - Endpoints
+      security: []
+    post:
+      summary: ''
+      operationId: postApiForum
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                konten_forum:
+                  type: string
+                  description: ''
+                  example: dolorem
+              required:
+                - konten_forum
+      security: []
+  '/api/forum/{forum_id}':
+    get:
+      summary: ''
+      operationId: getApiForumForum_id
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        404:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'No query results for model [App\Models\Forum] 15'
+                  exception: Symfony\Component\HttpKernel\Exception\NotFoundHttpException
+                  file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Foundation\Exceptions\Handler.php'
+                  line: 380
+                  trace:
+                    -
+                      file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Foundation\Exceptions\Handler.php'
+                      line: 356
+                      function: prepareException
+                      class: Illuminate\Foundation\Exceptions\Handler
+                      type: '->'
+                    -
+                      file: 'D:\~projects\htdocs\pak_kepo\vendor\nunomaduro\collision\src\Adapters\Laravel\ExceptionHandler.php'
+                      line: 54
+                      function: render
+                      class: Illuminate\Foundation\Exceptions\Handler
+                      type: '->'
+                    -
+                      file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Routing\Pipeline.php'
+                      line: 51
+                      function: render
+                      class: NunoMaduro\Collision\Adapters\Laravel\ExceptionHandler
+                      type: '->'
+                    -
+                      file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                      line: 185
+                      function: handleException
+                      class: Illuminate\Routing\Pipeline
+                      type: '->'
+                    -
+                      file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Routing\Middleware\ThrottleRequests.php'
+                      line: 126
+                      function: 'Illuminate\Pipeline\{closure}'
+                      class: Illuminate\Pipeline\Pipeline
+                      type: '->'
+                    -
+                      file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Routing\Middleware\ThrottleRequests.php'
+                      line: 102
+                      function: handleRequest
+                      class: Illuminate\Routing\Middleware\ThrottleRequests
+                      type: '->'
+                    -
+                      file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Routing\Middleware\ThrottleRequests.php'
+                      line: 54
+                      function: handleRequestUsingNamedLimiter
+                      class: Illuminate\Routing\Middleware\ThrottleRequests
+                      type: '->'
+                    -
+                      file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                      line: 180
+                      function: handle
+                      class: Illuminate\Routing\Middleware\ThrottleRequests
+                      type: '->'
+                    -
+                      file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                      line: 116
+                      function: 'Illuminate\Pipeline\{closure}'
+                      class: Illuminate\Pipeline\Pipeline
+                      type: '->'
+                    -
+                      file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Routing\Router.php'
+                      line: 726
+                      function: then
+                      class: Illuminate\Pipeline\Pipeline
+                      type: '->'
+                    -
+                      file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Routing\Router.php'
+                      line: 703
+                      function: runRouteWithinStack
+                      class: Illuminate\Routing\Router
+                      type: '->'
+                    -
+                      file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Routing\Router.php'
+                      line: 667
+                      function: runRoute
+                      class: Illuminate\Routing\Router
+                      type: '->'
+                    -
+                      file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Routing\Router.php'
+                      line: 656
+                      function: dispatchToRoute
+                      class: Illuminate\Routing\Router
+                      type: '->'
+                    -
+                      file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php'
+                      line: 167
+                      function: dispatch
+                      class: Illuminate\Routing\Router
+                      type: '->'
+                    -
+                      file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                      line: 141
+                      function: 'Illuminate\Foundation\Http\{closure}'
+                      class: Illuminate\Foundation\Http\Kernel
+                      type: '->'
+                    -
+                      file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\TransformsRequest.php'
+                      line: 21
+                      function: 'Illuminate\Pipeline\{closure}'
+                      class: Illuminate\Pipeline\Pipeline
+                      type: '->'
+                    -
+                      file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull.php'
+                      line: 31
+                      function: handle
+                      class: Illuminate\Foundation\Http\Middleware\TransformsRequest
+                      type: '->'
+                    -
+                      file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                      line: 180
+                      function: handle
+                      class: Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull
+                      type: '->'
+                    -
+                      file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\TransformsRequest.php'
+                      line: 21
+                      function: 'Illuminate\Pipeline\{closure}'
+                      class: Illuminate\Pipeline\Pipeline
+                      type: '->'
+                    -
+                      file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\TrimStrings.php'
+                      line: 40
+                      function: handle
+                      class: Illuminate\Foundation\Http\Middleware\TransformsRequest
+                      type: '->'
+                    -
+                      file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                      line: 180
+                      function: handle
+                      class: Illuminate\Foundation\Http\Middleware\TrimStrings
+                      type: '->'
+                    -
+                      file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\ValidatePostSize.php'
+                      line: 27
+                      function: 'Illuminate\Pipeline\{closure}'
+                      class: Illuminate\Pipeline\Pipeline
+                      type: '->'
+                    -
+                      file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                      line: 180
+                      function: handle
+                      class: Illuminate\Foundation\Http\Middleware\ValidatePostSize
+                      type: '->'
+                    -
+                      file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\PreventRequestsDuringMaintenance.php'
+                      line: 86
+                      function: 'Illuminate\Pipeline\{closure}'
+                      class: Illuminate\Pipeline\Pipeline
+                      type: '->'
+                    -
+                      file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                      line: 180
+                      function: handle
+                      class: Illuminate\Foundation\Http\Middleware\PreventRequestsDuringMaintenance
+                      type: '->'
+                    -
+                      file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Http\Middleware\HandleCors.php'
+                      line: 62
+                      function: 'Illuminate\Pipeline\{closure}'
+                      class: Illuminate\Pipeline\Pipeline
+                      type: '->'
+                    -
+                      file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                      line: 180
+                      function: handle
+                      class: Illuminate\Http\Middleware\HandleCors
+                      type: '->'
+                    -
+                      file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Http\Middleware\TrustProxies.php'
+                      line: 39
+                      function: 'Illuminate\Pipeline\{closure}'
+                      class: Illuminate\Pipeline\Pipeline
+                      type: '->'
+                    -
+                      file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                      line: 180
+                      function: handle
+                      class: Illuminate\Http\Middleware\TrustProxies
+                      type: '->'
+                    -
+                      file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                      line: 116
+                      function: 'Illuminate\Pipeline\{closure}'
+                      class: Illuminate\Pipeline\Pipeline
+                      type: '->'
+                    -
+                      file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php'
+                      line: 142
+                      function: then
+                      class: Illuminate\Pipeline\Pipeline
+                      type: '->'
+                    -
+                      file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php'
+                      line: 111
+                      function: sendRequestThroughRouter
+                      class: Illuminate\Foundation\Http\Kernel
+                      type: '->'
+                    -
+                      file: 'D:\~projects\htdocs\pak_kepo\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php'
+                      line: 299
+                      function: handle
+                      class: Illuminate\Foundation\Http\Kernel
+                      type: '->'
+                    -
+                      file: 'D:\~projects\htdocs\pak_kepo\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php'
+                      line: 287
+                      function: callLaravelOrLumenRoute
+                      class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
+                      type: '->'
+                    -
+                      file: 'D:\~projects\htdocs\pak_kepo\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php'
+                      line: 92
+                      function: makeApiCall
+                      class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
+                      type: '->'
+                    -
+                      file: 'D:\~projects\htdocs\pak_kepo\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php'
+                      line: 45
+                      function: makeResponseCall
+                      class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
+                      type: '->'
+                    -
+                      file: 'D:\~projects\htdocs\pak_kepo\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php'
+                      line: 35
+                      function: makeResponseCallIfConditionsPass
+                      class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
+                      type: '->'
+                    -
+                      file: 'D:\~projects\htdocs\pak_kepo\vendor\knuckleswtf\scribe\src\Extracting\Extractor.php'
+                      line: 209
+                      function: __invoke
+                      class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
+                      type: '->'
+                    -
+                      file: 'D:\~projects\htdocs\pak_kepo\vendor\knuckleswtf\scribe\src\Extracting\Extractor.php'
+                      line: 166
+                      function: iterateThroughStrategies
+                      class: Knuckles\Scribe\Extracting\Extractor
+                      type: '->'
+                    -
+                      file: 'D:\~projects\htdocs\pak_kepo\vendor\knuckleswtf\scribe\src\Extracting\Extractor.php'
+                      line: 95
+                      function: fetchResponses
+                      class: Knuckles\Scribe\Extracting\Extractor
+                      type: '->'
+                    -
+                      file: 'D:\~projects\htdocs\pak_kepo\vendor\knuckleswtf\scribe\src\GroupedEndpoints\GroupedEndpointsFromApp.php'
+                      line: 122
+                      function: processRoute
+                      class: Knuckles\Scribe\Extracting\Extractor
+                      type: '->'
+                    -
+                      file: 'D:\~projects\htdocs\pak_kepo\vendor\knuckleswtf\scribe\src\GroupedEndpoints\GroupedEndpointsFromApp.php'
+                      line: 69
+                      function: extractEndpointsInfoFromLaravelApp
+                      class: Knuckles\Scribe\GroupedEndpoints\GroupedEndpointsFromApp
+                      type: '->'
+                    -
+                      file: 'D:\~projects\htdocs\pak_kepo\vendor\knuckleswtf\scribe\src\GroupedEndpoints\GroupedEndpointsFromApp.php'
+                      line: 47
+                      function: extractEndpointsInfoAndWriteToDisk
+                      class: Knuckles\Scribe\GroupedEndpoints\GroupedEndpointsFromApp
+                      type: '->'
+                    -
+                      file: 'D:\~projects\htdocs\pak_kepo\vendor\knuckleswtf\scribe\src\Commands\GenerateDocumentation.php'
+                      line: 51
+                      function: get
+                      class: Knuckles\Scribe\GroupedEndpoints\GroupedEndpointsFromApp
+                      type: '->'
+                    -
+                      file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php'
+                      line: 36
+                      function: handle
+                      class: Knuckles\Scribe\Commands\GenerateDocumentation
+                      type: '->'
+                    -
+                      file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Container\Util.php'
+                      line: 41
+                      function: 'Illuminate\Container\{closure}'
+                      class: Illuminate\Container\BoundMethod
+                      type: '::'
+                    -
+                      file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php'
+                      line: 93
+                      function: unwrapIfClosure
+                      class: Illuminate\Container\Util
+                      type: '::'
+                    -
+                      file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php'
+                      line: 37
+                      function: callBoundMethod
+                      class: Illuminate\Container\BoundMethod
+                      type: '::'
+                    -
+                      file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Container\Container.php'
+                      line: 651
+                      function: call
+                      class: Illuminate\Container\BoundMethod
+                      type: '::'
+                    -
+                      file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Console\Command.php'
+                      line: 144
+                      function: call
+                      class: Illuminate\Container\Container
+                      type: '->'
+                    -
+                      file: 'D:\~projects\htdocs\pak_kepo\vendor\symfony\console\Command\Command.php'
+                      line: 308
+                      function: execute
+                      class: Illuminate\Console\Command
+                      type: '->'
+                    -
+                      file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Console\Command.php'
+                      line: 126
+                      function: run
+                      class: Symfony\Component\Console\Command\Command
+                      type: '->'
+                    -
+                      file: 'D:\~projects\htdocs\pak_kepo\vendor\symfony\console\Application.php'
+                      line: 1002
+                      function: run
+                      class: Illuminate\Console\Command
+                      type: '->'
+                    -
+                      file: 'D:\~projects\htdocs\pak_kepo\vendor\symfony\console\Application.php'
+                      line: 299
+                      function: doRunCommand
+                      class: Symfony\Component\Console\Application
+                      type: '->'
+                    -
+                      file: 'D:\~projects\htdocs\pak_kepo\vendor\symfony\console\Application.php'
+                      line: 171
+                      function: doRun
+                      class: Symfony\Component\Console\Application
+                      type: '->'
+                    -
+                      file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Console\Application.php'
+                      line: 102
+                      function: run
+                      class: Symfony\Component\Console\Application
+                      type: '->'
+                    -
+                      file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Foundation\Console\Kernel.php'
+                      line: 129
+                      function: run
+                      class: Illuminate\Console\Application
+                      type: '->'
+                    -
+                      file: 'D:\~projects\htdocs\pak_kepo\artisan'
+                      line: 37
+                      function: handle
+                      class: Illuminate\Foundation\Console\Kernel
+                      type: '->'
+                properties:
+                  message:
+                    type: string
+                    example: 'No query results for model [App\Models\Forum] 15'
+                  exception:
+                    type: string
+                    example: Symfony\Component\HttpKernel\Exception\NotFoundHttpException
+                  file:
+                    type: string
+                    example: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Foundation\Exceptions\Handler.php'
+                  line:
+                    type: integer
+                    example: 380
+                  trace:
+                    type: array
+                    example:
+                      -
+                        file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Foundation\Exceptions\Handler.php'
+                        line: 356
+                        function: prepareException
+                        class: Illuminate\Foundation\Exceptions\Handler
+                        type: '->'
+                      -
+                        file: 'D:\~projects\htdocs\pak_kepo\vendor\nunomaduro\collision\src\Adapters\Laravel\ExceptionHandler.php'
+                        line: 54
+                        function: render
+                        class: Illuminate\Foundation\Exceptions\Handler
+                        type: '->'
+                      -
+                        file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Routing\Pipeline.php'
+                        line: 51
+                        function: render
+                        class: NunoMaduro\Collision\Adapters\Laravel\ExceptionHandler
+                        type: '->'
+                      -
+                        file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                        line: 185
+                        function: handleException
+                        class: Illuminate\Routing\Pipeline
+                        type: '->'
+                      -
+                        file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Routing\Middleware\ThrottleRequests.php'
+                        line: 126
+                        function: 'Illuminate\Pipeline\{closure}'
+                        class: Illuminate\Pipeline\Pipeline
+                        type: '->'
+                      -
+                        file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Routing\Middleware\ThrottleRequests.php'
+                        line: 102
+                        function: handleRequest
+                        class: Illuminate\Routing\Middleware\ThrottleRequests
+                        type: '->'
+                      -
+                        file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Routing\Middleware\ThrottleRequests.php'
+                        line: 54
+                        function: handleRequestUsingNamedLimiter
+                        class: Illuminate\Routing\Middleware\ThrottleRequests
+                        type: '->'
+                      -
+                        file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                        line: 180
+                        function: handle
+                        class: Illuminate\Routing\Middleware\ThrottleRequests
+                        type: '->'
+                      -
+                        file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                        line: 116
+                        function: 'Illuminate\Pipeline\{closure}'
+                        class: Illuminate\Pipeline\Pipeline
+                        type: '->'
+                      -
+                        file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Routing\Router.php'
+                        line: 726
+                        function: then
+                        class: Illuminate\Pipeline\Pipeline
+                        type: '->'
+                      -
+                        file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Routing\Router.php'
+                        line: 703
+                        function: runRouteWithinStack
+                        class: Illuminate\Routing\Router
+                        type: '->'
+                      -
+                        file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Routing\Router.php'
+                        line: 667
+                        function: runRoute
+                        class: Illuminate\Routing\Router
+                        type: '->'
+                      -
+                        file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Routing\Router.php'
+                        line: 656
+                        function: dispatchToRoute
+                        class: Illuminate\Routing\Router
+                        type: '->'
+                      -
+                        file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php'
+                        line: 167
+                        function: dispatch
+                        class: Illuminate\Routing\Router
+                        type: '->'
+                      -
+                        file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                        line: 141
+                        function: 'Illuminate\Foundation\Http\{closure}'
+                        class: Illuminate\Foundation\Http\Kernel
+                        type: '->'
+                      -
+                        file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\TransformsRequest.php'
+                        line: 21
+                        function: 'Illuminate\Pipeline\{closure}'
+                        class: Illuminate\Pipeline\Pipeline
+                        type: '->'
+                      -
+                        file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull.php'
+                        line: 31
+                        function: handle
+                        class: Illuminate\Foundation\Http\Middleware\TransformsRequest
+                        type: '->'
+                      -
+                        file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                        line: 180
+                        function: handle
+                        class: Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull
+                        type: '->'
+                      -
+                        file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\TransformsRequest.php'
+                        line: 21
+                        function: 'Illuminate\Pipeline\{closure}'
+                        class: Illuminate\Pipeline\Pipeline
+                        type: '->'
+                      -
+                        file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\TrimStrings.php'
+                        line: 40
+                        function: handle
+                        class: Illuminate\Foundation\Http\Middleware\TransformsRequest
+                        type: '->'
+                      -
+                        file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                        line: 180
+                        function: handle
+                        class: Illuminate\Foundation\Http\Middleware\TrimStrings
+                        type: '->'
+                      -
+                        file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\ValidatePostSize.php'
+                        line: 27
+                        function: 'Illuminate\Pipeline\{closure}'
+                        class: Illuminate\Pipeline\Pipeline
+                        type: '->'
+                      -
+                        file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                        line: 180
+                        function: handle
+                        class: Illuminate\Foundation\Http\Middleware\ValidatePostSize
+                        type: '->'
+                      -
+                        file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\PreventRequestsDuringMaintenance.php'
+                        line: 86
+                        function: 'Illuminate\Pipeline\{closure}'
+                        class: Illuminate\Pipeline\Pipeline
+                        type: '->'
+                      -
+                        file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                        line: 180
+                        function: handle
+                        class: Illuminate\Foundation\Http\Middleware\PreventRequestsDuringMaintenance
+                        type: '->'
+                      -
+                        file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Http\Middleware\HandleCors.php'
+                        line: 62
+                        function: 'Illuminate\Pipeline\{closure}'
+                        class: Illuminate\Pipeline\Pipeline
+                        type: '->'
+                      -
+                        file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                        line: 180
+                        function: handle
+                        class: Illuminate\Http\Middleware\HandleCors
+                        type: '->'
+                      -
+                        file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Http\Middleware\TrustProxies.php'
+                        line: 39
+                        function: 'Illuminate\Pipeline\{closure}'
+                        class: Illuminate\Pipeline\Pipeline
+                        type: '->'
+                      -
+                        file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                        line: 180
+                        function: handle
+                        class: Illuminate\Http\Middleware\TrustProxies
+                        type: '->'
+                      -
+                        file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                        line: 116
+                        function: 'Illuminate\Pipeline\{closure}'
+                        class: Illuminate\Pipeline\Pipeline
+                        type: '->'
+                      -
+                        file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php'
+                        line: 142
+                        function: then
+                        class: Illuminate\Pipeline\Pipeline
+                        type: '->'
+                      -
+                        file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php'
+                        line: 111
+                        function: sendRequestThroughRouter
+                        class: Illuminate\Foundation\Http\Kernel
+                        type: '->'
+                      -
+                        file: 'D:\~projects\htdocs\pak_kepo\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php'
+                        line: 299
+                        function: handle
+                        class: Illuminate\Foundation\Http\Kernel
+                        type: '->'
+                      -
+                        file: 'D:\~projects\htdocs\pak_kepo\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php'
+                        line: 287
+                        function: callLaravelOrLumenRoute
+                        class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
+                        type: '->'
+                      -
+                        file: 'D:\~projects\htdocs\pak_kepo\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php'
+                        line: 92
+                        function: makeApiCall
+                        class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
+                        type: '->'
+                      -
+                        file: 'D:\~projects\htdocs\pak_kepo\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php'
+                        line: 45
+                        function: makeResponseCall
+                        class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
+                        type: '->'
+                      -
+                        file: 'D:\~projects\htdocs\pak_kepo\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php'
+                        line: 35
+                        function: makeResponseCallIfConditionsPass
+                        class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
+                        type: '->'
+                      -
+                        file: 'D:\~projects\htdocs\pak_kepo\vendor\knuckleswtf\scribe\src\Extracting\Extractor.php'
+                        line: 209
+                        function: __invoke
+                        class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
+                        type: '->'
+                      -
+                        file: 'D:\~projects\htdocs\pak_kepo\vendor\knuckleswtf\scribe\src\Extracting\Extractor.php'
+                        line: 166
+                        function: iterateThroughStrategies
+                        class: Knuckles\Scribe\Extracting\Extractor
+                        type: '->'
+                      -
+                        file: 'D:\~projects\htdocs\pak_kepo\vendor\knuckleswtf\scribe\src\Extracting\Extractor.php'
+                        line: 95
+                        function: fetchResponses
+                        class: Knuckles\Scribe\Extracting\Extractor
+                        type: '->'
+                      -
+                        file: 'D:\~projects\htdocs\pak_kepo\vendor\knuckleswtf\scribe\src\GroupedEndpoints\GroupedEndpointsFromApp.php'
+                        line: 122
+                        function: processRoute
+                        class: Knuckles\Scribe\Extracting\Extractor
+                        type: '->'
+                      -
+                        file: 'D:\~projects\htdocs\pak_kepo\vendor\knuckleswtf\scribe\src\GroupedEndpoints\GroupedEndpointsFromApp.php'
+                        line: 69
+                        function: extractEndpointsInfoFromLaravelApp
+                        class: Knuckles\Scribe\GroupedEndpoints\GroupedEndpointsFromApp
+                        type: '->'
+                      -
+                        file: 'D:\~projects\htdocs\pak_kepo\vendor\knuckleswtf\scribe\src\GroupedEndpoints\GroupedEndpointsFromApp.php'
+                        line: 47
+                        function: extractEndpointsInfoAndWriteToDisk
+                        class: Knuckles\Scribe\GroupedEndpoints\GroupedEndpointsFromApp
+                        type: '->'
+                      -
+                        file: 'D:\~projects\htdocs\pak_kepo\vendor\knuckleswtf\scribe\src\Commands\GenerateDocumentation.php'
+                        line: 51
+                        function: get
+                        class: Knuckles\Scribe\GroupedEndpoints\GroupedEndpointsFromApp
+                        type: '->'
+                      -
+                        file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php'
+                        line: 36
+                        function: handle
+                        class: Knuckles\Scribe\Commands\GenerateDocumentation
+                        type: '->'
+                      -
+                        file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Container\Util.php'
+                        line: 41
+                        function: 'Illuminate\Container\{closure}'
+                        class: Illuminate\Container\BoundMethod
+                        type: '::'
+                      -
+                        file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php'
+                        line: 93
+                        function: unwrapIfClosure
+                        class: Illuminate\Container\Util
+                        type: '::'
+                      -
+                        file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php'
+                        line: 37
+                        function: callBoundMethod
+                        class: Illuminate\Container\BoundMethod
+                        type: '::'
+                      -
+                        file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Container\Container.php'
+                        line: 651
+                        function: call
+                        class: Illuminate\Container\BoundMethod
+                        type: '::'
+                      -
+                        file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Console\Command.php'
+                        line: 144
+                        function: call
+                        class: Illuminate\Container\Container
+                        type: '->'
+                      -
+                        file: 'D:\~projects\htdocs\pak_kepo\vendor\symfony\console\Command\Command.php'
+                        line: 308
+                        function: execute
+                        class: Illuminate\Console\Command
+                        type: '->'
+                      -
+                        file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Console\Command.php'
+                        line: 126
+                        function: run
+                        class: Symfony\Component\Console\Command\Command
+                        type: '->'
+                      -
+                        file: 'D:\~projects\htdocs\pak_kepo\vendor\symfony\console\Application.php'
+                        line: 1002
+                        function: run
+                        class: Illuminate\Console\Command
+                        type: '->'
+                      -
+                        file: 'D:\~projects\htdocs\pak_kepo\vendor\symfony\console\Application.php'
+                        line: 299
+                        function: doRunCommand
+                        class: Symfony\Component\Console\Application
+                        type: '->'
+                      -
+                        file: 'D:\~projects\htdocs\pak_kepo\vendor\symfony\console\Application.php'
+                        line: 171
+                        function: doRun
+                        class: Symfony\Component\Console\Application
+                        type: '->'
+                      -
+                        file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Console\Application.php'
+                        line: 102
+                        function: run
+                        class: Symfony\Component\Console\Application
+                        type: '->'
+                      -
+                        file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Foundation\Console\Kernel.php'
+                        line: 129
+                        function: run
+                        class: Illuminate\Console\Application
+                        type: '->'
+                      -
+                        file: 'D:\~projects\htdocs\pak_kepo\artisan'
+                        line: 37
+                        function: handle
+                        class: Illuminate\Foundation\Console\Kernel
+                        type: '->'
+                    items:
+                      type: object
+                      properties:
+                        file:
+                          type: string
+                          example: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Foundation\Exceptions\Handler.php'
+                        line:
+                          type: integer
+                          example: 356
+                        function:
+                          type: string
+                          example: prepareException
+                        class:
+                          type: string
+                          example: Illuminate\Foundation\Exceptions\Handler
+                        type:
+                          type: string
+                          example: '->'
+      tags:
+        - Endpoints
+      security: []
+    patch:
+      summary: ''
+      operationId: patchApiForumForum_id
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                konten_forum:
+                  type: string
+                  description: ''
+                  example: sed
+              required:
+                - konten_forum
+      security: []
+    delete:
+      summary: ''
+      operationId: deleteApiForumForum_id
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+      security: []
+    parameters:
+      -
+        in: path
+        name: forum_id
+        description: 'The ID of the forum.'
+        example: 15
+        required: true
+        schema:
+          type: integer
+  '/api/forum_komen/{forum_id}':
+    get:
+      summary: ''
+      operationId: getApiForum_komenForum_id
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        404:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'No query results for model [App\Models\Forum] 5'
+                  exception: Symfony\Component\HttpKernel\Exception\NotFoundHttpException
+                  file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Foundation\Exceptions\Handler.php'
+                  line: 380
+                  trace:
+                    -
+                      file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Foundation\Exceptions\Handler.php'
+                      line: 356
+                      function: prepareException
+                      class: Illuminate\Foundation\Exceptions\Handler
+                      type: '->'
+                    -
+                      file: 'D:\~projects\htdocs\pak_kepo\vendor\nunomaduro\collision\src\Adapters\Laravel\ExceptionHandler.php'
+                      line: 54
+                      function: render
+                      class: Illuminate\Foundation\Exceptions\Handler
+                      type: '->'
+                    -
+                      file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Routing\Pipeline.php'
+                      line: 51
+                      function: render
+                      class: NunoMaduro\Collision\Adapters\Laravel\ExceptionHandler
+                      type: '->'
+                    -
+                      file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                      line: 185
+                      function: handleException
+                      class: Illuminate\Routing\Pipeline
+                      type: '->'
+                    -
+                      file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Routing\Middleware\ThrottleRequests.php'
+                      line: 126
+                      function: 'Illuminate\Pipeline\{closure}'
+                      class: Illuminate\Pipeline\Pipeline
+                      type: '->'
+                    -
+                      file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Routing\Middleware\ThrottleRequests.php'
+                      line: 102
+                      function: handleRequest
+                      class: Illuminate\Routing\Middleware\ThrottleRequests
+                      type: '->'
+                    -
+                      file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Routing\Middleware\ThrottleRequests.php'
+                      line: 54
+                      function: handleRequestUsingNamedLimiter
+                      class: Illuminate\Routing\Middleware\ThrottleRequests
+                      type: '->'
+                    -
+                      file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                      line: 180
+                      function: handle
+                      class: Illuminate\Routing\Middleware\ThrottleRequests
+                      type: '->'
+                    -
+                      file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                      line: 116
+                      function: 'Illuminate\Pipeline\{closure}'
+                      class: Illuminate\Pipeline\Pipeline
+                      type: '->'
+                    -
+                      file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Routing\Router.php'
+                      line: 726
+                      function: then
+                      class: Illuminate\Pipeline\Pipeline
+                      type: '->'
+                    -
+                      file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Routing\Router.php'
+                      line: 703
+                      function: runRouteWithinStack
+                      class: Illuminate\Routing\Router
+                      type: '->'
+                    -
+                      file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Routing\Router.php'
+                      line: 667
+                      function: runRoute
+                      class: Illuminate\Routing\Router
+                      type: '->'
+                    -
+                      file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Routing\Router.php'
+                      line: 656
+                      function: dispatchToRoute
+                      class: Illuminate\Routing\Router
+                      type: '->'
+                    -
+                      file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php'
+                      line: 167
+                      function: dispatch
+                      class: Illuminate\Routing\Router
+                      type: '->'
+                    -
+                      file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                      line: 141
+                      function: 'Illuminate\Foundation\Http\{closure}'
+                      class: Illuminate\Foundation\Http\Kernel
+                      type: '->'
+                    -
+                      file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\TransformsRequest.php'
+                      line: 21
+                      function: 'Illuminate\Pipeline\{closure}'
+                      class: Illuminate\Pipeline\Pipeline
+                      type: '->'
+                    -
+                      file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull.php'
+                      line: 31
+                      function: handle
+                      class: Illuminate\Foundation\Http\Middleware\TransformsRequest
+                      type: '->'
+                    -
+                      file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                      line: 180
+                      function: handle
+                      class: Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull
+                      type: '->'
+                    -
+                      file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\TransformsRequest.php'
+                      line: 21
+                      function: 'Illuminate\Pipeline\{closure}'
+                      class: Illuminate\Pipeline\Pipeline
+                      type: '->'
+                    -
+                      file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\TrimStrings.php'
+                      line: 40
+                      function: handle
+                      class: Illuminate\Foundation\Http\Middleware\TransformsRequest
+                      type: '->'
+                    -
+                      file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                      line: 180
+                      function: handle
+                      class: Illuminate\Foundation\Http\Middleware\TrimStrings
+                      type: '->'
+                    -
+                      file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\ValidatePostSize.php'
+                      line: 27
+                      function: 'Illuminate\Pipeline\{closure}'
+                      class: Illuminate\Pipeline\Pipeline
+                      type: '->'
+                    -
+                      file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                      line: 180
+                      function: handle
+                      class: Illuminate\Foundation\Http\Middleware\ValidatePostSize
+                      type: '->'
+                    -
+                      file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\PreventRequestsDuringMaintenance.php'
+                      line: 86
+                      function: 'Illuminate\Pipeline\{closure}'
+                      class: Illuminate\Pipeline\Pipeline
+                      type: '->'
+                    -
+                      file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                      line: 180
+                      function: handle
+                      class: Illuminate\Foundation\Http\Middleware\PreventRequestsDuringMaintenance
+                      type: '->'
+                    -
+                      file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Http\Middleware\HandleCors.php'
+                      line: 62
+                      function: 'Illuminate\Pipeline\{closure}'
+                      class: Illuminate\Pipeline\Pipeline
+                      type: '->'
+                    -
+                      file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                      line: 180
+                      function: handle
+                      class: Illuminate\Http\Middleware\HandleCors
+                      type: '->'
+                    -
+                      file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Http\Middleware\TrustProxies.php'
+                      line: 39
+                      function: 'Illuminate\Pipeline\{closure}'
+                      class: Illuminate\Pipeline\Pipeline
+                      type: '->'
+                    -
+                      file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                      line: 180
+                      function: handle
+                      class: Illuminate\Http\Middleware\TrustProxies
+                      type: '->'
+                    -
+                      file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                      line: 116
+                      function: 'Illuminate\Pipeline\{closure}'
+                      class: Illuminate\Pipeline\Pipeline
+                      type: '->'
+                    -
+                      file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php'
+                      line: 142
+                      function: then
+                      class: Illuminate\Pipeline\Pipeline
+                      type: '->'
+                    -
+                      file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php'
+                      line: 111
+                      function: sendRequestThroughRouter
+                      class: Illuminate\Foundation\Http\Kernel
+                      type: '->'
+                    -
+                      file: 'D:\~projects\htdocs\pak_kepo\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php'
+                      line: 299
+                      function: handle
+                      class: Illuminate\Foundation\Http\Kernel
+                      type: '->'
+                    -
+                      file: 'D:\~projects\htdocs\pak_kepo\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php'
+                      line: 287
+                      function: callLaravelOrLumenRoute
+                      class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
+                      type: '->'
+                    -
+                      file: 'D:\~projects\htdocs\pak_kepo\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php'
+                      line: 92
+                      function: makeApiCall
+                      class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
+                      type: '->'
+                    -
+                      file: 'D:\~projects\htdocs\pak_kepo\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php'
+                      line: 45
+                      function: makeResponseCall
+                      class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
+                      type: '->'
+                    -
+                      file: 'D:\~projects\htdocs\pak_kepo\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php'
+                      line: 35
+                      function: makeResponseCallIfConditionsPass
+                      class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
+                      type: '->'
+                    -
+                      file: 'D:\~projects\htdocs\pak_kepo\vendor\knuckleswtf\scribe\src\Extracting\Extractor.php'
+                      line: 209
+                      function: __invoke
+                      class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
+                      type: '->'
+                    -
+                      file: 'D:\~projects\htdocs\pak_kepo\vendor\knuckleswtf\scribe\src\Extracting\Extractor.php'
+                      line: 166
+                      function: iterateThroughStrategies
+                      class: Knuckles\Scribe\Extracting\Extractor
+                      type: '->'
+                    -
+                      file: 'D:\~projects\htdocs\pak_kepo\vendor\knuckleswtf\scribe\src\Extracting\Extractor.php'
+                      line: 95
+                      function: fetchResponses
+                      class: Knuckles\Scribe\Extracting\Extractor
+                      type: '->'
+                    -
+                      file: 'D:\~projects\htdocs\pak_kepo\vendor\knuckleswtf\scribe\src\GroupedEndpoints\GroupedEndpointsFromApp.php'
+                      line: 122
+                      function: processRoute
+                      class: Knuckles\Scribe\Extracting\Extractor
+                      type: '->'
+                    -
+                      file: 'D:\~projects\htdocs\pak_kepo\vendor\knuckleswtf\scribe\src\GroupedEndpoints\GroupedEndpointsFromApp.php'
+                      line: 69
+                      function: extractEndpointsInfoFromLaravelApp
+                      class: Knuckles\Scribe\GroupedEndpoints\GroupedEndpointsFromApp
+                      type: '->'
+                    -
+                      file: 'D:\~projects\htdocs\pak_kepo\vendor\knuckleswtf\scribe\src\GroupedEndpoints\GroupedEndpointsFromApp.php'
+                      line: 47
+                      function: extractEndpointsInfoAndWriteToDisk
+                      class: Knuckles\Scribe\GroupedEndpoints\GroupedEndpointsFromApp
+                      type: '->'
+                    -
+                      file: 'D:\~projects\htdocs\pak_kepo\vendor\knuckleswtf\scribe\src\Commands\GenerateDocumentation.php'
+                      line: 51
+                      function: get
+                      class: Knuckles\Scribe\GroupedEndpoints\GroupedEndpointsFromApp
+                      type: '->'
+                    -
+                      file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php'
+                      line: 36
+                      function: handle
+                      class: Knuckles\Scribe\Commands\GenerateDocumentation
+                      type: '->'
+                    -
+                      file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Container\Util.php'
+                      line: 41
+                      function: 'Illuminate\Container\{closure}'
+                      class: Illuminate\Container\BoundMethod
+                      type: '::'
+                    -
+                      file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php'
+                      line: 93
+                      function: unwrapIfClosure
+                      class: Illuminate\Container\Util
+                      type: '::'
+                    -
+                      file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php'
+                      line: 37
+                      function: callBoundMethod
+                      class: Illuminate\Container\BoundMethod
+                      type: '::'
+                    -
+                      file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Container\Container.php'
+                      line: 651
+                      function: call
+                      class: Illuminate\Container\BoundMethod
+                      type: '::'
+                    -
+                      file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Console\Command.php'
+                      line: 144
+                      function: call
+                      class: Illuminate\Container\Container
+                      type: '->'
+                    -
+                      file: 'D:\~projects\htdocs\pak_kepo\vendor\symfony\console\Command\Command.php'
+                      line: 308
+                      function: execute
+                      class: Illuminate\Console\Command
+                      type: '->'
+                    -
+                      file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Console\Command.php'
+                      line: 126
+                      function: run
+                      class: Symfony\Component\Console\Command\Command
+                      type: '->'
+                    -
+                      file: 'D:\~projects\htdocs\pak_kepo\vendor\symfony\console\Application.php'
+                      line: 1002
+                      function: run
+                      class: Illuminate\Console\Command
+                      type: '->'
+                    -
+                      file: 'D:\~projects\htdocs\pak_kepo\vendor\symfony\console\Application.php'
+                      line: 299
+                      function: doRunCommand
+                      class: Symfony\Component\Console\Application
+                      type: '->'
+                    -
+                      file: 'D:\~projects\htdocs\pak_kepo\vendor\symfony\console\Application.php'
+                      line: 171
+                      function: doRun
+                      class: Symfony\Component\Console\Application
+                      type: '->'
+                    -
+                      file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Console\Application.php'
+                      line: 102
+                      function: run
+                      class: Symfony\Component\Console\Application
+                      type: '->'
+                    -
+                      file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Foundation\Console\Kernel.php'
+                      line: 129
+                      function: run
+                      class: Illuminate\Console\Application
+                      type: '->'
+                    -
+                      file: 'D:\~projects\htdocs\pak_kepo\artisan'
+                      line: 37
+                      function: handle
+                      class: Illuminate\Foundation\Console\Kernel
+                      type: '->'
+                properties:
+                  message:
+                    type: string
+                    example: 'No query results for model [App\Models\Forum] 5'
+                  exception:
+                    type: string
+                    example: Symfony\Component\HttpKernel\Exception\NotFoundHttpException
+                  file:
+                    type: string
+                    example: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Foundation\Exceptions\Handler.php'
+                  line:
+                    type: integer
+                    example: 380
+                  trace:
+                    type: array
+                    example:
+                      -
+                        file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Foundation\Exceptions\Handler.php'
+                        line: 356
+                        function: prepareException
+                        class: Illuminate\Foundation\Exceptions\Handler
+                        type: '->'
+                      -
+                        file: 'D:\~projects\htdocs\pak_kepo\vendor\nunomaduro\collision\src\Adapters\Laravel\ExceptionHandler.php'
+                        line: 54
+                        function: render
+                        class: Illuminate\Foundation\Exceptions\Handler
+                        type: '->'
+                      -
+                        file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Routing\Pipeline.php'
+                        line: 51
+                        function: render
+                        class: NunoMaduro\Collision\Adapters\Laravel\ExceptionHandler
+                        type: '->'
+                      -
+                        file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                        line: 185
+                        function: handleException
+                        class: Illuminate\Routing\Pipeline
+                        type: '->'
+                      -
+                        file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Routing\Middleware\ThrottleRequests.php'
+                        line: 126
+                        function: 'Illuminate\Pipeline\{closure}'
+                        class: Illuminate\Pipeline\Pipeline
+                        type: '->'
+                      -
+                        file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Routing\Middleware\ThrottleRequests.php'
+                        line: 102
+                        function: handleRequest
+                        class: Illuminate\Routing\Middleware\ThrottleRequests
+                        type: '->'
+                      -
+                        file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Routing\Middleware\ThrottleRequests.php'
+                        line: 54
+                        function: handleRequestUsingNamedLimiter
+                        class: Illuminate\Routing\Middleware\ThrottleRequests
+                        type: '->'
+                      -
+                        file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                        line: 180
+                        function: handle
+                        class: Illuminate\Routing\Middleware\ThrottleRequests
+                        type: '->'
+                      -
+                        file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                        line: 116
+                        function: 'Illuminate\Pipeline\{closure}'
+                        class: Illuminate\Pipeline\Pipeline
+                        type: '->'
+                      -
+                        file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Routing\Router.php'
+                        line: 726
+                        function: then
+                        class: Illuminate\Pipeline\Pipeline
+                        type: '->'
+                      -
+                        file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Routing\Router.php'
+                        line: 703
+                        function: runRouteWithinStack
+                        class: Illuminate\Routing\Router
+                        type: '->'
+                      -
+                        file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Routing\Router.php'
+                        line: 667
+                        function: runRoute
+                        class: Illuminate\Routing\Router
+                        type: '->'
+                      -
+                        file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Routing\Router.php'
+                        line: 656
+                        function: dispatchToRoute
+                        class: Illuminate\Routing\Router
+                        type: '->'
+                      -
+                        file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php'
+                        line: 167
+                        function: dispatch
+                        class: Illuminate\Routing\Router
+                        type: '->'
+                      -
+                        file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                        line: 141
+                        function: 'Illuminate\Foundation\Http\{closure}'
+                        class: Illuminate\Foundation\Http\Kernel
+                        type: '->'
+                      -
+                        file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\TransformsRequest.php'
+                        line: 21
+                        function: 'Illuminate\Pipeline\{closure}'
+                        class: Illuminate\Pipeline\Pipeline
+                        type: '->'
+                      -
+                        file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull.php'
+                        line: 31
+                        function: handle
+                        class: Illuminate\Foundation\Http\Middleware\TransformsRequest
+                        type: '->'
+                      -
+                        file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                        line: 180
+                        function: handle
+                        class: Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull
+                        type: '->'
+                      -
+                        file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\TransformsRequest.php'
+                        line: 21
+                        function: 'Illuminate\Pipeline\{closure}'
+                        class: Illuminate\Pipeline\Pipeline
+                        type: '->'
+                      -
+                        file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\TrimStrings.php'
+                        line: 40
+                        function: handle
+                        class: Illuminate\Foundation\Http\Middleware\TransformsRequest
+                        type: '->'
+                      -
+                        file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                        line: 180
+                        function: handle
+                        class: Illuminate\Foundation\Http\Middleware\TrimStrings
+                        type: '->'
+                      -
+                        file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\ValidatePostSize.php'
+                        line: 27
+                        function: 'Illuminate\Pipeline\{closure}'
+                        class: Illuminate\Pipeline\Pipeline
+                        type: '->'
+                      -
+                        file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                        line: 180
+                        function: handle
+                        class: Illuminate\Foundation\Http\Middleware\ValidatePostSize
+                        type: '->'
+                      -
+                        file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\PreventRequestsDuringMaintenance.php'
+                        line: 86
+                        function: 'Illuminate\Pipeline\{closure}'
+                        class: Illuminate\Pipeline\Pipeline
+                        type: '->'
+                      -
+                        file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                        line: 180
+                        function: handle
+                        class: Illuminate\Foundation\Http\Middleware\PreventRequestsDuringMaintenance
+                        type: '->'
+                      -
+                        file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Http\Middleware\HandleCors.php'
+                        line: 62
+                        function: 'Illuminate\Pipeline\{closure}'
+                        class: Illuminate\Pipeline\Pipeline
+                        type: '->'
+                      -
+                        file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                        line: 180
+                        function: handle
+                        class: Illuminate\Http\Middleware\HandleCors
+                        type: '->'
+                      -
+                        file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Http\Middleware\TrustProxies.php'
+                        line: 39
+                        function: 'Illuminate\Pipeline\{closure}'
+                        class: Illuminate\Pipeline\Pipeline
+                        type: '->'
+                      -
+                        file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                        line: 180
+                        function: handle
+                        class: Illuminate\Http\Middleware\TrustProxies
+                        type: '->'
+                      -
+                        file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                        line: 116
+                        function: 'Illuminate\Pipeline\{closure}'
+                        class: Illuminate\Pipeline\Pipeline
+                        type: '->'
+                      -
+                        file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php'
+                        line: 142
+                        function: then
+                        class: Illuminate\Pipeline\Pipeline
+                        type: '->'
+                      -
+                        file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php'
+                        line: 111
+                        function: sendRequestThroughRouter
+                        class: Illuminate\Foundation\Http\Kernel
+                        type: '->'
+                      -
+                        file: 'D:\~projects\htdocs\pak_kepo\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php'
+                        line: 299
+                        function: handle
+                        class: Illuminate\Foundation\Http\Kernel
+                        type: '->'
+                      -
+                        file: 'D:\~projects\htdocs\pak_kepo\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php'
+                        line: 287
+                        function: callLaravelOrLumenRoute
+                        class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
+                        type: '->'
+                      -
+                        file: 'D:\~projects\htdocs\pak_kepo\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php'
+                        line: 92
+                        function: makeApiCall
+                        class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
+                        type: '->'
+                      -
+                        file: 'D:\~projects\htdocs\pak_kepo\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php'
+                        line: 45
+                        function: makeResponseCall
+                        class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
+                        type: '->'
+                      -
+                        file: 'D:\~projects\htdocs\pak_kepo\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php'
+                        line: 35
+                        function: makeResponseCallIfConditionsPass
+                        class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
+                        type: '->'
+                      -
+                        file: 'D:\~projects\htdocs\pak_kepo\vendor\knuckleswtf\scribe\src\Extracting\Extractor.php'
+                        line: 209
+                        function: __invoke
+                        class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
+                        type: '->'
+                      -
+                        file: 'D:\~projects\htdocs\pak_kepo\vendor\knuckleswtf\scribe\src\Extracting\Extractor.php'
+                        line: 166
+                        function: iterateThroughStrategies
+                        class: Knuckles\Scribe\Extracting\Extractor
+                        type: '->'
+                      -
+                        file: 'D:\~projects\htdocs\pak_kepo\vendor\knuckleswtf\scribe\src\Extracting\Extractor.php'
+                        line: 95
+                        function: fetchResponses
+                        class: Knuckles\Scribe\Extracting\Extractor
+                        type: '->'
+                      -
+                        file: 'D:\~projects\htdocs\pak_kepo\vendor\knuckleswtf\scribe\src\GroupedEndpoints\GroupedEndpointsFromApp.php'
+                        line: 122
+                        function: processRoute
+                        class: Knuckles\Scribe\Extracting\Extractor
+                        type: '->'
+                      -
+                        file: 'D:\~projects\htdocs\pak_kepo\vendor\knuckleswtf\scribe\src\GroupedEndpoints\GroupedEndpointsFromApp.php'
+                        line: 69
+                        function: extractEndpointsInfoFromLaravelApp
+                        class: Knuckles\Scribe\GroupedEndpoints\GroupedEndpointsFromApp
+                        type: '->'
+                      -
+                        file: 'D:\~projects\htdocs\pak_kepo\vendor\knuckleswtf\scribe\src\GroupedEndpoints\GroupedEndpointsFromApp.php'
+                        line: 47
+                        function: extractEndpointsInfoAndWriteToDisk
+                        class: Knuckles\Scribe\GroupedEndpoints\GroupedEndpointsFromApp
+                        type: '->'
+                      -
+                        file: 'D:\~projects\htdocs\pak_kepo\vendor\knuckleswtf\scribe\src\Commands\GenerateDocumentation.php'
+                        line: 51
+                        function: get
+                        class: Knuckles\Scribe\GroupedEndpoints\GroupedEndpointsFromApp
+                        type: '->'
+                      -
+                        file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php'
+                        line: 36
+                        function: handle
+                        class: Knuckles\Scribe\Commands\GenerateDocumentation
+                        type: '->'
+                      -
+                        file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Container\Util.php'
+                        line: 41
+                        function: 'Illuminate\Container\{closure}'
+                        class: Illuminate\Container\BoundMethod
+                        type: '::'
+                      -
+                        file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php'
+                        line: 93
+                        function: unwrapIfClosure
+                        class: Illuminate\Container\Util
+                        type: '::'
+                      -
+                        file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php'
+                        line: 37
+                        function: callBoundMethod
+                        class: Illuminate\Container\BoundMethod
+                        type: '::'
+                      -
+                        file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Container\Container.php'
+                        line: 651
+                        function: call
+                        class: Illuminate\Container\BoundMethod
+                        type: '::'
+                      -
+                        file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Console\Command.php'
+                        line: 144
+                        function: call
+                        class: Illuminate\Container\Container
+                        type: '->'
+                      -
+                        file: 'D:\~projects\htdocs\pak_kepo\vendor\symfony\console\Command\Command.php'
+                        line: 308
+                        function: execute
+                        class: Illuminate\Console\Command
+                        type: '->'
+                      -
+                        file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Console\Command.php'
+                        line: 126
+                        function: run
+                        class: Symfony\Component\Console\Command\Command
+                        type: '->'
+                      -
+                        file: 'D:\~projects\htdocs\pak_kepo\vendor\symfony\console\Application.php'
+                        line: 1002
+                        function: run
+                        class: Illuminate\Console\Command
+                        type: '->'
+                      -
+                        file: 'D:\~projects\htdocs\pak_kepo\vendor\symfony\console\Application.php'
+                        line: 299
+                        function: doRunCommand
+                        class: Symfony\Component\Console\Application
+                        type: '->'
+                      -
+                        file: 'D:\~projects\htdocs\pak_kepo\vendor\symfony\console\Application.php'
+                        line: 171
+                        function: doRun
+                        class: Symfony\Component\Console\Application
+                        type: '->'
+                      -
+                        file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Console\Application.php'
+                        line: 102
+                        function: run
+                        class: Symfony\Component\Console\Application
+                        type: '->'
+                      -
+                        file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Foundation\Console\Kernel.php'
+                        line: 129
+                        function: run
+                        class: Illuminate\Console\Application
+                        type: '->'
+                      -
+                        file: 'D:\~projects\htdocs\pak_kepo\artisan'
+                        line: 37
+                        function: handle
+                        class: Illuminate\Foundation\Console\Kernel
+                        type: '->'
+                    items:
+                      type: object
+                      properties:
+                        file:
+                          type: string
+                          example: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Foundation\Exceptions\Handler.php'
+                        line:
+                          type: integer
+                          example: 356
+                        function:
+                          type: string
+                          example: prepareException
+                        class:
+                          type: string
+                          example: Illuminate\Foundation\Exceptions\Handler
+                        type:
+                          type: string
+                          example: '->'
+      tags:
+        - Endpoints
+      security: []
+    post:
+      summary: ''
+      operationId: postApiForum_komenForum_id
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                komen_forum:
+                  type: string
+                  description: ''
+                  example: suscipit
+              required:
+                - komen_forum
+      security: []
+    parameters:
+      -
+        in: path
+        name: forum_id
+        description: 'The ID of the forum.'
+        example: 5
+        required: true
+        schema:
+          type: integer
+  '/api/forum_komen/{forum_id}/{forumKomen_id}':
+    get:
+      summary: ''
+      operationId: getApiForum_komenForum_idForumKomen_id
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        404:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'No query results for model [App\Models\Forum] 10'
+                  exception: Symfony\Component\HttpKernel\Exception\NotFoundHttpException
+                  file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Foundation\Exceptions\Handler.php'
+                  line: 380
+                  trace:
+                    -
+                      file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Foundation\Exceptions\Handler.php'
+                      line: 356
+                      function: prepareException
+                      class: Illuminate\Foundation\Exceptions\Handler
+                      type: '->'
+                    -
+                      file: 'D:\~projects\htdocs\pak_kepo\vendor\nunomaduro\collision\src\Adapters\Laravel\ExceptionHandler.php'
+                      line: 54
+                      function: render
+                      class: Illuminate\Foundation\Exceptions\Handler
+                      type: '->'
+                    -
+                      file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Routing\Pipeline.php'
+                      line: 51
+                      function: render
+                      class: NunoMaduro\Collision\Adapters\Laravel\ExceptionHandler
+                      type: '->'
+                    -
+                      file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                      line: 185
+                      function: handleException
+                      class: Illuminate\Routing\Pipeline
+                      type: '->'
+                    -
+                      file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Routing\Middleware\ThrottleRequests.php'
+                      line: 126
+                      function: 'Illuminate\Pipeline\{closure}'
+                      class: Illuminate\Pipeline\Pipeline
+                      type: '->'
+                    -
+                      file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Routing\Middleware\ThrottleRequests.php'
+                      line: 102
+                      function: handleRequest
+                      class: Illuminate\Routing\Middleware\ThrottleRequests
+                      type: '->'
+                    -
+                      file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Routing\Middleware\ThrottleRequests.php'
+                      line: 54
+                      function: handleRequestUsingNamedLimiter
+                      class: Illuminate\Routing\Middleware\ThrottleRequests
+                      type: '->'
+                    -
+                      file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                      line: 180
+                      function: handle
+                      class: Illuminate\Routing\Middleware\ThrottleRequests
+                      type: '->'
+                    -
+                      file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                      line: 116
+                      function: 'Illuminate\Pipeline\{closure}'
+                      class: Illuminate\Pipeline\Pipeline
+                      type: '->'
+                    -
+                      file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Routing\Router.php'
+                      line: 726
+                      function: then
+                      class: Illuminate\Pipeline\Pipeline
+                      type: '->'
+                    -
+                      file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Routing\Router.php'
+                      line: 703
+                      function: runRouteWithinStack
+                      class: Illuminate\Routing\Router
+                      type: '->'
+                    -
+                      file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Routing\Router.php'
+                      line: 667
+                      function: runRoute
+                      class: Illuminate\Routing\Router
+                      type: '->'
+                    -
+                      file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Routing\Router.php'
+                      line: 656
+                      function: dispatchToRoute
+                      class: Illuminate\Routing\Router
+                      type: '->'
+                    -
+                      file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php'
+                      line: 167
+                      function: dispatch
+                      class: Illuminate\Routing\Router
+                      type: '->'
+                    -
+                      file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                      line: 141
+                      function: 'Illuminate\Foundation\Http\{closure}'
+                      class: Illuminate\Foundation\Http\Kernel
+                      type: '->'
+                    -
+                      file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\TransformsRequest.php'
+                      line: 21
+                      function: 'Illuminate\Pipeline\{closure}'
+                      class: Illuminate\Pipeline\Pipeline
+                      type: '->'
+                    -
+                      file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull.php'
+                      line: 31
+                      function: handle
+                      class: Illuminate\Foundation\Http\Middleware\TransformsRequest
+                      type: '->'
+                    -
+                      file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                      line: 180
+                      function: handle
+                      class: Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull
+                      type: '->'
+                    -
+                      file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\TransformsRequest.php'
+                      line: 21
+                      function: 'Illuminate\Pipeline\{closure}'
+                      class: Illuminate\Pipeline\Pipeline
+                      type: '->'
+                    -
+                      file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\TrimStrings.php'
+                      line: 40
+                      function: handle
+                      class: Illuminate\Foundation\Http\Middleware\TransformsRequest
+                      type: '->'
+                    -
+                      file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                      line: 180
+                      function: handle
+                      class: Illuminate\Foundation\Http\Middleware\TrimStrings
+                      type: '->'
+                    -
+                      file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\ValidatePostSize.php'
+                      line: 27
+                      function: 'Illuminate\Pipeline\{closure}'
+                      class: Illuminate\Pipeline\Pipeline
+                      type: '->'
+                    -
+                      file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                      line: 180
+                      function: handle
+                      class: Illuminate\Foundation\Http\Middleware\ValidatePostSize
+                      type: '->'
+                    -
+                      file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\PreventRequestsDuringMaintenance.php'
+                      line: 86
+                      function: 'Illuminate\Pipeline\{closure}'
+                      class: Illuminate\Pipeline\Pipeline
+                      type: '->'
+                    -
+                      file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                      line: 180
+                      function: handle
+                      class: Illuminate\Foundation\Http\Middleware\PreventRequestsDuringMaintenance
+                      type: '->'
+                    -
+                      file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Http\Middleware\HandleCors.php'
+                      line: 62
+                      function: 'Illuminate\Pipeline\{closure}'
+                      class: Illuminate\Pipeline\Pipeline
+                      type: '->'
+                    -
+                      file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                      line: 180
+                      function: handle
+                      class: Illuminate\Http\Middleware\HandleCors
+                      type: '->'
+                    -
+                      file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Http\Middleware\TrustProxies.php'
+                      line: 39
+                      function: 'Illuminate\Pipeline\{closure}'
+                      class: Illuminate\Pipeline\Pipeline
+                      type: '->'
+                    -
+                      file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                      line: 180
+                      function: handle
+                      class: Illuminate\Http\Middleware\TrustProxies
+                      type: '->'
+                    -
+                      file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                      line: 116
+                      function: 'Illuminate\Pipeline\{closure}'
+                      class: Illuminate\Pipeline\Pipeline
+                      type: '->'
+                    -
+                      file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php'
+                      line: 142
+                      function: then
+                      class: Illuminate\Pipeline\Pipeline
+                      type: '->'
+                    -
+                      file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php'
+                      line: 111
+                      function: sendRequestThroughRouter
+                      class: Illuminate\Foundation\Http\Kernel
+                      type: '->'
+                    -
+                      file: 'D:\~projects\htdocs\pak_kepo\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php'
+                      line: 299
+                      function: handle
+                      class: Illuminate\Foundation\Http\Kernel
+                      type: '->'
+                    -
+                      file: 'D:\~projects\htdocs\pak_kepo\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php'
+                      line: 287
+                      function: callLaravelOrLumenRoute
+                      class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
+                      type: '->'
+                    -
+                      file: 'D:\~projects\htdocs\pak_kepo\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php'
+                      line: 92
+                      function: makeApiCall
+                      class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
+                      type: '->'
+                    -
+                      file: 'D:\~projects\htdocs\pak_kepo\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php'
+                      line: 45
+                      function: makeResponseCall
+                      class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
+                      type: '->'
+                    -
+                      file: 'D:\~projects\htdocs\pak_kepo\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php'
+                      line: 35
+                      function: makeResponseCallIfConditionsPass
+                      class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
+                      type: '->'
+                    -
+                      file: 'D:\~projects\htdocs\pak_kepo\vendor\knuckleswtf\scribe\src\Extracting\Extractor.php'
+                      line: 209
+                      function: __invoke
+                      class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
+                      type: '->'
+                    -
+                      file: 'D:\~projects\htdocs\pak_kepo\vendor\knuckleswtf\scribe\src\Extracting\Extractor.php'
+                      line: 166
+                      function: iterateThroughStrategies
+                      class: Knuckles\Scribe\Extracting\Extractor
+                      type: '->'
+                    -
+                      file: 'D:\~projects\htdocs\pak_kepo\vendor\knuckleswtf\scribe\src\Extracting\Extractor.php'
+                      line: 95
+                      function: fetchResponses
+                      class: Knuckles\Scribe\Extracting\Extractor
+                      type: '->'
+                    -
+                      file: 'D:\~projects\htdocs\pak_kepo\vendor\knuckleswtf\scribe\src\GroupedEndpoints\GroupedEndpointsFromApp.php'
+                      line: 122
+                      function: processRoute
+                      class: Knuckles\Scribe\Extracting\Extractor
+                      type: '->'
+                    -
+                      file: 'D:\~projects\htdocs\pak_kepo\vendor\knuckleswtf\scribe\src\GroupedEndpoints\GroupedEndpointsFromApp.php'
+                      line: 69
+                      function: extractEndpointsInfoFromLaravelApp
+                      class: Knuckles\Scribe\GroupedEndpoints\GroupedEndpointsFromApp
+                      type: '->'
+                    -
+                      file: 'D:\~projects\htdocs\pak_kepo\vendor\knuckleswtf\scribe\src\GroupedEndpoints\GroupedEndpointsFromApp.php'
+                      line: 47
+                      function: extractEndpointsInfoAndWriteToDisk
+                      class: Knuckles\Scribe\GroupedEndpoints\GroupedEndpointsFromApp
+                      type: '->'
+                    -
+                      file: 'D:\~projects\htdocs\pak_kepo\vendor\knuckleswtf\scribe\src\Commands\GenerateDocumentation.php'
+                      line: 51
+                      function: get
+                      class: Knuckles\Scribe\GroupedEndpoints\GroupedEndpointsFromApp
+                      type: '->'
+                    -
+                      file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php'
+                      line: 36
+                      function: handle
+                      class: Knuckles\Scribe\Commands\GenerateDocumentation
+                      type: '->'
+                    -
+                      file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Container\Util.php'
+                      line: 41
+                      function: 'Illuminate\Container\{closure}'
+                      class: Illuminate\Container\BoundMethod
+                      type: '::'
+                    -
+                      file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php'
+                      line: 93
+                      function: unwrapIfClosure
+                      class: Illuminate\Container\Util
+                      type: '::'
+                    -
+                      file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php'
+                      line: 37
+                      function: callBoundMethod
+                      class: Illuminate\Container\BoundMethod
+                      type: '::'
+                    -
+                      file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Container\Container.php'
+                      line: 651
+                      function: call
+                      class: Illuminate\Container\BoundMethod
+                      type: '::'
+                    -
+                      file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Console\Command.php'
+                      line: 144
+                      function: call
+                      class: Illuminate\Container\Container
+                      type: '->'
+                    -
+                      file: 'D:\~projects\htdocs\pak_kepo\vendor\symfony\console\Command\Command.php'
+                      line: 308
+                      function: execute
+                      class: Illuminate\Console\Command
+                      type: '->'
+                    -
+                      file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Console\Command.php'
+                      line: 126
+                      function: run
+                      class: Symfony\Component\Console\Command\Command
+                      type: '->'
+                    -
+                      file: 'D:\~projects\htdocs\pak_kepo\vendor\symfony\console\Application.php'
+                      line: 1002
+                      function: run
+                      class: Illuminate\Console\Command
+                      type: '->'
+                    -
+                      file: 'D:\~projects\htdocs\pak_kepo\vendor\symfony\console\Application.php'
+                      line: 299
+                      function: doRunCommand
+                      class: Symfony\Component\Console\Application
+                      type: '->'
+                    -
+                      file: 'D:\~projects\htdocs\pak_kepo\vendor\symfony\console\Application.php'
+                      line: 171
+                      function: doRun
+                      class: Symfony\Component\Console\Application
+                      type: '->'
+                    -
+                      file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Console\Application.php'
+                      line: 102
+                      function: run
+                      class: Symfony\Component\Console\Application
+                      type: '->'
+                    -
+                      file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Foundation\Console\Kernel.php'
+                      line: 129
+                      function: run
+                      class: Illuminate\Console\Application
+                      type: '->'
+                    -
+                      file: 'D:\~projects\htdocs\pak_kepo\artisan'
+                      line: 37
+                      function: handle
+                      class: Illuminate\Foundation\Console\Kernel
+                      type: '->'
+                properties:
+                  message:
+                    type: string
+                    example: 'No query results for model [App\Models\Forum] 10'
+                  exception:
+                    type: string
+                    example: Symfony\Component\HttpKernel\Exception\NotFoundHttpException
+                  file:
+                    type: string
+                    example: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Foundation\Exceptions\Handler.php'
+                  line:
+                    type: integer
+                    example: 380
+                  trace:
+                    type: array
+                    example:
+                      -
+                        file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Foundation\Exceptions\Handler.php'
+                        line: 356
+                        function: prepareException
+                        class: Illuminate\Foundation\Exceptions\Handler
+                        type: '->'
+                      -
+                        file: 'D:\~projects\htdocs\pak_kepo\vendor\nunomaduro\collision\src\Adapters\Laravel\ExceptionHandler.php'
+                        line: 54
+                        function: render
+                        class: Illuminate\Foundation\Exceptions\Handler
+                        type: '->'
+                      -
+                        file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Routing\Pipeline.php'
+                        line: 51
+                        function: render
+                        class: NunoMaduro\Collision\Adapters\Laravel\ExceptionHandler
+                        type: '->'
+                      -
+                        file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                        line: 185
+                        function: handleException
+                        class: Illuminate\Routing\Pipeline
+                        type: '->'
+                      -
+                        file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Routing\Middleware\ThrottleRequests.php'
+                        line: 126
+                        function: 'Illuminate\Pipeline\{closure}'
+                        class: Illuminate\Pipeline\Pipeline
+                        type: '->'
+                      -
+                        file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Routing\Middleware\ThrottleRequests.php'
+                        line: 102
+                        function: handleRequest
+                        class: Illuminate\Routing\Middleware\ThrottleRequests
+                        type: '->'
+                      -
+                        file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Routing\Middleware\ThrottleRequests.php'
+                        line: 54
+                        function: handleRequestUsingNamedLimiter
+                        class: Illuminate\Routing\Middleware\ThrottleRequests
+                        type: '->'
+                      -
+                        file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                        line: 180
+                        function: handle
+                        class: Illuminate\Routing\Middleware\ThrottleRequests
+                        type: '->'
+                      -
+                        file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                        line: 116
+                        function: 'Illuminate\Pipeline\{closure}'
+                        class: Illuminate\Pipeline\Pipeline
+                        type: '->'
+                      -
+                        file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Routing\Router.php'
+                        line: 726
+                        function: then
+                        class: Illuminate\Pipeline\Pipeline
+                        type: '->'
+                      -
+                        file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Routing\Router.php'
+                        line: 703
+                        function: runRouteWithinStack
+                        class: Illuminate\Routing\Router
+                        type: '->'
+                      -
+                        file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Routing\Router.php'
+                        line: 667
+                        function: runRoute
+                        class: Illuminate\Routing\Router
+                        type: '->'
+                      -
+                        file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Routing\Router.php'
+                        line: 656
+                        function: dispatchToRoute
+                        class: Illuminate\Routing\Router
+                        type: '->'
+                      -
+                        file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php'
+                        line: 167
+                        function: dispatch
+                        class: Illuminate\Routing\Router
+                        type: '->'
+                      -
+                        file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                        line: 141
+                        function: 'Illuminate\Foundation\Http\{closure}'
+                        class: Illuminate\Foundation\Http\Kernel
+                        type: '->'
+                      -
+                        file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\TransformsRequest.php'
+                        line: 21
+                        function: 'Illuminate\Pipeline\{closure}'
+                        class: Illuminate\Pipeline\Pipeline
+                        type: '->'
+                      -
+                        file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull.php'
+                        line: 31
+                        function: handle
+                        class: Illuminate\Foundation\Http\Middleware\TransformsRequest
+                        type: '->'
+                      -
+                        file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                        line: 180
+                        function: handle
+                        class: Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull
+                        type: '->'
+                      -
+                        file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\TransformsRequest.php'
+                        line: 21
+                        function: 'Illuminate\Pipeline\{closure}'
+                        class: Illuminate\Pipeline\Pipeline
+                        type: '->'
+                      -
+                        file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\TrimStrings.php'
+                        line: 40
+                        function: handle
+                        class: Illuminate\Foundation\Http\Middleware\TransformsRequest
+                        type: '->'
+                      -
+                        file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                        line: 180
+                        function: handle
+                        class: Illuminate\Foundation\Http\Middleware\TrimStrings
+                        type: '->'
+                      -
+                        file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\ValidatePostSize.php'
+                        line: 27
+                        function: 'Illuminate\Pipeline\{closure}'
+                        class: Illuminate\Pipeline\Pipeline
+                        type: '->'
+                      -
+                        file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                        line: 180
+                        function: handle
+                        class: Illuminate\Foundation\Http\Middleware\ValidatePostSize
+                        type: '->'
+                      -
+                        file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\PreventRequestsDuringMaintenance.php'
+                        line: 86
+                        function: 'Illuminate\Pipeline\{closure}'
+                        class: Illuminate\Pipeline\Pipeline
+                        type: '->'
+                      -
+                        file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                        line: 180
+                        function: handle
+                        class: Illuminate\Foundation\Http\Middleware\PreventRequestsDuringMaintenance
+                        type: '->'
+                      -
+                        file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Http\Middleware\HandleCors.php'
+                        line: 62
+                        function: 'Illuminate\Pipeline\{closure}'
+                        class: Illuminate\Pipeline\Pipeline
+                        type: '->'
+                      -
+                        file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                        line: 180
+                        function: handle
+                        class: Illuminate\Http\Middleware\HandleCors
+                        type: '->'
+                      -
+                        file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Http\Middleware\TrustProxies.php'
+                        line: 39
+                        function: 'Illuminate\Pipeline\{closure}'
+                        class: Illuminate\Pipeline\Pipeline
+                        type: '->'
+                      -
+                        file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                        line: 180
+                        function: handle
+                        class: Illuminate\Http\Middleware\TrustProxies
+                        type: '->'
+                      -
+                        file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php'
+                        line: 116
+                        function: 'Illuminate\Pipeline\{closure}'
+                        class: Illuminate\Pipeline\Pipeline
+                        type: '->'
+                      -
+                        file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php'
+                        line: 142
+                        function: then
+                        class: Illuminate\Pipeline\Pipeline
+                        type: '->'
+                      -
+                        file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php'
+                        line: 111
+                        function: sendRequestThroughRouter
+                        class: Illuminate\Foundation\Http\Kernel
+                        type: '->'
+                      -
+                        file: 'D:\~projects\htdocs\pak_kepo\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php'
+                        line: 299
+                        function: handle
+                        class: Illuminate\Foundation\Http\Kernel
+                        type: '->'
+                      -
+                        file: 'D:\~projects\htdocs\pak_kepo\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php'
+                        line: 287
+                        function: callLaravelOrLumenRoute
+                        class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
+                        type: '->'
+                      -
+                        file: 'D:\~projects\htdocs\pak_kepo\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php'
+                        line: 92
+                        function: makeApiCall
+                        class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
+                        type: '->'
+                      -
+                        file: 'D:\~projects\htdocs\pak_kepo\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php'
+                        line: 45
+                        function: makeResponseCall
+                        class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
+                        type: '->'
+                      -
+                        file: 'D:\~projects\htdocs\pak_kepo\vendor\knuckleswtf\scribe\src\Extracting\Strategies\Responses\ResponseCalls.php'
+                        line: 35
+                        function: makeResponseCallIfConditionsPass
+                        class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
+                        type: '->'
+                      -
+                        file: 'D:\~projects\htdocs\pak_kepo\vendor\knuckleswtf\scribe\src\Extracting\Extractor.php'
+                        line: 209
+                        function: __invoke
+                        class: Knuckles\Scribe\Extracting\Strategies\Responses\ResponseCalls
+                        type: '->'
+                      -
+                        file: 'D:\~projects\htdocs\pak_kepo\vendor\knuckleswtf\scribe\src\Extracting\Extractor.php'
+                        line: 166
+                        function: iterateThroughStrategies
+                        class: Knuckles\Scribe\Extracting\Extractor
+                        type: '->'
+                      -
+                        file: 'D:\~projects\htdocs\pak_kepo\vendor\knuckleswtf\scribe\src\Extracting\Extractor.php'
+                        line: 95
+                        function: fetchResponses
+                        class: Knuckles\Scribe\Extracting\Extractor
+                        type: '->'
+                      -
+                        file: 'D:\~projects\htdocs\pak_kepo\vendor\knuckleswtf\scribe\src\GroupedEndpoints\GroupedEndpointsFromApp.php'
+                        line: 122
+                        function: processRoute
+                        class: Knuckles\Scribe\Extracting\Extractor
+                        type: '->'
+                      -
+                        file: 'D:\~projects\htdocs\pak_kepo\vendor\knuckleswtf\scribe\src\GroupedEndpoints\GroupedEndpointsFromApp.php'
+                        line: 69
+                        function: extractEndpointsInfoFromLaravelApp
+                        class: Knuckles\Scribe\GroupedEndpoints\GroupedEndpointsFromApp
+                        type: '->'
+                      -
+                        file: 'D:\~projects\htdocs\pak_kepo\vendor\knuckleswtf\scribe\src\GroupedEndpoints\GroupedEndpointsFromApp.php'
+                        line: 47
+                        function: extractEndpointsInfoAndWriteToDisk
+                        class: Knuckles\Scribe\GroupedEndpoints\GroupedEndpointsFromApp
+                        type: '->'
+                      -
+                        file: 'D:\~projects\htdocs\pak_kepo\vendor\knuckleswtf\scribe\src\Commands\GenerateDocumentation.php'
+                        line: 51
+                        function: get
+                        class: Knuckles\Scribe\GroupedEndpoints\GroupedEndpointsFromApp
+                        type: '->'
+                      -
+                        file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php'
+                        line: 36
+                        function: handle
+                        class: Knuckles\Scribe\Commands\GenerateDocumentation
+                        type: '->'
+                      -
+                        file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Container\Util.php'
+                        line: 41
+                        function: 'Illuminate\Container\{closure}'
+                        class: Illuminate\Container\BoundMethod
+                        type: '::'
+                      -
+                        file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php'
+                        line: 93
+                        function: unwrapIfClosure
+                        class: Illuminate\Container\Util
+                        type: '::'
+                      -
+                        file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Container\BoundMethod.php'
+                        line: 37
+                        function: callBoundMethod
+                        class: Illuminate\Container\BoundMethod
+                        type: '::'
+                      -
+                        file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Container\Container.php'
+                        line: 651
+                        function: call
+                        class: Illuminate\Container\BoundMethod
+                        type: '::'
+                      -
+                        file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Console\Command.php'
+                        line: 144
+                        function: call
+                        class: Illuminate\Container\Container
+                        type: '->'
+                      -
+                        file: 'D:\~projects\htdocs\pak_kepo\vendor\symfony\console\Command\Command.php'
+                        line: 308
+                        function: execute
+                        class: Illuminate\Console\Command
+                        type: '->'
+                      -
+                        file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Console\Command.php'
+                        line: 126
+                        function: run
+                        class: Symfony\Component\Console\Command\Command
+                        type: '->'
+                      -
+                        file: 'D:\~projects\htdocs\pak_kepo\vendor\symfony\console\Application.php'
+                        line: 1002
+                        function: run
+                        class: Illuminate\Console\Command
+                        type: '->'
+                      -
+                        file: 'D:\~projects\htdocs\pak_kepo\vendor\symfony\console\Application.php'
+                        line: 299
+                        function: doRunCommand
+                        class: Symfony\Component\Console\Application
+                        type: '->'
+                      -
+                        file: 'D:\~projects\htdocs\pak_kepo\vendor\symfony\console\Application.php'
+                        line: 171
+                        function: doRun
+                        class: Symfony\Component\Console\Application
+                        type: '->'
+                      -
+                        file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Console\Application.php'
+                        line: 102
+                        function: run
+                        class: Symfony\Component\Console\Application
+                        type: '->'
+                      -
+                        file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Foundation\Console\Kernel.php'
+                        line: 129
+                        function: run
+                        class: Illuminate\Console\Application
+                        type: '->'
+                      -
+                        file: 'D:\~projects\htdocs\pak_kepo\artisan'
+                        line: 37
+                        function: handle
+                        class: Illuminate\Foundation\Console\Kernel
+                        type: '->'
+                    items:
+                      type: object
+                      properties:
+                        file:
+                          type: string
+                          example: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Foundation\Exceptions\Handler.php'
+                        line:
+                          type: integer
+                          example: 356
+                        function:
+                          type: string
+                          example: prepareException
+                        class:
+                          type: string
+                          example: Illuminate\Foundation\Exceptions\Handler
+                        type:
+                          type: string
+                          example: '->'
+      tags:
+        - Endpoints
+      security: []
+    patch:
+      summary: ''
+      operationId: patchApiForum_komenForum_idForumKomen_id
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                komen_forum:
+                  type: string
+                  description: ''
+                  example: blanditiis
+              required:
+                - komen_forum
+      security: []
+    parameters:
+      -
+        in: path
+        name: forum_id
+        description: 'The ID of the forum.'
+        example: 10
+        required: true
+        schema:
+          type: integer
+      -
+        in: path
+        name: forumKomen_id
+        description: 'The ID of the forumKomen.'
+        example: 19
+        required: true
+        schema:
+          type: integer
+  '/api/forum_komen/{forumKomen_id}':
+    delete:
+      summary: ''
+      operationId: deleteApiForum_komenForumKomen_id
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+      security: []
+    parameters:
+      -
+        in: path
+        name: forumKomen_id
+        description: 'The ID of the forumKomen.'
+        example: 11
+        required: true
+        schema:
+          type: integer
+  /api/post/category/headline:
+    get:
+      summary: 'Show all POST on headline'
+      operationId: showAllPOSTOnHeadline
+      description: "Check that the service is up. If everything is okay, you'll get a 200 OK response.\n\n  Otherwise, the request will fail with a 400 error, and a response listing the failed services.\nauthenticated: false"
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        204:
+          description: ''
+      tags:
+        - Endpoints
+      security: []
+tags:
+  -
+    name: Diktuk
+    description: ''
+  -
+    name: Endpoints
+    description: ''
