@@ -34,6 +34,7 @@ class RegisteredUserController extends Controller
      * @bodyParam nomor_telpon numeric required
      * @bodyParam fcm_token number required token fcm
      * @bodyParam user_roles array example [3,4]. 4 = pengguna, 3 = kontributor
+     * @bodyParam foto file user's photo profile
      *
      * @throws \Illuminate\Validation\ValidationException
      */

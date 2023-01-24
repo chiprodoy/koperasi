@@ -209,7 +209,7 @@
     </ul>
 
     <ul class="toc-footer" id="last-updated">
-        <li>Last updated: January 21, 2023</li>
+        <li>Last updated: January 24, 2023</li>
     </ul>
 </div>
 
@@ -1970,19 +1970,15 @@ fetch(url, {
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
     "http://pak_kepo.test/api/register" \
-    --header "Content-Type: application/json" \
+    --header "Content-Type: multipart/form-data" \
     --header "Accept: application/json" \
-    --data "{
-    \"name\": \"enim\",
-    \"password\": \"nemo\",
-    \"email\": \"aletha46@example.org\",
-    \"nomor_telpon\": \"velit\",
-    \"fcm_token\": 7653492.802,
-    \"user_roles\": [
-        \"officia\"
-    ]
-}"
-</code></pre></div>
+    --form "name=aliquam" \
+    --form "password=assumenda" \
+    --form "email=margaret.effertz@example.net" \
+    --form "nomor_telpon=maiores" \
+    --form "fcm_token=147528.7864" \
+    --form "user_roles[]=eum" \
+    --form "foto=@C:\Users\DELL DEKSTOP\AppData\Local\Temp\phpD202.tmp" </code></pre></div>
 
 
 <div class="javascript-example">
@@ -1991,25 +1987,23 @@ fetch(url, {
 );
 
 const headers = {
-    "Content-Type": "application/json",
+    "Content-Type": "multipart/form-data",
     "Accept": "application/json",
 };
 
-let body = {
-    "name": "enim",
-    "password": "nemo",
-    "email": "aletha46@example.org",
-    "nomor_telpon": "velit",
-    "fcm_token": 7653492.802,
-    "user_roles": [
-        "officia"
-    ]
-};
+const body = new FormData();
+body.append('name', 'aliquam');
+body.append('password', 'assumenda');
+body.append('email', 'margaret.effertz@example.net');
+body.append('nomor_telpon', 'maiores');
+body.append('fcm_token', '147528.7864');
+body.append('user_roles[]', 'eum');
+body.append('foto', document.querySelector('input[name="foto"]').files[0]);
 
 fetch(url, {
     method: "POST",
     headers,
-    body: JSON.stringify(body),
+    body,
 }).then(response =&gt; response.json());</code></pre></div>
 
 </span>
@@ -2029,7 +2023,7 @@ fetch(url, {
 <form id="form-POSTapi-register" data-method="POST"
       data-path="api/register"
       data-authed="0"
-      data-hasfiles="0"
+      data-hasfiles="1"
       data-isarraybody="0"
       autocomplete="off"
       onsubmit="event.preventDefault(); executeTryOut('POSTapi-register', this);">
@@ -2061,10 +2055,10 @@ fetch(url, {
  &nbsp;
                 <input type="text" style="display: none"
                name="Content-Type"                data-endpoint="POSTapi-register"
-               value="application/json"
+               value="multipart/form-data"
                data-component="header">
     <br>
-<p>Example: <code>application/json</code></p>
+<p>Example: <code>multipart/form-data</code></p>
             </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
@@ -2084,10 +2078,10 @@ fetch(url, {
  &nbsp;
                 <input type="text" style="display: none"
                name="name"                data-endpoint="POSTapi-register"
-               value="enim"
+               value="aliquam"
                data-component="body">
     <br>
-<p>Example: <code>enim</code></p>
+<p>Example: <code>aliquam</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>password</code></b>&nbsp;&nbsp;
@@ -2095,10 +2089,10 @@ fetch(url, {
  &nbsp;
                 <input type="text" style="display: none"
                name="password"                data-endpoint="POSTapi-register"
-               value="nemo"
+               value="assumenda"
                data-component="body">
     <br>
-<p>Example: <code>nemo</code></p>
+<p>Example: <code>assumenda</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>email</code></b>&nbsp;&nbsp;
@@ -2106,10 +2100,10 @@ fetch(url, {
  &nbsp;
                 <input type="text" style="display: none"
                name="email"                data-endpoint="POSTapi-register"
-               value="aletha46@example.org"
+               value="margaret.effertz@example.net"
                data-component="body">
     <br>
-<p>Example: <code>aletha46@example.org</code></p>
+<p>Example: <code>margaret.effertz@example.net</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>nomor_telpon</code></b>&nbsp;&nbsp;
@@ -2117,10 +2111,10 @@ fetch(url, {
  &nbsp;
                 <input type="text" style="display: none"
                name="nomor_telpon"                data-endpoint="POSTapi-register"
-               value="velit"
+               value="maiores"
                data-component="body">
     <br>
-<p>Example: <code>velit</code></p>
+<p>Example: <code>maiores</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>fcm_token</code></b>&nbsp;&nbsp;
@@ -2128,10 +2122,10 @@ fetch(url, {
  &nbsp;
                 <input type="number" style="display: none"
                name="fcm_token"                data-endpoint="POSTapi-register"
-               value="7653492.802"
+               value="147528.7864"
                data-component="body">
     <br>
-<p>token fcm Example: <code>7653492.802</code></p>
+<p>token fcm Example: <code>147528.7864</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>user_roles</code></b>&nbsp;&nbsp;
@@ -2145,6 +2139,17 @@ fetch(url, {
                data-component="body">
     <br>
 <p>example [3,4]. 4 = pengguna, 3 = kontributor</p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>foto</code></b>&nbsp;&nbsp;
+<small>file</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="file" style="display: none"
+               name="foto"                data-endpoint="POSTapi-register"
+               value=""
+               data-component="body">
+    <br>
+<p>user's photo profile Example: <code>C:\Users\DELL DEKSTOP\AppData\Local\Temp\phpD202.tmp</code></p>
         </div>
         </form>
 
@@ -2165,8 +2170,8 @@ fetch(url, {
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"email\": \"mparker@example.net\",
-    \"password\": \"1P?&amp;$&lt;nf3m\"
+    \"email\": \"walker.sidney@example.com\",
+    \"password\": \"CIoqGP6OPJ*(]~\"
 }"
 </code></pre></div>
 
@@ -2182,8 +2187,8 @@ const headers = {
 };
 
 let body = {
-    "email": "mparker@example.net",
-    "password": "1P?&amp;$&lt;nf3m"
+    "email": "walker.sidney@example.com",
+    "password": "CIoqGP6OPJ*(]~"
 };
 
 fetch(url, {
@@ -2264,10 +2269,10 @@ fetch(url, {
  &nbsp;
                 <input type="text" style="display: none"
                name="email"                data-endpoint="POSTapi-login"
-               value="mparker@example.net"
+               value="walker.sidney@example.com"
                data-component="body">
     <br>
-<p>Must be a valid email address. Example: <code>mparker@example.net</code></p>
+<p>Must be a valid email address. Example: <code>walker.sidney@example.com</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>password</code></b>&nbsp;&nbsp;
@@ -2275,10 +2280,10 @@ fetch(url, {
  &nbsp;
                 <input type="text" style="display: none"
                name="password"                data-endpoint="POSTapi-login"
-               value="1P?&$<nf3m"
+               value="CIoqGP6OPJ*(]~"
                data-component="body">
     <br>
-<p>Example: <code>1P?&amp;$&lt;nf3m</code></p>
+<p>Example: <code>CIoqGP6OPJ*(]~</code></p>
         </div>
         </form>
 
@@ -2299,14 +2304,14 @@ fetch(url, {
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"token\": \"labore\",
-    \"email\": \"amari.heaney@example.net\",
-    \"password\": \"commodi\",
-    \"name\": \"dignissimos\",
-    \"nomor_telpon\": \"ratione\",
-    \"fcm_token\": 14912.971494,
+    \"token\": \"iure\",
+    \"email\": \"gleichner.schuyler@example.net\",
+    \"password\": \"cumque\",
+    \"name\": \"eligendi\",
+    \"nomor_telpon\": \"aut\",
+    \"fcm_token\": 0.44908357,
     \"user_roles\": [
-        \"est\"
+        \"magnam\"
     ]
 }"
 </code></pre></div>
@@ -2323,14 +2328,14 @@ const headers = {
 };
 
 let body = {
-    "token": "labore",
-    "email": "amari.heaney@example.net",
-    "password": "commodi",
-    "name": "dignissimos",
-    "nomor_telpon": "ratione",
-    "fcm_token": 14912.971494,
+    "token": "iure",
+    "email": "gleichner.schuyler@example.net",
+    "password": "cumque",
+    "name": "eligendi",
+    "nomor_telpon": "aut",
+    "fcm_token": 0.44908357,
     "user_roles": [
-        "est"
+        "magnam"
     ]
 };
 
@@ -2412,10 +2417,10 @@ fetch(url, {
  &nbsp;
                 <input type="text" style="display: none"
                name="token"                data-endpoint="POSTapi-reset-password"
-               value="labore"
+               value="iure"
                data-component="body">
     <br>
-<p>Example: <code>labore</code></p>
+<p>Example: <code>iure</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>email</code></b>&nbsp;&nbsp;
@@ -2423,10 +2428,10 @@ fetch(url, {
  &nbsp;
                 <input type="text" style="display: none"
                name="email"                data-endpoint="POSTapi-reset-password"
-               value="amari.heaney@example.net"
+               value="gleichner.schuyler@example.net"
                data-component="body">
     <br>
-<p>Example: <code>amari.heaney@example.net</code></p>
+<p>Example: <code>gleichner.schuyler@example.net</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>password</code></b>&nbsp;&nbsp;
@@ -2434,10 +2439,10 @@ fetch(url, {
  &nbsp;
                 <input type="text" style="display: none"
                name="password"                data-endpoint="POSTapi-reset-password"
-               value="commodi"
+               value="cumque"
                data-component="body">
     <br>
-<p>Example: <code>commodi</code></p>
+<p>Example: <code>cumque</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>name</code></b>&nbsp;&nbsp;
@@ -2445,10 +2450,10 @@ fetch(url, {
  &nbsp;
                 <input type="text" style="display: none"
                name="name"                data-endpoint="POSTapi-reset-password"
-               value="dignissimos"
+               value="eligendi"
                data-component="body">
     <br>
-<p>Example: <code>dignissimos</code></p>
+<p>Example: <code>eligendi</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>nomor_telpon</code></b>&nbsp;&nbsp;
@@ -2456,10 +2461,10 @@ fetch(url, {
  &nbsp;
                 <input type="text" style="display: none"
                name="nomor_telpon"                data-endpoint="POSTapi-reset-password"
-               value="ratione"
+               value="aut"
                data-component="body">
     <br>
-<p>Example: <code>ratione</code></p>
+<p>Example: <code>aut</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>fcm_token</code></b>&nbsp;&nbsp;
@@ -2467,10 +2472,10 @@ fetch(url, {
  &nbsp;
                 <input type="number" style="display: none"
                name="fcm_token"                data-endpoint="POSTapi-reset-password"
-               value="14912.971494"
+               value="0.44908357"
                data-component="body">
     <br>
-<p>token fcm Example: <code>14912.971494</code></p>
+<p>token fcm Example: <code>0.44908357</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>user_roles</code></b>&nbsp;&nbsp;
@@ -2500,14 +2505,14 @@ fetch(url, {
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://pak_kepo.test/api/fcm_token/ab" \
+    "http://pak_kepo.test/api/fcm_token/deleniti" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://pak_kepo.test/api/fcm_token/ab"
+    "http://pak_kepo.test/api/fcm_token/deleniti"
 );
 
 const headers = {
@@ -2592,10 +2597,10 @@ fetch(url, {
  &nbsp;
                 <input type="text" style="display: none"
                name="fcmToken"                data-endpoint="POSTapi-fcm_token--fcmToken-"
-               value="ab"
+               value="deleniti"
                data-component="url">
     <br>
-<p>Example: <code>ab</code></p>
+<p>Example: <code>deleniti</code></p>
             </div>
                     </form>
 
@@ -3000,14 +3005,14 @@ access-control-allow-origin: *
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://pak_kepo.test/api/post/category/dolor" \
+    --get "http://pak_kepo.test/api/post/category/et" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://pak_kepo.test/api/post/category/dolor"
+    "http://pak_kepo.test/api/post/category/et"
 );
 
 const headers = {
@@ -3106,10 +3111,10 @@ access-control-allow-origin: *
  &nbsp;
                 <input type="text" style="display: none"
                name="slug"                data-endpoint="GETapi-post-category--slug-"
-               value="dolor"
+               value="et"
                data-component="url">
     <br>
-<p>The slug of the category. Example: <code>dolor</code></p>
+<p>The slug of the category. Example: <code>et</code></p>
             </div>
                     </form>
 
@@ -3370,14 +3375,14 @@ access-control-allow-origin: *
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://pak_kepo.test/api/page/aut" \
+    --get "http://pak_kepo.test/api/page/placeat" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://pak_kepo.test/api/page/aut"
+    "http://pak_kepo.test/api/page/placeat"
 );
 
 const headers = {
@@ -3476,10 +3481,10 @@ access-control-allow-origin: *
  &nbsp;
                 <input type="text" style="display: none"
                name="slug"                data-endpoint="GETapi-page--slug-"
-               value="aut"
+               value="placeat"
                data-component="url">
     <br>
-<p>The slug of the page. Example: <code>aut</code></p>
+<p>The slug of the page. Example: <code>placeat</code></p>
             </div>
                     </form>
 
@@ -3613,14 +3618,14 @@ access-control-allow-origin: *
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://pak_kepo.test/api/media/category/id" \
+    --get "http://pak_kepo.test/api/media/category/rerum" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://pak_kepo.test/api/media/category/id"
+    "http://pak_kepo.test/api/media/category/rerum"
 );
 
 const headers = {
@@ -3719,10 +3724,10 @@ access-control-allow-origin: *
  &nbsp;
                 <input type="text" style="display: none"
                name="slug"                data-endpoint="GETapi-media-category--slug-"
-               value="id"
+               value="rerum"
                data-component="url">
     <br>
-<p>The slug of the category. Example: <code>id</code></p>
+<p>The slug of the category. Example: <code>rerum</code></p>
             </div>
                     </form>
 
@@ -3740,14 +3745,14 @@ access-control-allow-origin: *
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://pak_kepo.test/api/media/neque" \
+    --get "http://pak_kepo.test/api/media/numquam" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://pak_kepo.test/api/media/neque"
+    "http://pak_kepo.test/api/media/numquam"
 );
 
 const headers = {
@@ -3846,10 +3851,10 @@ access-control-allow-origin: *
  &nbsp;
                 <input type="text" style="display: none"
                name="slug"                data-endpoint="GETapi-media--slug-"
-               value="neque"
+               value="numquam"
                data-component="url">
     <br>
-<p>The slug of the medium. Example: <code>neque</code></p>
+<p>The slug of the medium. Example: <code>numquam</code></p>
             </div>
                     </form>
 
@@ -4403,14 +4408,14 @@ access-control-allow-origin: *
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://pak_kepo.test/api/forum/15" \
+    --get "http://pak_kepo.test/api/forum/3" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://pak_kepo.test/api/forum/15"
+    "http://pak_kepo.test/api/forum/3"
 );
 
 const headers = {
@@ -4441,7 +4446,7 @@ access-control-allow-origin: *
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
-    &quot;message&quot;: &quot;No query results for model [App\\Models\\Forum] 15&quot;,
+    &quot;message&quot;: &quot;No query results for model [App\\Models\\Forum] 3&quot;,
     &quot;exception&quot;: &quot;Symfony\\Component\\HttpKernel\\Exception\\NotFoundHttpException&quot;,
     &quot;file&quot;: &quot;D:\\~projects\\htdocs\\pak_kepo\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Exceptions\\Handler.php&quot;,
     &quot;line&quot;: 380,
@@ -4924,10 +4929,10 @@ access-control-allow-origin: *
  &nbsp;
                 <input type="number" style="display: none"
                name="forum_id"                data-endpoint="GETapi-forum--forum_id-"
-               value="15"
+               value="3"
                data-component="url">
     <br>
-<p>The ID of the forum. Example: <code>15</code></p>
+<p>The ID of the forum. Example: <code>3</code></p>
             </div>
                     </form>
 
@@ -4948,7 +4953,7 @@ access-control-allow-origin: *
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"konten_forum\": \"dolorem\"
+    \"konten_forum\": \"saepe\"
 }"
 </code></pre></div>
 
@@ -4964,7 +4969,7 @@ const headers = {
 };
 
 let body = {
-    "konten_forum": "dolorem"
+    "konten_forum": "saepe"
 };
 
 fetch(url, {
@@ -5045,10 +5050,10 @@ fetch(url, {
  &nbsp;
                 <input type="text" style="display: none"
                name="konten_forum"                data-endpoint="POSTapi-forum"
-               value="dolorem"
+               value="saepe"
                data-component="body">
     <br>
-<p>Example: <code>dolorem</code></p>
+<p>Example: <code>saepe</code></p>
         </div>
         </form>
 
@@ -5065,18 +5070,18 @@ fetch(url, {
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PATCH \
-    "http://pak_kepo.test/api/forum/19" \
+    "http://pak_kepo.test/api/forum/4" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"konten_forum\": \"sed\"
+    \"konten_forum\": \"assumenda\"
 }"
 </code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://pak_kepo.test/api/forum/19"
+    "http://pak_kepo.test/api/forum/4"
 );
 
 const headers = {
@@ -5085,7 +5090,7 @@ const headers = {
 };
 
 let body = {
-    "konten_forum": "sed"
+    "konten_forum": "assumenda"
 };
 
 fetch(url, {
@@ -5166,10 +5171,10 @@ fetch(url, {
  &nbsp;
                 <input type="number" style="display: none"
                name="forum_id"                data-endpoint="PATCHapi-forum--forum_id-"
-               value="19"
+               value="4"
                data-component="url">
     <br>
-<p>The ID of the forum. Example: <code>19</code></p>
+<p>The ID of the forum. Example: <code>4</code></p>
             </div>
                             <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
         <div style=" padding-left: 28px;  clear: unset;">
@@ -5178,10 +5183,10 @@ fetch(url, {
  &nbsp;
                 <input type="text" style="display: none"
                name="konten_forum"                data-endpoint="PATCHapi-forum--forum_id-"
-               value="sed"
+               value="assumenda"
                data-component="body">
     <br>
-<p>Example: <code>sed</code></p>
+<p>Example: <code>assumenda</code></p>
         </div>
         </form>
 
@@ -5198,14 +5203,14 @@ fetch(url, {
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "http://pak_kepo.test/api/forum/4" \
+    "http://pak_kepo.test/api/forum/7" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://pak_kepo.test/api/forum/4"
+    "http://pak_kepo.test/api/forum/7"
 );
 
 const headers = {
@@ -5290,10 +5295,10 @@ fetch(url, {
  &nbsp;
                 <input type="number" style="display: none"
                name="forum_id"                data-endpoint="DELETEapi-forum--forum_id-"
-               value="4"
+               value="7"
                data-component="url">
     <br>
-<p>The ID of the forum. Example: <code>4</code></p>
+<p>The ID of the forum. Example: <code>7</code></p>
             </div>
                     </form>
 
@@ -5310,14 +5315,14 @@ fetch(url, {
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://pak_kepo.test/api/forum_komen/5" \
+    --get "http://pak_kepo.test/api/forum_komen/11" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://pak_kepo.test/api/forum_komen/5"
+    "http://pak_kepo.test/api/forum_komen/11"
 );
 
 const headers = {
@@ -5348,7 +5353,7 @@ access-control-allow-origin: *
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
-    &quot;message&quot;: &quot;No query results for model [App\\Models\\Forum] 5&quot;,
+    &quot;message&quot;: &quot;No query results for model [App\\Models\\Forum] 11&quot;,
     &quot;exception&quot;: &quot;Symfony\\Component\\HttpKernel\\Exception\\NotFoundHttpException&quot;,
     &quot;file&quot;: &quot;D:\\~projects\\htdocs\\pak_kepo\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Exceptions\\Handler.php&quot;,
     &quot;line&quot;: 380,
@@ -5831,10 +5836,10 @@ access-control-allow-origin: *
  &nbsp;
                 <input type="number" style="display: none"
                name="forum_id"                data-endpoint="GETapi-forum_komen--forum_id-"
-               value="5"
+               value="11"
                data-component="url">
     <br>
-<p>The ID of the forum. Example: <code>5</code></p>
+<p>The ID of the forum. Example: <code>11</code></p>
             </div>
                     </form>
 
@@ -5851,14 +5856,14 @@ access-control-allow-origin: *
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://pak_kepo.test/api/forum_komen/10/19" \
+    --get "http://pak_kepo.test/api/forum_komen/10/13" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://pak_kepo.test/api/forum_komen/10/19"
+    "http://pak_kepo.test/api/forum_komen/10/13"
 );
 
 const headers = {
@@ -6383,10 +6388,10 @@ access-control-allow-origin: *
  &nbsp;
                 <input type="number" style="display: none"
                name="forumKomen_id"                data-endpoint="GETapi-forum_komen--forum_id---forumKomen_id-"
-               value="19"
+               value="13"
                data-component="url">
     <br>
-<p>The ID of the forumKomen. Example: <code>19</code></p>
+<p>The ID of the forumKomen. Example: <code>13</code></p>
             </div>
                     </form>
 
@@ -6403,18 +6408,18 @@ access-control-allow-origin: *
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://pak_kepo.test/api/forum_komen/3" \
+    "http://pak_kepo.test/api/forum_komen/19" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"komen_forum\": \"suscipit\"
+    \"komen_forum\": \"incidunt\"
 }"
 </code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://pak_kepo.test/api/forum_komen/3"
+    "http://pak_kepo.test/api/forum_komen/19"
 );
 
 const headers = {
@@ -6423,7 +6428,7 @@ const headers = {
 };
 
 let body = {
-    "komen_forum": "suscipit"
+    "komen_forum": "incidunt"
 };
 
 fetch(url, {
@@ -6504,10 +6509,10 @@ fetch(url, {
  &nbsp;
                 <input type="number" style="display: none"
                name="forum_id"                data-endpoint="POSTapi-forum_komen--forum_id-"
-               value="3"
+               value="19"
                data-component="url">
     <br>
-<p>The ID of the forum. Example: <code>3</code></p>
+<p>The ID of the forum. Example: <code>19</code></p>
             </div>
                             <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
         <div style=" padding-left: 28px;  clear: unset;">
@@ -6516,10 +6521,10 @@ fetch(url, {
  &nbsp;
                 <input type="text" style="display: none"
                name="komen_forum"                data-endpoint="POSTapi-forum_komen--forum_id-"
-               value="suscipit"
+               value="incidunt"
                data-component="body">
     <br>
-<p>Example: <code>suscipit</code></p>
+<p>Example: <code>incidunt</code></p>
         </div>
         </form>
 
@@ -6536,18 +6541,18 @@ fetch(url, {
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PATCH \
-    "http://pak_kepo.test/api/forum_komen/16/9" \
+    "http://pak_kepo.test/api/forum_komen/15/9" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"komen_forum\": \"blanditiis\"
+    \"komen_forum\": \"adipisci\"
 }"
 </code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://pak_kepo.test/api/forum_komen/16/9"
+    "http://pak_kepo.test/api/forum_komen/15/9"
 );
 
 const headers = {
@@ -6556,7 +6561,7 @@ const headers = {
 };
 
 let body = {
-    "komen_forum": "blanditiis"
+    "komen_forum": "adipisci"
 };
 
 fetch(url, {
@@ -6637,10 +6642,10 @@ fetch(url, {
  &nbsp;
                 <input type="number" style="display: none"
                name="forum_id"                data-endpoint="PATCHapi-forum_komen--forum_id---forumKomen_id-"
-               value="16"
+               value="15"
                data-component="url">
     <br>
-<p>The ID of the forum. Example: <code>16</code></p>
+<p>The ID of the forum. Example: <code>15</code></p>
             </div>
                     <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>forumKomen_id</code></b>&nbsp;&nbsp;
@@ -6660,10 +6665,10 @@ fetch(url, {
  &nbsp;
                 <input type="text" style="display: none"
                name="komen_forum"                data-endpoint="PATCHapi-forum_komen--forum_id---forumKomen_id-"
-               value="blanditiis"
+               value="adipisci"
                data-component="body">
     <br>
-<p>Example: <code>blanditiis</code></p>
+<p>Example: <code>adipisci</code></p>
         </div>
         </form>
 
@@ -6680,14 +6685,14 @@ fetch(url, {
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "http://pak_kepo.test/api/forum_komen/11" \
+    "http://pak_kepo.test/api/forum_komen/15" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://pak_kepo.test/api/forum_komen/11"
+    "http://pak_kepo.test/api/forum_komen/15"
 );
 
 const headers = {
@@ -6772,10 +6777,10 @@ fetch(url, {
  &nbsp;
                 <input type="number" style="display: none"
                name="forumKomen_id"                data-endpoint="DELETEapi-forum_komen--forumKomen_id-"
-               value="11"
+               value="15"
                data-component="url">
     <br>
-<p>The ID of the forumKomen. Example: <code>11</code></p>
+<p>The ID of the forumKomen. Example: <code>15</code></p>
             </div>
                     </form>
 
