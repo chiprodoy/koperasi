@@ -34,7 +34,13 @@ class AuthenticatedSessionController extends Controller
         if($request->wantsJson()){
             $token = $request->user()->createToken('pakkepoaccesstoken');
 
-            return ['token' => $token->plainTextToken];
+            return response()->json([
+                'message' => 'Login Berhasil',
+                'data' => [
+                    'user' => $request->user(),
+                    'token' => $token,
+                ],
+            ]);
         }else{
             $request->session()->regenerate();
 

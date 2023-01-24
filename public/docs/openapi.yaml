@@ -531,28 +531,28 @@ paths:
                 name:
                   type: string
                   description: ''
-                  example: aliquam
+                  example: a
                 password:
                   type: string
                   description: ''
-                  example: assumenda
+                  example: qui
                 email:
                   type: email
                   description: ''
-                  example: margaret.effertz@example.net
+                  example: xfay@example.net
                 nomor_telpon:
                   type: numeric
                   description: ''
-                  example: maiores
+                  example: asperiores
                 fcm_token:
                   type: number
                   description: 'token fcm'
-                  example: 147528.7864
+                  example: 97413621.33
                 user_roles:
                   type: array
                   description: 'example [3,4]. 4 = pengguna, 3 = kontributor'
                   example:
-                    - eum
+                    - sit
                   items:
                     type: string
                 foto:
@@ -599,11 +599,11 @@ paths:
                 email:
                   type: string
                   description: 'Must be a valid email address.'
-                  example: walker.sidney@example.com
+                  example: oconner.angelo@example.com
                 password:
                   type: string
                   description: ''
-                  example: 'CIoqGP6OPJ*(]~'
+                  example: 'b^I,~n'
               required:
                 - email
                 - password
@@ -641,32 +641,32 @@ paths:
                 token:
                   type: string
                   description: ''
-                  example: iure
+                  example: aut
                 email:
                   type: email
                   description: ''
-                  example: gleichner.schuyler@example.net
+                  example: conroy.jay@example.net
                 password:
                   type: string
                   description: ''
-                  example: cumque
+                  example: quasi
                 name:
                   type: string
                   description: ''
-                  example: eligendi
+                  example: voluptas
                 nomor_telpon:
                   type: numeric
                   description: ''
-                  example: aut
+                  example: quisquam
                 fcm_token:
                   type: number
                   description: 'token fcm'
-                  example: 0.44908357
+                  example: 89335.878525
                 user_roles:
                   type: array
                   description: 'example [3,4]. 4 = pengguna, 3 = kontributor'
                   example:
-                    - magnam
+                    - culpa
                   items:
                     type: string
               required:
@@ -706,7 +706,7 @@ paths:
         in: path
         name: fcmToken
         description: ''
-        example: deleniti
+        example: et
         required: true
         schema:
           type: string
@@ -772,7 +772,7 @@ paths:
         in: path
         name: slug
         description: 'The slug of the category.'
-        example: et
+        example: quos
         required: true
         schema:
           type: string
@@ -878,7 +878,7 @@ paths:
         in: path
         name: slug
         description: 'The slug of the page.'
-        example: placeat
+        example: rem
         required: true
         schema:
           type: string
@@ -949,7 +949,7 @@ paths:
         in: path
         name: slug
         description: 'The slug of the category.'
-        example: rerum
+        example: ipsa
         required: true
         schema:
           type: string
@@ -984,7 +984,7 @@ paths:
         in: path
         name: slug
         description: 'The slug of the medium.'
-        example: numquam
+        example: consectetur
         required: true
         schema:
           type: string
@@ -1179,7 +1179,7 @@ paths:
                 konten_forum:
                   type: string
                   description: ''
-                  example: saepe
+                  example: necessitatibus
               required:
                 - konten_forum
       security: []
@@ -1211,7 +1211,7 @@ paths:
               schema:
                 type: object
                 example:
-                  message: 'No query results for model [App\Models\Forum] 3'
+                  message: 'No query results for model [App\Models\Forum] 1'
                   exception: Symfony\Component\HttpKernel\Exception\NotFoundHttpException
                   file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Foundation\Exceptions\Handler.php'
                   line: 380
@@ -1567,7 +1567,7 @@ paths:
                 properties:
                   message:
                     type: string
-                    example: 'No query results for model [App\Models\Forum] 3'
+                    example: 'No query results for model [App\Models\Forum] 1'
                   exception:
                     type: string
                     example: Symfony\Component\HttpKernel\Exception\NotFoundHttpException
@@ -1981,7 +1981,7 @@ paths:
                 konten_forum:
                   type: string
                   description: ''
-                  example: assumenda
+                  example: quisquam
               required:
                 - konten_forum
       security: []
@@ -2013,7 +2013,7 @@ paths:
         in: path
         name: forum_id
         description: 'The ID of the forum.'
-        example: 3
+        example: 1
         required: true
         schema:
           type: integer
@@ -2045,7 +2045,7 @@ paths:
               schema:
                 type: object
                 example:
-                  message: 'No query results for model [App\Models\Forum] 11'
+                  message: 'No query results for model [App\Models\Forum] 9'
                   exception: Symfony\Component\HttpKernel\Exception\NotFoundHttpException
                   file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Foundation\Exceptions\Handler.php'
                   line: 380
@@ -2401,7 +2401,7 @@ paths:
                 properties:
                   message:
                     type: string
-                    example: 'No query results for model [App\Models\Forum] 11'
+                    example: 'No query results for model [App\Models\Forum] 9'
                   exception:
                     type: string
                     example: Symfony\Component\HttpKernel\Exception\NotFoundHttpException
@@ -2815,7 +2815,7 @@ paths:
                 komen_forum:
                   type: string
                   description: ''
-                  example: incidunt
+                  example: placeat
               required:
                 - komen_forum
       security: []
@@ -2824,7 +2824,7 @@ paths:
         in: path
         name: forum_id
         description: 'The ID of the forum.'
-        example: 11
+        example: 9
         required: true
         schema:
           type: integer
@@ -2856,7 +2856,7 @@ paths:
               schema:
                 type: object
                 example:
-                  message: 'No query results for model [App\Models\Forum] 10'
+                  message: 'No query results for model [App\Models\Forum] 7'
                   exception: Symfony\Component\HttpKernel\Exception\NotFoundHttpException
                   file: 'D:\~projects\htdocs\pak_kepo\vendor\laravel\framework\src\Illuminate\Foundation\Exceptions\Handler.php'
                   line: 380
@@ -3212,7 +3212,7 @@ paths:
                 properties:
                   message:
                     type: string
-                    example: 'No query results for model [App\Models\Forum] 10'
+                    example: 'No query results for model [App\Models\Forum] 7'
                   exception:
                     type: string
                     example: Symfony\Component\HttpKernel\Exception\NotFoundHttpException
@@ -3626,7 +3626,7 @@ paths:
                 komen_forum:
                   type: string
                   description: ''
-                  example: adipisci
+                  example: sint
               required:
                 - komen_forum
       security: []
@@ -3635,7 +3635,7 @@ paths:
         in: path
         name: forum_id
         description: 'The ID of the forum.'
-        example: 10
+        example: 7
         required: true
         schema:
           type: integer
@@ -3643,7 +3643,7 @@ paths:
         in: path
         name: forumKomen_id
         description: 'The ID of the forumKomen.'
-        example: 13
+        example: 2
         required: true
         schema:
           type: integer
@@ -3676,7 +3676,7 @@ paths:
         in: path
         name: forumKomen_id
         description: 'The ID of the forumKomen.'
-        example: 15
+        example: 9
         required: true
         schema:
           type: integer

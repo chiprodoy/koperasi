@@ -28,35 +28,35 @@ endpoints:
         name: name
         description: ''
         required: true
-        example: aliquam
+        example: a
         type: string
         custom: []
       password:
         name: password
         description: ''
         required: true
-        example: assumenda
+        example: qui
         type: string
         custom: []
       email:
         name: email
         description: ''
         required: true
-        example: margaret.effertz@example.net
+        example: xfay@example.net
         type: email
         custom: []
       nomor_telpon:
         name: nomor_telpon
         description: ''
         required: true
-        example: maiores
+        example: asperiores
         type: numeric
         custom: []
       fcm_token:
         name: fcm_token
         description: 'token fcm'
         required: true
-        example: 147528.7864
+        example: 97413621.33
         type: number
         custom: []
       user_roles:
@@ -64,7 +64,7 @@ endpoints:
         description: 'example [3,4]. 4 = pengguna, 3 = kontributor'
         required: false
         example:
-          - eum
+          - sit
         type: 'string[]'
         custom: []
       foto:
@@ -75,13 +75,13 @@ endpoints:
         type: file
         custom: []
     cleanBodyParameters:
-      name: aliquam
-      password: assumenda
-      email: margaret.effertz@example.net
-      nomor_telpon: maiores
-      fcm_token: 147528.7864
+      name: a
+      password: qui
+      email: xfay@example.net
+      nomor_telpon: asperiores
+      fcm_token: 97413621.33
       user_roles:
-        - eum
+        - sit
     fileParameters:
       foto: null
     responses: []
@@ -116,19 +116,19 @@ endpoints:
         name: email
         description: 'Must be a valid email address.'
         required: true
-        example: walker.sidney@example.com
+        example: oconner.angelo@example.com
         type: string
         custom: []
       password:
         name: password
         description: ''
         required: true
-        example: 'CIoqGP6OPJ*(]~'
+        example: 'b^I,~n'
         type: string
         custom: []
     cleanBodyParameters:
-      email: walker.sidney@example.com
-      password: 'CIoqGP6OPJ*(]~'
+      email: oconner.angelo@example.com
+      password: 'b^I,~n'
     fileParameters: []
     responses: []
     responseFields: []
@@ -162,42 +162,42 @@ endpoints:
         name: token
         description: ''
         required: true
-        example: iure
+        example: aut
         type: string
         custom: []
       email:
         name: email
         description: ''
         required: true
-        example: gleichner.schuyler@example.net
+        example: conroy.jay@example.net
         type: email
         custom: []
       password:
         name: password
         description: ''
         required: true
-        example: cumque
+        example: quasi
         type: string
         custom: []
       name:
         name: name
         description: ''
         required: true
-        example: eligendi
+        example: voluptas
         type: string
         custom: []
       nomor_telpon:
         name: nomor_telpon
         description: ''
         required: true
-        example: aut
+        example: quisquam
         type: numeric
         custom: []
       fcm_token:
         name: fcm_token
         description: 'token fcm'
         required: true
-        example: 0.44908357
+        example: 89335.878525
         type: number
         custom: []
       user_roles:
@@ -205,18 +205,18 @@ endpoints:
         description: 'example [3,4]. 4 = pengguna, 3 = kontributor'
         required: false
         example:
-          - magnam
+          - culpa
         type: 'string[]'
         custom: []
     cleanBodyParameters:
-      token: iure
-      email: gleichner.schuyler@example.net
-      password: cumque
-      name: eligendi
-      nomor_telpon: aut
-      fcm_token: 0.44908357
+      token: aut
+      email: conroy.jay@example.net
+      password: quasi
+      name: voluptas
+      nomor_telpon: quisquam
+      fcm_token: 89335.878525
       user_roles:
-        - magnam
+        - culpa
     fileParameters: []
     responses: []
     responseFields: []
@@ -246,11 +246,11 @@ endpoints:
         name: fcmToken
         description: ''
         required: true
-        example: deleniti
+        example: et
         type: string
         custom: []
     cleanUrlParameters:
-      fcmToken: deleniti
+      fcmToken: et
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -599,11 +599,11 @@ endpoints:
         name: slug
         description: 'The slug of the category.'
         required: true
-        example: et
+        example: quos
         type: string
         custom: []
     cleanUrlParameters:
-      slug: et
+      slug: quos
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -740,11 +740,11 @@ endpoints:
         name: slug
         description: 'The slug of the page.'
         required: true
-        example: placeat
+        example: rem
         type: string
         custom: []
     cleanUrlParameters:
-      slug: placeat
+      slug: rem
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -830,11 +830,11 @@ endpoints:
         name: slug
         description: 'The slug of the category.'
         required: true
-        example: rerum
+        example: ipsa
         type: string
         custom: []
     cleanUrlParameters:
-      slug: rerum
+      slug: ipsa
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -881,11 +881,11 @@ endpoints:
         name: slug
         description: 'The slug of the medium.'
         required: true
-        example: numquam
+        example: consectetur
         type: string
         custom: []
     cleanUrlParameters:
-      slug: numquam
+      slug: consectetur
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -1282,11 +1282,11 @@ endpoints:
         name: forum_id
         description: 'The ID of the forum.'
         required: true
-        example: 3
+        example: 1
         type: integer
         custom: []
     cleanUrlParameters:
-      forum_id: 3
+      forum_id: 1
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -1297,7 +1297,7 @@ endpoints:
         status: 404
         content: |-
           {
-              "message": "No query results for model [App\\Models\\Forum] 3",
+              "message": "No query results for model [App\\Models\\Forum] 1",
               "exception": "Symfony\\Component\\HttpKernel\\Exception\\NotFoundHttpException",
               "file": "D:\\~projects\\htdocs\\pak_kepo\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Exceptions\\Handler.php",
               "line": 380,
@@ -1749,11 +1749,11 @@ endpoints:
         name: konten_forum
         description: ''
         required: true
-        example: saepe
+        example: necessitatibus
         type: string
         custom: []
     cleanBodyParameters:
-      konten_forum: saepe
+      konten_forum: necessitatibus
     fileParameters: []
     responses: []
     responseFields: []
@@ -1783,11 +1783,11 @@ endpoints:
         name: forum_id
         description: 'The ID of the forum.'
         required: true
-        example: 4
+        example: 1
         type: integer
         custom: []
     cleanUrlParameters:
-      forum_id: 4
+      forum_id: 1
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
@@ -1795,11 +1795,11 @@ endpoints:
         name: konten_forum
         description: ''
         required: true
-        example: assumenda
+        example: quisquam
         type: string
         custom: []
     cleanBodyParameters:
-      konten_forum: assumenda
+      konten_forum: quisquam
     fileParameters: []
     responses: []
     responseFields: []
@@ -1867,11 +1867,11 @@ endpoints:
         name: forum_id
         description: 'The ID of the forum.'
         required: true
-        example: 11
+        example: 9
         type: integer
         custom: []
     cleanUrlParameters:
-      forum_id: 11
+      forum_id: 9
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -1882,7 +1882,7 @@ endpoints:
         status: 404
         content: |-
           {
-              "message": "No query results for model [App\\Models\\Forum] 11",
+              "message": "No query results for model [App\\Models\\Forum] 9",
               "exception": "Symfony\\Component\\HttpKernel\\Exception\\NotFoundHttpException",
               "file": "D:\\~projects\\htdocs\\pak_kepo\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Exceptions\\Handler.php",
               "line": 380,
@@ -2330,19 +2330,19 @@ endpoints:
         name: forum_id
         description: 'The ID of the forum.'
         required: true
-        example: 10
+        example: 7
         type: integer
         custom: []
       forumKomen_id:
         name: forumKomen_id
         description: 'The ID of the forumKomen.'
         required: true
-        example: 13
+        example: 2
         type: integer
         custom: []
     cleanUrlParameters:
-      forum_id: 10
-      forumKomen_id: 13
+      forum_id: 7
+      forumKomen_id: 2
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -2353,7 +2353,7 @@ endpoints:
         status: 404
         content: |-
           {
-              "message": "No query results for model [App\\Models\\Forum] 10",
+              "message": "No query results for model [App\\Models\\Forum] 7",
               "exception": "Symfony\\Component\\HttpKernel\\Exception\\NotFoundHttpException",
               "file": "D:\\~projects\\htdocs\\pak_kepo\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Exceptions\\Handler.php",
               "line": 380,
@@ -2801,11 +2801,11 @@ endpoints:
         name: forum_id
         description: 'The ID of the forum.'
         required: true
-        example: 19
+        example: 4
         type: integer
         custom: []
     cleanUrlParameters:
-      forum_id: 19
+      forum_id: 4
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
@@ -2813,11 +2813,11 @@ endpoints:
         name: komen_forum
         description: ''
         required: true
-        example: incidunt
+        example: placeat
         type: string
         custom: []
     cleanBodyParameters:
-      komen_forum: incidunt
+      komen_forum: placeat
     fileParameters: []
     responses: []
     responseFields: []
@@ -2847,19 +2847,19 @@ endpoints:
         name: forum_id
         description: 'The ID of the forum.'
         required: true
-        example: 15
+        example: 7
         type: integer
         custom: []
       forumKomen_id:
         name: forumKomen_id
         description: 'The ID of the forumKomen.'
         required: true
-        example: 9
+        example: 8
         type: integer
         custom: []
     cleanUrlParameters:
-      forum_id: 15
-      forumKomen_id: 9
+      forum_id: 7
+      forumKomen_id: 8
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
@@ -2867,11 +2867,11 @@ endpoints:
         name: komen_forum
         description: ''
         required: true
-        example: adipisci
+        example: sint
         type: string
         custom: []
     cleanBodyParameters:
-      komen_forum: adipisci
+      komen_forum: sint
     fileParameters: []
     responses: []
     responseFields: []
@@ -2901,11 +2901,11 @@ endpoints:
         name: forumKomen_id
         description: 'The ID of the forumKomen.'
         required: true
-        example: 15
+        example: 9
         type: integer
         custom: []
     cleanUrlParameters:
-      forumKomen_id: 15
+      forumKomen_id: 9
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
