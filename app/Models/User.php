@@ -31,7 +31,8 @@ class User extends Authenticatable implements MustVerifyEmail
         'password',
         'uuid',
         'nomor_telpon',
-        'fcm_token'
+        'fcm_token',
+        'foto'
     ];
 
     /**

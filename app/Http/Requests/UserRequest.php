@@ -7,6 +7,7 @@ use App\Providers\RouteServiceProvider;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class UserRequest extends FormRequest
 {
@@ -61,13 +62,17 @@ class UserRequest extends FormRequest
     public function createNewUser()
     {
 
+        $file = $this->file('foto');
+        $fileUrl = Storage::disk('public')->putFile('user', $file);
+
         $user = User::create([
             'name' => $this->name,
             'uuid'=>'',
             'email' => $this->email,
             'password' => $this->password,
             'nomor_telpon'=> $this->nomor_telpon,
-            'fcm_token'=> $this->fcm_token
+            'fcm_token'=> $this->fcm_token,
+            'foto'=>$fileUrl
         ]);
         foreach($this->user_roles as $k => $v){
             $user->roles()->attach($v,['user_modify'=>'su']);
