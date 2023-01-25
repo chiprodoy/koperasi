@@ -110,6 +110,17 @@ class User extends Authenticatable implements MustVerifyEmail
 
         if(!empty($value)) $this->attributes['password'] = Hash::make($value);
     }
+    /**
+     * get foto user.
+     *
+     * @param  string  $value
+     * @return void
+     */
+    public function getFotoAttribute($value)
+    {
+
+        return asset($value);
+    }
 
     /**
      * Set the uid.

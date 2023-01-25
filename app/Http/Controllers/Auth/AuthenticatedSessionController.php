@@ -38,7 +38,7 @@ class AuthenticatedSessionController extends Controller
                 'message' => 'Login Berhasil',
                 'data' => [
                     'user' => $request->user(),
-                    'token' => $token,
+                    'token' => $token->plainTextToken,
                 ],
             ]);
         }else{
