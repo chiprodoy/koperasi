@@ -11,6 +11,7 @@ use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\Auth\VerifyEmailController;
 use App\Http\Controllers\ForumController;
 use App\Http\Controllers\ForumKomenController;
+use App\Http\Controllers\GaleriController;
 use App\Http\Controllers\HistoryKehamilanController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\PostCategoryController;
@@ -125,3 +126,10 @@ Route::prefix('forum_komen')->group(function () {
     });
 });
 
+Route::prefix('galeri')->group(function () {
+    Route::get('/', [GaleriController::class, 'index'])->name('admin.galeri.index');
+
+    Route::get('/{galeri}', [GaleriController::class, 'show'])->name(
+        'admin.galeri.show'
+    );
+});

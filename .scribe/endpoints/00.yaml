@@ -26,35 +26,35 @@ endpoints:
         name: name
         description: ''
         required: true
-        example: a
+        example: quod
         type: string
         custom: []
       password:
         name: password
         description: ''
         required: true
-        example: qui
+        example: velit
         type: string
         custom: []
       email:
         name: email
         description: ''
         required: true
-        example: xfay@example.net
+        example: juvenal29@example.net
         type: email
         custom: []
       nomor_telpon:
         name: nomor_telpon
         description: ''
         required: true
-        example: asperiores
+        example: iure
         type: numeric
         custom: []
       fcm_token:
         name: fcm_token
         description: 'token fcm'
         required: true
-        example: 97413621.33
+        example: 331934614.36363
         type: number
         custom: []
       user_roles:
@@ -62,7 +62,7 @@ endpoints:
         description: 'example [3,4]. 4 = pengguna, 3 = kontributor'
         required: false
         example:
-          - sit
+          - qui
         type: 'string[]'
         custom: []
       foto:
@@ -73,13 +73,13 @@ endpoints:
         type: file
         custom: []
     cleanBodyParameters:
-      name: a
-      password: qui
-      email: xfay@example.net
-      nomor_telpon: asperiores
-      fcm_token: 97413621.33
+      name: quod
+      password: velit
+      email: juvenal29@example.net
+      nomor_telpon: iure
+      fcm_token: 331934614.36363
       user_roles:
-        - sit
+        - qui
     fileParameters:
       foto: null
     responses: []
@@ -114,19 +114,19 @@ endpoints:
         name: email
         description: 'Must be a valid email address.'
         required: true
-        example: oconner.angelo@example.com
+        example: yjakubowski@example.net
         type: string
         custom: []
       password:
         name: password
         description: ''
         required: true
-        example: 'b^I,~n'
+        example: "'[vha`g]uV]b"
         type: string
         custom: []
     cleanBodyParameters:
-      email: oconner.angelo@example.com
-      password: 'b^I,~n'
+      email: yjakubowski@example.net
+      password: "'[vha`g]uV]b"
     fileParameters: []
     responses: []
     responseFields: []
@@ -167,35 +167,35 @@ endpoints:
         name: email
         description: ''
         required: true
-        example: conroy.jay@example.net
+        example: donny58@example.org
         type: email
         custom: []
       password:
         name: password
         description: ''
         required: true
-        example: quasi
+        example: dolor
         type: string
         custom: []
       name:
         name: name
         description: ''
         required: true
-        example: voluptas
+        example: ut
         type: string
         custom: []
       nomor_telpon:
         name: nomor_telpon
         description: ''
         required: true
-        example: quisquam
+        example: incidunt
         type: numeric
         custom: []
       fcm_token:
         name: fcm_token
         description: 'token fcm'
         required: true
-        example: 89335.878525
+        example: 3481.251004943
         type: number
         custom: []
       user_roles:
@@ -203,18 +203,18 @@ endpoints:
         description: 'example [3,4]. 4 = pengguna, 3 = kontributor'
         required: false
         example:
-          - culpa
+          - non
         type: 'string[]'
         custom: []
     cleanBodyParameters:
       token: aut
-      email: conroy.jay@example.net
-      password: quasi
-      name: voluptas
-      nomor_telpon: quisquam
-      fcm_token: 89335.878525
+      email: donny58@example.org
+      password: dolor
+      name: ut
+      nomor_telpon: incidunt
+      fcm_token: 3481.251004943
       user_roles:
-        - culpa
+        - non
     fileParameters: []
     responses: []
     responseFields: []
@@ -244,11 +244,11 @@ endpoints:
         name: fcmToken
         description: ''
         required: true
-        example: et
+        example: laborum
         type: string
         custom: []
     cleanUrlParameters:
-      fcmToken: et
+      fcmToken: laborum
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -597,11 +597,11 @@ endpoints:
         name: slug
         description: 'The slug of the category.'
         required: true
-        example: quos
+        example: illum
         type: string
         custom: []
     cleanUrlParameters:
-      slug: quos
+      slug: illum
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -738,11 +738,11 @@ endpoints:
         name: slug
         description: 'The slug of the page.'
         required: true
-        example: rem
+        example: eum
         type: string
         custom: []
     cleanUrlParameters:
-      slug: rem
+      slug: eum
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -828,11 +828,11 @@ endpoints:
         name: slug
         description: 'The slug of the category.'
         required: true
-        example: ipsa
+        example: aut
         type: string
         custom: []
     cleanUrlParameters:
-      slug: ipsa
+      slug: aut
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -879,11 +879,11 @@ endpoints:
         name: slug
         description: 'The slug of the medium.'
         required: true
-        example: consectetur
+        example: quia
         type: string
         custom: []
     cleanUrlParameters:
-      slug: consectetur
+      slug: quia
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -1280,11 +1280,11 @@ endpoints:
         name: forum_id
         description: 'The ID of the forum.'
         required: true
-        example: 1
+        example: 20
         type: integer
         custom: []
     cleanUrlParameters:
-      forum_id: 1
+      forum_id: 20
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -1295,7 +1295,7 @@ endpoints:
         status: 404
         content: |-
           {
-              "message": "No query results for model [App\\Models\\Forum] 1",
+              "message": "No query results for model [App\\Models\\Forum] 20",
               "exception": "Symfony\\Component\\HttpKernel\\Exception\\NotFoundHttpException",
               "file": "D:\\~projects\\htdocs\\pak_kepo\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Exceptions\\Handler.php",
               "line": 380,
@@ -1747,11 +1747,11 @@ endpoints:
         name: konten_forum
         description: ''
         required: true
-        example: necessitatibus
+        example: sapiente
         type: string
         custom: []
     cleanBodyParameters:
-      konten_forum: necessitatibus
+      konten_forum: sapiente
     fileParameters: []
     responses: []
     responseFields: []
@@ -1781,11 +1781,11 @@ endpoints:
         name: forum_id
         description: 'The ID of the forum.'
         required: true
-        example: 1
+        example: 12
         type: integer
         custom: []
     cleanUrlParameters:
-      forum_id: 1
+      forum_id: 12
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
@@ -1793,11 +1793,11 @@ endpoints:
         name: konten_forum
         description: ''
         required: true
-        example: quisquam
+        example: quibusdam
         type: string
         custom: []
     cleanBodyParameters:
-      konten_forum: quisquam
+      konten_forum: quibusdam
     fileParameters: []
     responses: []
     responseFields: []
@@ -1827,11 +1827,11 @@ endpoints:
         name: forum_id
         description: 'The ID of the forum.'
         required: true
-        example: 7
+        example: 6
         type: integer
         custom: []
     cleanUrlParameters:
-      forum_id: 7
+      forum_id: 6
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -1865,11 +1865,11 @@ endpoints:
         name: forum_id
         description: 'The ID of the forum.'
         required: true
-        example: 9
+        example: 4
         type: integer
         custom: []
     cleanUrlParameters:
-      forum_id: 9
+      forum_id: 4
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -1880,7 +1880,7 @@ endpoints:
         status: 404
         content: |-
           {
-              "message": "No query results for model [App\\Models\\Forum] 9",
+              "message": "No query results for model [App\\Models\\Forum] 4",
               "exception": "Symfony\\Component\\HttpKernel\\Exception\\NotFoundHttpException",
               "file": "D:\\~projects\\htdocs\\pak_kepo\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Exceptions\\Handler.php",
               "line": 380,
@@ -2328,19 +2328,19 @@ endpoints:
         name: forum_id
         description: 'The ID of the forum.'
         required: true
-        example: 7
+        example: 17
         type: integer
         custom: []
       forumKomen_id:
         name: forumKomen_id
         description: 'The ID of the forumKomen.'
         required: true
-        example: 2
+        example: 17
         type: integer
         custom: []
     cleanUrlParameters:
-      forum_id: 7
-      forumKomen_id: 2
+      forum_id: 17
+      forumKomen_id: 17
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -2351,7 +2351,7 @@ endpoints:
         status: 404
         content: |-
           {
-              "message": "No query results for model [App\\Models\\Forum] 7",
+              "message": "No query results for model [App\\Models\\Forum] 17",
               "exception": "Symfony\\Component\\HttpKernel\\Exception\\NotFoundHttpException",
               "file": "D:\\~projects\\htdocs\\pak_kepo\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Exceptions\\Handler.php",
               "line": 380,
@@ -2799,11 +2799,11 @@ endpoints:
         name: forum_id
         description: 'The ID of the forum.'
         required: true
-        example: 4
+        example: 6
         type: integer
         custom: []
     cleanUrlParameters:
-      forum_id: 4
+      forum_id: 6
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
@@ -2811,11 +2811,11 @@ endpoints:
         name: komen_forum
         description: ''
         required: true
-        example: placeat
+        example: qui
         type: string
         custom: []
     cleanBodyParameters:
-      komen_forum: placeat
+      komen_forum: qui
     fileParameters: []
     responses: []
     responseFields: []
@@ -2845,19 +2845,19 @@ endpoints:
         name: forum_id
         description: 'The ID of the forum.'
         required: true
-        example: 7
+        example: 18
         type: integer
         custom: []
       forumKomen_id:
         name: forumKomen_id
         description: 'The ID of the forumKomen.'
         required: true
-        example: 8
+        example: 17
         type: integer
         custom: []
     cleanUrlParameters:
-      forum_id: 7
-      forumKomen_id: 8
+      forum_id: 18
+      forumKomen_id: 17
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
@@ -2865,11 +2865,11 @@ endpoints:
         name: komen_forum
         description: ''
         required: true
-        example: sint
+        example: repellat
         type: string
         custom: []
     cleanBodyParameters:
-      komen_forum: sint
+      komen_forum: repellat
     fileParameters: []
     responses: []
     responseFields: []
@@ -2899,17 +2899,521 @@ endpoints:
         name: forumKomen_id
         description: 'The ID of the forumKomen.'
         required: true
-        example: 9
+        example: 8
         type: integer
         custom: []
     cleanUrlParameters:
-      forumKomen_id: 9
+      forumKomen_id: 8
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
     cleanBodyParameters: []
     fileParameters: []
     responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: api/galeri
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"data":[],"links":{"first":"http:\/\/pak_kepo.test\/api\/galeri?page=1","last":"http:\/\/pak_kepo.test\/api\/galeri?page=1","prev":null,"next":null},"meta":{"current_page":1,"from":null,"last_page":1,"links":[{"url":null,"label":"&laquo; Previous","active":false},{"url":"http:\/\/pak_kepo.test\/api\/galeri?page=1","label":"1","active":true},{"url":null,"label":"Next &raquo;","active":false}],"path":"http:\/\/pak_kepo.test\/api\/galeri","per_page":10,"to":null,"total":0}}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          x-ratelimit-limit: '60'
+          x-ratelimit-remaining: '48'
+          access-control-allow-origin: '*'
+        description: null
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/galeri/{id}'
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the galeri.'
+        required: true
+        example: 3
+        type: integer
+        custom: []
+    cleanUrlParameters:
+      id: 3
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 404
+        content: |-
+          {
+              "message": "No query results for model [App\\Models\\Galeri] 3",
+              "exception": "Symfony\\Component\\HttpKernel\\Exception\\NotFoundHttpException",
+              "file": "D:\\~projects\\htdocs\\pak_kepo\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Exceptions\\Handler.php",
+              "line": 380,
+              "trace": [
+                  {
+                      "file": "D:\\~projects\\htdocs\\pak_kepo\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Exceptions\\Handler.php",
+                      "line": 356,
+                      "function": "prepareException",
+                      "class": "Illuminate\\Foundation\\Exceptions\\Handler",
+                      "type": "->"
+                  },
+                  {
+                      "file": "D:\\~projects\\htdocs\\pak_kepo\\vendor\\nunomaduro\\collision\\src\\Adapters\\Laravel\\ExceptionHandler.php",
+                      "line": 54,
+                      "function": "render",
+                      "class": "Illuminate\\Foundation\\Exceptions\\Handler",
+                      "type": "->"
+                  },
+                  {
+                      "file": "D:\\~projects\\htdocs\\pak_kepo\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Pipeline.php",
+                      "line": 51,
+                      "function": "render",
+                      "class": "NunoMaduro\\Collision\\Adapters\\Laravel\\ExceptionHandler",
+                      "type": "->"
+                  },
+                  {
+                      "file": "D:\\~projects\\htdocs\\pak_kepo\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+                      "line": 185,
+                      "function": "handleException",
+                      "class": "Illuminate\\Routing\\Pipeline",
+                      "type": "->"
+                  },
+                  {
+                      "file": "D:\\~projects\\htdocs\\pak_kepo\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\ThrottleRequests.php",
+                      "line": 126,
+                      "function": "Illuminate\\Pipeline\\{closure}",
+                      "class": "Illuminate\\Pipeline\\Pipeline",
+                      "type": "->"
+                  },
+                  {
+                      "file": "D:\\~projects\\htdocs\\pak_kepo\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\ThrottleRequests.php",
+                      "line": 102,
+                      "function": "handleRequest",
+                      "class": "Illuminate\\Routing\\Middleware\\ThrottleRequests",
+                      "type": "->"
+                  },
+                  {
+                      "file": "D:\\~projects\\htdocs\\pak_kepo\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\ThrottleRequests.php",
+                      "line": 54,
+                      "function": "handleRequestUsingNamedLimiter",
+                      "class": "Illuminate\\Routing\\Middleware\\ThrottleRequests",
+                      "type": "->"
+                  },
+                  {
+                      "file": "D:\\~projects\\htdocs\\pak_kepo\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+                      "line": 180,
+                      "function": "handle",
+                      "class": "Illuminate\\Routing\\Middleware\\ThrottleRequests",
+                      "type": "->"
+                  },
+                  {
+                      "file": "D:\\~projects\\htdocs\\pak_kepo\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+                      "line": 116,
+                      "function": "Illuminate\\Pipeline\\{closure}",
+                      "class": "Illuminate\\Pipeline\\Pipeline",
+                      "type": "->"
+                  },
+                  {
+                      "file": "D:\\~projects\\htdocs\\pak_kepo\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php",
+                      "line": 726,
+                      "function": "then",
+                      "class": "Illuminate\\Pipeline\\Pipeline",
+                      "type": "->"
+                  },
+                  {
+                      "file": "D:\\~projects\\htdocs\\pak_kepo\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php",
+                      "line": 703,
+                      "function": "runRouteWithinStack",
+                      "class": "Illuminate\\Routing\\Router",
+                      "type": "->"
+                  },
+                  {
+                      "file": "D:\\~projects\\htdocs\\pak_kepo\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php",
+                      "line": 667,
+                      "function": "runRoute",
+                      "class": "Illuminate\\Routing\\Router",
+                      "type": "->"
+                  },
+                  {
+                      "file": "D:\\~projects\\htdocs\\pak_kepo\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php",
+                      "line": 656,
+                      "function": "dispatchToRoute",
+                      "class": "Illuminate\\Routing\\Router",
+                      "type": "->"
+                  },
+                  {
+                      "file": "D:\\~projects\\htdocs\\pak_kepo\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php",
+                      "line": 167,
+                      "function": "dispatch",
+                      "class": "Illuminate\\Routing\\Router",
+                      "type": "->"
+                  },
+                  {
+                      "file": "D:\\~projects\\htdocs\\pak_kepo\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+                      "line": 141,
+                      "function": "Illuminate\\Foundation\\Http\\{closure}",
+                      "class": "Illuminate\\Foundation\\Http\\Kernel",
+                      "type": "->"
+                  },
+                  {
+                      "file": "D:\\~projects\\htdocs\\pak_kepo\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php",
+                      "line": 21,
+                      "function": "Illuminate\\Pipeline\\{closure}",
+                      "class": "Illuminate\\Pipeline\\Pipeline",
+                      "type": "->"
+                  },
+                  {
+                      "file": "D:\\~projects\\htdocs\\pak_kepo\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull.php",
+                      "line": 31,
+                      "function": "handle",
+                      "class": "Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest",
+                      "type": "->"
+                  },
+                  {
+                      "file": "D:\\~projects\\htdocs\\pak_kepo\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+                      "line": 180,
+                      "function": "handle",
+                      "class": "Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull",
+                      "type": "->"
+                  },
+                  {
+                      "file": "D:\\~projects\\htdocs\\pak_kepo\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php",
+                      "line": 21,
+                      "function": "Illuminate\\Pipeline\\{closure}",
+                      "class": "Illuminate\\Pipeline\\Pipeline",
+                      "type": "->"
+                  },
+                  {
+                      "file": "D:\\~projects\\htdocs\\pak_kepo\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TrimStrings.php",
+                      "line": 40,
+                      "function": "handle",
+                      "class": "Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest",
+                      "type": "->"
+                  },
+                  {
+                      "file": "D:\\~projects\\htdocs\\pak_kepo\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+                      "line": 180,
+                      "function": "handle",
+                      "class": "Illuminate\\Foundation\\Http\\Middleware\\TrimStrings",
+                      "type": "->"
+                  },
+                  {
+                      "file": "D:\\~projects\\htdocs\\pak_kepo\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize.php",
+                      "line": 27,
+                      "function": "Illuminate\\Pipeline\\{closure}",
+                      "class": "Illuminate\\Pipeline\\Pipeline",
+                      "type": "->"
+                  },
+                  {
+                      "file": "D:\\~projects\\htdocs\\pak_kepo\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+                      "line": 180,
+                      "function": "handle",
+                      "class": "Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize",
+                      "type": "->"
+                  },
+                  {
+                      "file": "D:\\~projects\\htdocs\\pak_kepo\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance.php",
+                      "line": 86,
+                      "function": "Illuminate\\Pipeline\\{closure}",
+                      "class": "Illuminate\\Pipeline\\Pipeline",
+                      "type": "->"
+                  },
+                  {
+                      "file": "D:\\~projects\\htdocs\\pak_kepo\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+                      "line": 180,
+                      "function": "handle",
+                      "class": "Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance",
+                      "type": "->"
+                  },
+                  {
+                      "file": "D:\\~projects\\htdocs\\pak_kepo\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\HandleCors.php",
+                      "line": 62,
+                      "function": "Illuminate\\Pipeline\\{closure}",
+                      "class": "Illuminate\\Pipeline\\Pipeline",
+                      "type": "->"
+                  },
+                  {
+                      "file": "D:\\~projects\\htdocs\\pak_kepo\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+                      "line": 180,
+                      "function": "handle",
+                      "class": "Illuminate\\Http\\Middleware\\HandleCors",
+                      "type": "->"
+                  },
+                  {
+                      "file": "D:\\~projects\\htdocs\\pak_kepo\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\TrustProxies.php",
+                      "line": 39,
+                      "function": "Illuminate\\Pipeline\\{closure}",
+                      "class": "Illuminate\\Pipeline\\Pipeline",
+                      "type": "->"
+                  },
+                  {
+                      "file": "D:\\~projects\\htdocs\\pak_kepo\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+                      "line": 180,
+                      "function": "handle",
+                      "class": "Illuminate\\Http\\Middleware\\TrustProxies",
+                      "type": "->"
+                  },
+                  {
+                      "file": "D:\\~projects\\htdocs\\pak_kepo\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+                      "line": 116,
+                      "function": "Illuminate\\Pipeline\\{closure}",
+                      "class": "Illuminate\\Pipeline\\Pipeline",
+                      "type": "->"
+                  },
+                  {
+                      "file": "D:\\~projects\\htdocs\\pak_kepo\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php",
+                      "line": 142,
+                      "function": "then",
+                      "class": "Illuminate\\Pipeline\\Pipeline",
+                      "type": "->"
+                  },
+                  {
+                      "file": "D:\\~projects\\htdocs\\pak_kepo\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php",
+                      "line": 111,
+                      "function": "sendRequestThroughRouter",
+                      "class": "Illuminate\\Foundation\\Http\\Kernel",
+                      "type": "->"
+                  },
+                  {
+                      "file": "D:\\~projects\\htdocs\\pak_kepo\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php",
+                      "line": 299,
+                      "function": "handle",
+                      "class": "Illuminate\\Foundation\\Http\\Kernel",
+                      "type": "->"
+                  },
+                  {
+                      "file": "D:\\~projects\\htdocs\\pak_kepo\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php",
+                      "line": 287,
+                      "function": "callLaravelOrLumenRoute",
+                      "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
+                      "type": "->"
+                  },
+                  {
+                      "file": "D:\\~projects\\htdocs\\pak_kepo\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php",
+                      "line": 92,
+                      "function": "makeApiCall",
+                      "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
+                      "type": "->"
+                  },
+                  {
+                      "file": "D:\\~projects\\htdocs\\pak_kepo\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php",
+                      "line": 45,
+                      "function": "makeResponseCall",
+                      "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
+                      "type": "->"
+                  },
+                  {
+                      "file": "D:\\~projects\\htdocs\\pak_kepo\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php",
+                      "line": 35,
+                      "function": "makeResponseCallIfConditionsPass",
+                      "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
+                      "type": "->"
+                  },
+                  {
+                      "file": "D:\\~projects\\htdocs\\pak_kepo\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Extractor.php",
+                      "line": 209,
+                      "function": "__invoke",
+                      "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
+                      "type": "->"
+                  },
+                  {
+                      "file": "D:\\~projects\\htdocs\\pak_kepo\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Extractor.php",
+                      "line": 166,
+                      "function": "iterateThroughStrategies",
+                      "class": "Knuckles\\Scribe\\Extracting\\Extractor",
+                      "type": "->"
+                  },
+                  {
+                      "file": "D:\\~projects\\htdocs\\pak_kepo\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Extractor.php",
+                      "line": 95,
+                      "function": "fetchResponses",
+                      "class": "Knuckles\\Scribe\\Extracting\\Extractor",
+                      "type": "->"
+                  },
+                  {
+                      "file": "D:\\~projects\\htdocs\\pak_kepo\\vendor\\knuckleswtf\\scribe\\src\\GroupedEndpoints\\GroupedEndpointsFromApp.php",
+                      "line": 122,
+                      "function": "processRoute",
+                      "class": "Knuckles\\Scribe\\Extracting\\Extractor",
+                      "type": "->"
+                  },
+                  {
+                      "file": "D:\\~projects\\htdocs\\pak_kepo\\vendor\\knuckleswtf\\scribe\\src\\GroupedEndpoints\\GroupedEndpointsFromApp.php",
+                      "line": 69,
+                      "function": "extractEndpointsInfoFromLaravelApp",
+                      "class": "Knuckles\\Scribe\\GroupedEndpoints\\GroupedEndpointsFromApp",
+                      "type": "->"
+                  },
+                  {
+                      "file": "D:\\~projects\\htdocs\\pak_kepo\\vendor\\knuckleswtf\\scribe\\src\\GroupedEndpoints\\GroupedEndpointsFromApp.php",
+                      "line": 47,
+                      "function": "extractEndpointsInfoAndWriteToDisk",
+                      "class": "Knuckles\\Scribe\\GroupedEndpoints\\GroupedEndpointsFromApp",
+                      "type": "->"
+                  },
+                  {
+                      "file": "D:\\~projects\\htdocs\\pak_kepo\\vendor\\knuckleswtf\\scribe\\src\\Commands\\GenerateDocumentation.php",
+                      "line": 51,
+                      "function": "get",
+                      "class": "Knuckles\\Scribe\\GroupedEndpoints\\GroupedEndpointsFromApp",
+                      "type": "->"
+                  },
+                  {
+                      "file": "D:\\~projects\\htdocs\\pak_kepo\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php",
+                      "line": 36,
+                      "function": "handle",
+                      "class": "Knuckles\\Scribe\\Commands\\GenerateDocumentation",
+                      "type": "->"
+                  },
+                  {
+                      "file": "D:\\~projects\\htdocs\\pak_kepo\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php",
+                      "line": 41,
+                      "function": "Illuminate\\Container\\{closure}",
+                      "class": "Illuminate\\Container\\BoundMethod",
+                      "type": "::"
+                  },
+                  {
+                      "file": "D:\\~projects\\htdocs\\pak_kepo\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php",
+                      "line": 93,
+                      "function": "unwrapIfClosure",
+                      "class": "Illuminate\\Container\\Util",
+                      "type": "::"
+                  },
+                  {
+                      "file": "D:\\~projects\\htdocs\\pak_kepo\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php",
+                      "line": 37,
+                      "function": "callBoundMethod",
+                      "class": "Illuminate\\Container\\BoundMethod",
+                      "type": "::"
+                  },
+                  {
+                      "file": "D:\\~projects\\htdocs\\pak_kepo\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php",
+                      "line": 651,
+                      "function": "call",
+                      "class": "Illuminate\\Container\\BoundMethod",
+                      "type": "::"
+                  },
+                  {
+                      "file": "D:\\~projects\\htdocs\\pak_kepo\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php",
+                      "line": 144,
+                      "function": "call",
+                      "class": "Illuminate\\Container\\Container",
+                      "type": "->"
+                  },
+                  {
+                      "file": "D:\\~projects\\htdocs\\pak_kepo\\vendor\\symfony\\console\\Command\\Command.php",
+                      "line": 308,
+                      "function": "execute",
+                      "class": "Illuminate\\Console\\Command",
+                      "type": "->"
+                  },
+                  {
+                      "file": "D:\\~projects\\htdocs\\pak_kepo\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php",
+                      "line": 126,
+                      "function": "run",
+                      "class": "Symfony\\Component\\Console\\Command\\Command",
+                      "type": "->"
+                  },
+                  {
+                      "file": "D:\\~projects\\htdocs\\pak_kepo\\vendor\\symfony\\console\\Application.php",
+                      "line": 1002,
+                      "function": "run",
+                      "class": "Illuminate\\Console\\Command",
+                      "type": "->"
+                  },
+                  {
+                      "file": "D:\\~projects\\htdocs\\pak_kepo\\vendor\\symfony\\console\\Application.php",
+                      "line": 299,
+                      "function": "doRunCommand",
+                      "class": "Symfony\\Component\\Console\\Application",
+                      "type": "->"
+                  },
+                  {
+                      "file": "D:\\~projects\\htdocs\\pak_kepo\\vendor\\symfony\\console\\Application.php",
+                      "line": 171,
+                      "function": "doRun",
+                      "class": "Symfony\\Component\\Console\\Application",
+                      "type": "->"
+                  },
+                  {
+                      "file": "D:\\~projects\\htdocs\\pak_kepo\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Application.php",
+                      "line": 102,
+                      "function": "run",
+                      "class": "Symfony\\Component\\Console\\Application",
+                      "type": "->"
+                  },
+                  {
+                      "file": "D:\\~projects\\htdocs\\pak_kepo\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php",
+                      "line": 129,
+                      "function": "run",
+                      "class": "Illuminate\\Console\\Application",
+                      "type": "->"
+                  },
+                  {
+                      "file": "D:\\~projects\\htdocs\\pak_kepo\\artisan",
+                      "line": 37,
+                      "function": "handle",
+                      "class": "Illuminate\\Foundation\\Console\\Kernel",
+                      "type": "->"
+                  }
+              ]
+          }
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          x-ratelimit-limit: '60'
+          x-ratelimit-remaining: '47'
+          access-control-allow-origin: '*'
+        description: null
+        custom: []
     responseFields: []
     auth: []
     controller: null
