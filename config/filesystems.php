@@ -70,7 +70,7 @@ return [
     */
 
     'links' => [
-        base_path('public_html/pakkepo/storage') => storage_path('app/public'),
+        'public_html/pakkepo/public/storage' => storage_path('app/public'),
     ],
 
 ];
