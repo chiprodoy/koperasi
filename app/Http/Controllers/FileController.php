@@ -31,9 +31,12 @@ class FileController extends Controller
             $fileName = pathinfo($originName, PATHINFO_FILENAME);
             $extension = $request->file('upload')->getClientOriginalExtension();
             $fileName = $fileName.'_'.time().'.'.$extension;
-            $request->file('upload')->move(public_path('images'), $fileName);
+            /* upload file */
+            //old one
+            //$request->file('upload')->move(public_path('images'), $fileName);
+            $request->file('upload')->storeAs('public/images', $fileName);
             $CKEditorFuncNum = $request->input('CKEditorFuncNum');
-            $url = asset('images/'.$fileName);
+            $url = asset('storage/images/'.$fileName);
             $msg = 'Image successfully uploaded';
             $response = "<script>window.parent.CKEDITOR.tools.callFunction($CKEditorFuncNum, '$url', '$msg')</script>";
 
