@@ -137,7 +137,7 @@ class Post extends MainModel
      */
     public function getCoverAttribute($value)
     {
-        if(!empty($value)) return asset($value);
+        if(!empty($value)) return asset('storage/'.$value);
     }
       /**
      * Get the attachment.
@@ -147,7 +147,7 @@ class Post extends MainModel
      */
     public function getAttachmentAttribute($value)
     {
-        if(!empty($value)) return asset($value);
+        if(!empty($value)) return asset('storage/'.$value);
     }
     /**
      * Get url file.
