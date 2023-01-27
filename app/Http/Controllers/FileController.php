@@ -34,7 +34,7 @@ class FileController extends Controller
             /* upload file */
             //old one
             //$request->file('upload')->move(public_path('images'), $fileName);
-            $request->file('upload')->storeAs('public/images', $fileName);
+            $request->file('upload')->storeAs('images', $fileName);
             $CKEditorFuncNum = $request->input('CKEditorFuncNum');
             $url = asset('storage/images/'.$fileName);
             $msg = 'Image successfully uploaded';
