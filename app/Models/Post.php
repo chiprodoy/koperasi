@@ -118,7 +118,7 @@ class Post extends MainModel
         $this->attributes['slug'] = (empty($value)) ? Str::slug($this->title) : $value;
     }
     /**
-     * Set the uid.
+     * Get the uid.
      *
      * @param  string  $value
      * @return void
@@ -126,6 +126,26 @@ class Post extends MainModel
     public function getDescriptionAttribute($value)
     {
         return str_replace(array("\r\n","\r","\n","\\r","\\n","\\r\\n"),"\n",$value);
+    }
+    /**
+     * Get the cover.
+     *
+     * @param  string  $value
+     * @return void
+     */
+    public function getCoverAttribute($value)
+    {
+        if(!empty($value)) return asset($value);
+    }
+      /**
+     * Get the attachment.
+     *
+     * @param  string  $value
+     * @return void
+     */
+    public function getAttachmentAttribute($value)
+    {
+        if(!empty($value)) return asset($value);
     }
     /**
      * Get url file.

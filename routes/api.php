@@ -127,9 +127,13 @@ Route::prefix('forum_komen')->group(function () {
 });
 
 Route::prefix('galeri')->group(function () {
-    Route::get('/', [GaleriController::class, 'index'])->name('admin.galeri.index');
+    Route::get('/', [GaleriController::class, 'index'])->name('galeri.index');
 
     Route::get('/{galeri}', [GaleriController::class, 'show'])->name(
-        'admin.galeri.show'
+        'galeri.show'
     );
 });
+Route::prefix('comment')->group(function () {
+
+});
+

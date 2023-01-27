@@ -62,6 +62,7 @@ class PostController extends BackendController
      * Otherwise, the request will fail with a 400 error, and a response listing the failed services.
      **/
     public function indexByCategory($slug){
+
         $pc=Post::whereRelation('categories','slugs','=',$slug);
 
         if($pc->count())  return $this->iSuccess($pc->get(),request(),'','Berhasil');
