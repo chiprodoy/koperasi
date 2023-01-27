@@ -86,7 +86,7 @@ Route::prefix('post_category')->group(function(){
 Route::prefix('init')->group(function(){
     Route::get('/storage',function(){
         $target = storage_path('app/public');
-        $shortcut = 'public_html/pakkepo/public/storage';
+        $shortcut = '/home/sdmpolda/public_html/pakkepo/public/storage';
         echo $target.":";
         echo $shortcut;
         Artisan::call('storage:link');
