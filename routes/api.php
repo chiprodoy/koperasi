@@ -20,6 +20,7 @@ use App\Http\Controllers\PostController;
 use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Artisan;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -89,6 +90,7 @@ Route::prefix('init')->group(function(){
         $target = storage_path('app/public');
         $shortcut = public_path('storage');
         symlink($target, $shortcut);
+        File::link($target,$shortcut);
         return ['target'=>$target,'shortcut'=>$shortcut];
     });
 
