@@ -35,6 +35,7 @@ class Post extends MainModel
         'post_type',
         'slug',
         'uuid',
+        'view_count'
     ];
 
 
@@ -69,6 +70,7 @@ class Post extends MainModel
         'slug'=> ['field'=>'slug','title'=>'Slug','type'=>InputText::class],
         'uuid'=> ['field'=>'uuid','type'=>InputHidden::class],
         'tags'=> ['field'=>'tags','type'=>InputHidden::class],
+        'view_count'=> ['field'=>'view_count','type'=>InputHidden::class],
         'post_category'=> [
             'field'=>'post_category',
             'title'=>'Kategori',

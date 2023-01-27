@@ -9,6 +9,7 @@ use App\Http\Controllers\Auth\NewPasswordController;
 use App\Http\Controllers\Auth\PasswordResetLinkController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\Auth\VerifyEmailController;
+use App\Http\Controllers\CommentController;
 use App\Http\Controllers\ForumController;
 use App\Http\Controllers\ForumKomenController;
 use App\Http\Controllers\GaleriController;
@@ -85,6 +86,10 @@ Route::prefix('post_category')->group(function(){
 Route::prefix('init')->group(function(){
     Route::get('/storage',function(){
         Artisan::call('storage:link');
+        $target = storage_path('app/public');
+        $shortcut = public_path('storage');
+        symlink($target, $shortcut);
+        return ['target'=>$target,'shortcut'=>$shortcut];
     });
 
 });
@@ -134,6 +139,6 @@ Route::prefix('galeri')->group(function () {
     );
 });
 Route::prefix('comment')->group(function () {
-
+    Route::post('/', [CommentController::class, 'store']);
 });
 

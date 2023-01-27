@@ -77,4 +77,15 @@ class PostCategory extends MainModel
     {
        $this->attributes['slugs'] = ($value!=Str::slug($this->name) ? Str::slug($this->name) : $value);
     }
+
+        /**
+     * Get the cover.
+     *
+     * @param  string  $value
+     * @return void
+     */
+    public function getCoverAttribute($value)
+    {
+        if(!empty($value)) return asset($value);
+    }
 }

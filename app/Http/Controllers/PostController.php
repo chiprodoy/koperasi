@@ -64,7 +64,7 @@ class PostController extends BackendController
     public function indexByCategory($slug){
 
         $pc=Post::whereRelation('categories','slugs','=',$slug);
-
+        $this->updatePostViewCounter($pc->first());
         if($pc->count())  return $this->iSuccess($pc->get(),request(),'','Berhasil');
         else return response()->noContent();
     }
@@ -78,6 +78,8 @@ class PostController extends BackendController
      **/
     public function show($slug){
         $pc=Post::with('categories')->where('slug',$slug);
+        $this->updatePostViewCounter($pc->first());
+
         if($pc->count())  return $this->iSuccess($pc->first(),request(),'','Berhasil');
         else return response()->noContent();
     }
@@ -112,6 +114,8 @@ class PostController extends BackendController
         $this->extData=$pc->get();
 
         if($request->wantsJson()){
+            $this->updatePostViewCounter($pc->first());
+
            if($pc->count())  return $this->iSuccess($pc->get(),request(),'','Berhasil');
            else return response()->noContent();
         }else{
@@ -140,6 +144,8 @@ class PostController extends BackendController
 
         })->where('slug',$slug);
        //dd($pc->toSql());
+       $this->updatePostViewCounter($pc->first());
+
        if($pc->count())  return $this->iSuccess($pc->get(),request(),'','Berhasil');
         else return response()->noContent();
     }
@@ -231,5 +237,13 @@ class PostController extends BackendController
         $this->category=PostCategory::where('slugs',$categoryslug)->first();
         $this->modName=strtolower($this->category->slugs);
         return parent::create();
+    }
+    /**
+     * update post view counter .
+     *
+     * @return \Illuminate\Http\Response
+     */
+    private function updatePostViewCounter(Post $post){
+        $post->update(['view_count'=>$post->view_count+1]);
     }
 }
