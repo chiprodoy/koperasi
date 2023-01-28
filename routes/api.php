@@ -56,6 +56,7 @@ Route::prefix('post')->group(function(){
     Route::get('/category/{slug}',[PostController::class,'indexByCategory'])->name('post.category');
 
     Route::get('/{slug}',[PostController::class,'show'])->name('post.show');
+    Route::middleware('auth:sanctum')->post('/category/{categoryslug}/create',[App\Http\Controllers\PostController::class,'browseStore'])->name('browse.store');
 
 });
 
