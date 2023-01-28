@@ -96,7 +96,7 @@ class PostController extends BackendController
         $this->indexURL=route('browse.index',$cat->slugs);
         $this->createURL=route('browse.create',$cat->slugs);
         $this->editURL='browse.edit/'.$cat->slugs.'/{uuid}/';
-        $this->showURL='browse.show/'.$cat->slugs.'/{uuid}/';
+        //$this->showURL='browse.show/'.$cat->slugs.'/{uuid}/';
 
         $this->modName=strtolower($cat->slugs);
 
