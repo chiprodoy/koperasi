@@ -24,7 +24,7 @@ class PostController extends BackendController
     public $deleteURL='post.destroy';
     public $createURL='post.create';
     public $storeURL='post.store';
-    public $showURL='post.show';
+   // public $showURL='post.show';
     public $updateURL='post.update';
     public $titleOfCreatePage='Tambah Konten';
     public $titleOfShowPage='Detail Konten';
