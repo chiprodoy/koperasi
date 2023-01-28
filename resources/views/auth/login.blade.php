@@ -42,7 +42,7 @@
                             </x-viho::form-group>
                             <x-viho::form-group>
                                 <div class="row">
-                                <button type="submit" class="btn btn-primary" onclick="document.getElementById('loginform').submit();">{{ __('Log in') }}</button>
+                                <button type="submit" class="btn btn-primary" >{{ __('Log in') }}</button>
                                 </div>
                             </x-viho::form-group>
                             @if (Route::has('register'))
