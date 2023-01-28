@@ -96,6 +96,7 @@ class PostController extends BackendController
         $this->indexURL=route('browse.index',$cat->slugs);
         $this->createURL=route('browse.create',$cat->slugs);
         $this->editURL='browse.edit/'.$cat->slugs.'/{uuid}/';
+        $this->showURL='browse.show/'.$cat->slugs.'/{uuid}/';
 
         $this->modName=strtolower($cat->slugs);
 
@@ -166,6 +167,26 @@ class PostController extends BackendController
         }
         return parent::edit($uid);
     }
+
+    public function browseShow($category,$uid)
+    {
+        $cat=PostCategory::where('slugs',$category)->first();
+
+        $this->modName=strtolower($cat->slugs);
+        $this->updateURL='browse.update/'.$cat->slugs.'/{uuid}/';
+        $this->indexURL='browse.index/'.$cat->slugs;
+        $this->viewNameOfShowPage='admin.'.$cat->slugs.'.crud.show';
+
+        if(Auth::user()->isRole(Role::SUPERADMIN)){
+            $this->postCategories=PostCategory::all();
+        }elseif(Auth::user()->isRole(Role::ADMIN)){
+            $this->postCategories=PostCategory::whereIn('slugs',[$category,'headline'])->get();
+        }else{
+            $this->postCategories=PostCategory::whereIn('slugs',[$category,'headline'])->get();
+        }
+        return parent::show($uid);
+    }
+
 
     public function setRecord($uid){
         if(Auth::user()->isRole(Role::SUPERADMIN) || Auth::user()->isRole(Role::ADMIN) || Auth::user()->isRole(Role::KONTRIBUTOR))

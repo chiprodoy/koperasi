@@ -24,7 +24,7 @@
                                             @if (strpos($showButton,'http')===0)
                                                 <a href="{{ $showButton }}">{{ substr(strip_tags($item->{$col['field']}),0,200) }}</a> </td>
                                             @else
-                                                <a href="{{ route($showButton,$item->uuid) }}">{{ substr(strip_tags($item->{$col['field']}),0,200) }}</a> </td>
+                                                <a href="{{ route_from($showButton,$item) }}">{{ substr(strip_tags($item->{$col['field']}),0,200) }}</a> </td>
                                             @endif
                                         @else
                                             {{ substr(strip_tags($item->{$col['field']}),0,200) }}

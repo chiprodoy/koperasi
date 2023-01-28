@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Web\GaleriController;
+use App\Http\Controllers\Web\MediaWebController;
 
 Route::prefix('/admin')->middleware(['auth'])->group(function(){
     Route::get('/', [App\Http\Controllers\DashboardController::class,'index'])->name('dashboard');
@@ -15,6 +16,7 @@ Route::prefix('/admin')->middleware(['auth'])->group(function(){
     Route::get('/browse/{categoryslug}/create',[App\Http\Controllers\PostController::class,'browseCreate'])->name('browse.create');
     Route::get('/browse/{categoryslug}',[App\Http\Controllers\PostController::class,'browse'])->name('browse.index');
     Route::get('/browse/{categoryslug}/{uid}/edit',[App\Http\Controllers\PostController::class,'browseEdit'])->name('browse.edit');
+    Route::get('/browse/{categoryslug}/{uid}/show',[App\Http\Controllers\PostController::class,'browseShow'])->name('browse.show');
     Route::put('/browse/{categoryslug}/{uid}',[App\Http\Controllers\PostController::class,'browseUpdate'])->name('browse.update');
     Route::post('/browse/{categoryslug}/create',[App\Http\Controllers\PostController::class,'browseStore'])->name('browse.store');
 
@@ -25,6 +27,7 @@ Route::prefix('/admin')->middleware(['auth'])->group(function(){
     Route::resource('comment',App\Http\Controllers\CommentController::class);
 
     Route::post('ckeditor/upload', [App\Http\Controllers\FileController::class,'ckeditorupload'])->name('ckeditor.image-upload');
+
     Route::prefix('galeri')->group(function () {
         Route::get('/', [GaleriController::class, 'index'])->name('admin.galeri.index');
 
@@ -40,6 +43,25 @@ Route::prefix('/admin')->middleware(['auth'])->group(function(){
         );
         Route::delete('/{galeri}', [GaleriController::class, 'destroy'])->name(
             'admin.galeri.destroy'
+        );
+    });
+
+    Route::prefix('media')->group(function () {
+        Route::get('/', [MediaWebController::class, 'index'])->name(
+            'media.index'
+        );
+        Route::get('/{media}', [MediaWebController::class, 'show'])->name(
+            'media.show'
+        );
+        // Route::get('/edit/{media}', [MediaWebController::class, 'edit'])->name(
+        //     'media.edit'
+        // );
+        Route::post('/', [MediaWebController::class, 'store'])->name('media.store');
+        Route::patch('/{media}', [MediaWebController::class, 'update'])->name(
+            'media.update'
+        );
+        Route::delete('/{media}', [MediaWebController::class, 'destroy'])->name(
+            'media.destroy'
         );
     });
 });

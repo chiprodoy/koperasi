@@ -65,7 +65,8 @@ Route::prefix('page')->group(function(){
     Route::get('/{slug}',[PageController::class,'show'])->name('page.show');
 
 });
-
+/*
+ *
 Route::prefix('media')->group(function(){
 
     Route::get('/',[PostController::class,'index'])->middleware('auth:sanctum')->name('media.index');
@@ -75,7 +76,7 @@ Route::prefix('media')->group(function(){
     Route::get('/{slug}',[PostController::class,'show'])->name('media.show');
 
 });
-
+ */
 
 
 Route::prefix('post_category')->group(function(){
@@ -140,6 +141,17 @@ Route::prefix('galeri')->group(function () {
         'galeri.show'
     );
 });
+
+Route::prefix('media')->group(function () {
+    Route::get('/', [MediaController::class, 'index']);
+    Route::get('/{media}', [MediaController::class, 'show']);
+    Route::middleware('auth:sanctum')->group(function () {
+        Route::post('/', [MediaController::class, 'store']);
+        Route::patch('/{media}', [MediaController::class, 'update']);
+        Route::delete('/{media}', [MediaController::class, 'destroy']);
+    });
+});
+
 Route::prefix('comment')->group(function () {
     Route::post('/', [CommentController::class, 'store']);
 });
