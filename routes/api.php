@@ -154,6 +154,6 @@ Route::prefix('media')->group(function () {
 });
 
 Route::prefix('comment')->group(function () {
-    Route::post('/', [CommentController::class, 'store']);
+    Route::middleware('auth:sanctum')->post('/', [CommentController::class, 'store']);
 });
 

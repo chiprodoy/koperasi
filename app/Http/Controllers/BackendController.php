@@ -6,6 +6,7 @@ use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Route;
 use MF\Controllers\ApiResponse;
 use MF\Controllers\BreadCrumb;
 use MF\Controllers\DataTable;
@@ -41,6 +42,7 @@ class BackendController extends Controller
     public $recordId;
     public $modName;
     public $createResult;
+    public $errorMsg;
 
     public function __construct()
     {
@@ -93,9 +95,18 @@ class BackendController extends Controller
     public function show($uid)
     {
         $this->RECORD=$this->modelRecords::where('uuid',$uid)->first();
-        $this->indexPage=new Page($this->titleOfIndexPage,route($this->indexURL));
+        if(Route::has($this->indexURL)){
+            $this->indexPage=new Page($this->titleOfIndexPage,route($this->indexURL));
+        }else{
+            $this->indexPage=new Page($this->titleOfIndexPage,route_from($this->indexURL));
+
+        }
         array_push($this->BREADCRUMB_ITEM,$this->indexPage);
-        $this->CURRENT_PAGE=new Page($this->titleOfShowPage,route($this->showURL,$uid));
+        if(Route::has($this->indexURL)){
+            $this->CURRENT_PAGE=new Page($this->titleOfShowPage,route($this->showURL,$uid));
+        }else{
+            $this->CURRENT_PAGE=new Page($this->titleOfShowPage,route_from($this->showURL,$this->RECORD));
+        }
         $this->setBreadCrumb();
         $this->recordId=$uid;
         return view($this->viewNameOfShowPage,get_object_vars($this));
@@ -137,8 +148,9 @@ class BackendController extends Controller
         }
         catch(QueryException $e)
         {
+            $this->errorMsg='Data Gagal Disimpan '.$e->getMessage();
             Log::error($e);
-            if(env('APP_DEBUG')) return $this->output('error',$request,$e->getMessage(),route($this->createURL));
+            if(env('APP_DEBUG')) return $this->output('error',$request,$e->getMessage(),$this->createURL);
             else return $this->output('error',$request,'Data Gagal Disimpan',$this->createURL);
 
         }
@@ -146,6 +158,7 @@ class BackendController extends Controller
     }
 
     public function output($type,$request,$message,$redirectURL=null){
+        if(Route::has($redirectURL)) $redirectURL=route($redirectURL);
         if($type=='success'){
             return $this->iSuccess($this->createResult,$request,$redirectURL,$message);
         }else{

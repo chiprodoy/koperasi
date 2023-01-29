@@ -26,7 +26,18 @@ class CommentController extends BackendController
     public function store(CommentRequest $request){
 
         parent::insertRecord($request);
-
+        if($request->wantsJson()){
+            if($this->errorMsg){
+                return $this->output('error',$request,'Data Gagal Disimpan'.$this->errorMsg,$this->createURL);
+            }else{
+                return $this->output('success',$request,'Data Berhasil Disimpan',$this->createURL);
+            }
+        }
+        if($this->errorMsg){
+            return back()->with('error', 'Data Gagal Disimpan'.$this->errorMsg);
+        }else{
+            return back()->with('success', 'Data Berhasil Disimpan');
+        }
     }
 
 }

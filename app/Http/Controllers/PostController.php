@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\PostRequest;
+use App\Models\Comment;
 use App\Models\Post;
 use App\Models\PostCategory;
 use App\Models\Role;
@@ -34,6 +35,8 @@ class PostController extends BackendController
     public $modName='post';
     public $postCategories;
     public $category;
+    public $komentar;
+    public $commentURL;
 
 
     // public function __construct()
@@ -96,7 +99,7 @@ class PostController extends BackendController
         $this->indexURL=route('browse.index',$cat->slugs);
         $this->createURL=route('browse.create',$cat->slugs);
         $this->editURL='browse.edit/'.$cat->slugs.'/{uuid}/';
-        //$this->showURL='browse.show/'.$cat->slugs.'/{uuid}/';
+        $this->showURL='browse.show/'.$cat->slugs.'/{uuid}/';
 
         $this->modName=strtolower($cat->slugs);
 
@@ -175,8 +178,9 @@ class PostController extends BackendController
         $this->modName=strtolower($cat->slugs);
         $this->updateURL='browse.update/'.$cat->slugs.'/{uuid}/';
         $this->indexURL='browse.index/'.$cat->slugs;
+        $this->showURL='browse.show/'.$cat->slugs.'/{uuid}/';
         $this->viewNameOfShowPage='admin.'.$cat->slugs.'.crud.show';
-
+        $this->commentURL='comment.store';
         if(Auth::user()->isRole(Role::SUPERADMIN)){
             $this->postCategories=PostCategory::all();
         }elseif(Auth::user()->isRole(Role::ADMIN)){
@@ -233,9 +237,12 @@ class PostController extends BackendController
         $cat=PostCategory::where('slugs',$kategori)->first();
         $this->createURL=route('browse.create',$cat->slugs);
         parent::insertRecord($request);
-        foreach($request->post_category as $k => $v){
-            $this->createResult->categories()->attach($v,['user_modify'=>'su']);
+        if($this->createResult){
+            foreach($request->post_category as $k => $v){
+                $this->createResult->categories()->attach($v,['user_modify'=>'su']);
+            }
         }
+
         return $this->output('success',$request,'Data Berhasil Disimpan',$this->createURL);
 
     }

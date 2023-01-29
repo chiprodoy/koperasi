@@ -42,32 +42,13 @@ class Comment extends MainModel
      */
     public static $formFields = [
         'isi_komentar'=> ['field'=>'isi_komentar','title'=>'Isi Komentar','type'=>TextEditor::class],
-        'attachment'=> ['field'=>'attachment','title'=>'Lampiran','type'=>InputFile::class],
-        'cover'=> ['field'=>'cover','title'=>'Gambar Sampul','type'=>InputFile::class],
-        'comment_status'=> ['field'=>'post_status','title'=>'Status','type'=>InputSelect::class,'option'=>[[PostStatus::DRAFT,PostStatus::PUBLISH]]],
-        'post_type'=> [
-             'field'=>'post_type',
-             'title'=>'Type',
-             'type'=>InputSelect::class,
-             'option'=>[[PostType::BLOG,PostType::PAGE,PostType::MULTIMEDIA]]
-         ],
-         'slug'=> ['field'=>'slug','title'=>'Slug','type'=>InputText::class],
-         'uuid'=> ['field'=>'uuid','type'=>InputHidden::class],
-         'tags'=> ['field'=>'tags','type'=>InputHidden::class],
-         'view_count'=> ['field'=>'view_count','type'=>InputHidden::class],
-         'post_category'=> [
-             'field'=>'post_category',
-             'title'=>'Kategori',
-             'type'=>CheckboxGroup::class,
-             'option'=>[
-                 PostCategory::class,
-                 'id',
-                 'name',
-                 null, //['and'=>['program_studi_id',Auth::user()->getSelectedProdi()]]
-                 ['name','asc'],
-                 'categories'
-             ],
-         ],
+        'user_id'=> ['field'=>'user_id','type'=>InputHidden::class],
+        'post_id'=> ['field'=>'post_id','type'=>InputHidden::class],
+        'parent_id'=> ['field'=>'parent_id','type'=>InputHidden::class],
+        'uuid'=> ['field'=>'uuid','type'=>InputHidden::class],
+        'publish'=> ['field'=>'publish','type'=>InputHidden::class],
+        'type'=> ['field'=>'type','type'=>InputHidden::class],
+
 
 
     ];
@@ -102,4 +83,14 @@ class Comment extends MainModel
     {
         return $this->hasMany(Comment::class, 'parent_id');
     }
+}
+
+class CommentType{
+    const POSTCOMMENT='postcomment';
+    const SARAN='saran';
+}
+
+class CommentStatus{
+    const DRAFT='draft';
+    const PUBLISH='publish';
 }
