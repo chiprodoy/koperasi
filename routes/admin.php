@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Web\GaleriController;
 use App\Http\Controllers\Web\MediaWebController;
+use App\Http\Controllers\JenisSyaratController;
+use App\Http\Controllers\Web\CekUmurWebController;
 
 Route::prefix('/admin')->middleware(['auth'])->group(function(){
     Route::get('/', [App\Http\Controllers\DashboardController::class,'index'])->name('dashboard');
@@ -63,5 +65,42 @@ Route::prefix('/admin')->middleware(['auth'])->group(function(){
         Route::delete('/{media}', [MediaWebController::class, 'destroy'])->name(
             'media.destroy'
         );
+    });
+    Route::prefix('cek_umur')->group(function () {
+    Route::get('/', [CekUmurWebController::class, 'index'])->name(
+        'cekumur.index'
+    );
+    Route::get('/{cekumur}', [CekUmurWebController::class, 'show'])->name(
+        'cekumur.show'
+    );
+    Route::post('/', [CekUmurWebController::class, 'store'])->name(
+        'cekumur.store'
+    );
+    Route::patch('/{cekumur}', [CekUmurWebController::class, 'update'])->name(
+        'cekumur.update'
+    );
+    Route::delete('/{cekumur}', [CekUmurWebController::class, 'destroy'])->name(
+        'cekumur.destroy'
+    );
+    });
+    
+    Route::prefix('jenis_syarat')->group(function () {
+        Route::get('/', [JenisSyaratController::class, 'index'])->name(
+            'jenissyarat.index'
+        );
+        Route::get('/{jenissyarat}', [JenisSyaratController::class, 'show'])->name(
+            'jenissyarat.show'
+        );
+        Route::post('/', [JenisSyaratController::class, 'store'])->name(
+            'jenissyarat.store'
+        );
+        Route::patch('/{jenissyarat}', [
+            JenisSyaratController::class,
+            'update',
+        ])->name('jenissyarat.update');
+        Route::delete('/{jenissyarat}', [
+            JenisSyaratController::class,
+            'destroy',
+        ])->name('jenissyarat.destroy');
     });
 });

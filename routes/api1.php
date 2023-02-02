@@ -35,36 +35,38 @@ use App\Http\Controllers\CekUmurController;
 |
 */
 
-Route::post('register', [RegisteredUserController::class, 'store']);
+    Route::post('register', [RegisteredUserController::class, 'store']);
 
-Route::post('login', [AuthenticatedSessionController::class, 'store']);
+    Route::post('login', [AuthenticatedSessionController::class, 'store']);
 
-// Route::post('forgot-password', [PasswordResetLinkController::class, 'store'])
-//             ->name('password.email');
+    // Route::post('forgot-password', [PasswordResetLinkController::class, 'store'])
+    //             ->name('password.email');
 
-Route::post('reset-password', [NewPasswordController::class, 'store'])
-    ->name('password.update');
+    Route::post('reset-password', [NewPasswordController::class, 'store'])
+                ->name('password.update');
 
-Route::middleware('auth:sanctum')->post('/fcm_token/{fcmToken}', [UserController::class, 'setFcmToken']);
+    Route::middleware('auth:sanctum')->post('/fcm_token/{fcmToken}', [UserController::class,'setFcmToken']);
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+    Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+        return $request->user();
+    });
+
+Route::prefix('post')->group(function(){
+
+    Route::get('/',[PostController::class,'index'])->name('post.index');
+
+    Route::get('/category/{slug}',[PostController::class,'indexByCategory'])->name('post.category');
+
+    Route::get('/{slug}',[PostController::class,'show'])->name('post.show');
+    Route::middleware('auth:sanctum')->post('/category/{categoryslug}/create',[App\Http\Controllers\PostController::class,'browseStore'])->name('browse.store');
+
 });
 
-Route::prefix('post')->group(function () {
+Route::prefix('page')->group(function(){
 
-    Route::get('/', [PostController::class, 'index'])->name('post.index');
+    Route::get('/',[PageController::class,'index'])->middleware('auth:sanctum')->name('page.index');
+    Route::get('/{slug}',[PageController::class,'show'])->name('page.show');
 
-    Route::get('/category/{slug}', [PostController::class, 'indexByCategory'])->name('post.category');
-
-    Route::get('/{slug}', [PostController::class, 'show'])->name('post.show');
-    Route::middleware('auth:sanctum')->post('/category/{categoryslug}/create', [App\Http\Controllers\PostController::class, 'browseStore'])->name('browse.store');
-});
-
-Route::prefix('page')->group(function () {
-
-    Route::get('/', [PageController::class, 'index'])->middleware('auth:sanctum')->name('page.index');
-    Route::get('/{slug}', [PageController::class, 'show'])->name('page.show');
 });
 /*
  *
@@ -80,21 +82,22 @@ Route::prefix('media')->group(function(){
  */
 
 
-Route::prefix('post_category')->group(function () {
-    Route::get('/', [PostCategoryController::class, 'index'])->name('post_category.index');
+Route::prefix('post_category')->group(function(){
+    Route::get('/',[PostCategoryController::class,'index'])->name('post_category.index');
 });
 
 
-Route::prefix('init')->group(function () {
-    Route::get('/storage', function () {
+Route::prefix('init')->group(function(){
+    Route::get('/storage',function(){
         $target = storage_path('app/public');
         $shortcut = '/home/sdmpolda/public_html/pakkepo/public/storage';
-        echo $target . ":";
+        echo $target.":";
         echo $shortcut;
         Artisan::call('storage:link');
 
-        return ['target' => $target, 'shortcut' => $shortcut];
+        return ['target'=>$target,'shortcut'=>$shortcut];
     });
+
 });
 
 /* Route::prefix('dikbang')->group(function(){
@@ -157,6 +160,8 @@ Route::prefix('cek_umur')->group(function () {
     Route::get('/{cekumur}', [CekUmurController::class, 'show']);
 });
 
+
 Route::prefix('comment')->group(function () {
-    Route::middleware('auth:sanctum')->post('/', [CommentController::class, 'store']);
+    Route::post('/', [CommentController::class, 'store']);
 });
+

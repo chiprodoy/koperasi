@@ -15,7 +15,7 @@ class PostRequest extends FormRequest
      */
     public function authorize()
     {
-        $post=Post::where('uuid',$this->uuid)->first();
+        $post=Post::withoutGlobalScopes()->where('uuid',$this->uuid)->first();
         if($this->user()->isRole(Role::SUPERADMIN))
             return  true;
         else if($this->user()->can('update',$post))
