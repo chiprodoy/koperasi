@@ -199,7 +199,6 @@ class BackendController extends Controller
             $this->newData["$v"]=$request->$v;
             //if($m::$formFields[$v]['type']==\App\View\Components\Viho\Form\InputFile::class && $request->file($v)){
             if($m::$formFields[$v]['type']==\App\View\Components\Viho\Form\InputFile::class){
-
                // dd($request);
                 if(method_exists($this,'uploadMyFile')){
                     if($request->hasFile($v)){
