@@ -5248,7 +5248,7 @@ table tbody .border-bottom-warning td {
       display: none; }
     .page-wrapper.compact-wrapper .page-body-wrapper header.main-nav .main-navbar .nav-menu {
       border-radius: 0;
-      height: calc(100vh - 355px);
+      height: calc(100vh);
       left: -300px;
       z-index: 99;
       -webkit-transition: color 1s ease;
@@ -5256,7 +5256,7 @@ table tbody .border-bottom-warning td {
       overflow: hidden;
       overflow-y: auto;
       color: rgba(0, 0, 0, 0);
-      padding-bottom: 15px; }
+      padding-bottom: 100px; }
       .page-wrapper.compact-wrapper .page-body-wrapper header.main-nav .main-navbar .nav-menu.custom-scrollbar::-webkit-scrollbar-track {
         -webkit-box-shadow: inset 0 0 6px transparent; }
       .page-wrapper.compact-wrapper .page-body-wrapper header.main-nav .main-navbar .nav-menu.custom-scrollbar::-webkit-scrollbar-thumb, .page-wrapper.compact-wrapper .page-body-wrapper header.main-nav .main-navbar .nav-menu.custom-scrollbar::-webkit-scrollbar {

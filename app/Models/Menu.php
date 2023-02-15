@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Menu extends Model
 {
-   use SoftDeletes,HasFactory;
+    use SoftDeletes,HasFactory;
 
     public function subMenu(){
         return $this->hasMany(Menu::class);

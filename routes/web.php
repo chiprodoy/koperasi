@@ -15,6 +15,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [WelcomeController::class,'index'])->name('index');
+Route::get('privacy', function(){
+    return view('kebijakan_privasi');
+});
 
 
 Route::get('/post', function () {

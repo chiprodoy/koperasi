@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests\Galeri;
+namespace App\Http\Requests\JenisSyarat;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class UpdateGaleriRequest extends FormRequest
+class UpdateJenisSyaratRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,10 +24,7 @@ class UpdateGaleriRequest extends FormRequest
     public function rules()
     {
         return [
-            'title' => ['required', 'string'],
-            'image' => ['mimes:png,jpg,jpeg'],
-            'type' => ['required', 'string'],
-            'deskripsi' => ['required'],
+            'name' => ['required'],
         ];
     }
 }

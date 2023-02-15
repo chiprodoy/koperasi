@@ -2,7 +2,10 @@
     "name": "laravel/laravel",
     "type": "project",
     "description": "The Laravel Framework.",
-    "keywords": ["framework", "laravel"],
+    "keywords": [
+        "framework",
+        "laravel"
+    ],
     "license": "MIT",
     "require": {
         "php": "^8.0.2",
@@ -29,12 +32,13 @@
             "Database\\Factories\\": "database/factories/",
             "Database\\Seeders\\": "database/seeders/"
         },
-        "classmap": ["../vendor/MF/"],
-        "files":[
+        "classmap": [
+            "../vendor/MF/"
+        ],
+        "files": [
             "app/Helpers/route.php"
         ]
     },
-
     "autoload-dev": {
         "psr-4": {
             "Tests\\": "tests/"
