@@ -67,7 +67,7 @@ class PostController extends BackendController
     public function indexByCategory($slug){
 
         $pc=Post::whereRelation('categories','slugs','=',$slug);
-        $this->updatePostViewCounter($pc->first());
+        //$this->updatePostViewCounter($pc->first());
         if($pc->count())  return $this->iSuccess($pc->get(),request(),'','Berhasil');
         else return response()->noContent();
     }
@@ -225,7 +225,7 @@ class PostController extends BackendController
 
     }
 
-              /**
+    /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request

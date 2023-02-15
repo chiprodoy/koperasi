@@ -63,8 +63,12 @@ class UserRequest extends FormRequest
     {
 
         $file = $this->file('foto');
-        $fileUrl = Storage::disk('public')->putFile('user', $file);
+        if(!$file){
+            $fileUrl = null;
+        }else{
+            $fileUrl = Storage::disk('public')->putFile('user', $file);
 
+        }
         $user = User::create([
             'name' => $this->name,
             'uuid'=>'',

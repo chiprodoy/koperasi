@@ -173,10 +173,10 @@ class BackendController extends Controller
     public function updateRecord($request,$uid){
         try
         {
+           $this->setRecord($uid);
             $this->setNewData($request);
             //$record=$this->modelRecords::where('uuid',$uid);
            // $updated=$record->update($this->newData);
-           $this->setRecord($uid);
            $updated=$this->RECORD->update($this->newData);
 
             return $this->iSuccess($updated,$request,route_from($this->editURL,$this->RECORD),'Data Berhasil Diupdate');
@@ -197,9 +197,16 @@ class BackendController extends Controller
         $m=new $this->modelRecords;
         foreach($m->getFillable() as $k => $v){
             $this->newData["$v"]=$request->$v;
-            if($m::$formFields[$v]['type']==\App\View\Components\Viho\Form\InputFile::class && $request->file($v)){
+            //if($m::$formFields[$v]['type']==\App\View\Components\Viho\Form\InputFile::class && $request->file($v)){
+            if($m::$formFields[$v]['type']==\App\View\Components\Viho\Form\InputFile::class){
+
+               // dd($request);
                 if(method_exists($this,'uploadMyFile')){
-                    $resultPath=$this->uploadMyFile($request->file($v));
+                    if($request->hasFile($v)){
+                        $resultPath=$this->uploadMyFile($request->file($v));
+                    }else{
+                        $resultPath=$this->RECORD->getAttributes()[$v];
+                    }
                         $this->newData["$v"]=$resultPath;
                 }
             }
