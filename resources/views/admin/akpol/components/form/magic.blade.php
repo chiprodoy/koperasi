@@ -11,7 +11,7 @@
         }
         if($item['field']=='post_status'){
             $inputType=App\View\Components\Viho\Form\InputHidden::class;
-            $RECORD->post_type='publish';
+            $RECORD->post_status='publish';
         }
         if($item['field']=='post_category'){
             $inputType=App\View\Components\Viho\Form\InputHidden::class;
