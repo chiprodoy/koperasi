@@ -185,6 +185,22 @@ class Post extends MainModel
         return $this->hasMany(Comment::class)->whereNull('parent_id');
 
      }
+
+    /**
+
+     * The has Many Relationship
+
+     *
+
+     * @var array
+
+     */
+
+     public function counter()
+     {
+        return $this->hasMany(PostCounter::class);
+
+     }
         /**
      * The "booted" method of the model.
      *

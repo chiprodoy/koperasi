@@ -52,7 +52,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::prefix('post')->group(function () {
-
+    Route::post('/{uuid}/{activity}',[PostController::class,'updatePostActivity']);
     Route::get('/', [PostController::class, 'index'])->name('post.index');
 
     Route::get('/category/{slug}', [PostController::class, 'indexByCategory'])->name('post.category');

@@ -24,7 +24,7 @@ class StoreGaleriRequest extends FormRequest
     public function rules()
     {
         return [
-            'title' => ['required', 'string'],
+            'title' => ['required', 'string','min:3','max:255'],
             'image' => ['required', 'mimes:png,jpg,jpeg'],
             'type' => ['required', 'string'],
             'deskripsi' => ['required'],

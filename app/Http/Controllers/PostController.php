@@ -4,11 +4,15 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\PostRequest;
 use App\Models\Comment;
+use App\Models\CounterActivity;
 use App\Models\Post;
 use App\Models\PostCategory;
+use App\Models\PostCounter;
 use App\Models\Role;
+use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
 use MF\Controllers\ApiResponse;
 use MF\Controllers\ControllerResources;
 use MF\Controllers\Page;
@@ -271,7 +275,41 @@ class PostController extends BackendController
      *
      * @return \Illuminate\Http\Response
      */
-    private function updatePostViewCounter(Post $post){
-        $post->update(['view_count'=>$post->view_count+1]);
+    private function updatePostViewCounter(Post $post,$region,$deviceid,$request)
+    {
+      return $this->setPostCounter($post,PostCounter::view,$region,$deviceid,$request);
+    }
+
+    public function updatePostActivity($postuuid,$activity,Request $request){
+        $post=Post::where('uuid',$postuuid)->first();
+        $pc=$this->setPostCounter($post,constant(PostCounter::class.'::'.$activity),$request->region,$request->deviceid,$request);
+        if(!$pc) return abort(500);
+    }
+        /**
+     * update post view counter .
+     *
+     * @return \Illuminate\Http\Response
+     */
+    private function setPostCounter(Post $post,$activity,$region,$deviceid,Request $request)
+    {
+        try {
+            // Validate the value...
+            $counter=PostCounter::create([
+                'post_id'=>$post->id,
+                'activity'=>$activity, // like,view,share
+                'region'=>$region,
+                'deviceid'=>$deviceid
+            ]);
+            return true;
+
+        } catch (Exception $e) {
+            if(env('APP_DEBUG')) echo $e->getMessage();
+            report($e);
+            $this->errorMsg='Data Gagal Disimpan '.$e->getMessage();
+            Log::error($e);
+            return false;
+
+        }
+
     }
 }
