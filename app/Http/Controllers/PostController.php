@@ -85,7 +85,7 @@ class PostController extends BackendController
      **/
     public function show($slug){
         $pc=Post::with('categories')->where('slug',$slug);
-        $this->updatePostViewCounter($pc->first());
+       // $this->updatePostViewCounter($pc->first());
 
         if($pc->count())  return $this->iSuccess($pc->first(),request(),'','Berhasil');
         else return response()->noContent();

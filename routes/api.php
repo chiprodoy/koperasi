@@ -62,7 +62,7 @@ Route::prefix('post')->group(function () {
 });
 
 Route::prefix('page')->group(function () {
-
+    Route::post('/{uuid}/{activity}',[PostController::class,'updatePostActivity']);
     Route::get('/', [PageController::class, 'index'])->middleware('auth:sanctum')->name('page.index');
     Route::get('/{slug}', [PageController::class, 'show'])->name('page.show');
 });
