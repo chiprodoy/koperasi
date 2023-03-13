@@ -20,8 +20,9 @@ class CreatePostsTable extends Migration
             $table->text('attachment')->nullable();
             $table->string('cover')->nullable();
             $table->string('tags')->nullable();
-            $table->integer('view_count')->default(0);
-            $table->integer('like_count')->default(0);
+            $table->integer('view_count')->default(0)->unsigned();
+            $table->integer('like_count')->default(0)->unsigned();
+            $table->integer('share_count')->default(0)->unsigned();
             $table->string('post_status'); // draft,publish
             $table->string('post_type'); // blog,page,multimedia
             $table->string('slug');
