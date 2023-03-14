@@ -140,6 +140,9 @@ Route::prefix('galeri')->group(function () {
     Route::get('/{galeri}', [GaleriController::class, 'show'])->name(
         'galeri.show'
     );
+    Route::post('/{id}/{activity}', [GaleriController::class, 'updateCounterActivity'])->name(
+        'galeri.logactivity'
+    );
 });
 
 Route::prefix('media')->group(function () {

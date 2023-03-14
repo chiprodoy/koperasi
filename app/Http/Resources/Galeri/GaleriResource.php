@@ -22,6 +22,9 @@ class GaleriResource extends JsonResource
             'link' => $this->link,
             'deskripsi' => $this->deskripsi,
             'date' => $this->created_at->format('d F Y'),
+            'view_count'=>$this->view_count,
+            'like_count'=>$this->like_count,
+            'share_count'=>$this->share_count
         ];
     }
 }

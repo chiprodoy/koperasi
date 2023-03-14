@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Counter;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -13,10 +14,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('posts', function (Blueprint $table) {
-            //
-            $table->integer('share_count')->default(0)->unsigned()->after('like_count');
-
+        Schema::table('counters', function (Blueprint $table) {
+            $table->morphs('counterable');
+            $table->string('activity');
         });
     }
 
@@ -27,6 +27,8 @@ return new class extends Migration
      */
     public function down()
     {
-
+        Schema::table('counters', function (Blueprint $table) {
+            //
+        });
     }
 };
