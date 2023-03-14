@@ -85,7 +85,7 @@ class GaleriController extends Controller
     }
 
     public function updateCounterActivity($id,$activity,Request $request){
-        $post=Galeri::find($id)->first();
+        $post=Galeri::find($id);
         $pc=$this->setActivityCounter($post,constant(Counter::class.'::'.$activity),$request->region,$request->deviceid,$request);
         if(!$pc) return abort(500);
     }
