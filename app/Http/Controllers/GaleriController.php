@@ -128,7 +128,7 @@ class GaleriController extends Controller
 
     }
 
-    public function generateAllGaleriCounter($id,$count=2000){
+    public function generateAllGaleriCounter($count=2000){
 
         $data=Galeri::all();
         foreach($data as $k =>$v){
