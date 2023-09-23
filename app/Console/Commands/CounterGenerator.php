@@ -2,6 +2,7 @@
 
 namespace App\Console\Commands;
 
+use App\Models\Counter;
 use App\Models\Galeri;
 use App\Models\Post;
 use Illuminate\Console\Command;
@@ -40,7 +41,8 @@ class CounterGenerator extends Command
             return;
         }
 
-        $galeri->counters()->factory()->count(2000)->like()->make();
+        Counter::factory()->count(2)->like()->for($galeri,'counterable')->create();
+        //$galeri->counters()->factory()->count(2000)->like()->make();
 
         return 0;
     }

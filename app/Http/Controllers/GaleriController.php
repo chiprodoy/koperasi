@@ -119,11 +119,13 @@ class GaleriController extends Controller
         //find galeri
         $galeri=Galeri::find($id);
 
+
         if(!$galeri){
             return 'Galeri tidak ditemukan';
         }
 
-        $galeri->counters()->factory()->count($count)->like()->make();
+        Counter::factory()->count($count)->like()->for($galeri,'counterable')->create();
+
         return $count.' Counter Galeri untuk '.$galeri->title.' Berhasil ditambahkan';
 
     }
