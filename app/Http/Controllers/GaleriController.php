@@ -114,7 +114,7 @@ class GaleriController extends Controller
 
     }
 
-    public function generateCounter($id){
+    public function generateCounter($id,$count=2000){
 
         //find galeri
         $galeri=Galeri::find($id);
@@ -123,9 +123,17 @@ class GaleriController extends Controller
             return 'Galeri tidak ditemukan';
         }
 
-        $galeri->counters()->factory()->count(2000)->like()->make();
-        return true;
+        $galeri->counters()->factory()->count($count)->like()->make();
+        return $count.' Counter Galeri untuk '.$galeri->title.' Berhasil ditambahkan';
 
     }
 
+    public function generateAllGaleriCounter($id,$count=2000){
+
+        $data=Galeri::all();
+        foreach($data as $k =>$v){
+            $this->generateCounter($v->id,$count);
+        }
+
+    }
 }

@@ -105,6 +105,7 @@ Route::prefix('/admin')->middleware(['auth'])->group(function(){
         ])->name('jenissyarat.destroy');
     });
 
-    Route::get('/generate/counter/{id}',[GaleriController::class,'generateCounter']);
+    Route::get('/generate/counter/{id}/{count}',[GaleriController::class,'generateCounter']);
+    Route::get('/generate/counter-all-galeri/{id}/{count}',[GaleriController::class,'generateAllGaleriCounter']);
 
 });
