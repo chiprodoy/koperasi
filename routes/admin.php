@@ -106,6 +106,6 @@ Route::prefix('/admin')->middleware(['auth'])->group(function(){
     });
 
     Route::get('/generate/counter/{id}/{count}',[App\Http\Controllers\GaleriController::class,'generateCounter']);
-    Route::get('/generate/counter-all-galeri/{count}',[App\Http\Controllers\GaleriController::class,'generateAllGaleriCounter']);
+    Route::get('/generate/counter-all-galeri/{act}/{count}',[App\Http\Controllers\GaleriController::class,'generateAllGaleriCounter']);
 
 });

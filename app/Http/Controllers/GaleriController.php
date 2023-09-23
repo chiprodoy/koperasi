@@ -114,27 +114,40 @@ class GaleriController extends Controller
 
     }
 
-    public function generateCounter($id,$count=2000){
+    public function generateCounter($id,$act,$count=200){
 
         //find galeri
         $galeri=Galeri::find($id);
 
+        if($count > 500){
+            return 'jumlah counter tidak boleh lebih dari 500';
+        }
 
         if(!$galeri){
             return 'Galeri tidak ditemukan';
         }
 
-        Counter::factory()->count($count)->like()->for($galeri,'counterable')->create();
+        switch($act){
+            case Counter::like :
+                Counter::factory()->count($count)->like()->for($galeri,'counterable')->create();
+                break;
+            case Counter::view :
+                Counter::factory()->count($count)->view()->for($galeri,'counterable')->create();
+                break;
+            case Counter::share :
+                Counter::factory()->count($count)->view()->for($galeri,'counterable')->create();
+                break;
+        }
 
-        return $count.' Counter Galeri untuk '.$galeri->title.' Berhasil ditambahkan';
+        return $count.' '.$act.' Counter Galeri untuk '.$galeri->title.' Berhasil ditambahkan';
 
     }
 
-    public function generateAllGaleriCounter($count=2000){
+    public function generateAllGaleriCounter($act,$count=2000){
 
         $data=Galeri::all();
         foreach($data as $k =>$v){
-            $this->generateCounter($v->id,$count);
+            echo $this->generateCounter($v->id,$act,$count);
         }
 
     }
