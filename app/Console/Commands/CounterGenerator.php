@@ -2,6 +2,7 @@
 
 namespace App\Console\Commands;
 
+use App\Models\Galeri;
 use App\Models\Post;
 use Illuminate\Console\Command;
 
@@ -32,8 +33,14 @@ class CounterGenerator extends Command
         $this->counterableId=$this->argument('counterable_id');
 
         //find post
-        $post=Post::find( $this->counterableId);
+        $galeri=Galeri::find( $this->counterableId);
 
+        if(!$galeri){
+            $this->info('Galeri tidak ditemukan');
+            return;
+        }
+
+        $galeri->counters()->factory()->count(2000)->like()->make();
 
         return 0;
     }

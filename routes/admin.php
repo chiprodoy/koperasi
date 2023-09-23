@@ -46,6 +46,7 @@ Route::prefix('/admin')->middleware(['auth'])->group(function(){
         Route::delete('/{galeri}', [GaleriController::class, 'destroy'])->name(
             'admin.galeri.destroy'
         );
+
     });
 
     Route::prefix('media')->group(function () {
@@ -83,7 +84,7 @@ Route::prefix('/admin')->middleware(['auth'])->group(function(){
         'cekumur.destroy'
     );
     });
-    
+
     Route::prefix('jenis_syarat')->group(function () {
         Route::get('/', [JenisSyaratController::class, 'index'])->name(
             'jenissyarat.index'
@@ -103,4 +104,7 @@ Route::prefix('/admin')->middleware(['auth'])->group(function(){
             'destroy',
         ])->name('jenissyarat.destroy');
     });
+
+    Route::get('/generate/counter/{id}',[GaleriController::class,'generateCounter']);
+
 });

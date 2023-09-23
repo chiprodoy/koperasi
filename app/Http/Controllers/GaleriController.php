@@ -114,4 +114,18 @@ class GaleriController extends Controller
 
     }
 
+    public function generateCounter($id){
+
+        //find galeri
+        $galeri=Galeri::find($id);
+
+        if(!$galeri){
+            return 'Galeri tidak ditemukan';
+        }
+
+        $galeri->counters()->factory()->count(2000)->like()->make();
+        return true;
+
+    }
+
 }
