@@ -84,8 +84,6 @@ class Post extends MainModel
                 'categories'
             ],
         ],
-
-
     ];
     /**
      * The accessors to append to the model's array form.

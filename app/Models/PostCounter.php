@@ -25,6 +25,21 @@ class PostCounter extends Model
         'deviceid',
     ];
 
+      /**
+
+     * The has Many Relationship
+
+     *
+
+     * @var array
+
+     */
+
+     public function post()
+     {
+        return $this->belongsTo(Post::class);
+
+     }
         /**
      * The "booted" method of the model.
      *

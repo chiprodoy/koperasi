@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\PostRequest;
 use App\Models\Comment;
+use App\Models\Counter;
 use App\Models\CounterActivity;
 use App\Models\Post;
 use App\Models\PostCategory;
@@ -309,6 +310,49 @@ class PostController extends BackendController
             Log::error($e);
             return false;
 
+        }
+    }
+
+    public function generateCounter($id,$act,$count=200){
+
+        //find galeri
+        $galeri=Post::find($id);
+
+        if($count > 500){
+            return 'jumlah counter tidak boleh lebih dari 500';
+        }
+
+        if(!$galeri){
+            return 'Post tidak ditemukan';
+        }
+
+        switch($act){
+            case Counter::like :
+                PostCounter::factory()->count($count)->like()->create([
+                    'post_id'=>$galeri->id
+                ]);
+                break;
+            case Counter::view :
+                Counter::factory()->count($count)->view()->create([
+                    'post_id'=>$galeri->id
+                ]);
+                break;
+            case Counter::share :
+                Counter::factory()->count($count)->view()->create([
+                    'post_id'=>$galeri->id
+                ]);
+                break;
+        }
+
+        return $count.' '.$act.' Counter Galeri untuk '.$galeri->title.' Berhasil ditambahkan';
+
+    }
+
+    public function generateAllPostCounter($act,$count=2000){
+
+        $data=Post::all();
+        foreach($data as $k =>$v){
+            echo $this->generateCounter($v->id,$act,$count);
         }
 
     }

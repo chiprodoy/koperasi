@@ -105,7 +105,13 @@ Route::prefix('/admin')->middleware(['auth'])->group(function(){
         ])->name('jenissyarat.destroy');
     });
 
-    Route::get('/generate/counter/{id}/{count}',[App\Http\Controllers\GaleriController::class,'generateCounter']);
-    Route::get('/generate/counter-all-galeri/{act}/{count}',[App\Http\Controllers\GaleriController::class,'generateAllGaleriCounter']);
+
+    Route::prefix('/generate')->group(function(){
+        Route::get('/counter/galeri/{id}/{count}',[App\Http\Controllers\GaleriController::class,'generateCounter']);
+        Route::get('/counter/all-galeri/{act}/{count}',[App\Http\Controllers\GaleriController::class,'generateAllGaleriCounter']);
+        Route::get('/counter/post/{id}/{count}',[App\Http\Controllers\PostController::class,'generateCounter']);
+        Route::get('/counter/all-post/{act}/{count}',[App\Http\Controllers\PostController::class,'generateAllPostCounter']);
+
+    });
 
 });
