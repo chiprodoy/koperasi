@@ -107,6 +107,7 @@ Route::prefix('/admin')->middleware(['auth'])->group(function(){
 
 
     Route::prefix('/generate')->group(function(){
+        Route::get('/',function(){ return 'ok'; });
         Route::get('/counter/galeri/{id}/{count}',[App\Http\Controllers\GaleriController::class,'generateCounter']);
         Route::get('/counter/all-galeri/{act}/{count}',[App\Http\Controllers\GaleriController::class,'generateAllGaleriCounter']);
         Route::get('/counter/post/{id}/{count}',[App\Http\Controllers\PostController::class,'generateCounter']);
