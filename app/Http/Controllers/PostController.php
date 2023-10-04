@@ -333,12 +333,12 @@ class PostController extends BackendController
                 ]);
                 break;
             case Counter::view :
-                Counter::factory()->count($count)->view()->create([
+                PostCounter::factory()->count($count)->view()->create([
                     'post_id'=>$galeri->id
                 ]);
                 break;
             case Counter::share :
-                Counter::factory()->count($count)->view()->create([
+                PostCounter::factory()->count($count)->view()->create([
                     'post_id'=>$galeri->id
                 ]);
                 break;
