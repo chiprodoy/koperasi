@@ -63,7 +63,7 @@ class PostController extends BackendController
      **/
     public function indexByCategory($slug){
 
-        $pc=Post::whereRelation('categories','slugs','=',$slug);
+        $pc=Post::whereRelation('categories','slugs','=',$slug)->orderBy('id', 'desc');
         $this->updatePostViewCounter($pc->first());
         if($pc->count())  return $this->iSuccess($pc->get(),request(),'','Berhasil');
         else return response()->noContent();
@@ -77,7 +77,7 @@ class PostController extends BackendController
      * Otherwise, the request will fail with a 400 error, and a response listing the failed services.
      **/
     public function show($slug){
-        $pc=Post::with('categories')->where('slug',$slug);
+        $pc=Post::with('categories')->where('slug',$slug)->orderBy('id', 'desc');
         $this->updatePostViewCounter($pc->first());
 
         if($pc->count())  return $this->iSuccess($pc->first(),request(),'','Berhasil');
@@ -141,7 +141,7 @@ class PostController extends BackendController
 
        // $pc=Post::where('slug',$slug)->with('categories')->where('id',$cat->id);
        $pc=Post::whereHas('categories',function($q)use($cat){
-            $q->where('post_category_id',$cat->id);
+            $q->where('post_category_id',$cat->id)->orderBy('id', 'desc');
 
         })->where('slug',$slug);
        //dd($pc->toSql());
