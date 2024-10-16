@@ -23,6 +23,7 @@ use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MediaController;
 use App\Http\Controllers\CekUmurController;
+use App\Http\Controllers\QuestionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -52,7 +53,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::prefix('post')->group(function () {
-    Route::post('/{uuid}/{activity}',[PostController::class,'updatePostActivity']);
+    Route::post('/{uuid}/{activity}', [PostController::class, 'updatePostActivity']);
     Route::get('/', [PostController::class, 'index'])->name('post.index');
 
     Route::get('/category/{slug}', [PostController::class, 'indexByCategory'])->name('post.category');
@@ -62,7 +63,7 @@ Route::prefix('post')->group(function () {
 });
 
 Route::prefix('page')->group(function () {
-    Route::post('/{uuid}/{activity}',[PostController::class,'updatePostActivity']);
+    Route::post('/{uuid}/{activity}', [PostController::class, 'updatePostActivity']);
     Route::get('/', [PageController::class, 'index'])->middleware('auth:sanctum')->name('page.index');
     Route::get('/{slug}', [PageController::class, 'show'])->name('page.show');
 });
@@ -144,6 +145,8 @@ Route::prefix('galeri')->group(function () {
         'galeri.logactivity'
     );
 });
+
+Route::get('questions', [QuestionController::class, 'index']);
 
 Route::prefix('media')->group(function () {
     Route::get('/', [MediaController::class, 'index']);

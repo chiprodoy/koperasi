@@ -14,7 +14,9 @@ class QuestionController extends Controller
 {
     public function index()
     {
-        return view('admin.simulasi-tes.soal-kecerdasan.index');
+        $questions = Question::all();
+
+        return response()->json($questions, 200);
     }
 
     public function store(StoreQuestionRequest $request)
