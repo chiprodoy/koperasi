@@ -4,9 +4,7 @@ namespace App\Http\Controllers\Web;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Question\StoreQuestionRequest;
-use App\Http\Resources\Question\QuestionResource;
 use App\Models\Question;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use MF\Controllers\Page;
 use MF\Controllers\PageMenu;
