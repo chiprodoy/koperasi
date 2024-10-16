@@ -1,11 +1,15 @@
 <?php
 
+use App\Http\Controllers\AccuracyQuestionController;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Web\GaleriController;
 use App\Http\Controllers\Web\MediaWebController;
 use App\Http\Controllers\JenisSyaratController;
+use App\Http\Controllers\PersonalityQuestionController;
+use App\Http\Controllers\Web\AccuracyQuestionWebController;
 use App\Http\Controllers\Web\CekUmurWebController;
+use App\Http\Controllers\Web\PersonalityQuestionWebController;
 use App\Http\Controllers\Web\QuestionWebController;
 
 Route::prefix('/admin')->middleware(['auth'])->group(function () {
@@ -63,6 +67,40 @@ Route::prefix('/admin')->middleware(['auth'])->group(function () {
         );
         Route::delete('/{question}', [QuestionWebController::class, 'destroy'])->name(
             'admin.soal-kecerdasan.destroy'
+        );
+    });
+
+    Route::prefix('soal-kepribadian')->group(function () {
+        Route::get('/', [PersonalityQuestionWebController::class, 'index'])->name('admin.soal-kepribadian.index');
+        Route::get('/edit/{question}', [PersonalityQuestionWebController::class, 'edit'])->name(
+            'admin.soal-kepribadian.edit'
+        );
+        Route::get('/create', [PersonalityQuestionWebController::class, 'create'])->name(
+            'admin.soal-kepribadian.create'
+        );
+        Route::post('/', [PersonalityQuestionWebController::class, 'store'])->name('admin.soal-kepribadian.store')->withoutMiddleware('auth');
+        Route::patch('/{question}', [PersonalityQuestionWebController::class, 'update'])->name(
+            'admin.soal-kepribadian.update'
+        );
+        Route::delete('/{question}', [PersonalityQuestionWebController::class, 'destroy'])->name(
+            'admin.soal-kepribadian.destroy'
+        );
+    });
+
+    Route::prefix('soal-kecermatan')->group(function () {
+        Route::get('/', [AccuracyQuestionWebController::class, 'index'])->name('admin.soal-kecermatan.index');
+        Route::get('/edit/{question}', [AccuracyQuestionWebController::class, 'edit'])->name(
+            'admin.soal-kecermatan.edit'
+        );
+        Route::get('/create', [AccuracyQuestionWebController::class, 'create'])->name(
+            'admin.soal-kecermatan.create'
+        );
+        Route::post('/', [AccuracyQuestionWebController::class, 'store'])->name('admin.soal-kecermatan.store')->withoutMiddleware('auth');
+        Route::patch('/{question}', [AccuracyQuestionWebController::class, 'update'])->name(
+            'admin.soal-kecermatan.update'
+        );
+        Route::delete('/{question}', [AccuracyQuestionWebController::class, 'destroy'])->name(
+            'admin.soal-kecermatan.destroy'
         );
     });
 
