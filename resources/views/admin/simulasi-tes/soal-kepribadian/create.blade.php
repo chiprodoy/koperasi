@@ -14,19 +14,17 @@
             <div class="col-sm-12">
                 <div class="card">
                     <div class="card-body">
-                        <h3>Edit Soal Kecerdasan</h3>
+                        <h3>Tambah Soal Kepribadian</h3>
                         <div class="tab-content" id="pills-tabContent">
                             <div class="tab-pane fade show active" id="pills-input" role="tabpanel"
                                 aria-labelledby="pills-input-tab">
                                 <form class="theme-form" method="POST" enctype="multipart/form-data"
-                                    action="{{ route('admin.soal-kecerdasan.update', $question->id) }}">
+                                    action="{{ route('admin.soal-kepribadian.store') }}">
                                     @csrf
-                                    @method('PATCH')
                                     <div class="mb-3 draggable">
                                         <label for="input-text-1">Pertanyaan</label>
                                         <input class="form-control btn-square" id="input-text-1" type="text"
-                                            placeholder="1 + 1 = 2" name="question"
-                                            value="{{ old('question', $question->question) ?? '' }}">
+                                            placeholder="1 + 1 = 2" name="question">
                                     </div>
                                     <div class="mb-3 draggable">
                                         <label for="input-file-1">Gambar <span>* jika ada</span></label>
@@ -38,25 +36,14 @@
 
                                     <!-- Options container -->
                                     <div id="options-container">
-                                        @foreach ($question->options as $index => $option)
-                                            @if ($index == 0 || $index == 1)
-                                                <div class="input-group mb-2 option-row">
-                                                    <input type="text" name="options[]" class="form-control option-input"
-                                                        placeholder="Opsi {{ $index + 1 }}" value="{{ $option }}"
-                                                        required>
-                                                </div>
-                                            @else
-                                                <div class="input-group mb-2 option-row">
-                                                    <input type="text" name="options[]" class="form-control option-input"
-                                                        placeholder="Opsi {{ $index + 1 }}" value="{{ $option }}"
-                                                        required>
-                                                    <div class="input-group-append">
-                                                        <button type="button"
-                                                            class="btn btn-danger remove-option">Remove</button>
-                                                    </div>
-                                                </div>
-                                            @endif
-                                        @endforeach
+                                        <div class="input-group mb-2 option-row">
+                                            <input type="text" name="options[]" class="form-control option-input"
+                                                placeholder="Opsi 1" required>
+                                        </div>
+                                        <div class="input-group mb-2 option-row">
+                                            <input type="text" name="options[]" class="form-control option-input"
+                                                placeholder="Opsi 2" required>
+                                        </div>
                                     </div>
 
                                     <!-- Button to add new options -->
@@ -66,15 +53,11 @@
                                     <div class="form-group">
                                         <label for="correct_option">Pilihan Benar</label>
                                         <select name="correct_option" id="correct_option" class="form-control" required>
-                                            @foreach ($question->options as $option)
-                                                <option value="{{ $option }}"
-                                                    {{ $question->correct_option == $option ? 'selected' : '' }}>
-                                                    {{ $option }}</option>
-                                            @endforeach
+                                            <!-- This will be dynamically populated based on the number of options -->
                                         </select>
                                     </div>
 
-                                    <button type="submit" class="btn btn-primary">Simpan</button>
+                                    <button type="submit" class="btn btn-primary">Tambah data</button>
                                 </form>
                             </div>
                         </div>

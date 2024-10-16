@@ -14,12 +14,12 @@
             <div class="col-sm-12">
                 <div class="card">
                     <div class="card-body">
-                        <h3>Edit Soal Kecerdasan</h3>
+                        <h3>Edit Soal Kepribadian</h3>
                         <div class="tab-content" id="pills-tabContent">
                             <div class="tab-pane fade show active" id="pills-input" role="tabpanel"
                                 aria-labelledby="pills-input-tab">
                                 <form class="theme-form" method="POST" enctype="multipart/form-data"
-                                    action="{{ route('admin.soal-kecerdasan.update', $question->id) }}">
+                                    action="{{ route('admin.soal-kepribadian.update', $question->id) }}">
                                     @csrf
                                     @method('PATCH')
                                     <div class="mb-3 draggable">

@@ -14,6 +14,7 @@
             <div class="col-sm-12">
                 <div class="card">
                     <div class="card-body">
+                        <h3>Tambah Soal Kecerdasan</h3>
                         <div class="tab-content" id="pills-tabContent">
                             <div class="tab-pane fade show active" id="pills-input" role="tabpanel"
                                 aria-labelledby="pills-input-tab">
