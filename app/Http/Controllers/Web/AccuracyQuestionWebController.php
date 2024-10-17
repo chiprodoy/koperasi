@@ -8,6 +8,7 @@ use App\Models\AccuracyQuestion;
 use Illuminate\Support\Facades\Storage;
 use MF\Controllers\Page;
 use MF\Controllers\PageMenu;
+use Illuminate\Support\Str;
 
 class AccuracyQuestionWebController extends Controller
 {
@@ -46,7 +47,8 @@ class AccuracyQuestionWebController extends Controller
         $imageFile = $request->file('image');
         $imageUrl = null;
         if ($imageFile) {
-            $imageUrl = Storage::disk('public')->putFile('accuracy-questions', $imageUrl);
+            $randomFileName = Str::random(40) . '.' . $imageFile->getClientOriginalExtension();
+            $imageUrl = Storage::disk('public')->putFile('accuracy-questions', $imageFile, $randomFileName);
         }
         $question = AccuracyQuestion::create([
             'question' => $request->question,
@@ -64,7 +66,8 @@ class AccuracyQuestionWebController extends Controller
         if ($imageFile) {
             Storage::disk('public')->delete('accuracy-questions', $question->image);
 
-            $imageUrl = Storage::disk('public')->putFile('accuracy-questions', $imageFile);
+            $randomFileName = Str::random(40) . '.' . $imageFile->getClientOriginalExtension();
+            $imageUrl = Storage::disk('public')->putFile('accuracy-questions', $imageFile, $randomFileName);
         } else {
             $imageUrl = $question->image;
         }

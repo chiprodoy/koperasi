@@ -8,6 +8,7 @@ use App\Models\Question;
 use Illuminate\Support\Facades\Storage;
 use MF\Controllers\Page;
 use MF\Controllers\PageMenu;
+use Illuminate\Support\Str;
 
 class QuestionWebController extends Controller
 {
@@ -46,7 +47,8 @@ class QuestionWebController extends Controller
         $imageFile = $request->file('image');
         $imageUrl = null;
         if ($imageFile) {
-            $imageUrl = Storage::disk('public')->putFile('questions', $imageUrl);
+            $randomFileName = Str::random(40) . '.' . $imageFile->getClientOriginalExtension();
+            $imageUrl = Storage::disk('public')->putFile('questions', $imageFile, $randomFileName);
         }
         $question = Question::create([
             'question' => $request->question,
@@ -63,8 +65,8 @@ class QuestionWebController extends Controller
         $imageFile = $request->file('image');
         if ($imageFile) {
             Storage::disk('public')->delete('questions', $question->image);
-
-            $imageUrl = Storage::disk('public')->putFile('questions', $imageFile);
+            $randomFileName = Str::random(40) . '.' . $imageFile->getClientOriginalExtension();
+            $imageUrl = Storage::disk('public')->putFile('questions', $imageFile, $randomFileName);
         } else {
             $imageUrl = $question->image;
         }

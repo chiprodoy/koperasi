@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Web;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Question\StoreQuestionRequest;
 use App\Models\PersonalityQuestion;
-use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
 use MF\Controllers\Page;
 use MF\Controllers\PageMenu;
@@ -47,7 +47,8 @@ class PersonalityQuestionWebController extends Controller
         $imageFile = $request->file('image');
         $imageUrl = null;
         if ($imageFile) {
-            $imageUrl = Storage::disk('public')->putFile('personality-questions', $imageUrl);
+            $randomFileName = Str::random(40) . '.' . $imageFile->getClientOriginalExtension();
+            $imageUrl = Storage::disk('public')->putFile('personality-questions', $imageFile, $randomFileName);
         }
         $question = PersonalityQuestion::create([
             'question' => $request->question,
@@ -64,8 +65,8 @@ class PersonalityQuestionWebController extends Controller
         $imageFile = $request->file('image');
         if ($imageFile) {
             Storage::disk('public')->delete('personality-questions', $question->image);
-
-            $imageUrl = Storage::disk('public')->putFile('personality-questions', $imageFile);
+            $randomFileName = Str::random(40) . '.' . $imageFile->getClientOriginalExtension();
+            $imageUrl = Storage::disk('public')->putFile('personality-questions', $imageFile, $randomFileName);
         } else {
             $imageUrl = $question->image;
         }

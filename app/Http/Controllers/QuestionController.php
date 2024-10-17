@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\Question\StoreQuestionRequest;
 use App\Http\Resources\Question\QuestionResource;
 use App\Models\Question;
-use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
 
 use function PHPSTORM_META\map;
@@ -24,7 +24,8 @@ class QuestionController extends Controller
         $imageFile = $request->file('image');
         $imageUrl = null;
         if ($imageFile) {
-            $imageUrl = Storage::disk('public')->putFile('questions', $imageUrl);
+            $randomFileName = Str::random(40) . '.' . $imageFile->getClientOriginalExtension();
+            $imageUrl = Storage::disk('public')->putFile('questions', $imageFile, $randomFileName);
         }
         $question = Question::create([
             'question' => $request->question,
@@ -45,7 +46,8 @@ class QuestionController extends Controller
         if ($imageFile) {
             Storage::disk('public')->delete('questions', $question->image);
 
-            $imageUrl = Storage::disk('public')->putFile('questions', $imageFile);
+            $randomFileName = Str::random(40) . '.' . $imageFile->getClientOriginalExtension();
+            $imageUrl = Storage::disk('public')->putFile('questions', $imageFile, $randomFileName);
         } else {
             $imageUrl = $question->image;
         }
