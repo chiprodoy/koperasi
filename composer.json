@@ -33,7 +33,7 @@
             "Database\\Seeders\\": "database/seeders/"
         },
         "classmap": [
-            "../vendor/MF/"
+            "vendor/MF/"
         ],
         "files": [
             "app/Helpers/route.php"
