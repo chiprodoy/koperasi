@@ -4,6 +4,7 @@ use App\Http\Controllers\AccuracyQuestionController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\Auth\NewPasswordController;
 use App\Http\Controllers\Auth\RegisteredUserController;
+use App\Http\Controllers\BahasaIndonesiaQuizController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\ForumController;
 use App\Http\Controllers\ForumKomenController;
@@ -17,8 +18,13 @@ use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MediaController;
 use App\Http\Controllers\CekUmurController;
+use App\Http\Controllers\EnglishQuizController;
+use App\Http\Controllers\NumericQuizController;
 use App\Http\Controllers\PersonalityQuestionController;
 use App\Http\Controllers\QuestionController;
+use App\Http\Controllers\TPAQuizController;
+use App\Http\Controllers\TPUQuizController;
+use App\Http\Controllers\TWKQuizController;
 
 /*
 |--------------------------------------------------------------------------
@@ -144,6 +150,12 @@ Route::prefix('galeri')->group(function () {
 Route::get('questions', [QuestionController::class, 'index']);
 Route::get('accuracy-questions', [AccuracyQuestionController::class, 'index']);
 Route::get('personality-questions', [PersonalityQuestionController::class, 'index']);
+Route::get('bahasa-indonesia-questions', [BahasaIndonesiaQuizController::class, 'index']);
+Route::get('english-questions', [EnglishQuizController::class, 'index']);
+Route::get('numeric-questions', [NumericQuizController::class, 'index']);
+Route::get('tpa-questions', [TPAQuizController::class, 'index']);
+Route::get('tpu-questions', [TPUQuizController::class, 'index']);
+Route::get('twk-questions', [TWKQuizController::class, 'index']);
 
 Route::prefix('media')->group(function () {
     Route::get('/', [MediaController::class, 'index']);

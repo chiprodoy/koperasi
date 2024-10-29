@@ -19,14 +19,14 @@ class GaleriController extends Controller
     public function index()
     {
         $galeri = Galeri::withCount([
-            'counters as like_count'=>function(Builder $q){
-                    $q->where('activity',Counter::like);
+            'counters as like_count' => function (Builder $q) {
+                $q->where('activity', Counter::like);
             },
-            'counters as view_count'=>function(Builder $q){
-                $q->where('activity',Counter::view);
+            'counters as view_count' => function (Builder $q) {
+                $q->where('activity', Counter::view);
             },
-            'counters as share_count'=>function(Builder $q){
-                $q->where('activity',Counter::share);
+            'counters as share_count' => function (Builder $q) {
+                $q->where('activity', Counter::share);
             },
         ])->latest()->paginate(10);
         return GaleriResource::collection($galeri);
@@ -84,71 +84,70 @@ class GaleriController extends Controller
         );
     }
 
-    public function updateCounterActivity($id,$activity,Request $request){
-        $post=Galeri::find($id);
-        $pc=$this->setActivityCounter($post,constant(Counter::class.'::'.$activity),$request->region,$request->deviceid,$request);
-        if(!$pc) return abort(500);
+    public function updateCounterActivity($id, $activity, Request $request)
+    {
+        $post = Galeri::find($id);
+        $pc = $this->setActivityCounter($post, constant(Counter::class . '::' . $activity), $request->region, $request->deviceid, $request);
+        if (!$pc) return abort(500);
     }
-        /**
+    /**
      * update post view counter .
      *
      * @return \Illuminate\Http\Response
      */
-    private function setActivityCounter(Galeri $post,$activity,$region,$deviceid,Request $request)
+    private function setActivityCounter(Galeri $post, $activity, $region, $deviceid, Request $request)
     {
         try {
             $post->counters()->create([
-                'region'=>$region,
-                'deviceid'=>$deviceid,
-                'activity'=>$activity, // like,view,share
+                'region' => $region,
+                'deviceid' => $deviceid,
+                'activity' => $activity, // like,view,share
 
             ]);
             return true;
-
         } catch (Exception $e) {
-            if(env('APP_DEBUG')) echo $e->getMessage();
+            if (env('APP_DEBUG')) echo $e->getMessage();
             report($e);
             Log::error($e);
             return false;
         }
-
     }
 
-    public function generateCounter($id,$act,$count=200){
+    public function generateCounter($id, $act, $count = 200)
+    {
 
         //find galeri
-        $galeri=Galeri::find($id);
+        $galeri = Galeri::find($id);
 
-        if($count > 500){
+        if ($count > 500) {
             return 'jumlah counter tidak boleh lebih dari 500';
         }
 
-        if(!$galeri){
+        if (!$galeri) {
             return 'Galeri tidak ditemukan';
         }
 
-        switch($act){
-            case Counter::like :
-                Counter::factory()->count($count)->like()->for($galeri,'counterable')->create();
+        switch ($act) {
+            case Counter::like:
+                Counter::factory()->count($count)->like()->for($galeri, 'counterable')->create();
                 break;
-            case Counter::view :
-                Counter::factory()->count($count)->view()->for($galeri,'counterable')->create();
+            case Counter::view:
+                Counter::factory()->count($count)->view()->for($galeri, 'counterable')->create();
                 break;
-            case Counter::share :
-                Counter::factory()->count($count)->view()->for($galeri,'counterable')->create();
+            case Counter::share:
+                Counter::factory()->count($count)->view()->for($galeri, 'counterable')->create();
                 break;
         }
 
-        return $count.' '.$act.' Counter Galeri untuk '.$galeri->title.' Berhasil ditambahkan';
-
+        return $count . ' ' . $act . ' Counter Galeri untuk ' . $galeri->title . ' Berhasil ditambahkan';
     }
 
-    public function generateAllGaleriCounter($act,$count=2000){
+    public function generateAllGaleriCounter($act, $count = 2000)
+    {
 
-        $data=Galeri::all();
-        foreach($data as $k =>$v){
-            echo $this->generateCounter($v->id,$act,$count);
+        $data = Galeri::all();
+        foreach ($data as $k => $v) {
+            echo $this->generateCounter($v->id, $act, $count);
         }
-
     }
 }
