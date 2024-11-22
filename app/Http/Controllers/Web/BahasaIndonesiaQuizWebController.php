@@ -47,8 +47,7 @@ class BahasaIndonesiaQuizWebController extends Controller
         $imageFile = $request->file('image');
         $imageUrl = null;
         if ($imageFile) {
-            $randomFileName = Str::random(40) . '.' . $imageFile->getClientOriginalExtension();
-            $imageUrl = Storage::disk('public')->putFile('bahasa-indonesia-quiz', $imageFile, $randomFileName);
+            $imageUrl = Storage::disk('public')->putFile('bahasa-indonesia-quiz', $imageFile);
         }
         $question = BahasaIndonesiaQuiz::create([
             'question' => $request->question,
@@ -66,8 +65,7 @@ class BahasaIndonesiaQuizWebController extends Controller
         if ($imageFile) {
             Storage::disk('public')->delete('bahasa-indonesia-quiz', $question->image);
 
-            $randomFileName = Str::random(40) . '.' . $imageFile->getClientOriginalExtension();
-            $imageUrl = Storage::disk('public')->putFile('bahasa-indonesia-quiz', $imageFile, $randomFileName);
+            $imageUrl = Storage::disk('public')->putFile('bahasa-indonesia-quiz', $imageFile);
         } else {
             $imageUrl = $question->image;
         }

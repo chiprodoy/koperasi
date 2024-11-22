@@ -47,8 +47,7 @@ class AccuracyQuestionWebController extends Controller
         $imageFile = $request->file('image');
         $imageUrl = null;
         if ($imageFile) {
-            $randomFileName = Str::random(40) . '.' . $imageFile->getClientOriginalExtension();
-            $imageUrl = Storage::disk('public')->putFile('accuracy-questions', $imageFile, $randomFileName);
+            $imageUrl = Storage::disk('public')->putFile('accuracy-questions', $imageFile);
         }
         $question = AccuracyQuestion::create([
             'question' => $request->question,
@@ -66,8 +65,7 @@ class AccuracyQuestionWebController extends Controller
         if ($imageFile) {
             Storage::disk('public')->delete('accuracy-questions', $question->image);
 
-            $randomFileName = Str::random(40) . '.' . $imageFile->getClientOriginalExtension();
-            $imageUrl = Storage::disk('public')->putFile('accuracy-questions', $imageFile, $randomFileName);
+            $imageUrl = Storage::disk('public')->putFile('accuracy-questions', $imageFile);
         } else {
             $imageUrl = $question->image;
         }

@@ -47,8 +47,7 @@ class TPUQuizWebController extends Controller
         $imageFile = $request->file('image');
         $imageUrl = null;
         if ($imageFile) {
-            $randomFileName = Str::random(40) . '.' . $imageFile->getClientOriginalExtension();
-            $imageUrl = Storage::disk('public')->putFile('tpu-quiz', $imageFile, $randomFileName);
+            $imageUrl = Storage::disk('public')->putFile('tpu-quiz', $imageFile);
         }
         $question = TPUQuiz::create([
             'question' => $request->question,
@@ -66,8 +65,7 @@ class TPUQuizWebController extends Controller
         if ($imageFile) {
             Storage::disk('public')->delete('tpu-quiz', $question->image);
 
-            $randomFileName = Str::random(40) . '.' . $imageFile->getClientOriginalExtension();
-            $imageUrl = Storage::disk('public')->putFile('tpu-quiz', $imageFile, $randomFileName);
+            $imageUrl = Storage::disk('public')->putFile('tpu-quiz', $imageFile);
         } else {
             $imageUrl = $question->image;
         }

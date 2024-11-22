@@ -47,8 +47,7 @@ class EnglishQuizWebController extends Controller
         $imageFile = $request->file('image');
         $imageUrl = null;
         if ($imageFile) {
-            $randomFileName = Str::random(40) . '.' . $imageFile->getClientOriginalExtension();
-            $imageUrl = Storage::disk('public')->putFile('english-quiz', $imageFile, $randomFileName);
+            $imageUrl = Storage::disk('public')->putFile('english-quiz', $imageFile);
         }
         $question = EnglishQuiz::create([
             'question' => $request->question,
@@ -66,8 +65,7 @@ class EnglishQuizWebController extends Controller
         if ($imageFile) {
             Storage::disk('public')->delete('english-quiz', $question->image);
 
-            $randomFileName = Str::random(40) . '.' . $imageFile->getClientOriginalExtension();
-            $imageUrl = Storage::disk('public')->putFile('english-quiz', $imageFile, $randomFileName);
+            $imageUrl = Storage::disk('public')->putFile('english-quiz', $imageFile);
         } else {
             $imageUrl = $question->image;
         }

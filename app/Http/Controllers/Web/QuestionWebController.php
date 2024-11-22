@@ -47,8 +47,7 @@ class QuestionWebController extends Controller
         $imageFile = $request->file('image');
         $imageUrl = null;
         if ($imageFile) {
-            $randomFileName = Str::random(40) . '.' . $imageFile->getClientOriginalExtension();
-            $imageUrl = Storage::disk('public')->putFile('questions', $imageFile, $randomFileName);
+            $imageUrl = Storage::disk('public')->putFile('questions', $imageFile);
         }
         $question = Question::create([
             'question' => $request->question,
@@ -65,8 +64,7 @@ class QuestionWebController extends Controller
         $imageFile = $request->file('image');
         if ($imageFile) {
             Storage::disk('public')->delete('questions', $question->image);
-            $randomFileName = Str::random(40) . '.' . $imageFile->getClientOriginalExtension();
-            $imageUrl = Storage::disk('public')->putFile('questions', $imageFile, $randomFileName);
+            $imageUrl = Storage::disk('public')->putFile('questions', $imageFile);
         } else {
             $imageUrl = $question->image;
         }

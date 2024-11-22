@@ -47,8 +47,7 @@ class NumericQuizWebController extends Controller
         $imageFile = $request->file('image');
         $imageUrl = null;
         if ($imageFile) {
-            $randomFileName = Str::random(40) . '.' . $imageFile->getClientOriginalExtension();
-            $imageUrl = Storage::disk('public')->putFile('numeric-quiz', $imageFile, $randomFileName);
+            $imageUrl = Storage::disk('public')->putFile('numeric-quiz', $imageFile);
         }
         $question = NumericQuiz::create([
             'question' => $request->question,
@@ -66,8 +65,7 @@ class NumericQuizWebController extends Controller
         if ($imageFile) {
             Storage::disk('public')->delete('numeric-quiz', $question->image);
 
-            $randomFileName = Str::random(40) . '.' . $imageFile->getClientOriginalExtension();
-            $imageUrl = Storage::disk('public')->putFile('numeric-quiz', $imageFile, $randomFileName);
+            $imageUrl = Storage::disk('public')->putFile('numeric-quiz', $imageFile);
         } else {
             $imageUrl = $question->image;
         }
