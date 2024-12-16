@@ -6,14 +6,9 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Galeri\StoreGaleriRequest;
 use App\Http\Requests\Galeri\UpdateGaleriRequest;
 use App\Models\Galeri;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
-use MF\Controllers\ApiResponse;
-use MF\Controllers\BreadCrumb;
-use MF\Controllers\DataTable;
 use MF\Controllers\Page;
 use MF\Controllers\PageMenu;
-use MF\Controllers\ResponseCode;
 
 class GaleriController extends Controller
 {
@@ -21,10 +16,10 @@ class GaleriController extends Controller
 
     public function __construct()
     {
-        $this->menuModel=\App\Models\Menu::class;
+        $this->menuModel = \App\Models\Menu::class;
         $this->getBackEndMenu();
-        $this->BREADCRUMB_ITEM=[
-            new Page('Home',route('dashboard'))
+        $this->BREADCRUMB_ITEM = [
+            new Page('Home', route('dashboard'))
         ];
 
         //$this->modName=$this->modelRecords;
@@ -34,7 +29,7 @@ class GaleriController extends Controller
     public function index()
     {
         $galeri = Galeri::latest()->paginate(10);
-        return view('admin.galeri.index', array_merge(compact('galeri'),get_object_vars($this)));
+        return view('admin.galeri.index', array_merge(compact('galeri'), get_object_vars($this)));
     }
     public function show(Galeri $galeri)
     {
@@ -42,7 +37,7 @@ class GaleriController extends Controller
     }
     public function edit(Galeri $galeri)
     {
-        return view('admin.galeri.edit', array_merge(compact('galeri'),get_object_vars($this)));
+        return view('admin.galeri.edit', array_merge(compact('galeri'), get_object_vars($this)));
     }
     public function store(StoreGaleriRequest $request)
     {

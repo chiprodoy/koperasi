@@ -47,8 +47,7 @@ class PersonalityQuestionWebController extends Controller
         $imageFile = $request->file('image');
         $imageUrl = null;
         if ($imageFile) {
-            $randomFileName = Str::random(40) . '.' . $imageFile->getClientOriginalExtension();
-            $imageUrl = Storage::disk('public')->putFile('personality-questions', $imageFile, $randomFileName);
+            $imageUrl = Storage::disk('public')->putFile('personality-questions', $imageFile);
         }
         $question = PersonalityQuestion::create([
             'question' => $request->question,
@@ -65,8 +64,7 @@ class PersonalityQuestionWebController extends Controller
         $imageFile = $request->file('image');
         if ($imageFile) {
             Storage::disk('public')->delete('personality-questions', $question->image);
-            $randomFileName = Str::random(40) . '.' . $imageFile->getClientOriginalExtension();
-            $imageUrl = Storage::disk('public')->putFile('personality-questions', $imageFile, $randomFileName);
+            $imageUrl = Storage::disk('public')->putFile('personality-questions', $imageFile);
         } else {
             $imageUrl = $question->image;
         }

@@ -7,13 +7,8 @@ use App\Http\Requests\CekUmur\StoreCheckUmurRequest;
 use App\Http\Requests\CekUmur\UpdateCheckUmurRequest;
 use App\Models\CekUmur;
 use App\Models\JenisSyarat;
-use Illuminate\Http\Request;
-use MF\Controllers\ApiResponse;
-use MF\Controllers\BreadCrumb;
-use MF\Controllers\DataTable;
 use MF\Controllers\Page;
 use MF\Controllers\PageMenu;
-use MF\Controllers\ResponseCode;
 
 class CekUmurWebController extends Controller
 {
@@ -21,10 +16,10 @@ class CekUmurWebController extends Controller
 
     public function __construct()
     {
-        $this->menuModel=\App\Models\Menu::class;
+        $this->menuModel = \App\Models\Menu::class;
         $this->getBackEndMenu();
-        $this->BREADCRUMB_ITEM=[
-            new Page('Home',route('dashboard'))
+        $this->BREADCRUMB_ITEM = [
+            new Page('Home', route('dashboard'))
         ];
 
         //$this->modName=$this->modelRecords;
@@ -34,11 +29,11 @@ class CekUmurWebController extends Controller
     {
         $cekumur = CekUmur::get();
         $jenisSyarat = JenisSyarat::get();
-        return view('admin.cekumur.cekumur', array_merge(compact('cekumur', 'jenisSyarat') ,get_object_vars($this)));
+        return view('admin.cekumur.cekumur', array_merge(compact('cekumur', 'jenisSyarat'), get_object_vars($this)));
     }
     public function edit(CekUmur $cekumur)
     {
-        return view('update', array_merge(compact('cekumur', 'jenisSyarat') ,get_object_vars($this)));
+        return view('update', array_merge(compact('cekumur', 'jenisSyarat'), get_object_vars($this)));
     }
     public function store(StoreCheckUmurRequest $request)
     {

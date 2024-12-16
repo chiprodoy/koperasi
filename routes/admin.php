@@ -8,10 +8,16 @@ use App\Http\Controllers\Web\MediaWebController;
 use App\Http\Controllers\JenisSyaratController;
 use App\Http\Controllers\PersonalityQuestionController;
 use App\Http\Controllers\Web\AccuracyQuestionWebController;
+use App\Http\Controllers\Web\BahasaIndonesiaQuizWebController;
 use App\Http\Controllers\Web\CekUmurWebController;
+use App\Http\Controllers\Web\EnglishQuizWebController;
+use App\Http\Controllers\Web\NumericQuizWebController;
 use App\Http\Controllers\Web\PersonalityQuestionWebController;
 use App\Http\Controllers\Web\QuestionWebController;
 use App\Http\Controllers\Web\TipsAndTricksWebController;
+use App\Http\Controllers\Web\TPAQuizWebController;
+use App\Http\Controllers\Web\TPUQuizWebController;
+use App\Http\Controllers\Web\TWKQuizWebController;
 
 Route::prefix('/admin')->middleware(['auth'])->group(function () {
     Route::get('/', [App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard');
@@ -116,6 +122,106 @@ Route::prefix('/admin')->middleware(['auth'])->group(function () {
         Route::post('/', [TipsAndTricksWebController::class, 'store'])->name('admin.tips-and-tricks.store')->withoutMiddleware('auth');
         Route::patch('/{tipsAndTricks}', [TipsAndTricksWebController::class, 'update'])->name(
             'admin.tips-and-tricks.update'
+
+    Route::prefix('soal-bahasa-indonesia')->group(function () {
+        Route::get('/', [BahasaIndonesiaQuizWebController::class, 'index'])->name('admin.soal-bahasa-indonesia.index');
+        Route::get('/edit/{question}', [BahasaIndonesiaQuizWebController::class, 'edit'])->name(
+            'admin.soal-bahasa-indonesia.edit'
+        );
+        Route::get('/create', [BahasaIndonesiaQuizWebController::class, 'create'])->name(
+            'admin.soal-bahasa-indonesia.create'
+        );
+        Route::post('/', [BahasaIndonesiaQuizWebController::class, 'store'])->name('admin.soal-bahasa-indonesia.store')->withoutMiddleware('auth');
+        Route::patch('/{question}', [BahasaIndonesiaQuizWebController::class, 'update'])->name(
+            'admin.soal-bahasa-indonesia.update'
+        );
+        Route::delete('/{question}', [BahasaIndonesiaQuizWebController::class, 'destroy'])->name(
+            'admin.soal-bahasa-indonesia.destroy'
+        );
+    });
+
+    Route::prefix('soal-english')->group(function () {
+        Route::get('/', [EnglishQuizWebController::class, 'index'])->name('admin.soal-english.index');
+        Route::get('/edit/{question}', [EnglishQuizWebController::class, 'edit'])->name(
+            'admin.soal-english.edit'
+        );
+        Route::get('/create', [EnglishQuizWebController::class, 'create'])->name(
+            'admin.soal-english.create'
+        );
+        Route::post('/', [EnglishQuizWebController::class, 'store'])->name('admin.soal-english.store')->withoutMiddleware('auth');
+        Route::patch('/{question}', [EnglishQuizWebController::class, 'update'])->name(
+            'admin.soal-english.update'
+        );
+        Route::delete('/{question}', [EnglishQuizWebController::class, 'destroy'])->name(
+            'admin.soal-english.destroy'
+        );
+    });
+
+    Route::prefix('soal-numeric')->group(function () {
+        Route::get('/', [NumericQuizWebController::class, 'index'])->name('admin.soal-numeric.index');
+        Route::get('/edit/{question}', [NumericQuizWebController::class, 'edit'])->name(
+            'admin.soal-numeric.edit'
+        );
+        Route::get('/create', [NumericQuizWebController::class, 'create'])->name(
+            'admin.soal-numeric.create'
+        );
+        Route::post('/', [NumericQuizWebController::class, 'store'])->name('admin.soal-numeric.store')->withoutMiddleware('auth');
+        Route::patch('/{question}', [NumericQuizWebController::class, 'update'])->name(
+            'admin.soal-numeric.update'
+        );
+        Route::delete('/{question}', [NumericQuizWebController::class, 'destroy'])->name(
+            'admin.soal-numeric.destroy'
+        );
+    });
+
+    Route::prefix('soal-tpa')->group(function () {
+        Route::get('/', [TPAQuizWebController::class, 'index'])->name('admin.soal-tpa.index');
+        Route::get('/edit/{question}', [TPAQuizWebController::class, 'edit'])->name(
+            'admin.soal-tpa.edit'
+        );
+        Route::get('/create', [TPAQuizWebController::class, 'create'])->name(
+            'admin.soal-tpa.create'
+        );
+        Route::post('/', [TPAQuizWebController::class, 'store'])->name('admin.soal-tpa.store')->withoutMiddleware('auth');
+        Route::patch('/{question}', [TPAQuizWebController::class, 'update'])->name(
+            'admin.soal-tpa.update'
+        );
+        Route::delete('/{question}', [TPAQuizWebController::class, 'destroy'])->name(
+            'admin.soal-tpa.destroy'
+        );
+    });
+
+    Route::prefix('soal-tpu')->group(function () {
+        Route::get('/', [TPUQuizWebController::class, 'index'])->name('admin.soal-tpu.index');
+        Route::get('/edit/{question}', [TPUQuizWebController::class, 'edit'])->name(
+            'admin.soal-tpu.edit'
+        );
+        Route::get('/create', [TPUQuizWebController::class, 'create'])->name(
+            'admin.soal-tpu.create'
+        );
+        Route::post('/', [TPUQuizWebController::class, 'store'])->name('admin.soal-tpu.store')->withoutMiddleware('auth');
+        Route::patch('/{question}', [TPUQuizWebController::class, 'update'])->name(
+            'admin.soal-tpu.update'
+        );
+        Route::delete('/{question}', [TPUQuizWebController::class, 'destroy'])->name(
+            'admin.soal-tpu.destroy'
+        );
+    });
+
+    Route::prefix('soal-twk')->group(function () {
+        Route::get('/', [TWKQuizWebController::class, 'index'])->name('admin.soal-twk.index');
+        Route::get('/edit/{question}', [TWKQuizWebController::class, 'edit'])->name(
+            'admin.soal-twk.edit'
+        );
+        Route::get('/create', [TWKQuizWebController::class, 'create'])->name(
+            'admin.soal-twk.create'
+        );
+        Route::post('/', [TWKQuizWebController::class, 'store'])->name('admin.soal-twk.store')->withoutMiddleware('auth');
+        Route::patch('/{question}', [TWKQuizWebController::class, 'update'])->name(
+            'admin.soal-twk.update'
+        );
+        Route::delete('/{question}', [TWKQuizWebController::class, 'destroy'])->name(
+            'admin.soal-twk.destroy'
         );
     });
 
