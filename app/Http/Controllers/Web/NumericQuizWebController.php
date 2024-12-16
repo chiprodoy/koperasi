@@ -4,13 +4,13 @@ namespace App\Http\Controllers\Web;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Question\StoreQuestionRequest;
-use App\Models\AccuracyQuestion;
+use App\Models\NumericQuiz;
 use Illuminate\Support\Facades\Storage;
 use MF\Controllers\Page;
 use MF\Controllers\PageMenu;
 use Illuminate\Support\Str;
 
-class AccuracyQuestionWebController extends Controller
+class NumericQuizWebController extends Controller
 {
     use PageMenu;
 
@@ -28,18 +28,18 @@ class AccuracyQuestionWebController extends Controller
 
     public function index()
     {
-        $questions = AccuracyQuestion::paginate(10);
-        return view('admin.simulasi-tes.soal-kecermatan.index', array_merge(compact('questions'), get_object_vars($this)));
+        $questions = NumericQuiz::paginate(10);
+        return view('admin.simulasi-tes.soal-numeric.index', array_merge(compact('questions'), get_object_vars($this)));
     }
 
-    public function edit(AccuracyQuestion $question)
+    public function edit(NumericQuiz $question)
     {
-        return view('admin.simulasi-tes.soal-kecermatan.edit', array_merge(compact('question'), get_object_vars($this)));
+        return view('admin.simulasi-tes.soal-numeric.edit', array_merge(compact('question'), get_object_vars($this)));
     }
 
     public function create()
     {
-        return view('admin.simulasi-tes.soal-kecermatan.create', get_object_vars($this));
+        return view('admin.simulasi-tes.soal-numeric.create', get_object_vars($this));
     }
 
     public function store(StoreQuestionRequest $request)
@@ -47,25 +47,25 @@ class AccuracyQuestionWebController extends Controller
         $imageFile = $request->file('image');
         $imageUrl = null;
         if ($imageFile) {
-            $imageUrl = Storage::disk('public')->putFile('accuracy-questions', $imageFile);
+            $imageUrl = Storage::disk('public')->putFile('numeric-quiz', $imageFile);
         }
-        $question = AccuracyQuestion::create([
+        $question = NumericQuiz::create([
             'question' => $request->question,
             'image' => $imageUrl,
             'options' => $request->options,
             'correct_option' => $request->correct_option,
         ]);
 
-        return redirect()->route('admin.soal-kecermatan.index')->with('success', 'Pertanyaan baru berhasil ditambahkan');
+        return redirect()->route('admin.soal-numeric.index')->with('success', 'Pertanyaan baru berhasil ditambahkan');
     }
 
-    public function update(StoreQuestionRequest $request, AccuracyQuestion $question)
+    public function update(StoreQuestionRequest $request, NumericQuiz $question)
     {
         $imageFile = $request->file('image');
         if ($imageFile) {
-            Storage::disk('public')->delete('accuracy-questions', $question->image);
+            Storage::disk('public')->delete('numeric-quiz', $question->image);
 
-            $imageUrl = Storage::disk('public')->putFile('accuracy-questions', $imageFile);
+            $imageUrl = Storage::disk('public')->putFile('numeric-quiz', $imageFile);
         } else {
             $imageUrl = $question->image;
         }
@@ -77,12 +77,12 @@ class AccuracyQuestionWebController extends Controller
             'correct_option' => $request->correct_option
         ]);
 
-        return redirect()->route('admin.soal-kecermatan.index')->with('success', 'Pertanyaan berhasil diperbarui');
+        return redirect()->route('admin.soal-numeric.index')->with('success', 'Pertanyaan berhasil diperbarui');
     }
 
-    public function destroy(AccuracyQuestion $question)
+    public function destroy(NumericQuiz $question)
     {
-        Storage::disk('public')->delete('accuracy-questions', $question->image);
+        Storage::disk('public')->delete('numeric-quiz', $question->image);
 
         $question->delete();
         return back()->with('success', 'Pertanyaan berhasil dihapus');
