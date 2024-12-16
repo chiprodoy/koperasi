@@ -22,6 +22,7 @@ use App\Http\Controllers\EnglishQuizController;
 use App\Http\Controllers\NumericQuizController;
 use App\Http\Controllers\PersonalityQuestionController;
 use App\Http\Controllers\QuestionController;
+use App\Http\Controllers\TipsAndTricksController;
 use App\Http\Controllers\TPAQuizController;
 use App\Http\Controllers\TPUQuizController;
 use App\Http\Controllers\TWKQuizController;
@@ -156,6 +157,8 @@ Route::get('numeric-questions', [NumericQuizController::class, 'index']);
 Route::get('tpa-questions', [TPAQuizController::class, 'index']);
 Route::get('tpu-questions', [TPUQuizController::class, 'index']);
 Route::get('twk-questions', [TWKQuizController::class, 'index']);
+
+Route::get('tips-and-tricks', [TipsAndTricksController::class, 'index']);
 
 Route::prefix('media')->group(function () {
     Route::get('/', [MediaController::class, 'index']);

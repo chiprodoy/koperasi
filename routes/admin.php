@@ -122,6 +122,8 @@ Route::prefix('/admin')->middleware(['auth'])->group(function () {
         Route::post('/', [TipsAndTricksWebController::class, 'store'])->name('admin.tips-and-tricks.store')->withoutMiddleware('auth');
         Route::patch('/{tipsAndTricks}', [TipsAndTricksWebController::class, 'update'])->name(
             'admin.tips-and-tricks.update'
+        );
+    });
 
     Route::prefix('soal-bahasa-indonesia')->group(function () {
         Route::get('/', [BahasaIndonesiaQuizWebController::class, 'index'])->name('admin.soal-bahasa-indonesia.index');
