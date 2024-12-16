@@ -11,6 +11,7 @@ use App\Http\Controllers\Web\AccuracyQuestionWebController;
 use App\Http\Controllers\Web\CekUmurWebController;
 use App\Http\Controllers\Web\PersonalityQuestionWebController;
 use App\Http\Controllers\Web\QuestionWebController;
+use App\Http\Controllers\Web\TipsAndTricksWebController;
 
 Route::prefix('/admin')->middleware(['auth'])->group(function () {
     Route::get('/', [App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard');
@@ -101,6 +102,20 @@ Route::prefix('/admin')->middleware(['auth'])->group(function () {
         );
         Route::delete('/{question}', [AccuracyQuestionWebController::class, 'destroy'])->name(
             'admin.soal-kecermatan.destroy'
+        );
+    });
+
+    Route::prefix('tips-and-tricks')->group(function () {
+        Route::get('/', [TipsAndTricksWebController::class, 'index'])->name('admin.tips-and-tricks.index');
+        Route::get('/edit/{tipsAndTricks}', [TipsAndTricksWebController::class, 'edit'])->name(
+            'admin.tips-and-tricks.edit'
+        );
+        Route::get('/create', [TipsAndTricksWebController::class, 'create'])->name(
+            'admin.tips-and-tricks.create'
+        );
+        Route::post('/', [TipsAndTricksWebController::class, 'store'])->name('admin.tips-and-tricks.store')->withoutMiddleware('auth');
+        Route::patch('/{tipsAndTricks}', [TipsAndTricksWebController::class, 'update'])->name(
+            'admin.tips-and-tricks.update'
         );
     });
 
