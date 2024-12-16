@@ -14,6 +14,7 @@ use App\Http\Controllers\Web\EnglishQuizWebController;
 use App\Http\Controllers\Web\NumericQuizWebController;
 use App\Http\Controllers\Web\PersonalityQuestionWebController;
 use App\Http\Controllers\Web\QuestionWebController;
+use App\Http\Controllers\Web\TipsAndTricksWebController;
 use App\Http\Controllers\Web\TPAQuizWebController;
 use App\Http\Controllers\Web\TPUQuizWebController;
 use App\Http\Controllers\Web\TWKQuizWebController;
@@ -109,6 +110,18 @@ Route::prefix('/admin')->middleware(['auth'])->group(function () {
             'admin.soal-kecermatan.destroy'
         );
     });
+
+    Route::prefix('tips-and-tricks')->group(function () {
+        Route::get('/', [TipsAndTricksWebController::class, 'index'])->name('admin.tips-and-tricks.index');
+        Route::get('/edit/{tipsAndTricks}', [TipsAndTricksWebController::class, 'edit'])->name(
+            'admin.tips-and-tricks.edit'
+        );
+        Route::get('/create', [TipsAndTricksWebController::class, 'create'])->name(
+            'admin.tips-and-tricks.create'
+        );
+        Route::post('/', [TipsAndTricksWebController::class, 'store'])->name('admin.tips-and-tricks.store')->withoutMiddleware('auth');
+        Route::patch('/{tipsAndTricks}', [TipsAndTricksWebController::class, 'update'])->name(
+            'admin.tips-and-tricks.update'
 
     Route::prefix('soal-bahasa-indonesia')->group(function () {
         Route::get('/', [BahasaIndonesiaQuizWebController::class, 'index'])->name('admin.soal-bahasa-indonesia.index');
