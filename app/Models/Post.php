@@ -14,6 +14,7 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Routing\Route;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 
 class Post extends MainModel
@@ -35,7 +36,8 @@ class Post extends MainModel
         'post_type',
         'slug',
         'uuid',
-        'view_count'
+        'view_count',
+        'writer'
     ];
 
 
@@ -71,6 +73,7 @@ class Post extends MainModel
         'uuid'=> ['field'=>'uuid','type'=>InputHidden::class],
         'tags'=> ['field'=>'tags','type'=>InputHidden::class],
         'view_count'=> ['field'=>'view_count','type'=>InputHidden::class],
+        'writer'=> ['field'=>'writer','type'=>InputHidden::class],
         'post_category'=> [
             'field'=>'post_category',
             'title'=>'Kategori',
@@ -116,6 +119,16 @@ class Post extends MainModel
     public function setSlugAttribute($value)
     {
         $this->attributes['slug'] = (empty($value)) ? Str::slug($this->title) : $value;
+    }
+     /**
+     * Set the Post writer
+     *
+     * @param  string  $value
+     * @return void
+     */
+    public function setWriterAttribute($value)
+    {
+        $this->attributes['writer'] = Auth::user()->name;
     }
     /**
      * Get the uid.
@@ -221,4 +234,10 @@ class PostType{
     const BLOG='blog';
     const PAGE='page';
     const MULTIMEDIA='multimedia';
+}
+
+class ShowIn{
+    const ALL_MEDIA=1;
+    const WEB_ONLY=2;
+    const MOBILE_ONLY=3;
 }

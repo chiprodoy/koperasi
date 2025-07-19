@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Post;
 use Illuminate\Http\Request;
 
-class WelcomeController extends Controller
+class WelcomeController extends GuestController
 {
     public $contentSejarah;
     public $contentBerita;
@@ -25,7 +25,17 @@ class WelcomeController extends Controller
             $query->where('id','=',$this::NEWSCATEGORY);
         })->get();
 
-        return view('welcome',get_object_vars($this));
+        return view('guest.home.index',get_object_vars($this));
+    }
+
+    public function category($slug){
+
+    }
+
+    public function post($slug){
+        $this->Content = Post::where('slug',$slug)->orderBy('id','desc')->first();
+        return view('guest.post',get_object_vars($this));
+
     }
     //
 }

@@ -1,0 +1,34 @@
+aplikasi web
+--------------------
+informasi tentang koperasi -> visi misi, sejarah
+berita,
+running text / update harga sawit yg bekerjasama
+ada konten yang bisa ditampilkan di hp /web
+data list anggota koperasi
+kone
+budidaya sawit
+target 18 juli 2025
+
+Home
+Tentang Kami
+  visi misi
+  struktur organisasi
+  legalitas
+  Program kerja
+  Hubungi kami
+Unit Usaha
+Keanggotaan & Mitra
+  Pendaftaran
+  Data Anggota
+  Kemitraan
+Berita
+
+Struktur landing page home
+navbar dengan background warna hijau
+running text sudah benar
+hero section sudah benar
+section tentang kami berisi visi misi koperasi
+Layanan & Produk Kami
+Mitra
+kontak kami
+footer

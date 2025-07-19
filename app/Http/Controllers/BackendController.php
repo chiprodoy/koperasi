@@ -204,7 +204,11 @@ class BackendController extends Controller
                     if($request->hasFile($v)){
                         $resultPath=$this->uploadMyFile($request->file($v));
                     }else{
-                        $resultPath=$this->RECORD->getAttributes()[$v];
+                        if($this->RECORD){
+                            $resultPath=$this->RECORD->getAttributes()[$v];
+                        }else{
+                            $resultPath=null;
+                        }
                     }
                         $this->newData["$v"]=$resultPath;
                 }

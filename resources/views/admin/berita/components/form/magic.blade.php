@@ -7,7 +7,9 @@
     $condition=null;
 
     if (Auth::user()->cannot('modify', 'berita:'.$item['field'])) {
+
         $readOnly=true;
+
         if($item['field']=='post_type'){
             $inputType=App\View\Components\Viho\Form\InputHidden::class;
             $value='blog';
