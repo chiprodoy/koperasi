@@ -25,7 +25,18 @@
                 </li>
             @else
                 <li class="nav-item">
-                    <a class="nav-link active" href="#beranda">{{$item['label']}}</a>
+                    {{-- active --}}
+                    <a class="nav-link" href="
+                    @if (strpos($item['mod_name'],"http")===0)
+                        {{$item['mod_name']}}
+                    @else
+                        @if (Route::has($item['mod_name']))
+                            {{route($item['mod_name'])}}
+                        @else
+                            #
+                        @endif
+                    @endif
+                    ">{{$item['label']}}</a>
                 </li>
             @endif
 
