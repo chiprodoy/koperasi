@@ -178,3 +178,4 @@ class User extends Authenticatable implements MustVerifyEmail
             //  ->where('role_name', $permission.':'.$modName)->first() ?: false;
     }
 }
+

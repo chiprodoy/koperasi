@@ -1,7 +1,7 @@
 <?php
 
-use App\Models\Anggota;
-use App\Models\JenisSimpanan;
+use App\Models\Simkop\Anggota;
+use App\Models\Simkop\JenisSimpanan;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
