@@ -6,7 +6,7 @@ use App\Models\Role;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Auth;
 
-class AnggotaRequest extends FormRequest
+class AnggotaUpdateRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -31,7 +31,7 @@ class AnggotaRequest extends FormRequest
     public function rules()
     {
         return [
-            'nik' => 'required|string|unique:anggotas,nik',
+            'nik' => 'required|string',
             'nama' => 'required|string|max:255',
             'tgl_lahir' => 'required|date',
             'jenis_kelamin' => 'required|integer',
@@ -45,6 +45,8 @@ class AnggotaRequest extends FormRequest
             'tgl_mulai_anggota' => 'date',
             'status_keanggotaan' => 'required',
             'jenis_keanggotaan' => 'required',
+            'uuid'=>'uuid',
+            'nomor_anggota'=>'string',
             'pekerjaan'=>'nullable|string'
         ];
     }

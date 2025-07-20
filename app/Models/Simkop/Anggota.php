@@ -11,6 +11,8 @@ use Illuminate\Database\Eloquent\Model;
 class Anggota extends Model
 {
     use HasFactory;
+    const STATUS_AKTIF =1;
+    const STATUS_NONAKTIF =0;
 
     protected $fillable = [
         'uuid',

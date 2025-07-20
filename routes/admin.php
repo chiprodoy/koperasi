@@ -83,6 +83,9 @@ Route::prefix('/admin')->middleware(['auth'])->group(function () {
         Route::get('/', [App\Http\Controllers\Simkop\AnggotaController::class,'browse'])->name('admin-anggota-koperasi.index');
         Route::get('/create', [App\Http\Controllers\Simkop\AnggotaController::class,'create'])->name('admin-anggota-koperasi.create');
         Route::post('/', [App\Http\Controllers\Simkop\AnggotaController::class,'store'])->name('admin-anggota-koperasi.store');
+        Route::get('/edit/{uuid}', [App\Http\Controllers\Simkop\AnggotaController::class,'edit'])->name('admin-anggota-koperasi.edit');
+        Route::put('/', [App\Http\Controllers\Simkop\AnggotaController::class,'update'])->name('admin-anggota-koperasi.update');
+        Route::get('/delete{uuid}', [App\Http\Controllers\Simkop\AnggotaController::class,'delete'])->name('admin-anggota-koperasi.destroy');
 
 
     });

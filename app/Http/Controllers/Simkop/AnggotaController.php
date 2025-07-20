@@ -5,12 +5,14 @@ namespace App\Http\Controllers\Simkop;
 use App\Http\Controllers\BackendController;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Simkop\AnggotaRequest;
+use App\Http\Requests\Simkop\AnggotaUpdateRequest;
 use App\Models\Simkop\Anggota;
 use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use MF\Controllers\Page;
 use MF\Controllers\PageMenu;
+use MF\Controllers\ResponseCode;
 use MF\Controllers\UploadFile;
 
 class AnggotaController extends BackendController
@@ -56,6 +58,17 @@ class AnggotaController extends BackendController
 
         return view('admin.admin-anggota-koperasi.crud.index', get_object_vars($this));
     }
+    /***
+     *
+     *
+     */
+    public function edit($uuid)
+    {
+        $query = Anggota::query();
+
+        $this->dataAnggota = $query->where('uuid',$uuid)->first();
+        return view('admin.admin-anggota-koperasi.crud.edit', get_object_vars($this));
+    }
     /**
      *
      *
@@ -80,5 +93,24 @@ class AnggotaController extends BackendController
 
         }
 
+    }
+    public function update(AnggotaUpdateRequest $request){
+        $data = $request->validated();
+        $data['uuid']= isset($data['uuid']) ? $data['uuid'] : '';
+        $data['nomor_anggota']=isset($data['nomor_anggota']) ? $data['nomor_anggota'] : '';
+        try{
+
+            $dataAnggota=Anggota::where('uuid',$data['uuid'])->firstOrFail();
+            $updated=$dataAnggota->update($data);
+
+            return $this->iSuccess($updated,$request,route($this->editURL,$dataAnggota->uuid),'Data Berhasil Diupdate');
+        }
+        catch(QueryException $e)
+        {
+            Log::error($e);
+            if(env('APP_DEBUG')) return $this->iError($request,route($this->editURL,$dataAnggota->uuid),ResponseCode::ERROR,$e->getMessage());
+            else return $this->iError($request,route($this->editURL,$dataAnggota->uuid),ResponseCode::ERROR,'Data Gagal Diupdate');
+
+        }
     }
 }

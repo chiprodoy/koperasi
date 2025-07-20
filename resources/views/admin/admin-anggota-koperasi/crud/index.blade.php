@@ -30,6 +30,7 @@
     <table class="table table-bordered table-striped">
         <thead>
             <tr>
+                <th></th>
                 <th>No Anggota</th>
                 <th>NIK</th>
                 <th>Nama</th>
@@ -41,17 +42,23 @@
         <tbody>
         @forelse($dataAnggota as $a)
             <tr>
+
+                <td><a class="btn btn-xs btn-success w-10" href='#' title="Simpanan peserta">Simpanan</a></td>
                 <td>{{ $a->nomor_anggota }}</td>
                 <td>{{ $a->nik }}</td>
                 <td>{{ $a->nama }}</td>
                 <td>{{ $a->telepon }}</td>
-                <td>{{ ucfirst($a->status) }}</td>
+                <td>{{ ($a->status_keanggotaan==\App\Models\Simkop\Anggota::STATUS_AKTIF) ? 'Aktif' : 'Tidak Aktif' }}</td>
                 <td>
-                    <a href="{{ route('admin-anggota-koperasi.edit', $a->id) }}" class="btn btn-sm btn-warning">Edit</a>
-                    <form action="{{ route('admin-anggota-koperasi.destroy', $a->id) }}" method="POST" class="d-inline"
+                    <a href="{{ route('admin-anggota-koperasi.edit', $a->uuid) }}" class="btn btn-xs btn-warning w-10">
+                        Edit
+                    </a>
+                    <form action="{{ route('admin-anggota-koperasi.destroy', $a->uuid) }}" method="POST" class="d-inline"
                         onsubmit="return confirm('Yakin ingin menghapus?')">
                         @csrf @method('DELETE')
-                        <button class="btn btn-sm btn-danger">Hapus</button>
+                        <button class="btn btn-xs btn-danger w-10">
+                        Hapus
+                        </button>
                     </form>
                 </td>
             </tr>

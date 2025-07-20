@@ -113,10 +113,10 @@
                     <label>Tanggal Mulai Anggota</label>
                     <div class="input-group date" data-provide="datepicker" data-date-format="yyyy-mm-dd">
                     <input type="text"  name="tgl_mulai_anggota" class="form-control" value="{{ old('tgl_mulai_anggota') }}">
-                    <div class="input-group-addon">
-                        <span class="glyphicon glyphicon-th"></span>
+                        <div class="input-group-addon">
+                            <span class="glyphicon glyphicon-th"></span>
+                        </div>
                     </div>
-                </div>
                 </div>
 
                 <div class="col-md-4">
