@@ -113,4 +113,21 @@ class AnggotaController extends BackendController
 
         }
     }
+    public function destroy($uuid,Request $request){
+        $dataAnggota=Anggota::where('uuid',$uuid)->firstOrFail();
+
+        try{
+
+            $updated=$dataAnggota->delete($uuid);
+
+            return $this->iSuccess($updated,$request,route($this->indexURL),'Data Berhasil Dihapus');
+        }
+        catch(QueryException $e)
+        {
+            Log::error($e);
+            if(env('APP_DEBUG')) return $this->iError($request,route($this->indexURL),ResponseCode::ERROR,$e->getMessage());
+            else return $this->iError($request,route($this->indexURL),ResponseCode::ERROR,'Data Gagal Dihapus');
+
+        }
+    }
 }
