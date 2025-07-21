@@ -86,8 +86,14 @@ Route::prefix('/admin')->middleware(['auth'])->group(function () {
         Route::get('/edit/{uuid}', [App\Http\Controllers\Simkop\AnggotaController::class,'edit'])->name('admin-anggota-koperasi.edit');
         Route::put('/', [App\Http\Controllers\Simkop\AnggotaController::class,'update'])->name('admin-anggota-koperasi.update');
         Route::delete('/delete/{uuid}', [App\Http\Controllers\Simkop\AnggotaController::class,'destroy'])->name('admin-anggota-koperasi.destroy');
-
-
     });
 
+    Route::prefix('admin-simpanan-anggota')->group(function () {
+        Route::get('/', [App\Http\Controllers\Simkop\SimpananAnggotaController::class,'browse'])->name('admin-simpanan-anggota.index');
+        Route::get('/create', [App\Http\Controllers\Simkop\SimpananAnggotaController::class,'create'])->name('admin-simpanan-anggota.create');
+        Route::post('/', [App\Http\Controllers\Simkop\SimpananAnggotaController::class,'store'])->name('admin-simpanan-anggota.store');
+        Route::get('/edit/{uuid}', [App\Http\Controllers\Simkop\SimpananAnggotaController::class,'edit'])->name('admin-simpanan-anggota.edit');
+        Route::put('/', [App\Http\Controllers\Simkop\SimpananAnggotaController::class,'update'])->name('admin-simpanan-anggota.update');
+        Route::delete('/delete/{uuid}', [App\Http\Controllers\Simkop\SimpananAnggotaController::class,'destroy'])->name('admin-simpanan-anggota.destroy');
+    });
 });

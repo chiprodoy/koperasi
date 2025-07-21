@@ -97,6 +97,11 @@ class Anggota extends Model
     public function setUuidAttribute($value){
         $this->attributes['uuid'] = (Str::isUuid($value) ? $value : Str::uuid()); //
     }
+    /** RELASI */
+    public function simpananAnggota()
+    {
+        return $this->hasMany(SimpananAnggota::class);
+    }
 }
 
 

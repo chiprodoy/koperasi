@@ -45,7 +45,7 @@
         @forelse($dataAnggota as $a)
             <tr>
 
-                <td><a class="btn btn-xs btn-success w-10" href='#' title="Simpanan peserta">Simpanan</a></td>
+                <td><a class="btn btn-xs btn-success w-10" href='{{route('admin-simpanan-anggota.index',['id'=>$a->uuid])}}' title="Simpanan peserta">Simpanan</a></td>
                 <td>{{ $a->nomor_anggota }}</td>
                 <td>{{ $a->nik }}</td>
                 <td>{{ $a->nama }}</td>

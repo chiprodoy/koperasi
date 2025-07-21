@@ -13,9 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('posts', function (Blueprint $table) {
-            $table->integer('show_in')->nullable()->default(1);
-
+        //
+        Schema::table('simpanan_anggotas', function (Blueprint $table) {
+            $table->softDeletes();
         });
     }
 
