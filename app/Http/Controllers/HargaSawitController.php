@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\HargaSawitStoreRequest;
+use App\Http\Requests\HargaSawitUpdateRequest;
 use App\Models\HargaSawit;
 use App\Models\Komoditas;
 use Carbon\Carbon;
@@ -10,6 +11,7 @@ use Illuminate\Database\Events\QueryExecuted;
 use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
+use MF\Controllers\ResponseCode;
 
 class HargaSawitController extends BackendController
 {
@@ -82,5 +84,33 @@ class HargaSawitController extends BackendController
 
         }
 
+    }
+       /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($uid)
+    {
+        $this->komoditas = Komoditas::all();
+        return parent::edit($uid);
+    }
+
+    public function update(HargaSawitUpdateRequest $request){
+        $data = $request->validated();
+        try{
+
+            $record=HargaSawit::where('uuid',$data['uuid'])->firstOrFail();
+            $updated=$record->update($data);
+
+            return $this->iSuccess($updated,$request,route($this->editURL,$record->uuid),'Data Berhasil Diupdate');
+        }
+        catch(QueryException $e)
+        {
+            Log::error($e);
+            if(env('APP_DEBUG')) return $this->iError($request,route($this->editURL,$record->uuid),ResponseCode::ERROR,$e->getMessage());
+            else return $this->iError($request,route($this->editURL,$record->uuid),ResponseCode::ERROR,'Data Gagal Diupdate');
+
+        }
     }
 }

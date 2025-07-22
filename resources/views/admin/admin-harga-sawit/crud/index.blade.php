@@ -42,6 +42,7 @@
                 <th>Keterangan</th>
                 <th>Komoditas</th>
                 <th>Harga (Rp)</th>
+                <th>Sumber</th>
                 <th>Aksi</th>
             </tr>
         </thead>
@@ -52,9 +53,10 @@
                     <td>{{ $row->keterangan }}</td>
                     <td>{{ $row->komoditas->nama_komoditas }}</td>
                     <td>{{ number_format($row->harga, 0, ',', '.') }}</td>
+                    <td>{{ $row->sumber }}</td>
                     <td>
-                        <a href="{{ route('admin-harga-sawit.edit', $row->id) }}" class="btn btn-sm btn-warning">Edit</a>
-                        <form action="{{ route('admin-harga-sawit.destroy', $row->id) }}" method="POST" class="d-inline">
+                        <a href="{{ route('admin-harga-sawit.edit', $row->uuid) }}" class="btn btn-sm btn-warning">Edit</a>
+                        <form action="{{ route('admin-harga-sawit.destroy', $row->uuid) }}" method="POST" class="d-inline">
                             @csrf @method('DELETE')
                             <button class="btn btn-sm btn-danger" onclick="return confirm('Hapus data?')">Hapus</button>
                         </form>
