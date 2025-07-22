@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Komoditas;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -13,13 +14,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('harga_sawits', function (Blueprint $table) {
-            $table->id();
-            $table->uuid();
-            $table->double('harga',null,3,true);
-            $table->string('keterangan')->nullable();
-            $table->date('tgl_update_harga');
-            $table->timestamps();
+        Schema::table('harga_sawits', function (Blueprint $table) {
+            $table->foreignIdFor(Komoditas::class)->after('harga');
         });
     }
 
@@ -30,6 +26,8 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('harga_sawits');
+        Schema::table('harga_sawit', function (Blueprint $table) {
+            //
+        });
     }
 };

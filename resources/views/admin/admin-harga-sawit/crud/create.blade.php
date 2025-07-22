@@ -1,13 +1,9 @@
 @extends('layouts.app')
+
 @section('content')
-    @can('create', [\App\Models\Post::class, $modName])
-        {{-- Berita Create --}}
-        <div class="card">
-            <form method="POST" action="{{ route($storeURL,$modName) }}" enctype="multipart/form-data">
-                @csrf
-                <div class="card-header">Tambah Konten</div>
-                <div class="card-body">
-                    @if ($errors->any())
+<div class="container">
+    <h4>Tambah Data Harga Sawit</h4>
+            @if ($errors->any())
                         <div class="alert alert-danger">
                             <ul>
                                 @foreach ($errors->all() as $error)
@@ -15,88 +11,68 @@
                                 @endforeach
                             </ul>
                         </div>
-                    @endif
-                    @if (session('response.message'))
-                        <div class="alert alert-primary">
+            @endif
+            @if (session('response.message'))
+                        <div class="alert alert-warning">
                             {{ session('response.message') }}
                         </div>
-                    @endif
-                    <div class="mb-3">
-                        <label for="title" class="form-label">Judul</label>
-                        <input type="text" class="form-control" id="title" name="title" value="" placeholder="">
-                    </div>
-
-
-
-                    <div class="mb-3">
-                        <label for="description" class="form-label">Isi</label>
-                        <textarea class="form-control ckeditor" id="description" name="description" placeholder=""></textarea>
-                    </div>
-
-                    <div class="mb-3">
-                        <label for="attachment" class="form-label">Lampiran</label>
-                        <input type="file" class="form-control" id="attachment" name="attachment" placeholder="">
-
-                    </div>
-
-                    <div class="mb-3">
-                        <label for="cover" class="form-label">Gambar Sampul</label>
-                        <input type="file" class="form-control" id="cover" name="cover" placeholder="">
-
-                    </div>
-                    <div class="mb-3">
-                        <label for="post_status" class="form-label">Status</label>
-                        <select id="post_status" name="post_status" class="form-select">
-                            <option value="">Silahkan Pilih</option>
-                            <option value="draft">draft</option>
-                            <option value="publish">publish</option>
-                        </select>
-                    </div>
-                    <input type="hidden" id="post_type" name="post_type" value="blog">
-                    <input type="hidden" id="slug" name="slug" value="">
-
-
-                    <input type="hidden" id="uuid" name="uuid" value="">
-                    <input type="hidden" id="tags" name="tags" value="">
-                    <input type="hidden" name="modname" id="modname" value="{{$modName}}">
-
-
-                    <strong>Pilih</strong>
-                    <table class="table vihoCheckBoxGroup  table-hover" id="post_category">
-
-                        <tbody>
-                            @foreach ($postCategories as $item)
-                                @if ($item->slugs==$modName)
-                                    <input type="hidden" name="post_category[]" class="form-check-input" value="{{$item->id}}">
-                                @else
-                                <tr>
-                                    <td scope="row" width='1'>
-                                        <input type="checkbox" name="post_category[]" class="form-check-input" value="{{$item->id}}">
-                                    </td>
-                                    <td>{{$item->name}}</td>
-                                    <td>{{$item->description}}</td>
-                                </tr>
-                                @endif
-
+            @endif
+    <form action="{{ route('admin-harga-sawit.store') }}" method="POST" name="form-create-harga-sawit">
+        @csrf
+        <input type="hidden" name="uuid" id="uuid" />
+            <div class="row g-6 py-3 mb-3">
+                <div class="col-md-2">
+                        <label for="komoditas_id" class="form-label">Komoditas</label>
+                        <select name="komoditas_id" id="komoditas_id" class="form-control form-select @error('komoditas_id') is-invalid @enderror">
+                            @foreach ($komoditas as $item)
+                                <option value="{{$item->id}}">{{$item->nama_komoditas}}</option>
                             @endforeach
-                        </tbody>
-
-                    </table>
+                        </select>
+                        @error('komoditas_id')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror
                 </div>
-                <div class="card-footer">
-                    <div class="col-md-3 offset-md-11">
-                        <button class="btn btn-sm btn-primary" type="submit">Simpan</button>
-                    </div>
+                <div class="col-md-2">
+                        <label for="harga" class="form-label">Harga (Rp)</label>
+                        <input type="text" name="harga" class="form-control @error('harga') is-invalid @enderror" value="{{ old('harga') }}">
+                        @error('harga')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror
                 </div>
-            </form>
+                <div class="col-md-2">
+                    <label class="form-label">Tanggal</label>
+                        <div class="input-group date" data-provide="datepicker" data-date-format="yyyy-mm-dd">
+                        <input type="text"  name="tgl_update_harga" class="form-control" value="{{ old('tgl_update_harga',\Carbon\Carbon::now()->toDateString()) }}">
+                        <div class="input-group-addon">
+                                <span class="glyphicon glyphicon-th"></span>
+                            </div>
+                        </div>
+                        @error('tgl_update_harga')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror
+                </div>
+                <div class="col-md-8 mt-3">
+                    <label for="keterangan" class="form-label">Keterangan</label>
+                    <input type="text" name="keterangan" class="form-control @error('keterangan') is-invalid @enderror" value="{{old('keterangan') }}" />
+                    @error('keterangan')
+                        <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
+                </div>
+                <div class="col-md-8 mb-3 mt-3">
+                    <label for="sumber" class="form-label">Sumber</label>
+                    <input type="text" name="sumber" class="form-control @error('sumber') is-invalid @enderror" value="{{old('sumber') }}" />
+                    @error('sumber')
+                        <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
+                </div>
         </div>
-            @push('scripts')
-            <script type="text/javascript">
-                CKEDITOR.replace('description', {
-                    filebrowserUploadUrl: "{{route('ckeditor.image-upload', ['_token' => csrf_token() ])}}",
-                    filebrowserUploadMethod: 'form'
-                });
-            </script>
-            @endpush
-    @endcan
+
+
+
+
+
+        <button class="btn btn-success" type="submit">Simpan</button>
+        <a href="{{ route('admin-harga-sawit.index') }}" class="btn btn-secondary">Kembali</a>
+    </form>
+</div>
 @endsection

@@ -96,4 +96,13 @@ Route::prefix('/admin')->middleware(['auth'])->group(function () {
         Route::put('/', [App\Http\Controllers\Simkop\SimpananAnggotaController::class,'update'])->name('admin-simpanan-anggota.update');
         Route::delete('/delete/{uuid}', [App\Http\Controllers\Simkop\SimpananAnggotaController::class,'destroy'])->name('admin-simpanan-anggota.destroy');
     });
+
+    Route::prefix('admin-harga-sawit')->group(function () {
+        Route::get('/', [App\Http\Controllers\HargaSawitController::class,'browse'])->name('admin-harga-sawit.index');
+        Route::get('/create', [App\Http\Controllers\HargaSawitController::class,'create'])->name('admin-harga-sawit.create');
+        Route::post('/', [App\Http\Controllers\HargaSawitController::class,'store'])->name('admin-harga-sawit.store');
+        Route::get('/edit/{uuid}', [App\Http\Controllers\HargaSawitController::class,'edit'])->name('admin-harga-sawit.edit');
+        Route::put('/', [App\Http\Controllers\HargaSawitController::class,'update'])->name('admin-harga-sawit.update');
+        Route::delete('/delete/{uuid}', [App\Http\Controllers\HargaSawitController::class,'destroy'])->name('admin-harga-sawit.destroy');
+    });
 });
