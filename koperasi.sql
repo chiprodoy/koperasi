@@ -311,15 +311,19 @@ DROP TABLE IF EXISTS `harga_sawits`;
 CREATE TABLE `harga_sawits` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `uuid` char(36) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `nama_perusahaan` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `keterangan` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `tgl_update_harga` date NOT NULL,
   `harga` double unsigned NOT NULL,
+  `komoditas_id` bigint(20) unsigned NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
+  `sumber` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 /*Data for the table `harga_sawits` */
+
+insert  into `harga_sawits`(`id`,`uuid`,`keterangan`,`tgl_update_harga`,`harga`,`komoditas_id`,`created_at`,`updated_at`,`sumber`) values (1,'f03153c9-91d7-478d-87dd-b743d5a089e7','umur 3 tahun','2025-07-22',2949.91,1,'2025-07-22 14:51:37','2025-07-22 14:51:37','PT. Melania Sawit'),(2,'b8adbc46-d68d-4621-9c90-af28132ddb0f','umur 3 tahun','2025-07-18',2949.91,1,'2025-07-22 15:15:07','2025-07-22 15:15:07','PT. Melania Sawit'),(3,'09ed2dd1-16e7-4a66-a99b-56770c550cf5','umur 5 tahun','2025-07-22',2949.91,1,'2025-07-22 16:21:55','2025-07-22 16:27:52','PT. Melania Sawit');
 
 /*Table structure for table `jenis_produks` */
 
@@ -373,6 +377,25 @@ CREATE TABLE `jobs` (
 
 /*Data for the table `jobs` */
 
+/*Table structure for table `komoditas` */
+
+DROP TABLE IF EXISTS `komoditas`;
+
+CREATE TABLE `komoditas` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `uuid` char(36) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `nama_komoditas` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `satuan` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `deleted_at` timestamp NULL DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+/*Data for the table `komoditas` */
+
+insert  into `komoditas`(`id`,`uuid`,`nama_komoditas`,`satuan`,`deleted_at`,`created_at`,`updated_at`) values (1,'930156ca-66b3-11f0-a94c-00090ffe0001','TBS','Kg',NULL,'2025-07-22 11:23:09',NULL),(2,'e1a82637-66b3-11f0-a94c-00090ffe0001','CPO','Kg',NULL,'2025-07-22 11:25:21',NULL),(3,'fc15a3f6-66b3-11f0-a94c-00090ffe0001','Inti Sawit (Kernel)','Kg',NULL,'2025-07-22 11:26:06',NULL);
+
 /*Table structure for table `media` */
 
 DROP TABLE IF EXISTS `media`;
@@ -421,11 +444,11 @@ CREATE TABLE `migrations` (
   `migration` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `batch` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=50 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=53 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 /*Data for the table `migrations` */
 
-insert  into `migrations`(`id`,`migration`,`batch`) values (1,'2014_10_12_000000_create_users_table',1),(2,'2014_10_12_100000_create_password_resets_table',1),(3,'2019_08_19_000000_create_failed_jobs_table',1),(4,'2019_12_14_000001_create_personal_access_tokens_table',1),(5,'2020_10_18_131658_create_roles_table',1),(6,'2020_10_18_131732_create_permissions_table',1),(7,'2020_10_20_174337_permission_role',1),(8,'2022_04_17_060802_role_user',1),(9,'2022_05_19_141639_create_jobs_table',1),(10,'2022_07_01_214131_create_posts_table',1),(11,'2022_07_01_214147_create_post_categories_table',1),(12,'2022_07_09_005600_realtion_file_category',1),(13,'2022_07_09_005600_realtion_post_category',1),(14,'2022_07_17_005959_create_files_table',1),(15,'2022_07_17_010231_create_file_categories_table',1),(16,'2022_09_15_132350_create_discusses_table',1),(17,'2022_09_15_143851_create_halal_certificates_table',1),(18,'2022_09_15_144557_create_jenis_produks_table',1),(19,'2022_09_20_140620_create_menus_table',1),(20,'2022_11_24_225732_create_produk_halals_table',1),(21,'2022_11_27_061250_alter_jenis_produk_add_uid',1),(22,'2022_12_07_134104_add_coloumn_uuid_to_produk_halal',1),(23,'2022_12_16_121056_add_coloumn_user_i_d_to_post',1),(24,'2023_01_09_095747_create_forum_table',1),(25,'2023_01_09_103814_create_forum_komen_table',1),(26,'2023_01_12_061342_create_galeri_table',1),(27,'2023_01_16_150337_create_comments_table',1),(28,'2023_01_27_041107_create_media_table',1),(29,'2023_03_11_234028_create_post_counters_table',1),(30,'2023_03_12_225955_create_counters_table',1),(31,'2023_03_13_001200_add_share_coloumn_posts_table',1),(32,'2023_03_13_230901_add_polymorph_to_counters_table',1),(33,'2024_10_14_034712_create_questions_table',1),(34,'2024_10_16_070428_create_accuracy_questions_table',1),(35,'2024_10_16_070444_create_personality_questions_table',1),(36,'2024_10_29_035446_create_bahasa_indonesia_questions_table',1),(37,'2024_10_29_035502_create_english_questions_table',1),(38,'2024_10_29_035917_create_numeric_questions_table',1),(39,'2024_10_29_035932_create_tpa_questions_table',1),(40,'2024_10_29_035941_create_tpu_questions_table',1),(41,'2024_10_29_035948_create_twk_questions_table',1),(42,'2024_12_04_072233_create_tips_and_tricks_table',1),(43,'2025_07_18_040405_alter_table_posts',2),(44,'2025_07_18_162902_add_showin_coloumn_posts_table',3),(45,'2025_07_19_212808_create_anggotas_table',4),(46,'2025_07_19_223458_create_simpanan_anggotas_table',4),(47,'2025_07_19_223841_create_jenis_simpanans_table',4),(48,'2025_07_19_224609_create_harga_sawits_table',4),(49,'2025_07_21_025739_alter_simpanan_anggota_add_soft_deletes',5);
+insert  into `migrations`(`id`,`migration`,`batch`) values (1,'2014_10_12_000000_create_users_table',1),(2,'2014_10_12_100000_create_password_resets_table',1),(3,'2019_08_19_000000_create_failed_jobs_table',1),(4,'2019_12_14_000001_create_personal_access_tokens_table',1),(5,'2020_10_18_131658_create_roles_table',1),(6,'2020_10_18_131732_create_permissions_table',1),(7,'2020_10_20_174337_permission_role',1),(8,'2022_04_17_060802_role_user',1),(9,'2022_05_19_141639_create_jobs_table',1),(10,'2022_07_01_214131_create_posts_table',1),(11,'2022_07_01_214147_create_post_categories_table',1),(12,'2022_07_09_005600_realtion_file_category',1),(13,'2022_07_09_005600_realtion_post_category',1),(14,'2022_07_17_005959_create_files_table',1),(15,'2022_07_17_010231_create_file_categories_table',1),(16,'2022_09_15_132350_create_discusses_table',1),(17,'2022_09_15_143851_create_halal_certificates_table',1),(18,'2022_09_15_144557_create_jenis_produks_table',1),(19,'2022_09_20_140620_create_menus_table',1),(20,'2022_11_24_225732_create_produk_halals_table',1),(21,'2022_11_27_061250_alter_jenis_produk_add_uid',1),(22,'2022_12_07_134104_add_coloumn_uuid_to_produk_halal',1),(23,'2022_12_16_121056_add_coloumn_user_i_d_to_post',1),(24,'2023_01_09_095747_create_forum_table',1),(25,'2023_01_09_103814_create_forum_komen_table',1),(26,'2023_01_12_061342_create_galeri_table',1),(27,'2023_01_16_150337_create_comments_table',1),(28,'2023_01_27_041107_create_media_table',1),(29,'2023_03_11_234028_create_post_counters_table',1),(30,'2023_03_12_225955_create_counters_table',1),(31,'2023_03_13_001200_add_share_coloumn_posts_table',1),(32,'2023_03_13_230901_add_polymorph_to_counters_table',1),(33,'2024_10_14_034712_create_questions_table',1),(34,'2024_10_16_070428_create_accuracy_questions_table',1),(35,'2024_10_16_070444_create_personality_questions_table',1),(36,'2024_10_29_035446_create_bahasa_indonesia_questions_table',1),(37,'2024_10_29_035502_create_english_questions_table',1),(38,'2024_10_29_035917_create_numeric_questions_table',1),(39,'2024_10_29_035932_create_tpa_questions_table',1),(40,'2024_10_29_035941_create_tpu_questions_table',1),(41,'2024_10_29_035948_create_twk_questions_table',1),(42,'2024_12_04_072233_create_tips_and_tricks_table',1),(43,'2025_07_18_040405_alter_table_posts',2),(44,'2025_07_18_162902_add_showin_coloumn_posts_table',3),(45,'2025_07_19_212808_create_anggotas_table',4),(46,'2025_07_19_223458_create_simpanan_anggotas_table',4),(47,'2025_07_19_223841_create_jenis_simpanans_table',4),(48,'2025_07_19_224609_create_harga_sawits_table',4),(49,'2025_07_21_025739_alter_simpanan_anggota_add_soft_deletes',5),(50,'2025_07_22_110756_add_column_komoditas_to_harga_sawit',6),(51,'2025_07_22_111059_create_komoditas_table',6),(52,'2025_07_22_115010_add_column_sumber_to_harga_sawits',7);
 
 /*Table structure for table `numeric_questions` */
 
