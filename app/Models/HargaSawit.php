@@ -12,7 +12,12 @@ class HargaSawit extends Model
 
     /** */
     protected $fillable = ['uuid','keterangan','tgl_update_harga','harga','komoditas_id','sumber'];
-
+    /**
+     *
+     */
+    protected $casts = [
+        'tgl_update_harga' => 'date',
+    ];
     /**
      *
     */

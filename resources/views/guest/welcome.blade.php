@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Koperasi Jaya Sempurna</title>
+  <title>{{ $Title}}</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
   <!-- AOS CSS -->
@@ -173,7 +173,7 @@
   <!-- Footer -->
   <footer class="py-4 text-center">
     <div class="container">
-      <p class="mb-0">--© 2025 Koperasi Jaya Sempurna. All rights reserved.</p>
+      <p class="mb-0">© 2025 Koperasi Jaya Sempurna. All rights reserved.</p>
     </div>
   </footer>
 

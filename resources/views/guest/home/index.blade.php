@@ -2,55 +2,46 @@
 @section('content')
 <!-- Running Text Harga -->
   <div class="marquee">
-    <marquee behavior="scroll" direction="left">Update Harga Sawit Hari Ini: Rp 2.950/kg | Harga TBS Meningkat 3% Dibanding Kemarin | Info lengkap hubungi admin koperasi</marquee>
+    <marquee behavior="scroll" direction="left">
+        @foreach ($hargaKomoditas as $hargaSawit)
+        @php $nextIndex = ($loop->index -  1 < 0) ? 0 : $loop->index - 1; @endphp
+
+         @if ($loop->index == 0 || $hargaSawit->tgl_update_harga !=$hargaKomoditas[$nextIndex]->tgl_update_harga)
+            Update Harga Sawit Per {{ $hargaSawit->tgl_update_harga->format('d M Y') }}
+        @endif
+
+        @if ($loop->index == 0 || $hargaSawit->sumber != $hargaKomoditas[$nextIndex]->sumber)
+            # {{$hargaSawit->sumber}} :
+        @endif
+
+         {{$hargaSawit->komoditas->nama_komoditas}} {{$hargaSawit->keterangan}} Rp.{{$hargaSawit->harga}}
+         @if (!$loop->last)  , @endif
+        @endforeach
+        </marquee>
   </div>
 
   <!-- Hero Section -->
   <section class="hero text-center" id="beranda">
     <div class="container">
-      <h1 class="display-4 fw-bold">Koperasi Jaya Sempurna</h1>
+      <h1 class="display-4 fw-bold">{{ env('APP_TITLE') }}</h1>
       <p class="lead">Bersama Meningkatkan Kesejahteraan Petani Sawit</p>
-      <a href="#anggota" class="btn btn-warning btn-lg mt-3">Daftar Anggota</a>
+      <a  href="{{route('post.show','pendaftaran')}}" class="btn btn-warning btn-lg mt-3">Daftar Anggota</a>
     </div>
   </section>
 
 <!-- Layanan & Produk Kami -->
 <section id="produk" class="py-5 bg-light">
   <div class="container">
-    <h2 class="text-center fw-bold text-success mb-5">Layanan & Produk Kami</h2>
+    <h2 class="text-center fw-bold text-success mb-5">Layanan & Unit Usaha</h2>
     <div class="row text-center g-4">
-      <!-- Card 1 -->
-      <div class="col-md-4 " data-aos="fade-up" data-aos-delay="100">
-        <div class="p-4 bg-white shadow rounded-4 h-100">
-          <div class="text-success mb-3" style="font-size: 3rem;">
-            <i class="bi bi-box-seam"></i>
-          </div>
-          <h5 class="fw-bold mb-2">Penjualan TBS</h5>
-          <p class="text-muted mb-0">Harga kompetitif langsung ke pabrik mitra, dengan transparansi dan efisiensi.</p>
+       @foreach ($unitUsaha as $item)
+        <!-- Card unit usaha  -->
+        <div class="col-md-4 " data-aos="fade-up" data-aos-delay="100">
+            <div class="p-4 bg-white shadow rounded-4 h-100">
+                {!! $item->description !!}
+            </div>
         </div>
-      </div>
-
-      <!-- Card 2 -->
-      <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
-        <div class="p-4 bg-white shadow rounded-4 h-100">
-          <div class="text-warning mb-3" style="font-size: 3rem;">
-            <i class="bi bi-truck"></i>
-          </div>
-          <h5 class="fw-bold mb-2">Jasa Angkut</h5>
-          <p class="text-muted mb-0">Transportasi aman, cepat, dan hemat biaya untuk hasil panen anggota.</p>
-        </div>
-      </div>
-
-      <!-- Card 3 -->
-      <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
-        <div class="p-4 bg-white shadow rounded-4 h-100">
-          <div class="text-primary mb-3" style="font-size: 3rem;">
-            <i class="bi bi-flower3"></i>
-          </div>
-          <h5 class="fw-bold mb-2">Pupuk & Bibit</h5>
-          <p class="text-muted mb-0">Penyediaan bibit unggul dan pupuk berkualitas tinggi untuk petani anggota.</p>
-        </div>
-      </div>
+       @endforeach
     </div>
   </div>
 </section>
@@ -67,21 +58,7 @@
       </div>
       <div class="col-lg-6">
         <h2 class="fw-bold mb-3 text-success">Tentang Koperasi</h2>
-        <p class="mb-4 text-muted">
-          Koperasi Sawit Sejahtera berdiri sejak 2010 dan berfokus pada peningkatan pendapatan dan kesejahteraan petani sawit di Sumatera Selatan.
-        </p>
-        <div class="mb-3">
-          <h5 class="text-dark fw-semibold"><i class="bi bi-card-list"></i> Visi</h5>
-          <p class="text-muted mb-2">Menjadi koperasi sawit yang modern dan berdaya saing global.</p>
-        </div>
-        <div>
-          <h5 class="text-dark fw-semibold"><i class="bi bi-card-list"></i> Misi</h5>
-          <ul class="text-muted ps-3">
-            <li>Meningkatkan pendapatan petani</li>
-            <li>Menyediakan sarana dan pelatihan pertanian</li>
-            <li>Mewujudkan koperasi digital yang transparan</li>
-          </ul>
-        </div>
+        {!! $visiMisi->description !!}
       </div>
     </div>
   </div>
@@ -92,28 +69,16 @@
   <div class="container">
     <h2 class="text-center fw-bold text-success mb-5">Statistik Koperasi</h2>
     <div class="row text-center g-4">
-      <div class="col-md-4">
-        <div class="counter-box p-4 shadow rounded-4">
-          <div class="icon mb-3 text-success" style="font-size: 2.5rem;"><i class="bi bi-people-fill"></i></div>
-          <h3 class="fw-bold"><span class="counter" data-target="1280">0</span>+</h3>
-          <p class="text-muted">Anggota Terdaftar</p>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="counter-box p-4 shadow rounded-4">
-          <div class="icon mb-3 text-warning" style="font-size: 2.5rem;"><i class="bi bi-graph-up-arrow"></i></div>
-          <h3 class="fw-bold"><span class="counter" data-target="950000000">0</span></h3>
-          <p class="text-muted">Total Aset (Rp)</p>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="counter-box p-4 shadow rounded-4">
-          <div class="icon mb-3 text-primary" style="font-size: 2.5rem;"><i class="bi bi-cast"></i></div>
-          <h3 class="fw-bold"><span class="counter" data-target="67">0</span>+</h3>
-          <p class="text-muted">Mitra & Partner</p>
-        </div>
-      </div>
-    </div>
+        @foreach ($statistikKoperasi as $statistik)
+            <div class="col-md-4">
+                <div class="counter-box p-4 shadow rounded-4">
+                <div class="icon mb-3 text-success" style="font-size: 2.5rem;"><i class="{{$statistik->icon}}"></i></div>
+                <h3 class="fw-bold"><span class="counter" data-target="{{$statistik->jumlah}}">0</span></h3>
+                <p class="text-muted">{{$statistik->label}}</p>
+                </div>
+            </div>
+        @endforeach
+
   </div>
 </section>
 
@@ -135,8 +100,9 @@
             <p class="mt-2 text-muted fst-italic">“Dengan bergabung ke koperasi, hasil panen saya lebih mudah dijual dan pendapatan meningkat.”</p>
           </div>
         </div>
-
-        <!-- Testimoni 2 -->
+      </div>
+      <div class="col-md-6 d-flex flex-column gap-4">
+                <!-- Testimoni 2 -->
         <div class="card shadow-sm border-0 rounded-4 p-3 d-flex flex-row align-items-center gap-3">
           <img src="https://randomuser.me/api/portraits/women/65.jpg" class="rounded-circle" width="80" height="80" alt="Siti Aminah">
           <div>
@@ -145,9 +111,7 @@
             <p class="mt-2 text-muted fst-italic">“Koperasi memberi pelatihan dan akses pasar yang luas. Saya merasa lebih percaya diri.”</p>
           </div>
         </div>
-
       </div>
-
       <!-- Kolom 2 -->
       <div class="col-md-6 d-flex flex-column gap-4">
 
@@ -160,6 +124,8 @@
             <p class="mt-2 text-muted fst-italic">“Saya bangga bisa berbagi ilmu dan bertumbuh bersama koperasi. Kami adalah keluarga.”</p>
           </div>
         </div>
+      </div>
+      <div class="col-md-6 d-flex flex-column gap-4">
 
         <!-- Testimoni 4 -->
         <div class="card shadow-sm border-0 rounded-4 p-3 d-flex flex-row align-items-center gap-3">
@@ -184,21 +150,26 @@
   <div class="container">
     <h2 class="text-center fw-bold text-success mb-5">Berita Terbaru</h2>
     <div class="row g-4">
-
-      <!-- Kartu berita 1 -->
+    @foreach ($contentBerita as $item)
+       <!-- Kartu berita 1 -->
       <div class="col-md-4">
         <div class="card border-0 shadow-sm h-100 rounded-4 overflow-hidden">
           <img src="https://source.unsplash.com/600x400/?seminar,cooperative" class="img-fluid" alt="Berita 1">
           <div class="p-3 bg-white">
             <small class="text-muted d-block mb-1">
-              <i class="bi bi-calendar-event"></i> 24 Juni 2025 &nbsp; | &nbsp; Koperasi Sawit
+              <i class="bi bi-calendar-event"></i> {{$item->created_at}} &nbsp; | &nbsp;
+              @foreach ($item->categories as $kategori)
+                  {{$kategori->name}}
+              @endforeach
             </small>
             <h6 class="fw-semibold text-dark mb-0">
-              Ketua Koperasi Jadi Narasumber Temu Bisnis UMKM Kota Palembang
+              {{$item->title}}
             </h6>
           </div>
         </div>
       </div>
+    @endforeach
+
 
       <!-- Kartu berita 2 -->
       <div class="col-md-4">
@@ -242,7 +213,7 @@
   <div class="container text-center">
     <h2 class="mb-3">Ingin Menjadi Mitra Kami?</h2>
     <p>Bergabunglah sebagai petani, pengangkut, atau investor.</p>
-    <a href="#" class="btn btn-success">Daftar Kemitraan</a>
+    <a href="{{route('guest.post.detail','kemitraan')}}" class="btn btn-success">Daftar Kemitraan</a>
   </div>
 </section>
 
@@ -252,23 +223,10 @@
     <h2 class="text-center mb-4">Kontak Kami</h2>
     <div class="row">
       <div class="col-md-6">
-        <p><strong>Alamat:</strong> Jl. Perkebunan No. 123, Sumatera Selatan</p>
-        <p><strong>Telepon:</strong> 0821-xxxx-xxxx</p>
-        <p><strong>Email:</strong> info@sawitmakmur.id</p>
+       {!! $kontakKami->description !!}
       </div>
       <div class="col-md-6">
-        <form>
-          <div class="mb-3">
-            <input type="text" class="form-control" placeholder="Nama Anda">
-          </div>
-          <div class="mb-3">
-            <input type="email" class="form-control" placeholder="Email">
-          </div>
-          <div class="mb-3">
-            <textarea class="form-control" rows="4" placeholder="Pesan"></textarea>
-          </div>
-          <button class="btn btn-success">Kirim</button>
-        </form>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7496.500958480832!2d104.0971939697468!3d-3.321592008822128!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e3a4824b8adb01b%3A0xef883adb1532d83e!2sTanah%20Abang%2C%20Penukal%20Abab%20Lematang%20Ilir%20Regency%2C%20South%20Sumatra!5e1!3m2!1sen!2sid!4v1753272141444!5m2!1sen!2sid" width="600" height="350" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
       </div>
     </div>
   </div>
