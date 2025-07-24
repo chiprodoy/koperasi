@@ -5,44 +5,35 @@
 @section('content')
 <section class="py-5 bg-white" id="berita">
   <div class="container">
-    <h2 class="text-center fw-bold text-success mb-5">Berita Terbaru</h2>
+    <h2 class="text-center fw-bold text-success mb-5">{{$postCategory->name}}</h2>
     <div class="row g-4">
     </div>
   </div>
 </section>
 
-<section class="py-5 bg-white" id="berita-detail">
+<section class="py-5 bg-white" id="kategori">
   <div class="container">
     <div class="row">
       <!-- Konten Utama -->
       <div class="col-lg-8 mx-auto">
-        <article>
-          <!-- Gambar Utama -->
-          <img src="{{url('cover')}}" class="img-fluid rounded-4 mb-4" alt="Cover">
+        @foreach ($Content as $item)
+                    <!-- Kartu berita 2 -->
+            <div class="col-md-4 mb-4">
+                <div class="card border-0 shadow-sm h-100 rounded-4 overflow-hidden">
+                <img src="{{$item->cover}}" class="img-fluid">
+                <div class="p-3 bg-white">
+                    <small class="text-muted d-block mb-1">
+                    <i class="bi bi-calendar-event"></i> {{$item->created_at->format('d M Y H:i:s')}} &nbsp; | {{$item->writer}}
+                    </small>
+                    <h6 class="fw-semibold text-dark mb-0">
+                    <a href="{{route('guest.post.detail',$item->uuid)}}"> {{ $item->title }}</a>
+                    </h6>
+                </div>
+                </div>
+            </div>
+        @endforeach
 
-          <!-- Metadata -->
-          <div class="mb-3 text-muted small d-flex align-items-center gap-3">
-            <span><i class="bi bi-calendar"></i> {{$Content->created_at }}</span>
-            <span><i class="bi bi-person"></i> {{$Content->writer }}</span>
-            <span><i class="bi bi-tag"></i>
-                @foreach ($Content->categories as $category)
-                    {{$category->name}},
-                    @foreach ($category->parentCategory() as $parentCategory)
-                        {{$parentCategory->name}},
-                    @endforeach
-                @endforeach
 
-            </span>
-          </div>
-
-          <!-- Judul -->
-          <h2 class="fw-bold text-success mb-3">{{$Content->title}}</h2>
-
-          <!-- Isi Konten -->
-          {!! $Content->description !!}
-          <!-- Tombol Kembali -->
-          {{-- <a href="{{ route('berita.index') }}" class="btn btn-outline-success mt-4"><i class="bi bi-arrow-left"></i> Kembali ke Berita</a> --}}
-        </article>
       </div>
     </div>
   </div>

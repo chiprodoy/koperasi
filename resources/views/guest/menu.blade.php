@@ -18,8 +18,12 @@
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="tentangDropdown">
                     @foreach ($item['children'] as $submenu)
-                    <li><a class="dropdown-item" href="{{route('guest.post.detail',$submenu['mod_name'])}}">{{$submenu['label']}}</a></li>
-
+                    <li>
+                        @if (strpos($submenu['mod_name'],"http")===0)
+                            <a class="dropdown-item" href="{{$submenu['mod_name']}}">{{$submenu['label']}}</a></li>
+                        @else
+                            <a class="dropdown-item" href="{{route('guest.post.detail',$submenu['mod_name'])}}">{{$submenu['label']}}</a></li>
+                        @endif
                     @endforeach
                 </ul>
                 </li>

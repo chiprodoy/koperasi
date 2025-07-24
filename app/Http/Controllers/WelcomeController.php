@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\HargaSawit;
 use App\Models\Post;
+use App\Models\PostCategory;
 use App\Models\Statistik;
+use App\Models\Testimoni;
 use Illuminate\Http\Request;
 
 class WelcomeController extends GuestController
@@ -18,6 +20,8 @@ class WelcomeController extends GuestController
     public $statistikKoperasi;
     public $contentPosts;
     public $kontakKami;
+    public $postCategory;
+    public $testimoni;
 
     const NEWSCATEGORY=3;
     const REGULASI=2;
@@ -41,8 +45,10 @@ class WelcomeController extends GuestController
         })->get();
 
         $this->contentBerita=Post::whereHas('categories',function($query){
-            $query->where('id','=',$this::NEWSCATEGORY);
-        })->get();
+            $query->where('slugs','=','berita');
+        })->limit(3)->get();
+
+        $this->testimoni = Testimoni::orderBy('created_at','desc')->limit(4)->get();
 
         return view('guest.home.index',get_object_vars($this));
     }
@@ -54,9 +60,11 @@ class WelcomeController extends GuestController
     }
 
     public function category($slug){
-        $this->contentPosts=Post::whereHas('categories',function($query)use($slug){
-            $query->where('slugs','=',$slug);
+        $this->postCategory = PostCategory::where('slugs',$slug)->firstOrFail();
+        $this->Content=Post::whereHas('categories',function($query)use($slug){
+            $query->where('slugs',$slug);
         })->get();
+
         return view('guest.category',get_object_vars($this));
     }
 

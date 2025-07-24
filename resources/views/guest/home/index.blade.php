@@ -87,57 +87,22 @@
   <div class="container">
     <h2 class="text-center mb-5 fw-bold text-success">Testimoni Anggota</h2>
     <div class="row g-4">
+        @foreach ($testimoni as $item)
+            <!-- Kolom 1 -->
+            <div class="col-md-6 d-flex flex-column gap-4">
+                <!-- Testimoni 1 -->
+                <div class="card shadow-sm border-0 rounded-4 p-3 d-flex flex-row align-items-center gap-3">
+                <img src="https://randomuser.me/api/portraits/men/32.jpg" class="rounded-circle" width="80" height="80" alt="{{$item->nama}}">
+                <div>
+                    <h6 class="mb-1 fw-semibold">{{$item->nama}}</h6>
+                    <small class="text-muted">{{ $item->pekerjaan }}</small>
+                    <p class="mt-2 text-muted fst-italic">{{ $item->isi_testimoni}}</p>
+                </div>
+                </div>
+            </div>
 
-      <!-- Kolom 1 -->
-      <div class="col-md-6 d-flex flex-column gap-4">
+        @endforeach
 
-        <!-- Testimoni 1 -->
-        <div class="card shadow-sm border-0 rounded-4 p-3 d-flex flex-row align-items-center gap-3">
-          <img src="https://randomuser.me/api/portraits/men/32.jpg" class="rounded-circle" width="80" height="80" alt="Ahmad Syahputra">
-          <div>
-            <h6 class="mb-1 fw-semibold">Ahmad Syahputra</h6>
-            <small class="text-muted">Petani Desa Sukamakmur</small>
-            <p class="mt-2 text-muted fst-italic">“Dengan bergabung ke koperasi, hasil panen saya lebih mudah dijual dan pendapatan meningkat.”</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-6 d-flex flex-column gap-4">
-                <!-- Testimoni 2 -->
-        <div class="card shadow-sm border-0 rounded-4 p-3 d-flex flex-row align-items-center gap-3">
-          <img src="https://randomuser.me/api/portraits/women/65.jpg" class="rounded-circle" width="80" height="80" alt="Siti Aminah">
-          <div>
-            <h6 class="mb-1 fw-semibold">Siti Aminah</h6>
-            <small class="text-muted">Kontributor Pemasaran Kolektif</small>
-            <p class="mt-2 text-muted fst-italic">“Koperasi memberi pelatihan dan akses pasar yang luas. Saya merasa lebih percaya diri.”</p>
-          </div>
-        </div>
-      </div>
-      <!-- Kolom 2 -->
-      <div class="col-md-6 d-flex flex-column gap-4">
-
-        <!-- Testimoni 3 -->
-        <div class="card shadow-sm border-0 rounded-4 p-3 d-flex flex-row align-items-center gap-3">
-          <img src="https://randomuser.me/api/portraits/men/45.jpg" class="rounded-circle" width="80" height="80" alt="Budi Hartono">
-          <div>
-            <h6 class="mb-1 fw-semibold">Budi Hartono</h6>
-            <small class="text-muted">Pelatih Koperasi Muda</small>
-            <p class="mt-2 text-muted fst-italic">“Saya bangga bisa berbagi ilmu dan bertumbuh bersama koperasi. Kami adalah keluarga.”</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-6 d-flex flex-column gap-4">
-
-        <!-- Testimoni 4 -->
-        <div class="card shadow-sm border-0 rounded-4 p-3 d-flex flex-row align-items-center gap-3">
-          <img src="https://randomuser.me/api/portraits/women/33.jpg" class="rounded-circle" width="80" height="80" alt="Nia Karina">
-          <div>
-            <h6 class="mb-1 fw-semibold">Nia Karina</h6>
-            <small class="text-muted">Petani Muda Mandiri</small>
-            <p class="mt-2 text-muted fst-italic">“Dengan koperasi, saya bisa mengelola hasil kebun lebih profesional dan transparan.”</p>
-          </div>
-        </div>
-
-      </div>
 
     </div>
   </div>
@@ -163,43 +128,12 @@
               @endforeach
             </small>
             <h6 class="fw-semibold text-dark mb-0">
-              {{$item->title}}
+              <a href="{{route('guest.post.detail',$item->uuid)}}"> {{$item->title}}</a>
             </h6>
           </div>
         </div>
       </div>
     @endforeach
-
-
-      <!-- Kartu berita 2 -->
-      <div class="col-md-4">
-        <div class="card border-0 shadow-sm h-100 rounded-4 overflow-hidden">
-          <img src="https://source.unsplash.com/600x400/?meeting,community" class="img-fluid" alt="Berita 2">
-          <div class="p-3 bg-white">
-            <small class="text-muted d-block mb-1">
-              <i class="bi bi-calendar-event"></i> 6 Mei 2025 &nbsp; | &nbsp; Koperasi Sawit
-            </small>
-            <h6 class="fw-semibold text-dark mb-0">
-              Rapat Anggota Tahunan Buku 2024: “Adaptif, Produktif, Progresif”
-            </h6>
-          </div>
-        </div>
-      </div>
-
-      <!-- Kartu berita 3 -->
-      <div class="col-md-4">
-        <div class="card border-0 shadow-sm h-100 rounded-4 overflow-hidden">
-          <img src="https://source.unsplash.com/600x400/?gathering,people" class="img-fluid" alt="Berita 3">
-          <div class="p-3 bg-white">
-            <small class="text-muted d-block mb-1">
-              <i class="bi bi-calendar-event"></i> 14 Feb 2025 &nbsp; | &nbsp; Koperasi Sawit
-            </small>
-            <h6 class="fw-semibold text-dark mb-0">
-              Gathering Anggota Paguyuban Mitra Sawit Regional Timur
-            </h6>
-          </div>
-        </div>
-      </div>
 
       <!-- Tambah berita lainnya di sini -->
 
