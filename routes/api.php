@@ -7,6 +7,8 @@ use App\Http\Controllers\CommentController;
 use App\Http\Controllers\ForumController;
 use App\Http\Controllers\ForumKomenController;
 use App\Http\Controllers\GaleriController;
+use App\Http\Controllers\HargaSawitController;
+use App\Http\Controllers\HasilPanenController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\PostCategoryController;
 use App\Http\Controllers\PostController;
@@ -15,7 +17,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MediaController;
-
+use App\Http\Controllers\Simkop\SimpananAnggotaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -59,6 +61,8 @@ Route::prefix('page')->group(function () {
     Route::get('/', [PageController::class, 'index'])->middleware('auth:sanctum')->name('page.index');
     Route::get('/{slug}', [PageController::class, 'show'])->name('page.show');
 });
+
+Route::get('/harga_komoditas', [HargaSawitController::class,'index'])->name('api.harga_komoditas.index');
 /*
  *
 Route::prefix('media')->group(function(){
@@ -152,4 +156,10 @@ Route::prefix('media')->group(function () {
 
 Route::prefix('comment')->group(function () {
     Route::middleware('auth:sanctum')->post('/', [CommentController::class, 'store']);
+});
+
+Route::middleware('auth:sanctum')->group(function(){
+    Route::get('/simpanan-anggota',[SimpananAnggotaController::class,'index']);
+    Route::resource('hasil-panen', HasilPanenController::class)->only(['index','store']);
+
 });

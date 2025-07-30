@@ -18,4 +18,11 @@ class ExampleTest extends TestCase
 
         $response->assertStatus(200);
     }
+    public function test_api_get_harga_komoditas(){
+        $response = $this->withHeaders([
+                        'Accept' => 'application/json',
+                        'Content-Type' => 'application/json',
+        ])->getJson(route('api.harga_komoditas.index'));
+        dd($response);
+    }
 }

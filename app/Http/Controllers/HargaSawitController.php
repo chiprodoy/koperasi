@@ -32,7 +32,12 @@ class HargaSawitController extends BackendController
     public $dataHargaSawit;
     public $komoditas;
     //
-
+    public function index()
+    {
+        $lastDate = HargaSawit::orderBy('tgl_update_harga','desc')->first();
+        $this->RECORD = HargaSawit::where('tgl_update_harga',$lastDate)->get();
+        return parent::index();
+    }
     public function browse(Request $request){
         $query = HargaSawit::query();
 

@@ -18,6 +18,8 @@ class HargaSawit extends Model
     protected $casts = [
         'tgl_update_harga' => 'date',
     ];
+
+    protected $with = ['komoditas'];
     /**
      *
     */

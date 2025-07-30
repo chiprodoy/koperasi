@@ -32,7 +32,7 @@ class AuthenticatedSessionController extends Controller
     {
         $request->authenticate();
         if($request->wantsJson()){
-            $token = $request->user()->createToken('pakkepoaccesstoken');
+            $token = $request->user()->createToken('jayasempurna');
 
             return response()->json([
                 'message' => 'Login Berhasil',

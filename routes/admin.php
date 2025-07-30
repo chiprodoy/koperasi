@@ -105,4 +105,13 @@ Route::prefix('/admin')->middleware(['auth'])->group(function () {
         Route::put('/', [App\Http\Controllers\HargaSawitController::class,'update'])->name('admin-harga-sawit.update');
         Route::delete('/delete/{uuid}', [App\Http\Controllers\HargaSawitController::class,'destroy'])->name('admin-harga-sawit.destroy');
     });
+
+    Route::prefix('admin-hasil-panen')->group(function () {
+        Route::get('/', [App\Http\Controllers\HargaSawitController::class,'browse'])->name('admin-hasil-panen.index');
+        Route::get('/create', [App\Http\Controllers\HargaSawitController::class,'create'])->name('admin-hasil-panen.create');
+        Route::post('/', [App\Http\Controllers\HargaSawitController::class,'store'])->name('admin-hasil-panen.store');
+        Route::get('/edit/{uuid}', [App\Http\Controllers\HargaSawitController::class,'edit'])->name('admin-hasil-panen.edit');
+        Route::put('/', [App\Http\Controllers\HargaSawitController::class,'update'])->name('admin-hasil-panen.update');
+        Route::delete('/delete/{uuid}', [App\Http\Controllers\HargaSawitController::class,'destroy'])->name('admin-hasil-panen.destroy');
+    });
 });
