@@ -14,6 +14,8 @@ class SimpananAnggota extends Model
 
     protected $fillable = ['uuid','anggota_id','jenis_simpanan_id','tgl_simpanan','jumlah_simpanan'];
 
+    protected $with = ['jenisSimpanan'];
+
     /**
      * Set mulai anggota
      *
