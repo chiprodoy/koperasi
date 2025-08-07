@@ -7,6 +7,8 @@ ada konten yang bisa ditampilkan di hp /web
 data list anggota koperasi
 kone
 budidaya sawit
+anggota bisa input jumlah lahan, 
+anggota bisa input jumlah panen,
 target 18 juli 2025
 
 Home

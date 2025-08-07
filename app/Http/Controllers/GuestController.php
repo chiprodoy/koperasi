@@ -17,7 +17,7 @@ class GuestController extends Controller
     public function __construct()
     {
         $this->Menu = $this->getMenu();
-
+        $this->Title = env('APP_TITLE','Koperasi');
     }
 
     private function getMenu($parentId = null){

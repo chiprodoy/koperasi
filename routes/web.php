@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [WelcomeController::class,'index'])->name('index');
-Route::get('/kategori/{kategori-slug}', [WelcomeController::class,'category'])->name('guest.post.category');
+Route::get('/kategori/{slug}', [WelcomeController::class,'category'])->name('guest.post.category');
 Route::get('/post/{slug}', [WelcomeController::class,'post'])->name('guest.post.detail');
 
 Route::get('privacy', function(){

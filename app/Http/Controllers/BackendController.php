@@ -64,6 +64,13 @@ class BackendController extends Controller
     {
         $this->CURRENT_PAGE=new Page($this->titleOfIndexPage,route($this->indexURL));
         $this->setBreadCrumb();
+        $this->RECORD = $this->modelRecords::all();
+
+        if(request()->wantsJson()){
+            $this->setRespon($this->RECORD,'Success',200);
+            return $this->respons;
+        }
+
         if(view()->exists('admin.'.$this->modName.'.crud.index')){
             return view('admin.'.$this->modName.'.crud.index',get_object_vars($this));
         }else{

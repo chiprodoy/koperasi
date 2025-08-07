@@ -6,7 +6,7 @@
     $value=$RECORD->{$item['field']};
     $condition=null;
 
-    if (Auth::user()->cannot('modify', 'pembibitan:'.$item['field'])) {
+    if (Auth::user()->cannot('modify', 'penanaman:'.$item['field'])) {
         $readOnly=true;
         if($item['field']=='post_type'){
             $inputType=App\View\Components\Viho\Form\InputHidden::class;

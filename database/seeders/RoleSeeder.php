@@ -39,5 +39,10 @@ class RoleSeeder extends Seeder
             'user_modify' => 'su',
             'user_id' => 1
         ]);
+        Role::create([
+            'role_name'=>Role::ANGGOTA,
+            'user_modify' => 'su',
+            'user_id' => 1
+        ]);
     }
 }

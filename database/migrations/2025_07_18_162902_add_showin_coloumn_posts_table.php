@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::table('posts', function (Blueprint $table) {
-            $table->integer('show_in')->default(1);
+            $table->integer('show_in')->nullable()->default(1);
 
         });
     }

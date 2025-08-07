@@ -39,6 +39,10 @@
     <!-- Plugins css Ends-->
     <!-- Bootstrap css-->
     <link rel="stylesheet" type="text/css" href="{{ asset('theme/viho/assets/css/bootstrap.css') }}">
+
+    <!-- boostrap datepicker -->
+    <link rel="stylesheet" type="text/css" href="{{ asset('dist/bootstrap-datepicker/css/bootstrap-datepicker.standalone.css') }}">
+
     <!-- App css-->
     <link rel="stylesheet" type="text/css" href="{{ asset('theme/viho/assets/css/style.css') }}">
     <link id="color" rel="stylesheet" href="{{ asset('theme/viho/assets/css/color-1.css') }}" media="screen">
@@ -162,6 +166,13 @@
     <!-- Bootstrap js-->
     <script src="{{ asset('theme/viho/assets/js/bootstrap/popper.min.js') }}"></script>
     <script src="{{ asset('theme/viho/assets/js/bootstrap/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('dist/bootstrap-datepicker/js/bootstrap-datepicker.min.js') }}"></script>
+    <script type="text/javascript">
+    $(document).ready(function(){
+            $('.datepicker').datepicker();
+
+    });
+    </script>
     <!-- Plugins JS start-->
     @stack('scripts')
     <!-- Plugins JS Ends-->

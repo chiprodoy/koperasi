@@ -13,6 +13,7 @@ class Role extends Model
     const ADMIN='admin';
     const KONTRIBUTOR='kontributor';
     const PENGGUNA='pengguna';
+    const ANGGOTA='anggota';
 
 
 

@@ -1,14 +1,14 @@
 <?php
 
-use App\Http\Controllers\AccuracyQuestionController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\Auth\NewPasswordController;
 use App\Http\Controllers\Auth\RegisteredUserController;
-use App\Http\Controllers\BahasaIndonesiaQuizController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\ForumController;
 use App\Http\Controllers\ForumKomenController;
 use App\Http\Controllers\GaleriController;
+use App\Http\Controllers\HargaSawitController;
+use App\Http\Controllers\HasilPanenController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\PostCategoryController;
 use App\Http\Controllers\PostController;
@@ -17,15 +17,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MediaController;
-use App\Http\Controllers\CekUmurController;
-use App\Http\Controllers\EnglishQuizController;
-use App\Http\Controllers\NumericQuizController;
-use App\Http\Controllers\PersonalityQuestionController;
-use App\Http\Controllers\QuestionController;
-use App\Http\Controllers\TipsAndTricksController;
-use App\Http\Controllers\TPAQuizController;
-use App\Http\Controllers\TPUQuizController;
-use App\Http\Controllers\TWKQuizController;
+use App\Http\Controllers\Simkop\SimpananAnggotaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -69,6 +61,8 @@ Route::prefix('page')->group(function () {
     Route::get('/', [PageController::class, 'index'])->middleware('auth:sanctum')->name('page.index');
     Route::get('/{slug}', [PageController::class, 'show'])->name('page.show');
 });
+
+Route::get('/harga_komoditas', [HargaSawitController::class,'index'])->name('api.harga_komoditas.index');
 /*
  *
 Route::prefix('media')->group(function(){
@@ -148,17 +142,6 @@ Route::prefix('galeri')->group(function () {
     );
 });
 
-Route::get('questions', [QuestionController::class, 'index']);
-Route::get('accuracy-questions', [AccuracyQuestionController::class, 'index']);
-Route::get('personality-questions', [PersonalityQuestionController::class, 'index']);
-Route::get('bahasa-indonesia-questions', [BahasaIndonesiaQuizController::class, 'index']);
-Route::get('english-questions', [EnglishQuizController::class, 'index']);
-Route::get('numeric-questions', [NumericQuizController::class, 'index']);
-Route::get('tpa-questions', [TPAQuizController::class, 'index']);
-Route::get('tpu-questions', [TPUQuizController::class, 'index']);
-Route::get('twk-questions', [TWKQuizController::class, 'index']);
-
-Route::get('tips-and-tricks', [TipsAndTricksController::class, 'index']);
 
 Route::prefix('media')->group(function () {
     Route::get('/', [MediaController::class, 'index']);
@@ -170,11 +153,13 @@ Route::prefix('media')->group(function () {
     });
 });
 
-Route::prefix('cek_umur')->group(function () {
-    Route::get('/', [CekUmurController::class, 'index']);
-    Route::get('/{cekumur}', [CekUmurController::class, 'show']);
-});
 
 Route::prefix('comment')->group(function () {
     Route::middleware('auth:sanctum')->post('/', [CommentController::class, 'store']);
+});
+
+Route::middleware('auth:sanctum')->group(function(){
+    Route::get('/simpanan-anggota',[SimpananAnggotaController::class,'index']);
+    Route::resource('hasil-panen', HasilPanenController::class)->only(['index','store']);
+
 });
