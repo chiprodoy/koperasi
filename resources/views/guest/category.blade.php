@@ -26,7 +26,7 @@
                     <i class="bi bi-calendar-event"></i> {{$item->created_at->format('d M Y H:i:s')}} &nbsp; | {{$item->writer}}
                     </small>
                     <h6 class="fw-semibold text-dark mb-0">
-                    <a href="{{route('guest.post.detail',$item->uuid)}}"> {{ $item->title }}</a>
+                    <a href="{{route('guest.post.detail',$item->slug)}}"> {{ $item->title }}</a>
                     </h6>
                 </div>
                 </div>

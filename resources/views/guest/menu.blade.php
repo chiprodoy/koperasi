@@ -1,7 +1,7 @@
 <!-- Navbar -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-success sticky-top shadow">
   <div class="container">
-    <a class="navbar-brand fw-bold" href="#">{{ env('APP_TITLE')}}</a>
+    <a class="navbar-brand fw-bold" href="#"><img src="{{asset('img/logo.png')}}" width="30" /> {{env('APP_TITLE')}}</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown">
       <span class="navbar-toggler-icon"></span>
     </button>

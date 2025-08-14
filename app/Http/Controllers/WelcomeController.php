@@ -69,7 +69,7 @@ class WelcomeController extends GuestController
     }
 
     public function post($slug){
-        $this->Content = Post::where('slug',$slug)->orderBy('id','desc')->first();
+        $this->Content = Post::where('slug',$slug)->orderBy('id','desc')->firstorFail();
         return view('guest.post',get_object_vars($this));
 
     }
