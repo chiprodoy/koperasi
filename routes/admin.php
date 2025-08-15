@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\AdminHasilPanenController;
+use App\Http\Controllers\HasilPanenController;
 use App\Http\Controllers\StatistikController;
 use App\Http\Controllers\TestimoniController;
 use Illuminate\Support\Facades\Log;
@@ -109,15 +111,20 @@ Route::prefix('/admin')->middleware(['auth'])->group(function () {
     });
 
     Route::prefix('admin-hasil-panen')->group(function () {
-        Route::get('/', [App\Http\Controllers\HargaSawitController::class,'browse'])->name('admin-hasil-panen.index');
-        Route::get('/create', [App\Http\Controllers\HargaSawitController::class,'create'])->name('admin-hasil-panen.create');
-        Route::post('/', [App\Http\Controllers\HargaSawitController::class,'store'])->name('admin-hasil-panen.store');
-        Route::get('/edit/{uuid}', [App\Http\Controllers\HargaSawitController::class,'edit'])->name('admin-hasil-panen.edit');
-        Route::put('/', [App\Http\Controllers\HargaSawitController::class,'update'])->name('admin-hasil-panen.update');
-        Route::delete('/delete/{uuid}', [App\Http\Controllers\HargaSawitController::class,'destroy'])->name('admin-hasil-panen.destroy');
+        Route::get('/', [AdminHasilPanenController::class,'index'])->name('admin-hasil-panen.index');
+       // Route::get('/create', [App\Http\Controllers\HargaSawitController::class,'create'])->name('admin-hasil-panen.create');
+       // Route::post('/', [App\Http\Controllers\HargaSawitController::class,'store'])->name('admin-hasil-panen.store');
+       // Route::get('/edit/{uuid}', [App\Http\Controllers\HargaSawitController::class,'edit'])->name('admin-hasil-panen.edit');
+       // Route::put('/', [App\Http\Controllers\HargaSawitController::class,'update'])->name('admin-hasil-panen.update');
+       // Route::delete('/delete/{uuid}', [App\Http\Controllers\HargaSawitController::class,'destroy'])->name('admin-hasil-panen.destroy');
+        Route::get('/excel', [AdminHasilPanenController::class, 'exportCsv'])->name('admin-hasil-panen.exportExcel');
+        Route::get('/pdf', [HasilPanenController::class, 'exportPdf'])->name('admin-hasil-panen.exportPdf');
+
     });
     Route::resource('testimoni', TestimoniController::class, ['names' => 'admin.testimoni']);
     Route::resource('statistik', StatistikController::class, ['names' => 'admin.statistik']);
+
+
     Route::get('/init-storage', function() {
             $targetFolder = $_SERVER['DOCUMENT_ROOT'].'/storage/app/public';
             $linkFolder = $_SERVER['DOCUMENT_ROOT'].'/public/storage';
