@@ -119,7 +119,9 @@ Route::prefix('/admin')->middleware(['auth'])->group(function () {
     Route::resource('testimoni', TestimoniController::class, ['names' => 'admin.testimoni']);
     Route::resource('statistik', StatistikController::class, ['names' => 'admin.statistik']);
     Route::get('/init-storage', function() {
-        \Illuminate\Support\Facades\Artisan::call('storage:link');
-        echo 'Storage link created successfully!';
+            $targetFolder = $_SERVER['DOCUMENT_ROOT'].'/storage/app/public';
+            $linkFolder = $_SERVER['DOCUMENT_ROOT'].'/public/storage';
+            symlink($targetFolder,$linkFolder);
+            echo 'Symlink completed from'.$targetFolder." to ".$linkFolder;
     });
 });
