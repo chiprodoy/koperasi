@@ -239,7 +239,7 @@ class BackendController extends Controller
         try
         {
             $deleted=$this->modelRecords::where('uuid',$uid)->delete();
-            return $this->success($deleted,$request,$this->indexURL,'Data Berhasil Diupdate');
+            return $this->iSuccess($deleted,$request,$this->indexURL,'Data Berhasil Diupdate');
         }
         catch(QueryException $e)
         {

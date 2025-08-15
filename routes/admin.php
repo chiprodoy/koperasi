@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\TestimoniController;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Web\GaleriController;
@@ -114,4 +115,5 @@ Route::prefix('/admin')->middleware(['auth'])->group(function () {
         Route::put('/', [App\Http\Controllers\HargaSawitController::class,'update'])->name('admin-hasil-panen.update');
         Route::delete('/delete/{uuid}', [App\Http\Controllers\HargaSawitController::class,'destroy'])->name('admin-hasil-panen.destroy');
     });
+    Route::resource('testimoni', TestimoniController::class, ['names' => 'admin.testimoni']);
 });
