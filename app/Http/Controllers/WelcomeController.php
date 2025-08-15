@@ -70,6 +70,11 @@ class WelcomeController extends GuestController
 
     public function post($slug){
         $this->Content = Post::where('slug',$slug)->orderBy('id','desc')->firstorFail();
+        $this->Content->counter()->create([
+            'activity' => Post::POST_VIEW,
+            'region' => session('region'),
+            'deviceid'=>session('ip')
+        ]);
         return view('guest.post',get_object_vars($this));
 
     }

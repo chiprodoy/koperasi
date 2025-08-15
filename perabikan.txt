@@ -1,9 +1,9 @@
 14 agustus 2025
 
-tambahkan home 
-perbaiki info dashboard
-menu berita tidak tampil dan tidak bisa tambah
-menu hasil panen dari anggota
-perbaiki menu statistik dan testimoni not found
-tambah logo koperasi pada halaman utama
-detail post 
+tambahkan home
+perbaiki info dashboard -> sdg dikerjakan
+menu berita tidak tampil dan tidak bisa tambah -> sudah
+menu hasil panen dari anggota -> sudah
+perbaiki menu statistik dan testimoni not found -> sudah
+tambah logo koperasi pada halaman utama -> sudah
+perabikan detail berita dll -> sudah

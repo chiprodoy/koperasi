@@ -46,7 +46,7 @@
             <tr>
                 <th>Nama Anggota</th>
                 <th>Tanggal Panen</th>
-                <th>Jumlah Hasil Panen (Kg)</th>
+                <th>Jumlah Hasil Panen (Ton)</th>
                 <th>Luas Lahan (Ha)</th>
                 <th>Harga per Kg (Rp)</th>
             </tr>

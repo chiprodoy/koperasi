@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\HasilPanen;
 use App\Models\Simkop\Anggota;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class AdminHasilPanenController extends BackendController
 {
@@ -74,7 +75,7 @@ class AdminHasilPanenController extends BackendController
         fputcsv($handle, [
             'Nama Anggota',
             'Tanggal Panen',
-            'Jumlah Panen (Kg)',
+            'Jumlah Panen (Ton)',
             'Luas Lahan (Ha)',
             'Harga per Kg'
         ], ';'); // delimiter pakai titik koma (;)
@@ -113,4 +114,18 @@ class AdminHasilPanenController extends BackendController
         return $pdf->download('hasil_panen.pdf');
     }
   */
+    public function chart()
+    {
+        $data = DB::table('hasil_panens')
+            ->join('anggotas', 'hasil_panens.anggota_id', '=', 'anggotas.id')
+            ->select('anggotas.nama', DB::raw('SUM(hasil_panens.jumlah_hasil_panen) as total_panen'))
+            ->groupBy('anggotas.nama')
+            ->orderBy('total_panen', 'desc')
+            ->get();
+
+        $labels = $data->pluck('nama');
+        $totals = $data->pluck('total_panen');
+
+        return view('admin-hasil-panen.chart', compact('labels', 'totals'));
+    }
 }

@@ -20,6 +20,10 @@ use Illuminate\Support\Str;
 class Post extends MainModel
 {
     use HasFactory;
+    const POST_LIKE='like';
+    const POST_SHARE='share';
+    const POST_VIEW='view';
+
 
     /**
      * The attributes that are mass assignable.
