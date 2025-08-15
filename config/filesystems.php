@@ -70,7 +70,8 @@ return [
     */
 
     'links' => [
-        '/home/sdmpolda/public_html/pakkepo/public/storage' => storage_path('app/public'),
+        public_path('storage') => storage_path('app/public'),
+//        '/home/sdmpolda/public_html/pakkepo/public/storage' => storage_path('app/public'),
     ],
 
 ];

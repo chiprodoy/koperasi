@@ -128,7 +128,7 @@
               @endforeach
             </small>
             <h6 class="fw-semibold text-dark mb-0">
-              <a href="{{route('guest.post.detail',$item->uuid)}}"> {{$item->title}}</a>
+              <a href="{{route('guest.post.detail',$item->slug)}}"> {{$item->title}}</a>
             </h6>
           </div>
         </div>
