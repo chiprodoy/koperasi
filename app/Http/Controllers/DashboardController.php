@@ -2,6 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Post;
+use App\Models\PostCounter;
+use App\Models\Simkop\Anggota;
+use App\Models\Statistik;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -10,10 +14,22 @@ class DashboardController extends BackendController
 {
     public $dataChartHasilPanen;
     public $dataChartHargaSawit;
+    public $postViewer;
+    public $postLiked;
+    public $postShared;
+    public $totalAnggota;
+    public $statistikKoperasi;
 
     public function index(){
         $this->dataChartHasilPanen = $this->chart_panen(request());
         $this->dataChartHargaSawit = $this->chart_harga_sawit(request());
+
+        $this->postViewer = PostCounter::groupBy('post_id','deviceid')->where('activity',Post::POST_VIEW)->count();
+
+        $this->postLiked = PostCounter::groupBy('post_id','deviceid')->where('activity',Post::POST_LIKE)->count();
+        $this->postShared = PostCounter::groupBy('post_id','deviceid')->where('activity',Post::POST_SHARE)->count();
+        $this->totalAnggota = Anggota::where('status_keanggotaan',Anggota::STATUS_AKTIF)->count();
+        $this->statistikKoperasi= Statistik::all();
 
         return view('admin.dashboard',get_object_vars($this));
     }

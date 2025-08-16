@@ -44,8 +44,9 @@
     <table class="table table-bordered table-striped">
         <thead>
             <tr>
+                <th>Nomor Anggota</th>
                 <th>Nama Anggota</th>
-                <th>Tanggal Panen</th>
+                <th>Tanggal</th>
                 <th>Jumlah Hasil Panen (Ton)</th>
                 <th>Luas Lahan (Ha)</th>
                 <th>Harga per Kg (Rp)</th>
@@ -54,6 +55,7 @@
         <tbody>
             @foreach($hasilPanen as $row)
             <tr>
+                <td>{{ $row->anggota->nomor_anggota }}</td>
                 <td>{{ $row->anggota->nama }}</td>
                 <td>{{ $row->tgl_panen }}</td>
                 <td>{{ number_format($row->jumlah_hasil_panen, 2) }}</td>

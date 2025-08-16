@@ -19,7 +19,7 @@
                                         data-angleoffset="0" data-linecap="round" data-fgcolor="#ba895d"
                                         data-bgcolor="#e0e9ea" value="60">
                                 </div>
-                                <h5>984</h5>
+                                <h5>{{ $postLiked }}</h5>
                                 <p>Total Like</p>
                             </div>
                         </div>
@@ -34,7 +34,7 @@
                                         data-fgcolor="#24695c" data-linecap="round" data-angleoffset="0"
                                         value="60">
                                 </div>
-                                <h5>455</h5>
+                                <h5>{{ $postViewer }}</h5>
                                 <p>Total View</p>
                             </div>
                         </div>
@@ -49,7 +49,7 @@
                                         data-angleoffset="0" data-linecap="round" data-fgcolor="#ba895d"
                                         data-bgcolor="#e0e9ea" value="60">
                                 </div>
-                                <h5>984</h5>
+                                <h5>{{ $postShared }}</h5>
                                 <p>Total Share</p>
                             </div>
                         </div>
@@ -64,8 +64,8 @@
                                         data-angleoffset="0" data-linecap="round" data-fgcolor="#ba895d"
                                         data-bgcolor="#e0e9ea" value="60">
                                 </div>
-                                <h5>984</h5>
-                                <p>Total User</p>
+                                <h5>{{$totalAnggota}}</h5>
+                                <p>Anggota Aktif</p>
                             </div>
                         </div>
                     </div>
@@ -94,28 +94,31 @@
                             <h5>Harga Sawit</h5>
                         </div>
                     </div>
-                    <div class="card-body p-0">
+                    <div class="card-body p-3">
                          <canvas id="hargaSawitChart" height="200"></canvas>
                     </div>
                 </div>
             </div>
         </div>
+        <section class="py-5 " id="statistik">
+            <div class="row text-center g-4">
+                @foreach ($statistikKoperasi as $statistik)
+                    <div class="col-md-4">
+                        <div class="counter-box bg-white p-4 shadow rounded-4">
+                        <div class="icon mb-3 text-success" style="font-size: 2.5rem;"><i class="{{$statistik->icon}}"></i></div>
+                        <h3 class="fw-bold"><span class="counter" data-target="{{$statistik->jumlah}}">0</span></h3>
+                        <p class="text-muted">{{$statistik->label}}</p>
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+        </section>
     </div>
     @push('scripts')
-    <script src="{{asset('theme/viho/assets/js/chart/chartjs/chart.min.js')}}"></script>
-    <script src="{{asset('theme/viho/assets/js/chart/chartist/chartist.js')}}"></script>
-    <script src="{{asset('theme/viho/assets/js/chart/chartist/chartist-plugin-tooltip.js')}}"></script>
+
     <script src="{{asset('theme/viho/assets/js/chart/knob/knob.min.js')}}"></script>
-    <script src="{{asset('theme/viho/assets/js/chart/apex-chart/apex-chart.js')}}"></script>
-    <script src="{{asset('theme/viho/assets/js/chart/apex-chart/stock-prices.js')}}"></script>
-    <script src="{{asset('theme/viho/assets/js/prism/prism.min.js')}}"></script>
-    <script src="{{asset('theme/viho/assets/js/clipboard/clipboard.min.js')}}"></script>
-    <script src="{{asset('theme/viho/assets/js/counter/jquery.waypoints.min.js')}}"></script>
-    <script src="{{asset('theme/viho/assets/js/counter/jquery.counterup.min.js')}}"></script>
-    <script src="{{asset('theme/viho/assets/js/counter/counter-custom.js')}}"></script>
-    <script src="{{asset('theme/viho/assets/js/custom-card/custom-card.js')}}"></script>
-    <script src="{{asset('theme/viho/assets/js/owlcarousel/owl.carousel.js')}}"></script>
-    <script src="{{asset('theme/viho/assets/js/owlcarousel/owl-custom.js')}}"></script>
+
+
     <script src="{{asset('theme/viho/assets/js/dashboard/dashboard_2.js')}}"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
@@ -189,6 +192,39 @@
                         }
                     }
                 }
+            }
+        });
+    </script>
+        <script>
+        const counters = document.querySelectorAll('.counter');
+        const speed = 100;
+
+        const animateCounters = () => {
+            counters.forEach(counter => {
+            const updateCount = () => {
+                const target = +counter.getAttribute('data-target');
+                const count = +counter.innerText;
+                const increment = target / speed;
+
+                if (count < target) {
+                counter.innerText = Math.ceil(count + increment);
+                setTimeout(updateCount, 10);
+                } else {
+                counter.innerText = target.toLocaleString('id-ID');
+                }
+            };
+
+            updateCount();
+            });
+        };
+
+        let shown = false;
+        window.addEventListener('scroll', () => {
+            const section = document.getElementById('statistik');
+            const rect = section.getBoundingClientRect();
+            if (rect.top < window.innerHeight - 100 && !shown) {
+            animateCounters();
+            shown = true;
             }
         });
     </script>
