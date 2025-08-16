@@ -220,5 +220,30 @@
             }
         });
     </script>
+    <script>
+        (function() {
+            if (!localStorage.getItem('device_uuid')) {
+                localStorage.setItem('device_uuid', crypto.randomUUID());
+            }
+
+            // Kirim UUID ke semua request AJAX
+            document.addEventListener('DOMContentLoaded', function() {
+                const uuid = localStorage.getItem('device_uuid');
+                const token = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+
+                // Untuk semua fetch API
+                const originalFetch = window.fetch;
+                window.fetch = function(input, init = {}) {
+                    init.headers = Object.assign({}, init.headers, {
+                        'X-Device-UUID': uuid,
+                        'X-CSRF-TOKEN': token
+                    });
+                    return originalFetch(input, init);
+                };
+            });
+        })();
+        </script>
+        <!-- Plugins JS start-->
+    @stack('scripts')
 </body>
 </html>

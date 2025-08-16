@@ -1,0 +1,4 @@
+id,uuid,keterangan,tgl_update_harga,harga,komoditas_id,created_at,updated_at,sumber
+"1","f03153c9-91d7-478d-87dd-b743d5a089e7","umur 3 tahun","2025-07-22","2949.91","1","2025-07-22 14:51:37","2025-07-22 14:51:37","PT. Melania Sawit"
+"2","b8adbc46-d68d-4621-9c90-af28132ddb0f","umur 3 tahun","2025-07-18","2949.91","1","2025-07-22 15:15:07","2025-07-22 15:15:07","PT. Melania Sawit"
+"3","09ed2dd1-16e7-4a66-a99b-56770c550cf5","umur 5 tahun","2025-07-22","2949.91","1","2025-07-22 16:21:55","2025-07-22 16:27:52","PT. Melania Sawit"
