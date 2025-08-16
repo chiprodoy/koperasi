@@ -356,4 +356,41 @@ class PostController extends BackendController
         }
 
     }
+
+    public function share(Post $post, Request $request){
+        return response()->json($this->setActivity($post,$request,Post::POST_SHARE));
+
+    }
+
+    public function like(Post $post, Request $request){
+        return response()->json($this->setActivity($post,$request,Post::POST_LIKE));
+    }
+
+    public function view(Post $post, Request $request){
+        return response()->json($this->setActivity($post,$request,Post::POST_VIEW));
+
+    }
+
+    private function setActivity(Post $post, Request $request,$activity=POST::POST_VIEW)
+    {
+        $region = session('region', 'Unknown');
+        $deviceId = session('device_id', 'Unknown');
+
+        PostCounter::create([
+            'post_id' => $post->id,
+            'activity' => $activity,
+            'region' => $region,
+            'deviceid' => $deviceId,
+        ]);
+
+        $shareCount = PostCounter::where('post_id', $post->id)
+            ->where('activity', $activity)
+            ->count();
+
+        return [
+            'success' => true,
+            'activity'=> $activity,
+            'count' => $shareCount
+        ];
+    }
 }

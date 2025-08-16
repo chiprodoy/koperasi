@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PostController;
 use App\Http\Controllers\WelcomeController;
 use Illuminate\Support\Facades\Route;
 
@@ -17,6 +18,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [WelcomeController::class,'index'])->name('index');
 Route::get('/kategori/{slug}', [WelcomeController::class,'category'])->name('guest.post.category');
 Route::get('/post/{slug}', [WelcomeController::class,'post'])->name('guest.post.detail');
+Route::post('/share/{post}', [PostController::class, 'share'])->name('guest.posts.share');
+Route::post('/like/{post}', [PostController::class, 'like'])->name('guest.posts.like');
 
 Route::get('privacy', function(){
     return view('kebijakan_privasi');

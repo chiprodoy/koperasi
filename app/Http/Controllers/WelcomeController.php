@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\HargaSawit;
 use App\Models\Post;
 use App\Models\PostCategory;
+use App\Models\PostCounter;
 use App\Models\Statistik;
 use App\Models\Testimoni;
 use Illuminate\Http\Request;
@@ -22,6 +23,9 @@ class WelcomeController extends GuestController
     public $kontakKami;
     public $postCategory;
     public $testimoni;
+    public $postViewer;
+    public $postLiked;
+    public $postShared;
 
     const NEWSCATEGORY=3;
     const REGULASI=2;
@@ -70,13 +74,27 @@ class WelcomeController extends GuestController
 
     public function post($slug){
         $this->Content = Post::where('slug',$slug)->orderBy('id','desc')->firstorFail();
+
+        $this->postViewer = $this->Content->counter()->groupBy('deviceid')->where('activity',Post::POST_VIEW)->count();
+
+        $this->postLiked = $this->Content->counter()->groupBy('deviceid')->where('activity',Post::POST_LIKE)->count();
+        $this->postShared = $this->Content->counter()->groupBy('deviceid')->where('activity',Post::POST_SHARE)->count();
+
+        // Ambil UUID dari browser (jika dikirim lewat header)
+        $uuidFromBrowser = request()->header('X-Device-UUID');
+
+        // Kombinasi IP + User-Agent + UUID browser
+        $deviceId = hash('sha256', request()->ip() . request()->userAgent() . ($uuidFromBrowser ?? ''));
+
         $this->Content->counter()->create([
             'activity' => Post::POST_VIEW,
             'region' => session('region'),
-            'deviceid'=>session('ip')
+            'deviceid'=>$deviceId
         ]);
         return view('guest.post',get_object_vars($this));
 
     }
+
+
     //
 }
