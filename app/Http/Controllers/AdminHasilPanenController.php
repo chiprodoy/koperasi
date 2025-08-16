@@ -26,24 +26,35 @@ class AdminHasilPanenController extends BackendController
     public $modName='admin-hasil-panen';
     public $hasilPanen;
     public $anggotas;
-
+    public $dataChartHasilPanen;
     public function index()
     {
         $request = request();
         $this->anggotas = Anggota::orderBy('nama')->get();
 
         $query = HasilPanen::with('anggota');
-
+        $queryChartHasilPanen = HasilPanen::selectRaw('tgl_panen,
+                        SUM(jumlah_hasil_panen) as total_panen,
+                        SUM(luas_lahan) as total_luas');
         // Filter tanggal
         if ($request->filled('start_date') && $request->filled('end_date')) {
             $query->whereBetween('tgl_panen', [$request->start_date, $request->end_date]);
+            $queryChartHasilPanen->whereBetween('tgl_panen', [$request->start_date, $request->end_date]);
+
         }
 
         // Filter nama anggota
         if ($request->filled('anggota_id')) {
             $query->where('anggota_id', $request->anggota_id);
+            $queryChartHasilPanen->where('anggota_id', $request->anggota_id);
         }
 
+        $dataChartHasilPanen = $queryChartHasilPanen->groupBy('tgl_panen')->orderBy('tgl_panen')->get();
+        $labels = $dataChartHasilPanen->pluck('tgl_panen');
+        $panen = $dataChartHasilPanen->pluck('total_panen');
+        $luas = $dataChartHasilPanen->pluck('total_luas');
+
+        $this->dataChartHasilPanen = compact('labels','panen','luas');
         $this->hasilPanen = $query->orderBy('tgl_panen', 'desc')->paginate(10);
 
         return view('admin.admin-hasil-panen.crud.index', get_object_vars($this));
