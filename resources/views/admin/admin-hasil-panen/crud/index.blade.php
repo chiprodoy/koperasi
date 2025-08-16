@@ -2,8 +2,15 @@
 
 @section('content')
 <div class="container">
-    <h4>Data Hasil Panen</h4>
-
+    <h4>Data Hasil Panen & Luas Lahan</h4>
+    <div class="row">
+        {{-- Chart --}}
+    <div class="card shadow-sm">
+        <div class="card-body">
+            <canvas id="hasilPanenChart" height="100"></canvas>
+        </div>
+    </div>
+    </div>
     <form method="GET" class="row g-3 mb-3">
         <div class="col-md-2">
             <label class="form-label">Tanggal Mulai</label>
@@ -67,5 +74,48 @@
     </table>
 
     {{ $hasilPanen->links() }}
+
+
 </div>
+@push('scripts')
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+const ctx = document.getElementById('hasilPanenChart').getContext('2d');
+new Chart(ctx, {
+    type: 'line',
+    data: {
+        labels: @json($dataChartHasilPanen['labels']),
+        datasets: [
+            {
+                label: 'Jumlah Hasil Panen (kg)',
+                data: @json($dataChartHasilPanen['panen']),
+                borderColor: 'rgba(75, 192, 192, 1)',
+                backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                borderWidth: 2,
+                tension: 0.3
+            },
+            {
+                label: 'Luas Lahan (ha)',
+                data: @json($dataChartHasilPanen['luas']),
+                borderColor: 'rgba(255, 159, 64, 1)',
+                backgroundColor: 'rgba(255, 159, 64, 0.2)',
+                borderWidth: 2,
+                tension: 0.3
+            }
+        ]
+    },
+    options: {
+        responsive: true,
+        plugins: {
+            legend: { position: 'top' },
+        },
+        scales: {
+            y: {
+                beginAtZero: true
+            }
+        }
+    }
+});
+</script>
+@endpush
 @endsection
