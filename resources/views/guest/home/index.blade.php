@@ -38,7 +38,7 @@
         <!-- Card unit usaha  -->
         <div class="col-md-4 " data-aos="fade-up" data-aos-delay="100">
             <div class="p-4 bg-white shadow rounded-4 h-100">
-                {!! $item->description !!}
+                {!! substr($item->description,0,255) !!}
             </div>
         </div>
        @endforeach

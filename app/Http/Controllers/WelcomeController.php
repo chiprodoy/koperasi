@@ -67,7 +67,8 @@ class WelcomeController extends GuestController
         $this->postCategory = PostCategory::where('slugs',$slug)->firstOrFail();
         $this->Content=Post::whereHas('categories',function($query)use($slug){
             $query->where('slugs',$slug);
-        })->get();
+        })->latest()
+            ->paginate(10); // pagination->get();
 
         return view('guest.category',get_object_vars($this));
     }
