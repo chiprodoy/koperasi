@@ -20,7 +20,7 @@
                     <!-- Kartu berita 2 -->
             <div class="col-md-4 mb-4">
                 <div class="card border-0 shadow-sm h-100 rounded-4 overflow-hidden">
-                <img src="{{$item->cover}}" class="img-fluid">
+                <img src="{{ $item->cover }}" class="img-fluid">
                 <div class="p-3 bg-white">
                     <small class="text-muted d-block mb-1">
                     <i class="bi bi-calendar-event"></i> {{$item->created_at->format('d M Y H:i:s')}} &nbsp; | {{$item->writer}}
