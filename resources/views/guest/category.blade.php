@@ -18,7 +18,7 @@
                     @foreach($Content as $item)
                         <div class="col-md-4 mb-4">
                             <div class="card h-100 shadow-sm">
-                                @if($item->thumbnail)
+                                @if($item->cover)
                                     <img src="{{ asset('storage/' . $item->cover) }}" class="card-img-top" alt="{{ $item->title }}">
                                 @else
                                     <img src="https://via.placeholder.com/600x400?text=No+Image" class="card-img-top" alt="{{ $item->title }}">
