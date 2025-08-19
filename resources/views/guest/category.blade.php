@@ -12,30 +12,40 @@
 </section>
 
 <section class="py-5 bg-white" id="kategori">
-  <div class="container">
-    <div class="row">
-      <!-- Konten Utama -->
-      <div class="col-lg-8 mx-auto">
-        @foreach ($Content as $item)
-                    <!-- Kartu berita 2 -->
-            <div class="col-md-4 mb-4">
-                <div class="card border-0 shadow-sm h-100 rounded-4 overflow-hidden">
-                <img src="{{$item->cover}}" class="img-fluid">
-                <div class="p-3 bg-white">
-                    <small class="text-muted d-block mb-1">
-                    <i class="bi bi-calendar-event"></i> {{$item->created_at->format('d M Y H:i:s')}} &nbsp; | {{$item->writer}}
-                    </small>
-                    <h6 class="fw-semibold text-dark mb-0">
-                    <a href="{{route('guest.post.detail',$item->slug)}}"> {{ $item->title }}</a>
-                    </h6>
+    <div class="container">
+        @if($Content->count() > 0)
+            <div class="row">
+                    @foreach($Content as $item)
+                        <div class="col-md-4 mb-4">
+                            <div class="card h-100 shadow-sm">
+                                @if($item->thumbnail)
+                                    <img src="{{ asset('storage/' . $item->cover) }}" class="card-img-top" alt="{{ $item->title }}">
+                                @else
+                                    <img src="https://via.placeholder.com/600x400?text=No+Image" class="card-img-top" alt="{{ $item->title }}">
+                                @endif
+                                <div class="card-body">
+                                    <h5 class="card-title">
+                                        <a href='{{route('guest.post.detail', $item->slug)}}'>{{ $item->title }}</a>
+                                    </h5>
+                                    <span><i class="bi bi-calendar"></i> {{ \Carbon\Carbon::parse($item->created_at)->translatedFormat('d M Y') }}</span>
+                                    <span><i class="bi bi-person"></i> {{$item->writer }}</span>
+                                    <p class="card-text">
+                                        {{ Str::limit(strip_tags($item->description), 120, '...') }}
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
                 </div>
+
+                {{-- Pagination --}}
+                <div class="d-flex justify-content-center mt-4">
+                    {{ $Content->links() }}
                 </div>
+            @else
+                <p class="text-muted">Belum ada berita pada kategori ini.</p>
             </div>
-        @endforeach
-
-
-      </div>
+        @endif
     </div>
-  </div>
 </section>
 @endsection

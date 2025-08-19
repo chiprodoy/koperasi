@@ -87,7 +87,7 @@ new Chart(ctx, {
         labels: @json($dataChartHasilPanen['labels']),
         datasets: [
             {
-                label: 'Jumlah Hasil Panen (kg)',
+                label: 'Jumlah Hasil Panen (ton)',
                 data: @json($dataChartHasilPanen['panen']),
                 borderColor: 'rgba(75, 192, 192, 1)',
                 backgroundColor: 'rgba(75, 192, 192, 0.2)',
