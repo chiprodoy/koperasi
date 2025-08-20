@@ -23,7 +23,7 @@
   <!-- Hero Section -->
   <section class="hero text-center" id="beranda">
     <div class="container">
-      <h1 class="display-4 fw-bold">{{ env('APP_TITLE') }}</h1>
+      <h1 class="display-2 fw-bold">{{ env('APP_TITLE') }}</h1>
       <p class="lead">Bersama Meningkatkan Kesejahteraan Petani Sawit</p>
       <a  href="{{route('guest.post.detail','pendaftaran')}}" class="btn btn-warning btn-lg mt-3">Daftar Anggota</a>
     </div>
