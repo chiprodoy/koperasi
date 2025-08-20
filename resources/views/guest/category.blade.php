@@ -25,7 +25,7 @@
                                 @endif
                                 <div class="card-body">
                                     <h5 class="card-title">
-                                        <a href='{{route('guest.post.detail', $item->slug)}}'>{{ $item->title }}</a>
+                                        <a class="link-underline link-underline-opacity-0" href='{{route('guest.post.detail', $item->slug)}}'>{{ $item->title }}</a>
                                     </h5>
                                     <span><i class="bi bi-calendar"></i> {{ \Carbon\Carbon::parse($item->created_at)->translatedFormat('d M Y') }}</span>
                                     <span><i class="bi bi-person"></i> {{$item->writer }}</span>
