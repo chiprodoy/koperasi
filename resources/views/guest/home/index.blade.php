@@ -40,7 +40,9 @@
             <div class="p-4 bg-white shadow rounded-4 h-100">
             <img src="{{ $item->cover }}" style="height:200px" alt="Unit Usaha">
 
-                <h5 class="fw-bold mb-2">{{$item->title}}</h5>
+                <h5 class="fw-bold mb-2">
+                    <a class="link-underline link-underline-opacity-0" href='{{route('guest.post.detail', $item->slug)}}'>{{ $item->title }}</a>
+                </h5>
                 {!! substr($item->description,0,255) !!}
             </div>
         </div>
@@ -61,7 +63,7 @@
       </div>
       <div class="col-lg-6">
         <h2 class="fw-bold mb-3 text-success">Tentang Koperasi</h2>
-        {!! $visiMisi->description !!}
+        {!! $contentSejarah->description !!}
       </div>
     </div>
   </div>
