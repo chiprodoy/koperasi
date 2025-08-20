@@ -17,9 +17,9 @@
             <div class="row">
                     @foreach($Content as $item)
                         <div class="col-md-4 mb-4">
-                            <div class="card h-100 shadow-sm">
+                            <div class="card h-100 shadow-sm p-4">
                                 @if($item->cover)
-                                    <img src="{{ $item->cover }}" class="card-img-top" alt="{{ $item->title }}">
+                                    <img src="{{ $item->cover }}" style="height:200px" class="card-img-top" alt="{{ $item->title }}">
                                 @else
                                     <img src="https://via.placeholder.com/600x400?text=No+Image" class="card-img-top" alt="{{ $item->title }}">
                                 @endif
