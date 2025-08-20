@@ -52,7 +52,7 @@ class HargaSawitController extends BackendController
             $query->where('tgl_update_harga', Carbon::now()->toDateString());
         }
 
-        $this->dataHargaSawit = $query->orderBy('tgl_update_harga', 'desc')->paginate(20);
+        $this->dataHargaSawit = $query->orderBy('tgl_update_harga', 'desc')->paginate(50);
         return view('admin.admin-harga-sawit.crud.index', get_object_vars($this));
     }
        /**
