@@ -97,7 +97,11 @@
             <div class="col-md-6 d-flex flex-column gap-4">
                 <!-- Testimoni 1 -->
                 <div class="card shadow-sm border-0 rounded-4 p-3 d-flex flex-row align-items-center gap-3">
-                <img src="https://randomuser.me/api/portraits/men/32.jpg" class="rounded-circle" width="80" height="80" alt="{{$item->nama}}">
+                    @if($item->cover)
+                        <img src="{{ $item->cover }}" class="rounded-circle" width="80" height="80" alt="{{$item->nama}}">
+                    @else
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" class="rounded-circle" width="80" height="80" alt="{{$item->nama}}">
+                    @endif
                 <div>
                     <h6 class="mb-1 fw-semibold">{{$item->nama}}</h6>
                     <small class="text-muted">{{ $item->pekerjaan }}</small>
@@ -133,7 +137,7 @@
               @endforeach
             </small>
             <h6 class="fw-semibold text-dark mb-0">
-              <a href="{{route('guest.post.detail',$item->slug)}}"> {{$item->title}}</a>
+              <a class="link-underline link-underline-opacity-0" href="{{route('guest.post.detail',$item->slug)}}"> {{$item->title}}</a>
             </h6>
           </div>
         </div>
