@@ -38,6 +38,9 @@
         <!-- Card unit usaha  -->
         <div class="col-md-4 " data-aos="fade-up" data-aos-delay="100">
             <div class="p-4 bg-white shadow rounded-4 h-100">
+            <img src="{{ $item->cover }}" class="img-fluid" alt="Berita 1">
+
+                <h5 class="fw-bold mb-2">{{$item->title}}</h5>
                 {!! substr($item->description,0,255) !!}
             </div>
         </div>
@@ -119,7 +122,7 @@
        <!-- Kartu berita 1 -->
       <div class="col-md-4">
         <div class="card border-0 shadow-sm h-100 rounded-4 overflow-hidden">
-          <img src="https://source.unsplash.com/600x400/?seminar,cooperative" class="img-fluid" alt="Berita 1">
+          <img src="{{ $item->cover }}" class="img-fluid" alt="Berita 1">
           <div class="p-3 bg-white">
             <small class="text-muted d-block mb-1">
               <i class="bi bi-calendar-event"></i> {{$item->created_at}} &nbsp; | &nbsp;
