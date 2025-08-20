@@ -97,8 +97,8 @@
             <div class="col-md-6 d-flex flex-column gap-4">
                 <!-- Testimoni 1 -->
                 <div class="card shadow-sm border-0 rounded-4 p-3 d-flex flex-row align-items-center gap-3">
-                    @if($item->cover)
-                        <img src="{{ $item->cover }}" class="rounded-circle" width="80" height="80" alt="{{$item->nama}}">
+                    @if($item->photo)
+                        <img src="{{ $item->photo }}" class="rounded-circle" width="80" height="80" alt="{{$item->nama}}">
                     @else
                         <img src="https://randomuser.me/api/portraits/men/32.jpg" class="rounded-circle" width="80" height="80" alt="{{$item->nama}}">
                     @endif

@@ -20,6 +20,16 @@ class Testimoni extends Model
         'isi_testimoni',
     ];
 
+    /**
+     * Get the cover.
+     *
+     * @param  string  $value
+     * @return void
+     */
+    public function getPhotoAttribute($value)
+    {
+        if(!empty($value)) return asset('storage/'.$value);
+    }
     // Auto set UUID saat create
     protected static function boot()
     {
