@@ -8,7 +8,7 @@
     <form class="row g-2 mb-3" method="GET" name='form-filter-data-harga-sawit'>
         <div class="col-md-3">
             <div class="input-group date" data-provide="datepicker" data-date-format="yyyy-mm-dd">
-                <input type="text"  name="from" class="form-control" value="{{ request('from') }}">
+                <input type="text" placeholder="mulai dari tanggal"  name="from" class="form-control" value="{{ request('from') }}">
                 <div class="input-group-addon">
                     <span class="glyphicon glyphicon-th"></span>
                 </div>
@@ -16,7 +16,7 @@
         </div>
         <div class="col-md-3">
             <div class="input-group date" data-provide="datepicker" data-date-format="yyyy-mm-dd">
-                <input type="text"  name="to" class="form-control" value="{{ request('to') }}">
+                <input type="text" placeholder="sampai dengan"  name="to" class="form-control" value="{{ request('to') }}">
                 <div class="input-group-addon">
                     <span class="glyphicon glyphicon-th"></span>
                 </div>
