@@ -10,7 +10,7 @@
       <div class="col-lg-8 mx-auto">
         <article>
           <!-- Gambar Utama -->
-          <img src="{{$Content->cover}}" class="img-fluid rounded-4 mb-4" alt="Cover">
+          <img src="{{$Content->cover}}" class="img-fluid rounded-2 mb-4" alt="Cover">
 
           <!-- Metadata -->
           <div class="mb-3 text-muted small d-flex align-items-center gap-3">

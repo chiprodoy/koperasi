@@ -25,7 +25,7 @@
             <tr>
                 <td>
                     @if($row->photo)
-                        <img src="{{ asset('storage/'.$row->photo) }}" alt="Foto" width="80">
+                        <img src="{{ $row->photo }}" alt="Foto" width="80">
                     @else
                         -
                     @endif
