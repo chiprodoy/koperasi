@@ -50,7 +50,7 @@ class WelcomeController extends GuestController
 
         $this->contentBerita=Post::whereHas('categories',function($query){
             $query->where('slugs','=','berita');
-        })->limit(3)->get();
+        })->latest()->limit(3)->get();
 
         $this->testimoni = Testimoni::orderBy('created_at','desc')->limit(4)->get();
 
