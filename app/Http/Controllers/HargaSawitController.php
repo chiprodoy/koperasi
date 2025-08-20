@@ -31,6 +31,9 @@ class HargaSawitController extends BackendController
     public $modName='admin-harga-sawit';
     public $dataHargaSawit;
     public $komoditas;
+    public $tglMulai;
+    public $tglAkhir;
+
     //
     public function index()
     {
@@ -42,14 +45,19 @@ class HargaSawitController extends BackendController
         $query = HargaSawit::query();
 
         if ($request->filled('from')) {
-            $query->where('tgl_update_harga', '>=', $request->from);
+            $this->tglMulai = $request->from;
+            $query->where('tgl_update_harga', '>=',  $this->tglMulai);
         }
         if ($request->filled('to')) {
-            $query->where('tgl_update_harga', '<=', $request->to);
+            $this->tglAkhir = $request->to;
+            $query->where('tgl_update_harga', '<=',  $this->tglAkhir);
         }
 
         if(!$request->filled('from') && !$request->filled('to')){
-            $query->where('tgl_update_harga', Carbon::now()->toDateString());
+            $this->tglMulai = Carbon::now()->toDateString();
+            $this->tglAkhir = Carbon::now()->toDateString();
+
+            $query->where('tgl_update_harga', $this->tglAkhir);
         }
 
         $this->dataHargaSawit = $query->orderBy('tgl_update_harga', 'desc')->paginate(50);
