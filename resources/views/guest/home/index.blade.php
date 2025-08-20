@@ -38,7 +38,7 @@
         <!-- Card unit usaha  -->
         <div class="col-md-4 " data-aos="fade-up" data-aos-delay="100">
             <div class="p-4 bg-white shadow rounded-4 h-100">
-            <img src="{{ $item->cover }}" class="img-fluid" alt="Berita 1">
+            <img src="{{ $item->cover }}" style="height:200px" alt="Unit Usaha">
 
                 <h5 class="fw-bold mb-2">{{$item->title}}</h5>
                 {!! substr($item->description,0,255) !!}
