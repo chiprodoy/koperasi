@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+
 <div class="container">
     <h4>Data Harga Sawit</h4>
 
@@ -34,7 +35,10 @@
     @if(session('success'))
         <div class="alert alert-success">{{ session('success') }}</div>
     @endif
+    @if ($dataHargaSawit->total()==0)
+        <div class="alert alert-dark">Tidak ada data harga sawit untuk tanggal {{$tglMulai}} sampai dengan {{$tglAkhir}}</div>
 
+    @endif
     <table class="table table-bordered table-striped">
         <thead>
             <tr>
