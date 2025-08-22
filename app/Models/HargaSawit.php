@@ -18,7 +18,8 @@ class HargaSawit extends Model
     protected $casts = [
         'id'=>'integer',
         'tgl_update_harga' => 'date',
-        'harga'=>'double'
+        'harga'=>'double',
+        'komoditas_id'=>'integer'
     ];
 
     protected $with = ['komoditas'];
