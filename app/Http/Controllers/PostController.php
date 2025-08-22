@@ -98,7 +98,7 @@ class PostController extends BackendController
 
         $content->counter()->create([
             'activity' => Post::POST_VIEW,
-            'region' => session('region'),
+            'region' => (!empty(session('region')) ? session('region') : 'unknown'),
             'deviceid'=>$deviceId
         ]);
 
