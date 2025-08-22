@@ -9,6 +9,7 @@ use App\Http\Controllers\ForumKomenController;
 use App\Http\Controllers\GaleriController;
 use App\Http\Controllers\HargaSawitController;
 use App\Http\Controllers\HasilPanenController;
+use App\Http\Controllers\LahanAnggotaController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\PostCategoryController;
 use App\Http\Controllers\PostController;
@@ -161,5 +162,7 @@ Route::prefix('comment')->group(function () {
 Route::middleware('auth:sanctum')->group(function(){
     Route::get('/simpanan-anggota',[SimpananAnggotaController::class,'index']);
     Route::resource('hasil-panen', HasilPanenController::class)->only(['index','store']);
+    Route::resource('lahan-anggota', LahanAnggotaController::class,['names'=>'api.lahan.anggota'])->only(['index','store']);
+
 
 });
