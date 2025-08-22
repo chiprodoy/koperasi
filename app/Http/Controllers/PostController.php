@@ -86,6 +86,8 @@ class PostController extends BackendController
      **/
     public function show($slug){
         $pc=Post::with('categories')->where('slug',$slug)->orderBy('id', 'desc');
+        $content  = $pc->first();
+
         //$this->updatePostViewCounter($pc->first());
 
         // Ambil UUID dari browser (jika dikirim lewat header)
@@ -94,14 +96,14 @@ class PostController extends BackendController
         // Kombinasi IP + User-Agent + UUID browser
         $deviceId = hash('sha256', request()->ip() . request()->userAgent() . ($uuidFromBrowser ?? ''));
 
-        $pc->counter()->create([
+        $content->counter()->create([
             'activity' => Post::POST_VIEW,
             'region' => session('region'),
             'deviceid'=>$deviceId
         ]);
 
 
-        if($pc->count())  return $this->iSuccess($pc->first(),request(),'','Berhasil');
+        if($pc->count())  return $this->iSuccess($content,request(),'','Berhasil');
         else return response()->noContent();
     }
     /**
