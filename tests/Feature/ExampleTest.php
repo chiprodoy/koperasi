@@ -39,7 +39,7 @@ class ExampleTest extends TestCase
                         'Accept' => 'application/json',
                         'Content-Type' => 'application/json',
         ])->postJson(route('api.lahan.anggota.store'),['luas_lahan'=>10])->assertStatus(200);
-
+        dd($response);
         $response = $this->withHeaders([
                         'Accept' => 'application/json',
                         'Content-Type' => 'application/json',
@@ -47,11 +47,13 @@ class ExampleTest extends TestCase
     }
 
     public function test_api_get_lahan_anggota(){
-        $user = User::with('roles')->whereRelation('roles','role_id',5)->first();
+        $anggota = Anggota::with('user')->where('user_id','<>',0)->first();
+        $user = User::find($anggota->user_id);
         $this->actingAs($user);
         $response = $this->withHeaders([
                         'Accept' => 'application/json',
                         'Content-Type' => 'application/json',
         ])->getJson(route('api.lahan.anggota.index'))->assertStatus(200);
+        dd($response);
     }
 }
