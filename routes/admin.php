@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminHasilPanenController;
 use App\Http\Controllers\HasilPanenController;
+use App\Http\Controllers\LahanAnggotaController;
 use App\Http\Controllers\StatistikController;
 use App\Http\Controllers\TestimoniController;
 use Illuminate\Support\Facades\Log;
@@ -123,7 +124,7 @@ Route::prefix('/admin')->middleware(['auth'])->group(function () {
     });
     Route::resource('testimoni', TestimoniController::class, ['names' => 'admin.testimoni']);
     Route::resource('statistik', StatistikController::class, ['names' => 'admin.statistik']);
-
+    Route::get('lahan-anggota',[LahanAnggotaController::class,'browse'])->name('admin.lahan.anggota.index');
 
     Route::get('/init-storage', function() {
             $targetFolder = $_SERVER['DOCUMENT_ROOT'].'/storage/app/public';
