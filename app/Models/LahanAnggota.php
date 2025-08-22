@@ -12,6 +12,15 @@ class LahanAnggota extends Model
 
     protected $fillable = ['id','anggota_id','luas_lahan'];
 
+        /**
+     *
+     */
+    protected $casts = [
+        'id'=>'integer',
+        'luas_lahan'=>'double',
+        'anggota_id'=>'integer'
+    ];
+
     public function anggota()
     {
         return $this->belongsTo(Anggota::class);
