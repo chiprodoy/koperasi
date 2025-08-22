@@ -85,7 +85,7 @@ class PostController extends BackendController
      * Otherwise, the request will fail with a 400 error, and a response listing the failed services.
      **/
     public function show($slug){
-        $pc=Post::with('categories')->where('slug',$slug)->orderBy('id', 'desc');
+        $pc=Post::with('categories')->where('slug',$slug)->orderBy('id', 'desc')->firstOrFail();
         //$this->updatePostViewCounter($pc->first());
 
         // Ambil UUID dari browser (jika dikirim lewat header)
