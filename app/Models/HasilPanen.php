@@ -12,7 +12,18 @@ class HasilPanen extends Model
     use HasFactory;
 
     protected $fillable = ['uuid','anggota_id','tgl_panen','jumlah_hasil_panen','luas_lahan','harga_per_kg'];
+    /**
+     *
+     */
+    protected $casts = [
+        'id'=>'integer',
+        'anggota_id'=>'integer',
+        'tgl_panen' => 'date',
+        'jumlah_hasil_panen'=>'double',
+        'luas_lahan'=>'double',
+        'harga_per_kg'=>'double',
 
+    ];
     /** RELASI */
     public function anggota()
     {
