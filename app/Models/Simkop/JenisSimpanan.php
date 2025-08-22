@@ -8,4 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class JenisSimpanan extends Model
 {
     use HasFactory;
+    /**
+     *
+     */
+    protected $casts = [
+        'id'=>'integer',
+    ];
 }
