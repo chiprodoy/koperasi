@@ -23,7 +23,7 @@ class SimpananAnggota extends Model
         'anggota_id'=>'integer',
         'jenis_simpanan_id'=>'integer',
         'tgl_simpanan' => 'date',
-        'jumlah_simpanan'=>'decimal:2',
+        'jumlah_simpanan'=>'double',
     ];
     /**
      * Set mulai anggota
