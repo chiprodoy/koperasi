@@ -85,7 +85,9 @@ class PostController extends BackendController
      * Otherwise, the request will fail with a 400 error, and a response listing the failed services.
      **/
     public function show($slug){
-        $pc=Post::with('categories')->where('slug',$slug)->orderBy('id', 'desc')->firstOrFail();
+        $pc=Post::with('categories')->where('slug',$slug)->orderBy('id', 'desc');
+        $content  = $pc->first();
+
         //$this->updatePostViewCounter($pc->first());
 
         // Ambil UUID dari browser (jika dikirim lewat header)
@@ -94,14 +96,14 @@ class PostController extends BackendController
         // Kombinasi IP + User-Agent + UUID browser
         $deviceId = hash('sha256', request()->ip() . request()->userAgent() . ($uuidFromBrowser ?? ''));
 
-        $pc->counter()->create([
+        $content->counter()->create([
             'activity' => Post::POST_VIEW,
             'region' => session('region'),
             'deviceid'=>$deviceId
         ]);
 
 
-        if($pc->count())  return $this->iSuccess($pc->first(),request(),'','Berhasil');
+        if($pc->count())  return $this->iSuccess($content,request(),'','Berhasil');
         else return response()->noContent();
     }
     /**
