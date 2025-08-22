@@ -25,7 +25,7 @@
     <div class="container">
       <h1 class="display-2 fw-bold">{{ env('APP_TITLE') }}</h1>
       <p class="lead">Bersama Meningkatkan Kesejahteraan Petani Sawit</p>
-      <a  href="{{route('guest.post.detail','pendaftaran')}}" class="btn btn-warning btn-lg mt-3">Daftar Anggota</a>
+      <a  href="{{url('/')}}" class="btn btn-warning btn-lg mt-3">Download Versi Mobile</a>
     </div>
   </section>
 
