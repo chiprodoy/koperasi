@@ -2,6 +2,7 @@
 
 namespace App\Models\Simkop;
 
+use App\Models\User;
 use Illuminate\Support\Str;
 
 use Carbon\Carbon;
@@ -101,6 +102,9 @@ class Anggota extends Model
     public function simpananAnggota()
     {
         return $this->hasMany(SimpananAnggota::class);
+    }
+    public function user(){
+        return $this->belongsTo(User::class);
     }
 }
 

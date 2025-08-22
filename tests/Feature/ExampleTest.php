@@ -3,6 +3,10 @@
 namespace Tests\Feature;
 
 // use Illuminate\Foundation\Testing\RefreshDatabase;
+
+use App\Models\RoleName;
+use App\Models\Simkop\Anggota;
+use App\Models\User;
 use Tests\TestCase;
 
 class ExampleTest extends TestCase
@@ -24,5 +28,30 @@ class ExampleTest extends TestCase
                         'Content-Type' => 'application/json',
         ])->getJson(route('api.harga_komoditas.index'));
         dd($response);
+    }
+
+    public function test_api_post_lahan_anggota(){
+        $anggota = Anggota::with('user')->where('user_id','<>',0)->first();
+        $user = User::find($anggota->user_id);
+        $this->actingAs($user);
+
+        $response = $this->withHeaders([
+                        'Accept' => 'application/json',
+                        'Content-Type' => 'application/json',
+        ])->postJson(route('api.lahan.anggota.store'),['luas_lahan'=>10])->assertStatus(200);
+
+        $response = $this->withHeaders([
+                        'Accept' => 'application/json',
+                        'Content-Type' => 'application/json',
+        ])->getJson(route('api.lahan.anggota.index'))->assertStatus(200);
+    }
+
+    public function test_api_get_lahan_anggota(){
+        $user = User::with('roles')->whereRelation('roles','role_id',5)->first();
+        $this->actingAs($user);
+        $response = $this->withHeaders([
+                        'Accept' => 'application/json',
+                        'Content-Type' => 'application/json',
+        ])->getJson(route('api.lahan.anggota.index'))->assertStatus(200);
     }
 }
