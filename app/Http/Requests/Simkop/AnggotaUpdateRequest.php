@@ -47,7 +47,10 @@ class AnggotaUpdateRequest extends FormRequest
             'jenis_keanggotaan' => 'required',
             'uuid'=>'uuid',
             'nomor_anggota'=>'string',
-            'pekerjaan'=>'nullable|string'
+            'pekerjaan'=>'nullable|string',
+            'password'=>'nullable|string',
+            'old_password'=>'nullable'
+
         ];
     }
 }

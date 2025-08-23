@@ -77,9 +77,14 @@
                     @error('pekerjaan') <div class="invalid-feedback">{{ $message }}</div> @enderror
                 </div>
 
+                <div class="col-md-6">
+                    <label>Password</label>
+                    <input type="hidden" name="password" value="" />
+                    <input type="text" name="password" class="form-control @error('password') is-invalid @enderror" value="{{ old('password') }}" required>
+                    @error('password') <div class="invalid-feedback">{{ $message }}</div> @enderror
+                </div>
 
-
-                <div class="col-md-12">
+                <div class="col-md-6">
                     <label>Alamat</label>
                     <input type="text" name="alamat" class="form-control @error('alamat') is-invalid @enderror" value="{{ old('alamat') }}" required>
                     @error('alamat') <div class="invalid-feedback">{{ $message }}</div> @enderror
