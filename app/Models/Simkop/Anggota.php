@@ -17,6 +17,7 @@ class Anggota extends Model
     const STATUS_NONAKTIF =0;
 
     protected $fillable = [
+        'user_id',
         'uuid',
         'nomor_anggota',
         'nik',

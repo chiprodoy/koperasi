@@ -45,7 +45,8 @@ class AnggotaRequest extends FormRequest
             'tgl_mulai_anggota' => 'date',
             'status_keanggotaan' => 'required',
             'jenis_keanggotaan' => 'required',
-            'pekerjaan'=>'nullable|string'
+            'pekerjaan'=>'nullable|string',
+            'password'=>'required'
         ];
     }
 }

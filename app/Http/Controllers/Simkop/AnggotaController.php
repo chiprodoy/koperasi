@@ -7,8 +7,10 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Simkop\AnggotaRequest;
 use App\Http\Requests\Simkop\AnggotaUpdateRequest;
 use App\Models\Simkop\Anggota;
+use App\Models\User;
 use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Log;
 use MF\Controllers\Page;
 use MF\Controllers\PageMenu;
@@ -80,8 +82,22 @@ class AnggotaController extends BackendController
             $data = $request->validated();
             $data['uuid']= isset($data['uuid']) ? $data['uuid'] : '';
             $data['nomor_anggota']=isset($data['nomor_anggota']) ?: '';
+            $password = empty($data['password']) ? $data['old_password'] : Hash::make($data['password']);
+
+            $user=User::create([
+                'uuid'=>'',
+                'name'=>$data['nama'],
+                'email'=>$data['telepon'],
+                'email_verified_at' => now(),
+                'nomor_telpon'=>$data['telepon'],
+                'password'=>$password
+            ]);
+
+            $data['user_id']=$user->id;
+
            // dd($data);
-            Anggota::create($data);
+            $anggota = Anggota::create($data);
+
             return $this->output('success',$request,'Data Berhasil Disimpan',route($this->createURL));
         }
         catch(QueryException $e)
@@ -96,13 +112,33 @@ class AnggotaController extends BackendController
     }
     public function update(AnggotaUpdateRequest $request){
         $data = $request->validated();
-        $data['uuid']= isset($data['uuid']) ? $data['uuid'] : '';
+       // $data['uuid']= isset($data['uuid']) ? $data['uuid'] : '';
         $data['nomor_anggota']=isset($data['nomor_anggota']) ? $data['nomor_anggota'] : '';
+
         try{
 
             $dataAnggota=Anggota::where('uuid',$data['uuid'])->firstOrFail();
             $updated=$dataAnggota->update($data);
 
+            $userData =[
+                    'name'=>$data['nama'],
+                    'email'=>$data['telepon'],
+                    'email_verified_at' => now(),
+                    'nomor_telpon'=>$data['telepon'],
+            ];
+            // hanya update password jika diisi
+            if (!empty($data['password'])) {
+                $userData['password'] = Hash::make($data['password']);
+            }
+
+            if(empty($dataAnggota->user_id) || $dataAnggota->user_id == 0){
+                $userData['uuid']='';
+                $user = User::create($userData);
+                Anggota::where('uuid',$data['uuid'])->update(['user_id'=>$user->id]);
+            }else{
+                $user = User::find($dataAnggota->user_id);
+                $user->update($userData);
+            }
             return $this->iSuccess($updated,$request,route($this->editURL,$dataAnggota->uuid),'Data Berhasil Diupdate');
         }
         catch(QueryException $e)
